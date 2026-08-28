@@ -1,0 +1,892 @@
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<!-- 引入 Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&amp;family=Songti+TC&amp;display=swap" rel="stylesheet" />
+<style type="text/css">/* 基礎重置 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        /* 產品描述區塊專用 CSS */
+        .product-description-container {
+            font-family: 'Noto Serif TC', 'Songti TC', 'Times New Roman', serif;
+            line-height: 2;
+            color: #444;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* Part 5: Tab 頁籤輪播樣式 */
+        /* ---------------------------------------------------- */
+
+        .tabs-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 頁籤導航列 - 手機版改為兩列顯示 */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            flex-wrap: wrap; /* 允許換行 */
+            padding-bottom: 5px;
+        }
+
+        .tab-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* 手機版按鈕寬度設定，確保呈現 2x2 排列 */
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 5px;
+            font-family: 'Times New Roman', serif;
+            font-size: 16px;
+            color: #888;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+            width: 45%; /* 手機版佔比，讓一行兩個 */
+            text-align: center;
+        }
+
+        /* 電腦版樣式 */
+        @media (min-width: 768px) {
+            .tab-nav {
+                justify-content: center;
+                gap: 30px;
+                flex-wrap: nowrap; /* 電腦版不換行 */
+            }
+            .tab-btn {
+                font-size: 18px;
+                padding: 10px 10px;
+                width: auto; /* 電腦版自然寬度 */
+            }
+        }
+
+        .tab-btn span {
+            display: block;
+            font-size: 12px;
+            font-family: 'Noto Serif TC', serif;
+            margin-top: 4px;
+            font-weight: normal;
+        }
+
+        .tab-btn:hover {
+            color: #002288;
+        }
+
+        .tab-btn.active {
+            color: #002288;
+            font-weight: bold;
+        }
+
+        /* 底部滑動指示條 (僅在選中時顯示) */
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background-color: #002288;
+        }
+
+        /* 內容區域 */
+        .tab-content {
+            position: relative;
+            min-height: 400px; /* 防止切換時高度跳動 */
+        }
+
+        .tab-pane {
+            display: none; /* 預設隱藏 */
+            animation: fadeIn 0.6s ease;
+        }
+
+        .tab-pane.active {
+            display: block; /* 顯示當前 */
+        }
+
+        /* 淡入動畫 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 產品網格 */
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 手機版 2 欄 */
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .mini-grid {
+                grid-template-columns: repeat(4, 1fr); /* 電腦版 4 欄 */
+                gap: 30px;
+            }
+        }
+
+        /* 產品卡片樣式 */
+        .drink-item {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .drink-img-box {
+            width: 100%;
+            padding-top: 100%;
+            position: relative;
+            background-color: transparent;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .drink-img-box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .drink-item:hover .drink-img-box img {
+            transform: scale(1.08);
+        }
+
+        .drink-info {
+            text-align: center;
+            /* 新增：覆蓋全域 line-height: 2，使用較緊湊的行高 */
+            line-height: 1.3;
+        }
+
+        .drink-series {
+            font-family: 'Times New Roman', serif;
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        /* 新增：品項類型 (第二行) */
+        .drink-type {
+            font-size: 13px;
+            color: #555;
+            /* 修改：將 margin-bottom 從 2px 改為 0px，縮減間距 */
+            margin-bottom: 0px;
+            font-family: 'Times New Roman', 'Noto Serif TC', serif;
+        }
+
+        /* 修改：規格 (第三行) */
+        .drink-spec {
+            font-size: 11px;
+            color: #888;
+            font-family: sans-serif;
+        }
+
+        /* 進度條 (顯示輪播時間) */
+        .progress-bar {
+            height: 2px;
+            background: #eee;
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #002288;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ---------------------------------------------------- */
+        /* Part 6: 色彩選擇 (電商風格色卡網格，一排最多 4 個) */
+        /* ---------------------------------------------------- */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .color-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 32px 20px;
+            }
+        }
+
+        /* 沿用 Part 5 .drink-item 已驗證可用的寫法：內容直接包在 <a> 裡面，不用空連結疊層 */
+        .color-card {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .color-card-img {
+            width: 100%;
+            max-width: 140px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto 12px;
+            border-radius: 12px;
+            background-color: #f5f6f8;
+            overflow: hidden;
+        }
+
+        .color-card-img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+            /* --img-scale：校正個別商品照片留白比例不一造成的視覺大小落差 */
+            transform: scale(var(--img-scale, 1));
+        }
+
+        .color-card:hover .color-card-img img {
+            transform: scale(calc(var(--img-scale, 1) * 1.08));
+        }
+
+        .color-card-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .color-card-spec {
+            font-size: 11px;
+            color: #999;
+            font-family: sans-serif;
+            line-height: 1.5;
+        }
+
+        /* ---------------------------------------------------- */
+        /* 其他部分樣式 (QA, Intro) 維持不變 */
+        /* ---------------------------------------------------- */
+        .qa-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .qa-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+</style>
+<div class="product-description-container"><!-- ========================================== --><!-- Part 1: 品牌形象 (Brand Intro) --><!-- ========================================== -->
+<div style="text-align: center; margin-bottom: 50px;">
+<h3 style="color: #002288; font-size: 26px; margin-bottom: 10px; font-family: 'Times New Roman', serif;">Duralex</h3>
+
+<p style="font-size: 14px; color: #888; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px;">The Icon of French Design</p>
+
+<div style="margin-bottom:30px"><img alt="Duralex 品牌形象" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_3322f9e5-788c-442f-ac56-f9ce80c35e5c.webp" style="max-width: 80%; display: block; margin: 0 auto; border-radius: 4px;" /></div>
+
+<div style="max-width: 700px; margin: 0 auto; text-align: justify;">
+<p>英國設計大師 Patrick Taylor 將 Picardie 與 Levi&rsquo;s 牛仔褲、瑞士軍刀並列為現代設計的象徵。自 1945 年誕生以來，Duralex 不只打造玻璃杯，更以工藝書寫法國生活的日常。</p>
+
+<p>100% 法國製造的 Duralex 以俐落線條與 3.5 倍強化硬度，陪伴從巴黎小酒館到家家戶戶的餐桌，留存一代又一代的生活記憶&mdash;&mdash;Duralex, c&rsquo;est du solide。</p>
+</div>
+</div>
+<!-- ========================================== --><!-- Part 2: 收藏與榮譽 (Collections & Awards) --><!-- ========================================== -->
+
+<div style="margin-top: 50px; border-bottom: 1px solid #eee; padding-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+<div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; align-items: flex-start;">
+<div style="flex: 1 1 350px;">
+<h4 style="color: #002288; font-size: 26px; margin-bottom: 20px; font-family: 'Times New Roman', serif; text-transform: uppercase; border-left: 3px solid #002288; padding-left: 10px;">Collections <span style="display: block; font-size: 14px; color: #888; margin-top: 5px; font-family: 'Noto Serif TC', serif;">收藏與展出</span></h4>
+
+<ul style="list-style: none; padding: 0; margin: 0; color: #555; font-size: 13px; line-height: 1.8;">
+	<li>&bull; <strong>Victoria and Albert Museum</strong> (倫敦 London)</li>
+	<li>&bull; <strong>Mus&eacute;e des Arts D&eacute;coratifs</strong> (巴黎 Paris)</li>
+	<li>&bull; <strong>The Museum of Modern Art (MoMA)</strong> (紐約 NYC)</li>
+	<li>&bull; <strong>The MET Museum</strong> (紐約 NYC)</li>
+	<li>&bull; 法國總統官邸&nbsp;<strong>&Eacute;lys&eacute;e Palace</strong> (巴黎 Paris)</li>
+</ul>
+</div>
+
+<div style="flex: 1 1 300px;">
+<h4 style="color: #002288; font-size: 26px; margin-bottom: 20px; font-family: 'Times New Roman', serif; text-transform: uppercase; border-left: 3px solid #002288; padding-left: 10px;">Awards <span style="display: block; font-size: 14px; color: #888; margin-top: 5px; font-family: 'Noto Serif TC', serif;">認證與榮譽</span></h4>
+
+<div style="display: flex; gap: 30px; align-items: flex-start;">
+<div style="text-align: center; width: 115px;"><img alt="Good Design" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_aec8a3a3-3418-4c7f-8b79-36151293b377.png" style="width: 100%;" />
+<p style="font-size: 11px; color: #888; margin-top: 5px;">Good Design</p>
+</div>
+
+<div style="text-align: center; width: 115px;"><img alt="EPV Label" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_89dbe376-5c48-4fbf-ac47-d3aed51728d3.jpg" style="width: 100%;" />
+<p style="font-size: 11px; color: #888; margin-top: 5px;">EPV 認證</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== --><!-- Part 3: 八大核心優勢 (Quality Assurance) --><!-- ========================================== -->
+
+<div style="background-color: rgb(244, 246, 248); padding: 50px 20px; margin-bottom: 50px;">
+<div style="max-width: 900px; margin: 0 auto;">
+<h4 style="text-align: center; color: #002288; font-size: 26px; margin-bottom: 30px; font-family: 'Times New Roman', serif; border-bottom: 1px solid #dce2e8; padding-bottom: 10px; display: inline-block; position: relative; left: 50%; transform: translateX(-50%);">Quality Assurance <span style="display: block; font-size: 14px; color: #666; margin-top: 5px; font-family: 'Noto Serif TC', serif;">品質承諾</span></h4>
+
+<div class="qa-grid">
+<div><img alt="法國製造" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_794b505f-9745-45ae-a47a-d1d25379c687.png" width="150" />
+<div style="font-weight: bold; color: #333; font-size: 14px; margin-top: 8px;">100% 法國製造</div>
+</div>
+
+<div><img alt="強化硬度" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_ba90c11c-69bc-46a2-8c89-fc636438a0a5.png" width="150" />
+<div style="font-weight: bold; color: #333; font-size: 14px; margin-top: 8px;">3.5倍強化硬度</div>
+</div>
+
+<div><img alt="無毒安全" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_e2c3bce1-ae3f-4fa4-a7e9-dd5a1c3df6b8.png" width="150" />
+<div style="font-weight: bold; color: #333; font-size: 14px; margin-top: 8px;">無毒安全認證</div>
+</div>
+
+<div><img alt="100% 可回收" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_4c2143c1-9feb-40e5-93b3-02bc21fe7301.png" width="150" />
+<div style="font-weight: bold; color: #333; font-size: 14px; margin-top: 8px;">100% 可回收</div>
+</div>
+
+<div><img alt="批量著色技術" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_ceb85677-2e0f-453b-88c9-b53a6b4d92b2.png" width="150" />
+<div style="font-weight: bold; color: #333; font-size: 14px; margin-top: 8px;">批量著色技術</div>
+</div>
+
+<div><img alt="耐熱衝擊" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_513267da-7b35-4159-8485-73b78f0bb094.png" width="150" />
+<div style="font-weight: bold; color: #333; font-size: 14px; margin-top: 8px;">130&deg;C 耐熱衝擊</div>
+</div>
+
+<div><img alt="適用洗碗機" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_8f1f1a18-3912-4702-89c0-1168080b2d23.png" width="150" />
+<div style="font-weight: bold; color: #333; font-size: 14px; margin-top: 8px;">適用洗碗機</div>
+</div>
+
+<div><img alt="適用微波爐" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_570cb9d3-c9fb-4b2e-860f-97d72a4b1c63.png" width="150" />
+<div style="font-weight: bold; color: #333; font-size: 14px; margin-top: 8px;">適用微波爐</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== --><!-- Part 4: 杯底故事 (Story) --><!-- ========================================== -->
+
+<div style="margin-bottom: 50px; text-align: center;">
+<h3 style="color: #002288; font-size: 26px; margin-bottom: 15px; font-family: 'Times New Roman', serif;">Le Jeu de l&rsquo;&Acirc;ge <span style="display: block; font-size: 14px; color: #888; margin-top: 5px; font-family: 'Noto Serif TC', serif; font-weight: normal;">年齡遊戲</span></h3>
+<img alt="Duralex 杯底數字" src="//cdn-general.cybassets.com/s/files/17568/ckeditor/pictures/content_00ee4dfc-bd52-41bc-9f4c-ac620aeab32d.jpg" style="max-width: 90%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 4px; margin-bottom: 20px;" />
+<div style="max-width: 600px; margin: 0 auto; text-align: justify; padding: 0 15px;">
+<p>拿起 Duralex 透著光，杯底藏著神秘數字。這原是生產編號，卻成為法國孩子的「年齡遊戲 (Le Jeu de l&rsquo;&Acirc;ge)」，拿到最小數字的人負責倒水，這份法式幽默隨著玻璃杯傳遞到世界各地。</p>
+</div>
+</div>
+<!-- ========================================== --><!-- Part: Precautions 注意事項 (修改版) --><!-- ========================================== -->
+
+<div style="margin-bottom: 60px; padding: 0 20px;"><!-- 標題區域 -->
+<h3 style="color: #002288; text-align: center; font-size: 26px; margin-bottom: 30px; font-family: 'Times New Roman', serif;">Precautions <span style="display: block; font-size: 14px; color: #888; margin-top: 5px; font-family: 'Noto Serif TC', serif; font-weight: normal;">注意事項</span></h3>
+<!-- 內容區域：移除邊框、背景色與寬度限制 -->
+
+<div style="text-align: center;"><!-- 說明文字 -->
+<p style="color: #555; font-size: 14px; margin-bottom: 30px;"><span style="font-size:13px;">Duralex 的強化玻璃產品在製作過程中，可能會出現以下情況，均為正常現象，不影響使用。</span></p>
+<!-- 圖片 -->
+
+<p style="text-align:center; margin-bottom:30px"><img alt="Duralex 注意事項" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_3d65df3a-c264-440c-a13a-a788b12c8ea0.jpg" style="max-width: 100%; height: auto; border-radius: 4px;" /></p>
+<!-- 列表 -->
+
+<ul style="list-style: none; padding: 0; margin: 0 auto; display: inline-block; text-align: left; color: #555; font-size: 14px; line-height: 2;">
+	<li>‧ 請勿在烤箱中使用我們的產品</li>
+	<li>‧ 請勿直接在火焰上使用我們的產品</li>
+	<li>‧ 請勿將產品暴露在超過 130&deg;C 的突然溫度變化下</li>
+	<li>‧ 請勿使用損壞或有裂痕的產品</li>
+	<li>‧ 請避免刮傷產品表面</li>
+</ul>
+</div>
+</div>
+<!-- ========================================== --><!-- Part: Clean & Care 清潔與維護 --><!-- ========================================== -->
+
+<div style="margin-bottom: 60px; padding: 0 20px;"><!-- 標題區域 -->
+<h3 style="color: #002288; text-align: center; font-size: 26px; margin-bottom: 30px; font-family: 'Times New Roman', serif;">Clean &amp; Care <span style="display: block; font-size: 14px; color: #888; margin-top: 5px; font-family: 'Noto Serif TC', serif; font-weight: normal;">清潔與維護</span></h3>
+
+<div style="max-width: 700px; margin: 0 auto; text-align: center;"><!-- 新增圖片 -->
+<p style="text-align:center; margin-bottom:30px"><img alt="Duralex 清潔與維護" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_ca64e1b4-b299-4d08-b2db-355283d8e0d6.jpg" style="max-width: 100%; height: auto; border-radius: 4px;" /></p>
+<!-- 列表 -->
+
+<ul style="list-style: none; padding: 0; margin: 0 auto 40px auto; display: inline-block; text-align: left; color: #555; font-size: 14px; line-height: 2;">
+	<li>‧ 使用前請先清洗</li>
+	<li>‧ 將器皿浸泡在肥皂水、中性清潔劑中20分鐘後以清水沖洗乾淨。</li>
+	<li>‧ 請勿使用鋼絲或可能刮傷產品表面的用具做清潔。</li>
+</ul>
+<!-- 說明文字 -->
+
+<div style="text-align: justify; color: #555; font-size: 14px; line-height: 1.8; margin-bottom: 30px;">
+<p>強化玻璃因生產方式的不同，在一定條件下可能會發生自爆現象，但並不常見。ISO國際標準將強化玻璃定義為「安全玻璃」，破裂時僅產生較無尖角的小碎片，可降低割傷或刺傷人體的危害，所以被廣泛地運用在生活中。</p>
+</div>
+<!-- 聯絡資訊 -->
+
+<div style="color: #888; font-size: 11px; line-height: 1.6; text-align: center;">★本產品已投保新安東京海上產物產品責任險，若發生自爆現象，請與我們聯繫：<a href="mailto:duralex@upyoung.com.tw" style="color: #002288; text-decoration: none; border-bottom: 1px dashed #002288;">duralex@upyoung.com.tw</a></div>
+</div>
+</div>
+<!-- ========================================== --><!-- Part: FAQ 常見問題 --><!-- ========================================== -->
+
+<div style="margin-bottom: 60px; padding: 0 20px;"><!-- 標題區域 -->
+<h3 style="color: #002288; text-align: center; font-size: 26px; margin-bottom: 30px; font-family: 'Times New Roman', serif;">Duralex FAQ <span style="display: block; font-size: 14px; color: #888; margin-top: 5px; font-family: 'Noto Serif TC', serif; font-weight: normal;">常見問題</span></h3>
+
+<div style="max-width: 800px; margin: 0 auto; text-align: justify;">
+<div style="margin-bottom: 25px;">
+<p style="color: #002288; font-weight: bold; margin-bottom: 5px; font-size: 15px;">Q：Duralex 玻璃杯可以進微波爐和洗碗機嗎？</p>
+
+<p style="color: #555; line-height: 1.8; margin: 0; font-size: 14px;">A：可以。Duralex 強化玻璃具有極佳的耐熱震性，可承受劇烈的溫差變化，-20~200&deg;C 皆可正常使用，因此也可用於微波爐、洗碗機及冷凍庫。</p>
+</div>
+
+<div style="margin-bottom: 25px;">
+<p style="color: #002288; font-weight: bold; margin-bottom: 5px; font-size: 15px;">Q：Duralex 玻璃杯真的摔不破嗎？</p>
+
+<p style="color: #555; line-height: 1.8; margin: 0; font-size: 14px;">A：Duralex 經過特殊強化處理，強度是普通玻璃的 3.5 倍，極其耐撞。雖然在極端物理撞擊下仍可能破碎，但它會碎裂成鈍角的安全顆粒，而非鋒利碎片，適合有小孩及寵物的家庭使用。</p>
+</div>
+
+<div style="margin-bottom: 25px;">
+<p style="color: #002288; font-weight: bold; margin-bottom: 5px; font-size: 15px;">Q：Duralex 是哪裡製造的？</p>
+
+<p style="color: #555; line-height: 1.8; margin: 0; font-size: 14px;">A：所有的 Duralex 玻璃產品，至今仍堅持 100% 法國製造，產地位於法國中部的 La Chapelle-Saint-Mesmin。</p>
+</div>
+
+<div style="margin-bottom: 25px;">
+<p style="color: #002288; font-weight: bold; margin-bottom: 5px; font-size: 15px;">Q：Duralex 玻璃杯環保嗎？是否可回收？</p>
+
+<p style="color: #555; line-height: 1.8; margin: 0; font-size: 14px;">A：Duralex 是真正的綠色企業。根據官方永續報告，Duralex 的玻璃是 100% 可無限次回收的材質。且在生產過程中，工廠會回收自身的廢棄玻璃重新投入熔爐。</p>
+</div>
+</div>
+</div>
+<!-- ========================================== --><!-- Part 5: 自動輪播頁籤 (Auto-Rotating Tabs) --><!-- ========================================== -->
+
+<div style="background-color: #fff; padding: 40px 20px 60px 20px; border-top: 1px solid #f5f5f5;">
+<div style="text-align: center; margin-bottom: 30px;">
+<h3 style="color: #002288; font-size: 26px; font-family: 'Times New Roman', serif; margin: 0; letter-spacing: 1px;">Find Your Duralex</h3>
+</div>
+
+<div class="tabs-wrapper" id="duralexTabs"><!-- 進度條 -->
+<div class="progress-bar">
+<div class="progress-fill" id="tabProgress">&nbsp;</div>
+</div>
+<!-- 頁籤按鈕 -->
+
+<div class="tab-nav"><button class="tab-btn active" onclick="switchTab(0)">Espresso<span>濃縮系列</span></button><button class="tab-btn" onclick="switchTab(1)">Latte<span>拿鐵與特調</span></button><button class="tab-btn" onclick="switchTab(2)">Tea &amp; Choco<span>熱可可與茶</span></button><button class="tab-btn" onclick="switchTab(3)">Gourmet<span>特調飲品</span></button></div>
+<!-- 內容區域 -->
+
+<div class="tab-content"><!-- Tab 1: Espresso -->
+<div class="tab-pane active">
+<div class="mini-grid">
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/amalfi" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_8d729b76-536e-4435-bcc4-aa31295a97f9.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Amalfi</div>
+
+<div class="drink-type">Ristretto 短濃縮</div>
+
+<div class="drink-spec">70 ml - 2 1/4 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/amalfi" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_2112c06b-c8c2-4d62-8d80-0b1e0d9af863.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Amalfi</div>
+
+<div class="drink-type">Espresso 濃縮咖啡</div>
+
+<div class="drink-spec">90 ml - 3 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/caprice" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_69b4df41-36f4-466a-b49d-39fe4aad710f.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Caprice</div>
+
+<div class="drink-type">Espresso 濃縮咖啡</div>
+
+<div class="drink-spec">90 ml - 3 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/gigogne" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_31810030-18d7-49c7-bf3f-302b25b94a71.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Gigogne</div>
+
+<div class="drink-type">Espresso 濃縮咖啡</div>
+
+<div class="drink-spec">90 ml - 3 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/picardie" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_8c2d4a6a-ae39-4b70-9d10-0b8e8b4dc699.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Picardie</div>
+
+<div class="drink-type">Espresso 濃縮咖啡</div>
+
+<div class="drink-spec">90 ml - 3 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/provence" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_ad38386b-e069-4266-88b9-2a87812120dc.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Provence</div>
+
+<div class="drink-type">Espresso 濃縮咖啡</div>
+
+<div class="drink-spec">90 ml - 3 oz</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 2: Latte -->
+
+<div class="tab-pane">
+<div class="mini-grid">
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/amalfi" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_030a1d19-7245-41a0-b144-df8241dab03e.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Amalfi</div>
+
+<div class="drink-type">Latte 拿鐵</div>
+
+<div class="drink-spec">170 ml - 5 3/4 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/picardie" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_d17d47c0-5a0d-4627-93f0-880db24b41ed.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Picardie</div>
+
+<div class="drink-type">Latte 拿鐵</div>
+
+<div class="drink-spec">160 ml - 5 3/8 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/provence" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_83a5e34c-47b6-4d6b-8509-c2c7975dfd2c.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Provence</div>
+
+<div class="drink-type">Latte 拿鐵</div>
+
+<div class="drink-spec">160 ml - 5 3/8 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/caprice" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_87d91f5b-50c4-44c2-84da-017858c6a561.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Caprice</div>
+
+<div class="drink-type">Flavoured 風味咖啡</div>
+
+<div class="drink-spec">220 ml - 7 3/8 oz</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 3: Tea & Choco -->
+
+<div class="tab-pane">
+<div class="mini-grid">
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/gigogne" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_aa9c3e99-2571-4131-8828-72ab0902544e.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Gigogne</div>
+
+<div class="drink-type">Hot chocolate 熱可可</div>
+
+<div class="drink-spec">220 ml - 7 3/8 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/picardie" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_6d4350bf-3343-44a4-a56e-d13c700c615d.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Picardie</div>
+
+<div class="drink-type">Hot chocolate 熱可可</div>
+
+<div class="drink-spec">250 ml - 8 1/2 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/gigogne" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_9b96d7ec-de1a-42b8-af0e-95c562e6e2cd.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Gigogne</div>
+
+<div class="drink-type">Hot chocolate 熱可可</div>
+
+<div class="drink-spec">220 ml - 7 3/8 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/cosy" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_09e87616-b7bb-4e43-a89a-36dcf7881dee.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Cosy</div>
+
+<div class="drink-type">Tea 茶</div>
+
+<div class="drink-spec">350 ml - 11 3/4 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/versailles" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_84df3f3b-d4c5-4a9e-ad8e-822290da1fdc.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Versailles</div>
+
+<div class="drink-type">Tea 茶</div>
+
+<div class="drink-spec">260 ml - 8 3/4 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/lys" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_a412ea84-f612-4d4c-ac91-f1c5773f3bda.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">LYS</div>
+
+<div class="drink-type">Tea 茶</div>
+
+<div class="drink-spec">310 ml - 10 1/2 oz</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 4: Gourmet -->
+
+<div class="tab-pane">
+<div class="mini-grid">
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/picardie" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_394ff199-0fa5-48c9-be37-a1834f27a34a.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Picardie</div>
+
+<div class="drink-type">Gourmet drinks 特調飲品</div>
+
+<div class="drink-spec">250 ml - 8 1/2 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/provence" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_36fb7e8a-69ca-4b6d-bd32-5d9e962be073.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Provence</div>
+
+<div class="drink-type">Gourmet drinks 特調飲品</div>
+
+<div class="drink-spec">250 ml - 8 1/2 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/gigogne" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_6655813a-72e5-45ae-9e8a-cb25f6e7530a.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Gigogne</div>
+
+<div class="drink-type">Gourmet drinks 特調飲品</div>
+
+<div class="drink-spec">360 ml - 12 1/8 oz</div>
+</div>
+</div>
+
+<div class="drink-item">
+<div class="drink-img-box"><a href="https://www.duralex.com.tw/collections/picardie" target="_blank"><img alt="" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_b12697e5-042b-478f-b192-9106c40b4199.png" /></a></div>
+
+<div class="drink-info">
+<div class="drink-series">Picardie</div>
+
+<div class="drink-type">Gourmet drinks 特調飲品</div>
+
+<div class="drink-spec">360 ml - 12 1/8 oz</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== --><!-- Part 6: Picardie 色彩選擇 (More Colors) --><!-- ========================================== -->
+
+<div style="padding: 40px 20px 60px 20px; border-top: 1px solid #f5f5f5;">
+<div style="text-align: center; margin-bottom: 30px;">
+<h3 style="color: #002288; font-size: 26px; font-family: 'Times New Roman', serif; margin: 0 0 10px 0; letter-spacing: 1px;">More Colors <span style="display: block; font-size: 14px; color: #888; margin-top: 5px; font-family: 'Noto Serif TC', serif; font-weight: normal;">Picardie 色彩選擇</span></h3>
+</div>
+
+<div class="color-grid">
+<a class="color-card" href="https://www.duralex.com.tw/products/picardiemarinetumbler" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 海水藍" style="--img-scale: 1.08;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTA5OTMxLzE3MTgyNjUyNDBfN2FmOGFhZDM5ZTFjNmFjZTI1ODcuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=d47ad23d21192176" /></div>
+<div class="color-card-name">海水藍</div>
+<div class="color-card-spec">250~360ml</div>
+</a>
+
+<a class="color-card" href="https://www.duralex.com.tw/products/picardieambertumbler" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 琥珀" style="--img-scale: 1.08;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTA5NzUzLzE3MTgyNjQ0MjhfZWFiYTg0NGQ1NzhhYzI2M2Q4ZjEuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=20b78df9d8fd06ea" /></div>
+<div class="color-card-name">琥珀</div>
+<div class="color-card-spec">250~360ml</div>
+</a>
+
+<a class="color-card" href="https://www.duralex.com.tw/products/picardiesaphirtumbler" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 寶藍" style="--img-scale: 1.02;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMDUzLzE3NjU5NzA4NDRfMzQ5YjczZGFhNGQ1ZjJiMjNlYjAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=b0abf6c35b1b5a7d" /></div>
+<div class="color-card-name">寶藍</div>
+<div class="color-card-spec">250~310ml</div>
+</a>
+
+<a class="color-card" href="https://www.duralex.com.tw/products/picardiegreytumbler" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 灰" style="--img-scale: 1.17;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjI5Nzg5LzE3NjU5NzEwNThfY2MwN2E2YTFhOGNjY2M4YjJlYzQucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=fb4632170679ab7e" /></div>
+<div class="color-card-name">灰</div>
+<div class="color-card-spec">250~360ml</div>
+</a>
+
+<a class="color-card" href="https://www.duralex.com.tw/products/picardiegreentumbler" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 綠" style="--img-scale: 1.14;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMTkzLzE3NjU5NzI1MzNfNDNmZTc5N2RmZDVmN2EwMjExZDAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=23c9b39c705beb42" /></div>
+<div class="color-card-name">綠</div>
+<div class="color-card-spec">250~310ml</div>
+</a>
+
+<a class="color-card" href="https://www.duralex.com.tw/products/picardiepinktumbler" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 玫瑰粉" style="--img-scale: 1.12;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMzQ0LzE3NjU5NzIwMzlfNmUwNjg4YzA5YTA1Y2M4NWZmMGQucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=f015d7c5ddbc1b0c" /></div>
+<div class="color-card-name">玫瑰粉</div>
+<div class="color-card-spec">250ml</div>
+</a>
+
+<a class="color-card" href="https://www.duralex.com.tw/products/picardieturquoisetumbler" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 土耳其藍" style="--img-scale: 1.42;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzY2NzI1MzI2LzE3NzM4MjY1MTBfMjgxNjEyZWM0NDQ2ZDI1MThmZGEuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=00329765c4dc537e" /></div>
+<div class="color-card-name">土耳其藍</div>
+<div class="color-card-spec">250ml・限定</div>
+</a>
+
+<a class="color-card" href="https://www.duralex.com.tw/products/picardiecleartumbler-2" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 透明" style="--img-scale: 1.1;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTc2NTA0LzE3MTg3MDEzNThfZTViYmI5NGY4Njk1ZGJlYWE2NmQuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=ca7da28ca4b1d971" /></div>
+<div class="color-card-name">透明</div>
+<div class="color-card-spec">90~500ml</div>
+</a>
+
+<a class="color-card" href="https://www.duralex.com.tw/products/picardieblacktumbler-2026" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 黑" style="--img-scale: 1.22;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzY2NzM1MzExLzE3NzM5MTIyNzFfNzg2ZTE2YzU4NzQxNTc4YTU1ZjAuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=7944709d0a2215db" /></div>
+<div class="color-card-name">黑</div>
+<div class="color-card-spec">90ml</div>
+</a>
+
+<a class="color-card" href="https://www.duralex.com.tw/products/picardieplumtumbler" target="_blank">
+<div class="color-card-img"><img alt="Duralex Picardie 梅紫" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMjU1LzE3NjYwMDc1NDhfZTEwMGE4ZmI4MDRlMTBmYWY5M2QucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=95f887dab150ed98" /></div>
+<div class="color-card-name">梅紫</div>
+<div class="color-card-spec">250ml</div>
+</a>
+</div>
+</div>
+</div>
+<!-- JavaScript for Tabs & Auto Rotation --><script>
+    let currentTab = 0;
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    const progressBar = document.getElementById('tabProgress');
+    const totalTabs = tabBtns.length;
+    const duration = 4000; // 4秒輪播一次
+    let interval;
+    let startTime;
+    let animationFrame;
+
+    function switchTab(index) {
+        // 更新按鈕狀態
+        tabBtns.forEach(btn => btn.classList.remove('active'));
+        tabBtns[index].classList.add('active');
+
+        // 更新內容顯示
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        tabPanes[index].classList.add('active');
+
+        currentTab = index;
+
+        // 重置並重新開始計時
+        resetTimer();
+    }
+
+    function nextTab() {
+        let next = (currentTab + 1) % totalTabs;
+        switchTab(next);
+    }
+
+    // 進度條動畫
+    function updateProgress() {
+        let elapsed = Date.now() - startTime;
+        let progress = (elapsed / duration) * 100;
+
+        if (progress >= 100) {
+            nextTab();
+        } else {
+            progressBar.style.width = progress + '%';
+            animationFrame = requestAnimationFrame(updateProgress);
+        }
+    }
+
+    function resetTimer() {
+        cancelAnimationFrame(animationFrame);
+        startTime = Date.now();
+        progressBar.style.width = '0%';
+        animationFrame = requestAnimationFrame(updateProgress);
+    }
+
+    // 啟動輪播
+    resetTimer();
+
+    // 滑鼠懸停時暫停 (選用，若不需要可移除)
+    const tabsContainer = document.getElementById('duralexTabs');
+    tabsContainer.addEventListener('mouseenter', () => {
+        cancelAnimationFrame(animationFrame);
+        progressBar.style.width = '100%'; // 視覺上顯示暫停或填滿
+    });
+
+    tabsContainer.addEventListener('mouseleave', () => {
+        resetTimer(); // 離開後重新開始計數
+    });
+</script></div>
