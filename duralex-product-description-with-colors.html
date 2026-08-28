@@ -238,10 +238,8 @@
             }
         }
 
-        /* 沿用 Part 5 .drink-item 已驗證可用的寫法：內容直接包在 <a> 裡面，不用空連結疊層 */
+        /* 沿用 Part 5 .drink-item 已驗證可用的結構：格線項目是 div，<a> 只包住 <img> 本身，不包文字區塊 */
         .color-card {
-            text-decoration: none;
-            color: inherit;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -258,18 +256,19 @@
             overflow: hidden;
         }
 
+        .color-card-img a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         .color-card-img img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: contain;
-            transition: transform 0.4s ease;
             /* --img-scale：校正個別商品照片留白比例不一造成的視覺大小落差 */
             transform: scale(var(--img-scale, 1));
-        }
-
-        .color-card:hover .color-card-img img {
-            transform: scale(calc(var(--img-scale, 1) * 1.08));
         }
 
         .color-card-name {
@@ -763,65 +762,65 @@
 </div>
 
 <div class="color-grid">
-<a class="color-card" href="https://www.duralex.com.tw/products/picardiemarinetumbler" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 海水藍" style="--img-scale: 1.08;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTA5OTMxLzE3MTgyNjUyNDBfN2FmOGFhZDM5ZTFjNmFjZTI1ODcuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=d47ad23d21192176" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardiemarinetumbler" target="_blank"><img alt="Duralex Picardie 海水藍" style="--img-scale: 1.08;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTA5OTMxLzE3MTgyNjUyNDBfN2FmOGFhZDM5ZTFjNmFjZTI1ODcuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=d47ad23d21192176" /></a></div>
 <div class="color-card-name">海水藍</div>
 <div class="color-card-spec">250~360ml</div>
-</a>
+</div>
 
-<a class="color-card" href="https://www.duralex.com.tw/products/picardieambertumbler" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 琥珀" style="--img-scale: 1.08;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTA5NzUzLzE3MTgyNjQ0MjhfZWFiYTg0NGQ1NzhhYzI2M2Q4ZjEuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=20b78df9d8fd06ea" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardieambertumbler" target="_blank"><img alt="Duralex Picardie 琥珀" style="--img-scale: 1.08;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTA5NzUzLzE3MTgyNjQ0MjhfZWFiYTg0NGQ1NzhhYzI2M2Q4ZjEuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=20b78df9d8fd06ea" /></a></div>
 <div class="color-card-name">琥珀</div>
 <div class="color-card-spec">250~360ml</div>
-</a>
+</div>
 
-<a class="color-card" href="https://www.duralex.com.tw/products/picardiesaphirtumbler" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 寶藍" style="--img-scale: 1.02;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMDUzLzE3NjU5NzA4NDRfMzQ5YjczZGFhNGQ1ZjJiMjNlYjAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=b0abf6c35b1b5a7d" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardiesaphirtumbler" target="_blank"><img alt="Duralex Picardie 寶藍" style="--img-scale: 1.02;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMDUzLzE3NjU5NzA4NDRfMzQ5YjczZGFhNGQ1ZjJiMjNlYjAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=b0abf6c35b1b5a7d" /></a></div>
 <div class="color-card-name">寶藍</div>
 <div class="color-card-spec">250~310ml</div>
-</a>
+</div>
 
-<a class="color-card" href="https://www.duralex.com.tw/products/picardiegreytumbler" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 灰" style="--img-scale: 1.17;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjI5Nzg5LzE3NjU5NzEwNThfY2MwN2E2YTFhOGNjY2M4YjJlYzQucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=fb4632170679ab7e" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardiegreytumbler" target="_blank"><img alt="Duralex Picardie 灰" style="--img-scale: 1.17;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjI5Nzg5LzE3NjU5NzEwNThfY2MwN2E2YTFhOGNjY2M4YjJlYzQucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=fb4632170679ab7e" /></a></div>
 <div class="color-card-name">灰</div>
 <div class="color-card-spec">250~360ml</div>
-</a>
+</div>
 
-<a class="color-card" href="https://www.duralex.com.tw/products/picardiegreentumbler" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 綠" style="--img-scale: 1.14;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMTkzLzE3NjU5NzI1MzNfNDNmZTc5N2RmZDVmN2EwMjExZDAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=23c9b39c705beb42" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardiegreentumbler" target="_blank"><img alt="Duralex Picardie 綠" style="--img-scale: 1.14;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMTkzLzE3NjU5NzI1MzNfNDNmZTc5N2RmZDVmN2EwMjExZDAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=23c9b39c705beb42" /></a></div>
 <div class="color-card-name">綠</div>
 <div class="color-card-spec">250~310ml</div>
-</a>
+</div>
 
-<a class="color-card" href="https://www.duralex.com.tw/products/picardiepinktumbler" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 玫瑰粉" style="--img-scale: 1.12;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMzQ0LzE3NjU5NzIwMzlfNmUwNjg4YzA5YTA1Y2M4NWZmMGQucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=f015d7c5ddbc1b0c" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardiepinktumbler" target="_blank"><img alt="Duralex Picardie 玫瑰粉" style="--img-scale: 1.12;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMzQ0LzE3NjU5NzIwMzlfNmUwNjg4YzA5YTA1Y2M4NWZmMGQucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=f015d7c5ddbc1b0c" /></a></div>
 <div class="color-card-name">玫瑰粉</div>
 <div class="color-card-spec">250ml</div>
-</a>
+</div>
 
-<a class="color-card" href="https://www.duralex.com.tw/products/picardieturquoisetumbler" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 土耳其藍" style="--img-scale: 1.42;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzY2NzI1MzI2LzE3NzM4MjY1MTBfMjgxNjEyZWM0NDQ2ZDI1MThmZGEuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=00329765c4dc537e" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardieturquoisetumbler" target="_blank"><img alt="Duralex Picardie 土耳其藍" style="--img-scale: 1.42;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzY2NzI1MzI2LzE3NzM4MjY1MTBfMjgxNjEyZWM0NDQ2ZDI1MThmZGEuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=00329765c4dc537e" /></a></div>
 <div class="color-card-name">土耳其藍</div>
 <div class="color-card-spec">250ml・限定</div>
-</a>
+</div>
 
-<a class="color-card" href="https://www.duralex.com.tw/products/picardiecleartumbler-2" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 透明" style="--img-scale: 1.1;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTc2NTA0LzE3MTg3MDEzNThfZTViYmI5NGY4Njk1ZGJlYWE2NmQuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=ca7da28ca4b1d971" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardiecleartumbler-2" target="_blank"><img alt="Duralex Picardie 透明" style="--img-scale: 1.1;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTc2NTA0LzE3MTg3MDEzNThfZTViYmI5NGY4Njk1ZGJlYWE2NmQuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=ca7da28ca4b1d971" /></a></div>
 <div class="color-card-name">透明</div>
 <div class="color-card-spec">90~500ml</div>
-</a>
+</div>
 
-<a class="color-card" href="https://www.duralex.com.tw/products/picardieblacktumbler-2026" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 黑" style="--img-scale: 1.22;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzY2NzM1MzExLzE3NzM5MTIyNzFfNzg2ZTE2YzU4NzQxNTc4YTU1ZjAuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=7944709d0a2215db" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardieblacktumbler-2026" target="_blank"><img alt="Duralex Picardie 黑" style="--img-scale: 1.22;" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzY2NzM1MzExLzE3NzM5MTIyNzFfNzg2ZTE2YzU4NzQxNTc4YTU1ZjAuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=7944709d0a2215db" /></a></div>
 <div class="color-card-name">黑</div>
 <div class="color-card-spec">90ml</div>
-</a>
+</div>
 
-<a class="color-card" href="https://www.duralex.com.tw/products/picardieplumtumbler" target="_blank">
-<div class="color-card-img"><img alt="Duralex Picardie 梅紫" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMjU1LzE3NjYwMDc1NDhfZTEwMGE4ZmI4MDRlMTBmYWY5M2QucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=95f887dab150ed98" /></div>
+<div class="color-card">
+<div class="color-card-img"><a href="https://www.duralex.com.tw/products/picardieplumtumbler" target="_blank"><img alt="Duralex Picardie 梅紫" src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMjU1LzE3NjYwMDc1NDhfZTEwMGE4ZmI4MDRlMTBmYWY5M2QucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=95f887dab150ed98" /></a></div>
 <div class="color-card-name">梅紫</div>
 <div class="color-card-spec">250ml</div>
-</a>
+</div>
 </div>
 </div>
 </div>
