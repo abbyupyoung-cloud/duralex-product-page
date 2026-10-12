@@ -39,7 +39,7 @@
 .dx-hw * { box-sizing: border-box; }
 .dx-hw p, .dx-hw .why-d, .dx-hw .card-name, .dx-hw .card-qty, .dx-hw .honor-d { text-wrap: pretty; }
 /* 中文只在標點、空格處換行，避免把詞拆開 */
-.dx-hw p, .dx-hw .why-d, .dx-hw .why-t, .dx-hw .honor-d, .dx-hw .card-qty, .dx-hw .picks-note { word-break: keep-all; overflow-wrap: anywhere; }
+.dx-hw p, .dx-hw .why-d, .dx-hw .why-t, .dx-hw .honor-d, .dx-hw .card-qty, .dx-hw .card-name, .dx-hw .picks-note { word-break: keep-all; overflow-wrap: anywhere; }
 .dx-hw h1, .dx-hw h2, .dx-hw .hero-offer { text-wrap: balance; }
 .dx-hw h1, .dx-hw h2, .dx-hw h3, .dx-hw h4,
 .dx-hw p, .dx-hw span, .dx-hw div, .dx-hw li { margin: 0; padding: 0; }
@@ -396,6 +396,36 @@
   .dx-hw .cta { padding: 76px 24px; }
   .dx-hw .cta .cd-u { min-width: 62px; }
   .dx-hw .cta .cd-n { font-size: 30px; }
+}
+
+/* ══ 手機版微調（≤520px） ══ */
+@media (max-width: 520px) {
+  .dx-hw .hero-vis { min-height: 100vw; }
+  .dx-hw .moon { width: 78vw; }
+  .dx-hw .hero-copy { padding: 8px 20px 48px; }
+  .dx-hw .hero-actions { gap: 10px; flex-wrap: nowrap; width: 100%; }
+  .dx-hw .cta-actions { gap: 10px; flex-wrap: nowrap; }
+  .dx-hw .btn-pri, .dx-hw .btn-sec { padding: 13px 18px; font-size: 13px; letter-spacing: .06em; white-space: nowrap; flex: 1; text-align: center; }
+  .dx-hw .btn-sec { padding: 12px 18px; }
+
+  .dx-hw .why-grid { grid-template-columns: 1fr; }
+  .dx-hw .why-grid .why-item {
+    display: grid; grid-template-columns: 108px 1fr; column-gap: 14px; align-items: start;
+    padding: 20px 0; border-left: none; border-top: 1px solid var(--line);
+  }
+  .dx-hw .why-grid .why-item:first-child { border-top: none; }
+  .dx-hw .why-grid .why-n { grid-row: 1 / span 2; font-size: 38px; margin: 2px 0 0; }
+  .dx-hw .why-grid .why-t { margin-bottom: 4px; }
+
+  .dx-hw .honor-k { letter-spacing: .08em; font-size: 10px; }
+  .dx-hw .honor-list { grid-template-columns: 1fr; }
+  .dx-hw .honor-list li:nth-child(odd), .dx-hw .honor-list li:nth-child(even) { padding: 14px 0; border-left: none; }
+  .dx-hw .honor-mn { font-size: 22px; }
+
+  .dx-hw .card-info { padding: 12px 12px 14px; }
+  .dx-hw .card-name { font-size: 13px; }
+  .dx-hw .card-price { font-size: 18px; }
+  .dx-hw .picks.gift .card-info { padding: 14px 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
