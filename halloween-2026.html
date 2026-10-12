@@ -37,6 +37,10 @@
   width: 100%;
 }
 .dx-hw * { box-sizing: border-box; }
+.dx-hw p, .dx-hw .why-d, .dx-hw .card-name, .dx-hw .card-qty, .dx-hw .honor-d { text-wrap: pretty; }
+/* 中文只在標點、空格處換行，避免把詞拆開 */
+.dx-hw p, .dx-hw .why-d, .dx-hw .why-t, .dx-hw .honor-d, .dx-hw .card-qty, .dx-hw .picks-note { word-break: keep-all; overflow-wrap: anywhere; }
+.dx-hw h1, .dx-hw h2, .dx-hw .hero-offer { text-wrap: balance; }
 .dx-hw h1, .dx-hw h2, .dx-hw h3, .dx-hw h4,
 .dx-hw p, .dx-hw span, .dx-hw div, .dx-hw li { margin: 0; padding: 0; }
 .dx-hw a { text-decoration: none; }
@@ -53,9 +57,9 @@
 @keyframes dxhwPulse   { 0%,100% { transform: rotate(-10deg) scale(1); } 50% { transform: rotate(-10deg) scale(1.07); } }
 @keyframes dxhwTwinkle { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
 @keyframes dxhwRattle  { 0%,70%,100% { transform: rotate(180deg); } 76% { transform: rotate(176deg); } 82% { transform: rotate(184deg); } 88% { transform: rotate(178deg); } 94% { transform: rotate(181deg); } }
-@keyframes dxhwBob     { 0%,100% { transform: translateY(1.5px); } 50% { transform: translateY(-1.5px); } }
+@keyframes dxhwBob     { 0%,100% { transform: translateY(2px); } 50% { transform: translateY(-2.5px); } }
 @keyframes dxhwBlink   { 0% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes dxhwDrop    { 0% { opacity: 0; transform: translateY(0) rotate(0); } 12% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; transform: translateY(26px) rotate(200deg); } }
+@keyframes dxhwDrop    { 0% { opacity: 0; transform: translateY(0) rotate(0); } 12% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; transform: translateY(24px) rotate(200deg); } }
 @keyframes dxhwSway    { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 
 .dx-hw .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
@@ -158,31 +162,18 @@
 
 /* Picardie 小劇場：所有座標都是月亮的百分比 */
 .dx-hw .scene { position: absolute; inset: 0; mix-blend-mode: multiply; clip-path: circle(50% at 50% 50%); }
-.dx-hw .stage { position: absolute; inset: 0; transform: translateY(6%); }
+.dx-hw .stage { position: absolute; inset: 0; transform: translateY(3%); }
 .dx-hw .scene-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .dx-hw .pc { position: absolute; mix-blend-mode: multiply; }
 .dx-hw .pc img { display: block; width: 100%; height: auto;
   -webkit-mask-image: radial-gradient(closest-side, #000 82%, transparent 100%); mask-image: radial-gradient(closest-side, #000 82%, transparent 100%); }
-.dx-hw .pc-candy { width: 46%; left: 27%; top: 32%; }
-.dx-hw .pc-trap  { width: 30%; left: 6%;  top: 40%; transform: rotate(180deg); animation: dxhwRattle 2.6s ease-in-out infinite; }
-.dx-hw .pc-tip   { width: 28%; left: 54%; top: 52%; transform: rotate(90deg); }
+.dx-hw .pc-trap  { width: 42%; left: 29%; top: 26%; transform: rotate(180deg); animation: dxhwRattle 2.6s ease-in-out infinite; }
+.dx-hw .pc-candy { width: 24%; left: 6%;  top: 49%; }
+.dx-hw .pc-tip   { width: 20%; left: 70%; top: 53%; transform: rotate(-90deg); }
 .dx-hw .trapped { animation: dxhwBob 2.6s ease-in-out infinite; }
-.dx-hw .ghost-bang { font: 900 7px 'Fraunces', serif; fill: #ED6D0F; animation: dxhwBlink 1.3s steps(2) infinite; }
 .dx-hw .drop { opacity: 0; animation: dxhwDrop 2.8s ease-in infinite; }
 .dx-hw .drop.d-b { animation-delay: 1.4s; }
 .dx-hw .lolly { transform-box: fill-box; transform-origin: 50% 100%; animation: dxhwSway 3s ease-in-out infinite; }
-.dx-hw .bubble {
-  position: absolute; left: 2%; top: 35%;
-  background: var(--white); color: var(--ink);
-  font-size: clamp(11px, 1.15vw, 15px); font-weight: 900; letter-spacing: .04em;
-  padding: .5em .9em; border-radius: 1em; transform: rotate(-6deg);
-  box-shadow: 0 6px 16px rgba(0,0,0,.25);
-  animation: dxhwFloat 2.6s ease-in-out infinite;
-}
-.dx-hw .bubble::after {
-  content: ''; position: absolute; left: 58%; bottom: -7px;
-  border: 7px solid transparent; border-top-color: var(--white); border-bottom: 0;
-}
 .dx-hw .burst {
   position: absolute; top: 12%; right: 9%;
   width: clamp(104px, 13vw, 176px); aspect-ratio: 1;
@@ -210,7 +201,6 @@
   .dx-hw .hero { grid-template-columns: 1fr; min-height: 0; }
   .dx-hw .hero-vis { order: -1; min-height: 96vw; }
   .dx-hw .moon { width: 84vw; transform: translate(-50%, -50%); }
-  .dx-hw .bubble { font-size: 3vw; }
   .dx-hw .burst { width: 27vw; top: 8%; right: 5%; }
   .dx-hw .burst strong { font-size: 10.5vw; }
   .dx-hw .burst small { font-size: 2.8vw; }
@@ -254,25 +244,22 @@
 .dx-hw .why-t { font-size: 16px; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
 .dx-hw .why-d { font-size: 13px; line-height: 1.8; color: var(--muted); }
 .dx-hw .honor {
-  margin-top: 64px; display: grid; grid-template-columns: 300px 1fr;
+  margin-top: 64px; display: grid; grid-template-columns: 340px 1fr;
   border-radius: 22px; overflow: hidden; background: var(--ink); color: var(--white);
-  box-shadow: 0 24px 60px rgba(27,18,48,.22);
+  border: 1.5px solid var(--ink);
 }
 .dx-hw .honor-k { font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
 .dx-hw .honor-award {
-  background: var(--pumpkin); padding: 40px 34px;
-  display: flex; flex-direction: column; justify-content: center; position: relative;
+  background: var(--white); padding: 30px 30px 28px;
+  display: flex; flex-direction: column; justify-content: center;
 }
-.dx-hw .honor-award .honor-k { color: var(--ink); }
-.dx-hw .honor-year {
-  font-family: 'Fraunces', serif; font-style: italic; font-weight: 900;
-  font-size: 84px; line-height: .9; color: var(--white); letter-spacing: -.03em;
+.dx-hw .honor-award .honor-k { color: var(--pumpkin-dk); margin-bottom: 10px; }
+.dx-hw .honor-logo { display: block; width: 100%; height: auto; margin-bottom: 14px; }
+.dx-hw .honor-d { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.6; }
+.dx-hw .flag {
+  display: inline-block; width: 21px; height: 14px; vertical-align: -2px; margin-right: 7px;
+  border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.12);
 }
-.dx-hw .honor-name {
-  font-family: 'Fraunces', serif; font-weight: 900; font-size: 26px; line-height: 1.05;
-  color: var(--ink); margin: 12px 0 14px; letter-spacing: .02em;
-}
-.dx-hw .honor-d { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.92); line-height: 1.6; }
 .dx-hw .honor-museum { padding: 40px 44px; }
 .dx-hw .honor-lead { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,.75); margin-bottom: 22px; max-width: 34em; }
 .dx-hw .honor-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; }
@@ -280,7 +267,7 @@
 .dx-hw .honor-list li:nth-child(odd) { padding-right: 24px; }
 .dx-hw .honor-list li:nth-child(even) { padding-left: 24px; border-left: 1px solid rgba(255,255,255,.12); }
 .dx-hw .honor-mn { font-family: 'Fraunces', serif; font-style: italic; font-weight: 700; font-size: clamp(20px, 2.1vw, 28px); line-height: 1.15; color: var(--white); }
-.dx-hw .honor-ml { font-size: 12px; letter-spacing: .08em; color: rgba(255,255,255,.5); }
+.dx-hw .honor-ml { font-size: 12px; letter-spacing: .08em; color: rgba(255,255,255,.6); margin-top: 4px; }
 @media (max-width: 860px) {
   .dx-hw .why { padding: 0 24px 64px; }
   .dx-hw .drip { margin: 0 -24px 36px; width: calc(100% + 48px); height: 36px; }
@@ -290,8 +277,8 @@
   .dx-hw .why-item:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
   .dx-hw .why-item:nth-child(n+3) { border-top: 1px solid var(--line); }
   .dx-hw .honor { margin-top: 40px; grid-template-columns: 1fr; border-radius: 18px; }
-  .dx-hw .honor-award { padding: 28px 24px; }
-  .dx-hw .honor-year { font-size: 64px; }
+  .dx-hw .honor-award { padding: 24px 24px 22px; }
+  .dx-hw .honor-logo { max-width: 320px; }
   .dx-hw .honor-museum { padding: 28px 24px 16px; }
   .dx-hw .honor-list li:nth-child(odd) { padding-right: 12px; }
   .dx-hw .honor-list li:nth-child(even) { padding-left: 12px; }
@@ -445,6 +432,10 @@
     <circle cx="12" cy="12" r="11" fill="currentColor"/>
     <path d="M12 12a3 3 0 1 1 3 3 6 6 0 1 1-6-6 8.500 8.500 0 1 1 8.500 8.500" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
   </symbol>
+  <symbol id="dxhw-flag-us" viewBox="0 0 38 20"><rect width="38" height="20" fill="#B22234"/><rect y="1.54" width="38" height="1.54" fill="#fff"/><rect y="4.62" width="38" height="1.54" fill="#fff"/><rect y="7.69" width="38" height="1.54" fill="#fff"/><rect y="10.77" width="38" height="1.54" fill="#fff"/><rect y="13.85" width="38" height="1.54" fill="#fff"/><rect y="16.92" width="38" height="1.54" fill="#fff"/><rect width="15.2" height="10.77" fill="#3C3B6E"/><circle cx="1.6" cy="1.5" r=".55" fill="#fff"/><circle cx="4.6" cy="1.5" r=".55" fill="#fff"/><circle cx="7.6" cy="1.5" r=".55" fill="#fff"/><circle cx="10.6" cy="1.5" r=".55" fill="#fff"/><circle cx="13.6" cy="1.5" r=".55" fill="#fff"/><circle cx="3.1" cy="4.1" r=".55" fill="#fff"/><circle cx="6.1" cy="4.1" r=".55" fill="#fff"/><circle cx="9.1" cy="4.1" r=".55" fill="#fff"/><circle cx="12.1" cy="4.1" r=".55" fill="#fff"/><circle cx="15.1" cy="4.1" r=".55" fill="#fff"/><circle cx="1.6" cy="6.7" r=".55" fill="#fff"/><circle cx="4.6" cy="6.7" r=".55" fill="#fff"/><circle cx="7.6" cy="6.7" r=".55" fill="#fff"/><circle cx="10.6" cy="6.7" r=".55" fill="#fff"/><circle cx="13.6" cy="6.7" r=".55" fill="#fff"/><circle cx="3.1" cy="9.3" r=".55" fill="#fff"/><circle cx="6.1" cy="9.3" r=".55" fill="#fff"/><circle cx="9.1" cy="9.3" r=".55" fill="#fff"/><circle cx="12.1" cy="9.3" r=".55" fill="#fff"/><circle cx="15.1" cy="9.3" r=".55" fill="#fff"/></symbol>
+  <symbol id="dxhw-flag-uk" viewBox="0 0 60 30"><rect width="60" height="30" fill="#012169"/><path d="M0 0L60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0L60 30M60 0L0 30" stroke="#C8102E" stroke-width="2.4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></symbol>
+  <symbol id="dxhw-flag-fr" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002654"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></symbol>
+  <symbol id="dxhw-flag-jp" viewBox="0 0 3 2"><rect width="3" height="2" fill="#fff"/><circle cx="1.5" cy="1" r=".6" fill="#BC002D"/></symbol>
   <symbol id="dxhw-pumpkin" viewBox="0 0 64 60">
     <path fill="currentColor" d="M29 4h7v9c14 1 25 10 25 23S49 58 32 58 3 49 3 36s11-22 26-23z"/>
     <path fill="#160E2A" d="M17 28l7 9H12zM47 28l5 9H40zM16 44h32l-5 6-5-4-6 5-6-5-5 4z"/>
@@ -483,13 +474,12 @@
     <div class="moon">
       <div class="scene">
         <div class="stage">
-        <svg class="scene-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><g class="trapped"><use href="#dxhw-ghost" x="12.5" y="48.5" width="15" height="17.5" color="#F1ECFA"/><text x="28" y="51" class="ghost-bang">!</text></g><use href="#dxhw-candy" x="38.6" y="64.0" width="10.4" height="5.2" color="#F5B041" transform="rotate(24 43.8 66.6)"/><use href="#dxhw-candy" x="45.5" y="64.6" width="9.7" height="4.9" color="#7FB24A" transform="rotate(-12 50.4 67.0)"/><use href="#dxhw-candy" x="52.2" y="64.0" width="10.3" height="5.2" color="#E84F7A" transform="rotate(-30 57.4 66.6)"/><use href="#dxhw-corn" x="45.6" y="59.3" width="5.4" height="6.5" transform="rotate(-15 48.3 62.5)"/><use href="#dxhw-candy" x="50.8" y="59.3" width="9.1" height="4.5" color="#E84F7A" transform="rotate(-5 55.3 61.6)"/><use href="#dxhw-corn" x="40.7" y="55.2" width="5.0" height="6.0" transform="rotate(-6 43.3 58.2)"/><use href="#dxhw-candy" x="46.2" y="55.9" width="9.7" height="4.8" color="#F5B041" transform="rotate(0 51.0 58.4)"/><use href="#dxhw-corn" x="56.7" y="55.4" width="5.4" height="6.5" transform="rotate(5 59.4 58.6)"/><use href="#dxhw-candy" x="42.3" y="50.7" width="9.8" height="4.9" color="#7FB24A" transform="rotate(-22 47.3 53.1)"/><use href="#dxhw-candy" x="49.4" y="52.1" width="10.3" height="5.1" color="#ED6D0F" transform="rotate(-35 54.5 54.6)"/><use href="#dxhw-candy" x="38.5" y="48.1" width="9.6" height="4.8" color="#8E3F7C" transform="rotate(-26 43.3 50.5)"/><use href="#dxhw-candy" x="47.0" y="47.0" width="9.1" height="4.6" color="#E84F7A" transform="rotate(7 51.6 49.3)"/><use href="#dxhw-candy" x="54.5" y="46.7" width="9.4" height="4.7" color="#E84F7A" transform="rotate(-23 59.2 49.1)"/><use href="#dxhw-candy" x="42.8" y="42.5" width="9.8" height="4.9" color="#4B3FA8" transform="rotate(22 47.7 45.0)"/><use href="#dxhw-candy" x="50.7" y="43.0" width="9.6" height="4.8" color="#8E3F7C" transform="rotate(15 55.4 45.4)"/><use href="#dxhw-corn" x="39.2" y="38.5" width="5.6" height="6.8" transform="rotate(3 42.0 41.9)"/><use href="#dxhw-candy" x="44.8" y="38.2" width="10.5" height="5.2" color="#8E3F7C" transform="rotate(-23 50.0 40.8)"/><use href="#dxhw-corn" x="55.6" y="37.6" width="5.5" height="6.6" transform="rotate(7 58.4 40.9)"/><use href="#dxhw-candy" x="38.0" y="34.5" width="10.1" height="5.0" color="#F5B041" transform="rotate(-51 43.0 37.0)"/><use href="#dxhw-candy" x="43.3" y="31.9" width="10.5" height="5.2" color="#7FB24A" transform="rotate(-59 48.5 34.5)"/><use href="#dxhw-corn" x="51.2" y="30.1" width="5.6" height="6.8" transform="rotate(-44 54.0 33.5)"/><use href="#dxhw-candy" x="53.9" y="33.9" width="10.2" height="5.1" color="#E84F7A" transform="rotate(13 59.0 36.5)"/><use href="#dxhw-candy" x="41.1" y="36.1" width="9.8" height="4.9" color="#8E3F7C" transform="rotate(-41 46.0 38.5)"/><use href="#dxhw-corn" x="53.6" y="35.0" width="5.8" height="7.0" transform="rotate(-29 56.5 38.5)"/><use href="#dxhw-corn" x="48.9" y="34.3" width="5.3" height="6.3" transform="rotate(20 51.5 37.5)"/><g class="lolly"><use href="#dxhw-lolly" x="50" y="15" width="8.5" height="17" color="#E84F7A" transform="rotate(12 54.25 32)"/></g><g class="drop d-a"><use href="#dxhw-candy" x="43" y="8" width="10" height="5" color="#7FB24A"/></g><g class="drop d-b"><use href="#dxhw-corn" x="55" y="6" width="5.4" height="6.5"/></g><g transform="translate(-5 0)"><use href="#dxhw-candy" x="78.0" y="67.0" width="10.0" height="5.0" color="#4B3FA8" transform="rotate(-25 83.0 69.5)"/><use href="#dxhw-corn" x="86.4" y="67.9" width="5.1" height="6.2" transform="rotate(-1 89.0 71.0)"/><use href="#dxhw-candy" x="82.5" y="64.5" width="9.0" height="4.5" color="#F5B041" transform="rotate(11 87.0 66.8)"/><use href="#dxhw-candy" x="88.2" y="66.5" width="8.5" height="4.2" color="#E84F7A" transform="rotate(-40 92.5 68.6)"/></g></svg>
-        <div class="pc pc-trap"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMTkzLzE3NjU5NzI1MzNfNDNmZTc5N2RmZDVmN2EwMjExZDAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=23c9b39c705beb42" alt=""></div>
+        <svg class="scene-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><g class="trapped"><use href="#dxhw-ghost" x="39.5" y="41" width="21" height="24.5" color="#F1ECFA"/></g><use href="#dxhw-candy" x="11.9" y="65.6" width="5.6" height="2.8" color="#E84F7A" transform="rotate(32 14.7 67.0)"/><use href="#dxhw-candy" x="16.1" y="65.3" width="5.0" height="2.5" color="#E84F7A" transform="rotate(-15 18.6 66.6)"/><use href="#dxhw-candy" x="19.8" y="65.4" width="5.1" height="2.5" color="#8E3F7C" transform="rotate(-4 22.4 66.7)"/><use href="#dxhw-candy" x="13.5" y="62.7" width="5.7" height="2.8" color="#ED6D0F" transform="rotate(14 16.3 64.1)"/><use href="#dxhw-corn" x="18.5" y="62.8" width="2.8" height="3.3" transform="rotate(-35 19.8 64.5)"/><use href="#dxhw-corn" x="12.5" y="60.3" width="3.1" height="3.7" transform="rotate(-14 14.1 62.2)"/><use href="#dxhw-candy" x="15.4" y="61.0" width="5.4" height="2.7" color="#4B3FA8" transform="rotate(-9 18.1 62.4)"/><use href="#dxhw-candy" x="19.0" y="61.0" width="5.3" height="2.7" color="#8E3F7C" transform="rotate(-33 21.7 62.4)"/><use href="#dxhw-candy" x="14.2" y="58.1" width="5.3" height="2.6" color="#4B3FA8" transform="rotate(-35 16.8 59.4)"/><use href="#dxhw-corn" x="18.5" y="57.6" width="3.1" height="3.7" transform="rotate(26 20.0 59.4)"/><use href="#dxhw-corn" x="12.9" y="55.5" width="2.8" height="3.3" transform="rotate(-3 14.3 57.2)"/><use href="#dxhw-candy" x="15.0" y="56.0" width="5.7" height="2.8" color="#E84F7A" transform="rotate(-33 17.8 57.4)"/><use href="#dxhw-corn" x="20.5" y="55.6" width="2.7" height="3.3" transform="rotate(-30 21.9 57.3)"/><use href="#dxhw-corn" x="15.1" y="53.5" width="2.8" height="3.3" transform="rotate(-4 16.5 55.2)"/><use href="#dxhw-candy" x="18.0" y="53.4" width="5.3" height="2.6" color="#E84F7A" transform="rotate(32 20.6 54.7)"/><use href="#dxhw-corn" x="12.5" y="49.7" width="3.0" height="3.6" transform="rotate(35 14.0 51.5)"/><use href="#dxhw-candy" x="14.1" y="48.2" width="5.8" height="2.9" color="#ED6D0F" transform="rotate(-23 17.0 49.6)"/><use href="#dxhw-candy" x="17.5" y="47.8" width="5.6" height="2.8" color="#8E3F7C" transform="rotate(5 20.3 49.2)"/><use href="#dxhw-corn" x="21.5" y="49.4" width="3.1" height="3.7" transform="rotate(58 23.0 51.3)"/><use href="#dxhw-candy" x="15.8" y="50.4" width="5.6" height="2.8" color="#8E3F7C" transform="rotate(27 18.6 51.8)"/><g class="lolly"><use href="#dxhw-lolly" x="17.6" y="38.5" width="5" height="10" color="#E84F7A" transform="rotate(12 20.1 48.5)"/></g><g class="drop d-a"><use href="#dxhw-candy" x="14.5" y="24" width="5.5" height="2.75" color="#7FB24A"/></g><g class="drop d-b"><use href="#dxhw-corn" x="19.5" y="22" width="3" height="3.6"/></g><use href="#dxhw-candy" x="67.5" y="66.1" width="6.0" height="3.0" color="#4B3FA8" transform="rotate(-40 70.5 67.6)"/><use href="#dxhw-corn" x="66.3" y="67.2" width="3.0" height="3.6" transform="rotate(-31 67.8 69.0)"/><use href="#dxhw-candy" x="70.8" y="68.0" width="5.5" height="2.8" color="#4B3FA8" transform="rotate(42 73.6 69.4)"/><use href="#dxhw-candy" x="67.0" y="63.7" width="5.0" height="2.5" color="#E84F7A" transform="rotate(-11 69.5 64.9)"/></svg>
         <div class="pc pc-candy"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTA5NzUzLzE3MTgyNjQ0MjhfZWFiYTg0NGQ1NzhhYzI2M2Q4ZjEuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=20b78df9d8fd06ea" alt=""></div>
         <div class="pc pc-tip"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzY2NzM1MzExLzE3NzM5MTIyNzFfNzg2ZTE2YzU4NzQxNTc4YTU1ZjAuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=7944709d0a2215db" alt=""></div>
+        <div class="pc pc-trap"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMTkzLzE3NjU5NzI1MzNfNDNmZTc5N2RmZDVmN2EwMjExZDAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=23c9b39c705beb42" alt=""></div>
         </div>
       </div>
-      <div class="bubble">放我出去！</div>
     </div>
     <div class="bat bat-1"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg></div>
     <div class="bat bat-2"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg></div>
@@ -534,7 +524,7 @@
       <div class="why-item reveal">
         <div class="why-n">1945</div>
         <div class="why-t">擋風玻璃級強化工藝</div>
-        <div class="why-d">將汽車擋風玻璃的物理強化技術移轉至餐具，奠定品牌八十年傳奇。</div>
+        <div class="why-d">以汽車擋風玻璃的強化技術，打造日常餐具，奠定八十年傳奇。</div>
       </div>
       <div class="why-item reveal d1">
         <div class="why-n">3.5<sup>×</sup></div>
@@ -555,18 +545,17 @@
     <div class="honor reveal">
       <div class="honor-award">
         <div class="honor-k">Award</div>
-        <div class="honor-year">2012</div>
-        <div class="honor-name">GOOD DESIGN<br>AWARD</div>
-        <div class="honor-d">日本 Good Design 獎<br>Picardie 系列獲獎肯定</div>
+        <img class="honor-logo" src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L2F0dGFjaGVkX3Bob3Rvcy8xNzYxNzk0Nzc5X0dvb2QgZGVzaWduLnBuZy5wbmciXV0.png?sha=d2693ee69e3f31a4" alt="Good Design Long Life Design Award · Duralex Picardie" loading="lazy">
+        <div class="honor-d"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-jp" width="30" height="20"/></svg>日本 Good Design 獎<br>Long Life Design Award · Picardie</div>
       </div>
       <div class="honor-museum">
         <div class="honor-k">博物館永久典藏 · Permanent Collections</div>
-        <p class="honor-lead">不只是餐具，更是設計史的一部分——Duralex 被世界頂尖博物館列入永久典藏。</p>
+        <p class="honor-lead">不只是餐具，更是設計史的一部分。<br>Duralex 被世界頂尖博物館列入永久典藏。</p>
         <ul class="honor-list">
-          <li><span class="honor-mn">MoMA</span><span class="honor-ml">紐約 New York</span></li>
-          <li><span class="honor-mn">The Met</span><span class="honor-ml">紐約 New York</span></li>
-          <li><span class="honor-mn">V&amp;A Museum</span><span class="honor-ml">倫敦 London</span></li>
-          <li><span class="honor-mn">Musée des Arts Décoratifs</span><span class="honor-ml">巴黎 Paris</span></li>
+          <li><span class="honor-mn">MoMA</span><span class="honor-ml"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-us" width="30" height="20"/></svg>紐約 New York</span></li>
+          <li><span class="honor-mn">The Met</span><span class="honor-ml"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-us" width="30" height="20"/></svg>紐約 New York</span></li>
+          <li><span class="honor-mn">V&amp;A Museum</span><span class="honor-ml"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-uk" width="30" height="20"/></svg>倫敦 London</span></li>
+          <li><span class="honor-mn">Musée des Arts Décoratifs</span><span class="honor-ml"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-fr" width="30" height="20"/></svg>巴黎 Paris</span></li>
         </ul>
       </div>
     </div>
@@ -767,7 +756,7 @@
         <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTMxMjU5LzE3NzYzMjY4NTdfM2YyNGEyMTJjZjhhOGYyOWNmMTIuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=f68e11c71b39a831" alt="Ramequin 玻璃甜點盅" loading="lazy" style="width:108%;height:108%;max-width:none;margin:-4%;"></div>
         <div class="card-info">
           <div class="card-series">Ramequin Series</div>
-          <div class="card-name">Ramequin 玻璃甜點盅（透明）</div>
+          <div class="card-name">Ramequin 甜點盅（透明）</div>
           <div class="card-qty">130~240ml · 4入</div>
           <div class="card-price">NT$480<small>起 / 4入</small></div>
           <span class="card-more">看商品 →</span>
