@@ -233,13 +233,34 @@
 .dx-hw .why-n sup { font-size: .42em; color: var(--pumpkin); margin-left: 2px; vertical-align: top; position: relative; top: .3em; }
 .dx-hw .why-t { font-size: 16px; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
 .dx-hw .why-d { font-size: 13px; line-height: 1.8; color: var(--muted); }
-.dx-hw .why-museum {
-  margin-top: 56px; padding: 22px 28px; border-radius: 14px; background: var(--ink); color: var(--white);
-  display: flex; align-items: center; gap: 12px 28px; flex-wrap: wrap;
+.dx-hw .honor {
+  margin-top: 64px; display: grid; grid-template-columns: 300px 1fr;
+  border-radius: 22px; overflow: hidden; background: var(--ink); color: var(--white);
+  box-shadow: 0 24px 60px rgba(27,18,48,.22);
 }
-.dx-hw .why-museum-k { font-size: 11px; font-weight: 700; letter-spacing: .24em; color: var(--amber); }
-.dx-hw .why-museum-list { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: rgba(255,255,255,.88); }
-.dx-hw .why-museum-list span { color: var(--pumpkin); margin: 0 10px; font-style: normal; }
+.dx-hw .honor-k { font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+.dx-hw .honor-award {
+  background: var(--pumpkin); padding: 40px 34px;
+  display: flex; flex-direction: column; justify-content: center; position: relative;
+}
+.dx-hw .honor-award .honor-k { color: var(--ink); }
+.dx-hw .honor-year {
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 900;
+  font-size: 84px; line-height: .9; color: var(--white); letter-spacing: -.03em;
+}
+.dx-hw .honor-name {
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 26px; line-height: 1.05;
+  color: var(--ink); margin: 12px 0 14px; letter-spacing: .02em;
+}
+.dx-hw .honor-d { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.92); line-height: 1.6; }
+.dx-hw .honor-museum { padding: 40px 44px; }
+.dx-hw .honor-lead { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,.75); margin-bottom: 22px; max-width: 34em; }
+.dx-hw .honor-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; }
+.dx-hw .honor-list li { padding: 16px 0; border-top: 1px solid rgba(255,255,255,.12); display: flex; flex-direction: column; gap: 2px; }
+.dx-hw .honor-list li:nth-child(odd) { padding-right: 24px; }
+.dx-hw .honor-list li:nth-child(even) { padding-left: 24px; border-left: 1px solid rgba(255,255,255,.12); }
+.dx-hw .honor-mn { font-family: 'Fraunces', serif; font-style: italic; font-weight: 700; font-size: clamp(20px, 2.1vw, 28px); line-height: 1.15; color: var(--white); }
+.dx-hw .honor-ml { font-size: 12px; letter-spacing: .08em; color: rgba(255,255,255,.5); }
 @media (max-width: 860px) {
   .dx-hw .why { padding: 0 24px 64px; }
   .dx-hw .drip { margin: 0 -24px 36px; width: calc(100% + 48px); height: 36px; }
@@ -248,8 +269,12 @@
   .dx-hw .why-item, .dx-hw .why-item + .why-item { padding: 26px 16px 22px 0; border-left: none; }
   .dx-hw .why-item:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
   .dx-hw .why-item:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .dx-hw .why-museum { margin-top: 32px; padding: 18px 20px; }
-  .dx-hw .why-museum-list { font-size: 15px; }
+  .dx-hw .honor { margin-top: 40px; grid-template-columns: 1fr; border-radius: 18px; }
+  .dx-hw .honor-award { padding: 28px 24px; }
+  .dx-hw .honor-year { font-size: 64px; }
+  .dx-hw .honor-museum { padding: 28px 24px 16px; }
+  .dx-hw .honor-list li:nth-child(odd) { padding-right: 12px; }
+  .dx-hw .honor-list li:nth-child(even) { padding-left: 12px; }
 }
 
 /* ══ PICKS + BASKET ══ */
@@ -339,27 +364,6 @@
   .dx-hw .picks.gift .card-price { font-size: 20px; }
 }
 
-/* ══ IDEAS ══ */
-.dx-hw .ideas { background: var(--cream); padding: 96px 56px; }
-.dx-hw .ideas-inner { max-width: 1100px; margin: 0 auto; }
-.dx-hw .ideas-hd { margin-bottom: 44px; }
-.dx-hw .ideas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.dx-hw .idea { border-radius: 20px; padding: 30px 26px; color: var(--white); position: relative; overflow: hidden; min-height: 230px; display: flex; flex-direction: column; justify-content: flex-end; transition: transform .25s; }
-.dx-hw .idea:hover { transform: translateY(-5px) rotate(.6deg); }
-.dx-hw .idea:nth-child(1) { background: var(--pumpkin); }
-.dx-hw .idea:nth-child(2) { background: var(--plum); }
-.dx-hw .idea:nth-child(3) { background: var(--ink); }
-.dx-hw .idea-ico { position: absolute; top: 18px; right: 18px; width: 84px; opacity: .22; color: var(--white); }
-.dx-hw .idea-ico svg { width: 100%; height: auto; }
-.dx-hw .idea-k { font-family: 'Fraunces', serif; font-style: italic; font-weight: 700; font-size: 14px; letter-spacing: .06em; opacity: .85; margin-bottom: 6px; }
-.dx-hw .idea-t { font-size: 21px; font-weight: 900; margin-bottom: 8px; line-height: 1.3; }
-.dx-hw .idea-d { font-size: 13px; line-height: 1.75; opacity: .88; }
-@media (max-width: 860px) {
-  .dx-hw .ideas { padding: 64px 24px; }
-  .dx-hw .ideas-grid { grid-template-columns: 1fr; gap: 14px; }
-  .dx-hw .idea { min-height: 0; padding-top: 44px; }
-}
-
 /* ══ CTA ══ */
 .dx-hw .cta {
   background:
@@ -420,7 +424,7 @@
     <h1 class="hero-h1">Trick<br>or <em>Treat!</em></h1>
     <p class="hero-offer">萬聖節優惠活動<br>任選 <b>3 件</b> <b>85 折</b></p>
     <div class="hero-actions">
-      <a href="#dxhw-picks" class="btn-pri">開始湊三件 →</a>
+      <a href="#dxhw-picks" class="btn-pri">萬聖節精選 →</a>
       <a href="#dxhw-why" class="btn-sec">為什麼是 Duralex</a>
     </div>
     <div class="cd hero-cd" data-dxhw-cd>
@@ -510,9 +514,23 @@
         <div class="why-d">無孔隙玻璃不殘留細菌與異味，100% 可回收，用得久才是真環保。</div>
       </div>
     </div>
-    <div class="why-museum reveal">
-      <span class="why-museum-k">博物館永久典藏</span>
-      <span class="why-museum-list">MoMA<span>·</span>Victoria and Albert Museum<span>·</span>Musée des Arts Décoratifs</span>
+    <div class="honor reveal">
+      <div class="honor-award">
+        <div class="honor-k">Award</div>
+        <div class="honor-year">2012</div>
+        <div class="honor-name">GOOD DESIGN<br>AWARD</div>
+        <div class="honor-d">日本 Good Design 獎<br>Picardie 系列獲獎肯定</div>
+      </div>
+      <div class="honor-museum">
+        <div class="honor-k">博物館永久典藏 · Permanent Collections</div>
+        <p class="honor-lead">不只是餐具，更是設計史的一部分——Duralex 被世界頂尖博物館列入永久典藏。</p>
+        <ul class="honor-list">
+          <li><span class="honor-mn">MoMA</span><span class="honor-ml">紐約 New York</span></li>
+          <li><span class="honor-mn">The Met</span><span class="honor-ml">紐約 New York</span></li>
+          <li><span class="honor-mn">V&amp;A Museum</span><span class="honor-ml">倫敦 London</span></li>
+          <li><span class="honor-mn">Musée des Arts Décoratifs</span><span class="honor-ml">巴黎 Paris</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -805,7 +823,7 @@
       <!-- 3 -->
       <a class="card reveal d2" href="https://www.duralex.com.tw/products/lysstackablemarinemug-20261" target="_blank" rel="noopener">
         <span class="card-tag">杯盤組</span>
-        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzcyNzAxNjczLzE3OTExODkwODBfMGQzOWJkMWMyMjI4ZmNjN2U2MzguanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=de276920fb1f0918" alt="Lys 杯盤組（琥珀）" loading="lazy"></div>
+        <div class="card-img"><img src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzcyNzAxNjczLzE3OTExODk4MTZfNzlmMDgxMmEwM2JiN2VjOGEyYTcucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=d1215717e77c5e6a" alt="Lys 杯盤組（琥珀）" loading="lazy"></div>
         <div class="card-info">
           <div class="card-series">Lys Set</div>
           <div class="card-name">Lys 杯盤組（琥珀）</div>
@@ -831,36 +849,6 @@
     </div>
     <div class="picks-more">
       <a href="https://www.duralex.com.tw/collections/sets" target="_blank" rel="noopener">查看所有禮盒與套組 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ IDEAS ══════════ -->
-<section class="ideas">
-  <div class="ideas-inner">
-    <div class="ideas-hd reveal">
-      <div class="sec-eyebrow">Halloween Table</div>
-      <h2 class="sec-h2">三件怎麼搭？<em>派對提案</em></h2>
-    </div>
-    <div class="ideas-grid">
-      <div class="idea reveal">
-        <div class="idea-ico"><svg viewBox="0 0 64 60"><use href="#dxhw-pumpkin"/></svg></div>
-        <div class="idea-k">Candy Bar</div>
-        <div class="idea-t">糖果吧檯</div>
-        <div class="idea-d">琥珀杯裝滿糖果與餅乾，一字排開就是討糖小鬼的補給站。派對結束，照樣是每天喝水的杯子。</div>
-      </div>
-      <div class="idea reveal d1">
-        <div class="idea-ico"><svg viewBox="0 0 48 56"><use href="#dxhw-ghost"/></svg></div>
-        <div class="idea-k">Witch's Brew</div>
-        <div class="idea-t">女巫特調</div>
-        <div class="idea-d">梅紫配魔藥綠，倒入氣泡飲或熱可可，顏色自己就會說故事。大人小孩各拿一杯，乾杯不怕碰。</div>
-      </div>
-      <div class="idea reveal d2">
-        <div class="idea-ico"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg></div>
-        <div class="idea-k">Midnight Table</div>
-        <div class="idea-t">午夜餐桌</div>
-        <div class="idea-d">寶藍、焦糖棕與透明款混搭上桌，燭光一照整桌都在發亮。不必買一次性餐具，節日過後繼續用。</div>
-      </div>
     </div>
   </div>
 </section>
