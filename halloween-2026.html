@@ -113,7 +113,7 @@
 .dx-hw .hero-h1 em { font-style: italic; color: var(--pumpkin); }
 .dx-hw .hero-offer {
   font-size: clamp(24px, 3.2vw, 42px); font-weight: 900; color: var(--white);
-  line-height: 1.25; margin-bottom: 10px;
+  line-height: 1.25; margin-bottom: 28px;
   opacity: 0; animation: dxhwFadeUp .7s ease forwards .46s;
 }
 .dx-hw .hero-offer b {
@@ -251,10 +251,11 @@
 .dx-hw .honor-k { font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
 .dx-hw .honor-award {
   background: var(--white); padding: 30px 30px 28px;
-  display: flex; flex-direction: column; justify-content: center;
+  display: flex; flex-direction: column; justify-content: center; text-align: center;
 }
 .dx-hw .honor-award .honor-k { color: var(--pumpkin-dk); margin-bottom: 10px; }
-.dx-hw .honor-logo { display: block; width: 100%; height: auto; margin-bottom: 14px; }
+.dx-hw .honor-logo-wrap { width: 100%; max-width: 360px; aspect-ratio: 1520 / 1270; overflow: hidden; margin: 0 auto 16px; }
+.dx-hw .honor-logo { display: block; width: 126.3%; max-width: none; height: auto; margin: -9.21% 0 0 -12.5%; }
 .dx-hw .honor-d { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.6; }
 .dx-hw .flag {
   display: inline-block; width: 21px; height: 14px; vertical-align: -2px; margin-right: 7px;
@@ -277,8 +278,7 @@
   .dx-hw .why-item:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
   .dx-hw .why-item:nth-child(n+3) { border-top: 1px solid var(--line); }
   .dx-hw .honor { margin-top: 40px; grid-template-columns: 1fr; border-radius: 18px; }
-  .dx-hw .honor-award { padding: 24px 24px 22px; }
-  .dx-hw .honor-logo { max-width: 320px; }
+  .dx-hw .honor-award { padding: 22px 20px 22px; }
   .dx-hw .honor-museum { padding: 28px 24px 16px; }
   .dx-hw .honor-list li:nth-child(odd) { padding-right: 12px; }
   .dx-hw .honor-list li:nth-child(even) { padding-left: 12px; }
@@ -403,7 +403,8 @@
   .dx-hw .hero-vis { min-height: 100vw; }
   .dx-hw .moon { width: 78vw; }
   .dx-hw .hero-copy { padding: 8px 20px 48px; }
-  .dx-hw .hero-actions { gap: 10px; flex-wrap: nowrap; width: 100%; }
+  .dx-hw .hero-actions { gap: 10px; flex-wrap: nowrap; width: 100%; margin-bottom: 30px; }
+  .dx-hw .hero-offer { margin-bottom: 24px; }
   .dx-hw .cta-actions { gap: 10px; flex-wrap: nowrap; }
   .dx-hw .btn-pri, .dx-hw .btn-sec { padding: 13px 18px; font-size: 13px; letter-spacing: .06em; white-space: nowrap; flex: 1; text-align: center; }
   .dx-hw .btn-sec { padding: 12px 18px; }
@@ -593,7 +594,7 @@
     <div class="honor reveal">
       <div class="honor-award">
         <div class="honor-k">Award</div>
-        <img class="honor-logo" src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L2F0dGFjaGVkX3Bob3Rvcy8xNzYxNzk0Nzc5X0dvb2QgZGVzaWduLnBuZy5wbmciXV0.png?sha=d2693ee69e3f31a4" alt="Good Design Long Life Design Award · Duralex Picardie" loading="lazy">
+        <div class="honor-logo-wrap"><img class="honor-logo" src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L2F0dGFjaGVkX3Bob3Rvcy8xNzYxNzk0Nzc5X0dvb2QgZGVzaWduLnBuZy5wbmciXV0.png?sha=d2693ee69e3f31a4" alt="Good Design Long Life Design Award · Duralex Picardie" loading="lazy"></div>
         <div class="honor-d"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-jp" width="30" height="20"/></svg>日本 Good Design 獎<br>Long Life Design Award · Picardie</div>
       </div>
       <div class="honor-museum">
