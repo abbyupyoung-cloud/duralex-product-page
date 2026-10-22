@@ -1,0 +1,2230 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duralex 首頁預覽｜萬聖節 2026</title>
+<style>html,body{margin:0;padding:0;}</style>
+</head>
+<body>
+<!-- 
+  Duralex Taiwan Cyberbiz 自定義 HTML 區塊 
+  Integrated: Full Landing Page
+  Updated: 
+  [Brand Video Styling Update]
+  1. Updated video overlay text to "迎接春日氣息 從 Duralex 開始".
+  2. Reduced mobile font size for "Le printemps commence ici" (text-3xl to text-2xl).
+
+  [New Arrivals & Gift Sets Update]
+  3. Fixed "Gift Sets" image proportions: Switched to object-cover lifestyle card layout.
+  [Sections Removed]
+  4. Deleted "Taiwan Bestsellers" section as requested.
+  [Corporate Customization & Awards Insert]
+  5. Added Interactive Corporate Customization block after France Bestsellers.
+  6. Added "Museum Awards" section immediately after the "Good Design Award" block.
+
+  [Debug Pass — Fixes Applied]
+  7. Removed dead JS referencing undefined c.tag property (color swatch caption never rendered).
+
+  [Content Removed]
+  8. Removed Bastille Day 2026 / 法國國慶月 campaign section entirely (hero banner, 4 campaign products, JSON-LD, and related news card), per request.
+  9. Removed expired "全站限時至 9/30 滿 $800 免運" promo (hero image overlay + service card); service cards now 3 columns.
+  10. Re-added service card as standard "滿 $1,200 免運" (no end date); service cards back to 2/4 columns.
+  [Halloween 2026 Campaign]
+  11. Inserted Halloween 2026 campaign block (.dx-hw scoped CSS, 任選 3 件 85 折 10/22–10/31) between the LINE Pay hero and QA Marquee.
+      Hero offer heading changed h1→h2 (page keeps one sr-only h1). Remove the block between the 萬聖節活動區塊 START/END comments after 10/31.
+-->
+
+<!-- 1. 引入必要的外部資源 -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Bodoni+Moda:ital,wght@1,900&display=swap" rel="stylesheet">
+
+<!-- 2. 自定義樣式 CSS -->
+<style>
+    :root {
+        --color-primary: #1f286f;
+        --color-accent: #ed6d0f;
+        --color-neutral: #c1bebc;
+        --color-text: #1c1917;
+        --color-alert-red: #dc2626;
+        --border-radius-card: 16px; 
+        --border-radius-btn: 9999px; 
+        --cta-color-accent: #ed6d0f;
+
+        /* ── Typography scale ──
+           一套統一的字級（font-size）與字距（letter-spacing）系統，
+           取代原本分散在各區塊、彼此只差 0.01–0.05rem 的隨意數值。 */
+        --fs-2xs:  0.625rem;   /* 10px — 極小標籤／備註 */
+        --fs-xs:   0.6875rem;  /* 11px — eyebrow、小標籤 */
+        --fs-sm:   0.75rem;    /* 12px — 按鈕、次要標籤 */
+        --fs-sm-plus: 0.8125rem; /* 13px — 次要內文／說明文字 */
+        --fs-base: 0.875rem;   /* 14px — 一般次要內文 */
+        --fs-md:   0.9375rem;  /* 15px — 主要內文段落 */
+        --fs-lg:   1rem;       /* 16px — 強調內文／價格 */
+        --fs-xl:   1.125rem;   /* 18px — 小標題／數字強調 */
+        --fs-2xl:  1.25rem;    /* 20px — 價格強調 */
+
+        --ls-tighter: -0.03em; /* 大型展示標題 */
+        --ls-tight:   -0.02em; /* 一般標題（全站 h1-h6 預設） */
+        --ls-wide:    0.05em;  /* 按鈕／中等強調的大寫文字 */
+        --ls-wider:   0.1em;   /* CTA 按鈕、次要強調 */
+        --ls-widest:  0.2em;   /* eyebrow／overline 全大寫小標 */
+    }
+
+    .duralex-wrapper {
+        font-family: 'Instrument Sans', 'Noto Sans TC', sans-serif;
+        color: var(--color-text);
+        background-color: #ffffff;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+    }
+
+    .duralex-wrapper h1, 
+    .duralex-wrapper h2, 
+    .duralex-wrapper h3, 
+    .duralex-wrapper h4, 
+    .duralex-wrapper h5, 
+    .duralex-wrapper h6 {
+        letter-spacing: var(--ls-tight); 
+    }
+
+    .font-editorial { font-family: 'Playfair Display', serif; }
+
+    /* --- Scroll Reveal Animation --- */
+    .reveal-element {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal-element.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(40px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+    .anim-delay-100 { animation-delay: 0.1s; }
+    .anim-delay-300 { animation-delay: 0.3s; }
+    .anim-delay-500 { animation-delay: 0.5s; }
+
+    @keyframes slowZoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.08); }
+    }
+    .animate-slow-zoom {
+        animation: slowZoom 15s ease-in-out infinite alternate;
+    }
+
+    .card-radius {
+        border-radius: var(--border-radius-card);
+        overflow: hidden;
+        transform: translateZ(0); 
+    }
+    .img-zoom-container { overflow: hidden; height: 100%; width: 100%; }
+    .img-zoom { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); height: 100%; width: 100%; object-fit: cover; }
+    .group:hover .img-zoom { transform: scale(1.06); }
+
+    .btn-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: var(--border-radius-btn);
+        padding: 0.375rem 0.75rem; 
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: var(--ls-wide);
+        font-size: var(--fs-sm);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px -1px rgba(31, 40, 111, 0.1);
+    }
+    .btn-pill:hover { background-color: var(--color-accent); transform: translateY(-1px); }
+    .btn-pill-white { background-color: white; color: var(--color-primary); }
+    .btn-pill-white:hover { background-color: #ffffff; color: var(--color-accent); }
+
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .scrolling-promotion { overflow: hidden; background-color: #ffffff; padding: 1rem 0; }
+    .scrolling-promotion .promotion { display: flex; width: max-content; animation: marquee 120s linear infinite; }
+    .promotion__item { display: flex; align-items: center; padding: 0 3rem; color: var(--color-primary); }
+    .qa-marquee-img { height: 38px; width: auto; margin-right: 18px; } 
+    .qa-text { font-weight: 700; font-size: var(--fs-xl); white-space: nowrap; letter-spacing: var(--ls-wide); } 
+
+    .link-underline {
+        position: relative;
+        text-decoration: none;
+        padding-bottom: 2px;
+        border-bottom: 2px solid var(--color-accent); 
+        transition: all 0.3s ease;
+    }
+    .link-underline:hover { opacity: 0.7; color: var(--color-accent); }
+
+    .bg-duralex-blue { background-color: var(--color-primary); }
+    
+    @media (min-width: 768px) {
+        .promotion__item { padding: 0 2rem; }
+        .qa-marquee-img { height: 30px; } 
+    }
+    
+    .duralex-banner-wrapper { font-family: 'Instrument Sans', 'Noto Sans TC', sans-serif; width: 100%; height: 100%; }
+    .duralex-banner-wrapper h1, .duralex-banner-wrapper h2 { font-weight: 800; letter-spacing: var(--ls-tight); line-height: 1.1; }
+
+    .prize-ticket {
+       position: relative;
+       background-color: rgba(255, 255, 255, 0.1); 
+       color: #fff; 
+       border: 1px dashed rgba(255, 255, 255, 0.4); 
+       border-radius: 4px;
+       padding: 4px 10px; 
+       font-size: var(--fs-sm); 
+       font-weight: 600;
+       display: inline-flex;
+       align-items: center;
+       gap: 4px;
+       cursor: default;
+       margin: 2px;
+       white-space: nowrap; 
+    }
+    .prize-ticket.grand { background-color: #ed6d0f; border: 1px solid #ed6d0f; font-weight: 700; }
+    @media (min-width: 768px) {
+        .prize-ticket { padding: 6px 16px; font-size: var(--fs-sm-plus); gap: 6px; }
+    }
+
+    .color-swatch {
+        width: 22px; height: 22px; border-radius: 50%; cursor: pointer;
+        border: 2px solid transparent; outline: 1px solid rgba(0,0,0,0.12);
+        transition: transform 0.15s ease, outline-color 0.15s ease, outline-width 0.15s ease;
+        flex-shrink: 0; position: relative;
+    }
+    .color-swatch:hover { transform: scale(1.2); }
+    .color-swatch.active { outline-color: #1f286f; outline-width: 2px; outline-offset: 1px; }
+    .color-swatch-clear { background: #ffffff; overflow: hidden; }
+    .color-swatch-clear::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(135deg, transparent 45%, rgba(150,150,150,0.4) 45%, rgba(150,150,150,0.4) 55%, transparent 55%);
+    }
+
+    @keyframes drawLogoAnim {
+        0% { stroke-dashoffset: 200; fill: transparent; opacity: 1; }
+        30% { stroke-dashoffset: 0; fill: transparent; opacity: 1; }
+        50%, 85% { stroke-dashoffset: 0; fill: rgba(31, 40, 111, 0.4); opacity: 1; }
+        100% { stroke-dashoffset: 0; fill: rgba(31, 40, 111, 0.4); opacity: 0; }
+    }
+
+    /* ══════════════════════════════════════════
+       雷雕客製化服務 (dgc- = Duralex Glass Custom)
+       款式 A：UNIE ／ 款式 B：LYS 160ml / 210ml
+       ══════════════════════════════════════════ */
+
+    .dgc-style-section { display: flex; flex-direction: column; gap: 0; }
+
+    .dgc-look-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 3.5rem 0;
+        border-bottom: 1px solid #eee;
+    }
+    .dgc-look-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .dgc-look-row:first-child { padding-top: 0; }
+
+    @media (min-width: 900px) {
+        .dgc-look-row { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    }
+
+    /* ── Left: copy ── */
+    .dgc-look-eyebrow {
+        font-size: var(--fs-xs);
+        font-weight: 700;
+        letter-spacing: var(--ls-widest);
+        text-transform: uppercase;
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+    .dgc-look-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        font-weight: 900;
+        color: var(--color-primary);
+        line-height: 1.05;
+        margin-bottom: 0.4rem;
+    }
+    .dgc-look-tagline {
+        font-size: var(--fs-lg);
+        font-weight: 700;
+        color: var(--color-accent);
+        margin-bottom: 1.25rem;
+    }
+    .dgc-look-desc {
+        font-size: var(--fs-md);
+        color: #6b7280;
+        line-height: 1.85;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    .dgc-look-quote {
+        font-size: var(--fs-sm-plus);
+        color: #9ca3af;
+        font-style: italic;
+        border-left: 3px solid var(--color-accent);
+        padding-left: 0.9rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+    .dgc-look-prices { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .dgc-price-chip {
+        display: flex;
+        flex-direction: column;
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 0.65rem 1.1rem;
+        min-width: 140px;
+    }
+    .dgc-price-chip .cap { font-size: var(--fs-xs); font-weight: 700; color: #9ca3af; letter-spacing: var(--ls-wide); margin-bottom: 0.15rem; }
+    .dgc-price-chip .amt { font-size: var(--fs-xl); font-weight: 900; color: var(--color-primary); }
+
+    .dgc-look-lifestyle-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+    .dgc-look-lifestyle-grid img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: var(--border-radius-card);
+    }
+
+    /* ── Right: interactive preview ── */
+    .dgc-look-try {
+        background: #f8f9fa;
+        border-radius: var(--border-radius-card);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .dgc-preview-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 1.1rem;
+        flex: 1;
+    }
+    .dgc-preview-stage {
+        position: relative;
+        background: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #eee;
+        aspect-ratio: 4 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+    .dgc-preview-img {
+        max-width: 62%;
+        max-height: 82%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+    .dgc-preview-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: var(--fs-md);
+        font-weight: 500;
+        color: #9ca3af;
+        white-space: nowrap;
+        pointer-events: none;
+        transition: top 0.25s ease, color 0.2s ease;
+        max-width: 55%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .dgc-preview-text.dgc-has-text { color: #4b5563; }
+    .dgc-preview-text.dgc-font-arial { font-family: Arial, 'Noto Sans TC', sans-serif; }
+    .dgc-preview-text.dgc-font-bodoni { font-family: 'Bodoni Moda', serif; font-style: italic; }
+    .dgc-preview-text.dgc-font-script { font-family: 'Brush Script MT', 'Segoe Script', cursive; font-size: var(--fs-xl); }
+
+    .dgc-preview-row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .dgc-preview-row-bottom { align-items: start; }
+
+    .dgc-field { display: flex; flex-direction: column; }
+    .dgc-field-label-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem; }
+    .dgc-field label {
+        font-size: var(--fs-sm);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: var(--ls-wide);
+        color: var(--color-primary);
+        margin-bottom: 0.35rem;
+    }
+    .dgc-field-label-row label { margin-bottom: 0; }
+    .dgc-char-count { font-size: var(--fs-xs); color: #9ca3af; font-weight: 600; }
+    .dgc-field input[type="text"],
+    .dgc-field select {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 0.6rem 0.8rem;
+        font-size: var(--fs-sm-plus);
+        font-family: inherit;
+        color: var(--color-text);
+        background: #ffffff;
+        outline: none;
+        transition: border-color 0.2s ease;
+    }
+    .dgc-field input[type="text"]:focus,
+    .dgc-field select:focus { border-color: var(--color-primary); }
+    .dgc-field-hint { font-size: var(--fs-xs); color: #b0b3b8; margin-top: 0.35rem; }
+
+    .dgc-pos-toggle { display: flex; gap: 0.5rem; }
+    .dgc-pos-btn {
+        flex: 1;
+        border: 1px solid #e5e7eb;
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 0.55rem 0.5rem;
+        font-size: var(--fs-sm-plus);
+        font-weight: 700;
+        color: var(--color-primary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .dgc-pos-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+    .dgc-pos-btn:hover:not(.active) { border-color: var(--color-primary); }
+
+    .dgc-copy-row { display: flex; align-items: center; gap: 0.75rem; height: 100%; padding-top: 1.4rem; }
+    .dgc-copy-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-accent);
+        color: #fff;
+        border: none;
+        border-radius: 9999px;
+        padding: 0.6rem 1.1rem;
+        font-weight: 700;
+        font-size: var(--fs-sm);
+        letter-spacing: var(--ls-wide);
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+    }
+    .dgc-copy-btn:hover { background: var(--color-primary); transform: translateY(-1px); }
+    .dgc-copy-feedback { font-size: var(--fs-sm); font-weight: 700; color: #16a34a; opacity: 0; transition: opacity 0.25s ease; }
+    .dgc-copy-feedback.show { opacity: 1; }
+
+    .dgc-preview-note { font-size: var(--fs-xs); color: #b0b3b8; margin-top: 1rem; line-height: 1.6; }
+
+    /* ── Unified single-block layout ── */
+    .dgc-adv-list { display: flex; flex-direction: column; gap: 0.65rem; margin: 1.25rem 0 1.75rem; }
+    .dgc-adv-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: var(--fs-sm-plus); color: #6b7280; font-weight: 500; line-height: 1.5; }
+    .dgc-adv-item i { color: var(--color-accent); font-size: var(--fs-sm-plus); margin-top: 3px; flex-shrink: 0; }
+
+    /* ── Gift-giving scenarios ── */
+    .dgc-gift-scenarios { margin: 1.5rem 0 1.75rem; }
+    .dgc-gift-list { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 0.9rem; }
+    .dgc-gift-item { display: flex; align-items: flex-start; gap: 0.9rem; }
+    .dgc-gift-icon {
+        flex-shrink: 0;
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        background: #f8f9fa;
+        display: flex; align-items: center; justify-content: center;
+        color: var(--color-accent);
+        font-size: var(--fs-md);
+    }
+    .dgc-gift-title { font-weight: 800; color: var(--color-primary); font-size: var(--fs-md); margin-bottom: 0.2rem; }
+    .dgc-gift-desc { font-size: var(--fs-sm-plus); color: #6b7280; font-weight: 500; line-height: 1.6; margin: 0; }
+
+    .dgc-price-table { border-top: 1px solid #eee; }
+    .dgc-price-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #eee; }
+    .dgc-price-row:last-child { border-bottom: none; }
+    .dgc-price-style { display: flex; flex-direction: column; }
+    .dgc-price-style-name { font-weight: 800; color: var(--color-primary); font-size: var(--fs-md); }
+    .dgc-price-style-desc { font-size: var(--fs-sm); color: #9ca3af; font-weight: 500; margin-top: 0.15rem; }
+    .dgc-price-amounts { display: flex; gap: 1.25rem; flex-shrink: 0; }
+    .dgc-price-amounts .item { display: flex; flex-direction: column; align-items: flex-end; }
+    .dgc-price-amounts .cap { font-size: var(--fs-2xs); color: #9ca3af; font-weight: 700; }
+    .dgc-price-amounts .amt { font-size: var(--fs-lg); font-weight: 900; color: var(--color-primary); }
+
+    .dgc-style-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .dgc-style-tab {
+        flex: 1;
+        border: 1px solid #e5e7eb;
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 0.55rem 0.4rem;
+        font-size: var(--fs-sm);
+        font-weight: 700;
+        color: var(--color-primary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+    }
+    .dgc-style-tab.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+    .dgc-style-tab:hover:not(.active) { border-color: var(--color-primary); }
+
+    .dgc-buy-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        width: 100%;
+        background: var(--color-primary);
+        color: #fff;
+        border-radius: 9999px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 800;
+        font-size: var(--fs-sm-plus);
+        letter-spacing: var(--ls-wide);
+        text-decoration: none;
+        margin-top: auto;
+        transition: background 0.25s ease, transform 0.2s ease;
+    }
+    .dgc-buy-btn:hover { background: var(--color-accent); transform: translateY(-2px); }
+
+    @media (max-width: 640px) {
+        .dgc-preview-row-2col { grid-template-columns: 1fr; }
+        .dgc-copy-row { padding-top: 0; }
+        .dgc-price-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        .dgc-price-amounts { align-self: flex-end; }
+        .dgc-style-tabs { flex-wrap: wrap; }
+    }
+</style>
+
+<!-- 3. 主要 HTML 結構 -->
+<main class="duralex-wrapper selection:bg-[#1f286f] selection:text-white">
+<!-- 頁面 H1（純 SEO／無障礙用，視覺隱藏，不影響版面設計） -->
+    <h1 class="sr-only">Duralex 台灣官方網站｜法國經典強化玻璃杯盤餐具、咖啡廳愛用玻璃杯</h1>
+
+    <!-- Hero Section (Static LINE Pay Banner) -->
+    <header class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden flex flex-col md:flex-row bg-[#F4F8FA]" id="hero">
+        <div class="w-full md:w-[45%] h-[55%] md:h-full flex flex-col justify-center p-8 md:p-16 lg:p-24 z-10 relative text-[#1f286f]">
+            <div class="flex flex-col items-center md:items-start mx-auto md:mx-0 w-max max-w-full">
+                <div class="mb-5 md:mb-8 animate-fade-up anim-delay-100 w-full flex justify-center md:justify-start">
+                    <img src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_b6d56756-27d1-48a4-87a5-9ca986ad88b7.png" 
+                         alt="LINE Pay 官方標誌" 
+                         class="h-[2.125rem] sm:h-[2.55rem] md:h-[3.4rem] lg:h-[4.25rem] w-auto object-contain object-center md:object-left transition-transform duration-300 hover:-translate-y-1">
+                </div>
+                <div class="inline-flex flex-col animate-fade-up anim-delay-300 w-full text-center md:text-left">
+                    <h2 class="text-[2.88rem] sm:text-[3.6rem] md:text-[4.05rem] lg:text-[4.95rem] font-black mb-1 md:mb-2 leading-none tracking-tighter text-[#1f286f]">Bonjour!</h2>
+                    <p class="text-[12px] sm:text-[15.3px] md:text-[17.5px] lg:text-[21.6px] font-medium opacity-90 text-[#1f286f] tracking-tight w-full" style="text-align: justify; text-align-last: justify;">
+                        Duralex 也可以用 LINE Pay 囉
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="w-full md:w-[55%] h-[45%] md:h-full relative overflow-hidden">
+            <img src="https://www.duralex.com/cdn/shop/articles/DLxDURALEX_PICARDI_HORIZONTAL_dfa77d75-6f28-414b-ba5e-19e2b87349da.jpg?v=1749112340&width=1500"
+                 alt="Duralex 經典玻璃杯產品展示"
+                 class="absolute inset-0 w-full h-full object-cover animate-slow-zoom"
+                 loading="eager">
+        </div>
+    </header>
+
+    <!-- ══════════ 萬聖節活動區塊 START（10/31 活動結束後整段刪除至 END） ══════════ -->
+<!-- Duralex Halloween Campaign Block 2026 - Scoped CSS Version（任選 3 件 85 折 · 10/22–10/31） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+.dx-hw {
+  /* 全頁只用 6 個顏色 */
+  --night:      #1B1230;   /* 1 夜紫（背景、文字） */
+  --plum:       #6B2D5C;   /* 2 梅紫 */
+  --pumpkin:    #ED6D0F;   /* 3 南瓜橘 */
+  --amber:      #F5B041;   /* 4 琥珀黃 */
+  --cream:      #FFF6E5;   /* 5 奶油 */
+  --white:      #FFFFFF;   /* 6 白 */
+  /* 以下為上面 6 色的別名或加透明度 */
+  --night-2:    var(--night);
+  --ink:        var(--night);
+  --pumpkin-dk: var(--pumpkin);
+  --slime:      var(--amber);
+  --paper:      var(--white);
+  --muted:      rgba(27,18,48,.64);
+  --line:       rgba(27,18,48,.14);
+
+  background: var(--night);
+  color: var(--ink);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  overflow-x: clip;
+  width: 100%;
+}
+.dx-hw * { box-sizing: border-box; }
+.dx-hw h1, .dx-hw h2, .dx-hw h3, .dx-hw h4 { letter-spacing: normal; }
+.dx-hw p, .dx-hw .why-d, .dx-hw .card-name, .dx-hw .card-qty, .dx-hw .honor-d { text-wrap: pretty; }
+/* 中文只在標點、空格處換行，避免把詞拆開 */
+.dx-hw p, .dx-hw .why-d, .dx-hw .why-t, .dx-hw .honor-d, .dx-hw .card-qty, .dx-hw .card-name, .dx-hw .picks-note { word-break: keep-all; overflow-wrap: anywhere; }
+.dx-hw h1, .dx-hw h2, .dx-hw .hero-h1 { text-wrap: balance; }
+.dx-hw h1, .dx-hw h2, .dx-hw h3, .dx-hw h4,
+.dx-hw p, .dx-hw span, .dx-hw div, .dx-hw li { margin: 0; padding: 0; }
+.dx-hw a { text-decoration: none; }
+.dx-hw img { max-width: 100%; }
+.dx-hw svg { display: block; }
+
+/* ── Keyframes ── */
+@keyframes dxhwFadeUp  { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes dxhwMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes dxhwFloat   { 0%,100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-16px) rotate(3deg); } }
+@keyframes dxhwFlap    { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.55); } }
+@keyframes dxhwFly     { 0% { transform: translate(0,0); } 50% { transform: translate(-26px,-14px); } 100% { transform: translate(0,0); } }
+@keyframes dxhwHop     { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-18px); } }
+@keyframes dxhwPulse   { 0%,100% { transform: rotate(-10deg) scale(1); } 50% { transform: rotate(-10deg) scale(1.07); } }
+@keyframes dxhwTwinkle { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+@keyframes dxhwWink    { 0%,92%,100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes dxhwBlink   { 0% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes dxhwSway    { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+
+.dx-hw .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+.dx-hw .reveal.visible { opacity: 1; transform: none; }
+.dx-hw .d1 { transition-delay: .08s; }
+.dx-hw .d2 { transition-delay: .16s; }
+.dx-hw .d3 { transition-delay: .24s; }
+
+/* ── Buttons ── */
+.dx-hw .btn-pri, .dx-hw .btn-sec {
+  display: inline-block; padding: 15px 34px; border-radius: 999px;
+  font-size: 14px; font-weight: 700; letter-spacing: .1em;
+  transition: transform .2s, background .2s, color .2s, box-shadow .2s, border-color .2s;
+}
+.dx-hw .btn-pri { background: var(--pumpkin); color: var(--white); box-shadow: 0 6px 0 rgba(27,18,48,.45); }
+.dx-hw .btn-pri:hover { transform: translateY(3px); box-shadow: 0 3px 0 rgba(27,18,48,.45); color: var(--white); }
+.dx-hw .btn-sec { border: 1.5px solid rgba(255,255,255,.4); color: var(--white); }
+.dx-hw .btn-sec:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
+
+/* ══ HERO ══ */
+.dx-hw .hero {
+  position: relative; min-height: min(86vh, 780px);
+  display: grid; grid-template-columns: 46fr 54fr;
+  background:
+    radial-gradient(ellipse at 78% 30%, rgba(107,45,92,.75) 0%, transparent 55%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%);
+  overflow: hidden;
+}
+.dx-hw .hero-copy {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  padding: 72px 40px 72px clamp(32px, 11vw, 190px);
+}
+.dx-hw .hero-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--amber); display: flex; align-items: center; gap: 12px; margin-bottom: 22px;
+  opacity: 0; animation: dxhwFadeUp .7s ease forwards .1s;
+}
+.dx-hw .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--amber); }
+.dx-hw .hero-badge {
+  background: var(--slime); color: var(--ink);
+  font-size: 12px; font-weight: 700; letter-spacing: .12em;
+  padding: 6px 16px; border-radius: 999px; margin-bottom: 24px;
+  transform: rotate(-2deg);
+  opacity: 0; animation: dxhwFadeUp .7s ease forwards .22s;
+}
+.dx-hw .hero-h1 {
+  font-family: 'Fraunces', serif; font-weight: 900; font-style: italic;
+  font-size: clamp(46px, 6.4vw, 92px); line-height: .98; color: var(--white);
+  margin-bottom: 18px;
+  opacity: 0; animation: dxhwFadeUp .7s ease forwards .34s;
+}
+.dx-hw .hero-h1 em { font-style: italic; color: var(--pumpkin); }
+.dx-hw .hero-offer {
+  font-size: clamp(24px, 3.2vw, 42px); font-weight: 900; color: var(--white);
+  line-height: 1.25; margin-bottom: 28px;
+  opacity: 0; animation: dxhwFadeUp .7s ease forwards .46s;
+}
+.dx-hw .hero-offer-top { font-size: .76em; white-space: nowrap; }
+.dx-hw .hero-offer b {
+  color: var(--ink); background: var(--amber);
+  padding: 0 .28em; border-radius: 6px; display: inline-block; transform: rotate(-2deg);
+}
+.dx-hw .hero-actions {
+  display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px;
+  opacity: 0; animation: dxhwFadeUp .7s ease forwards .66s;
+}
+.dx-hw .hero-cd { opacity: 0; animation: dxhwFadeUp .7s ease forwards .78s; }
+
+/* Countdown (shared) */
+.dx-hw .cd-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .22em; color: var(--amber);
+  margin-bottom: 10px; display: block;
+}
+.dx-hw .cd-row { display: flex; gap: 10px; }
+.dx-hw .cd-u { min-width: 62px; padding: 0 4px; text-align: center; }
+.dx-hw .cd-u + .cd-u { border-left: 0; }
+.dx-hw .cd-n {
+  font-family: 'Fraunces', serif; font-size: 30px; font-weight: 900;
+  color: var(--white); line-height: 1; display: block; font-variant-numeric: tabular-nums;
+}
+.dx-hw .cd-l { font-size: 10px; font-weight: 700; letter-spacing: .18em; color: rgba(255,255,255,.6); display: block; margin-top: 4px; }
+.dx-hw .cd.ended .cd-row { display: none; }
+
+/* Hero visual */
+.dx-hw .hero-vis { position: relative; min-height: 560px; }
+.dx-hw .moon {
+  position: absolute; top: 50%; left: 50%;
+  width: min(40vw, 560px); aspect-ratio: 1; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 35% 30%, #FFF6E5 0%, #FFF6E5 30%, #F5B041 125%);
+  box-shadow: 0 0 120px 30px rgba(245,176,65,.28);
+}
+.dx-hw .moon::before, .dx-hw .moon::after {
+  content: ''; position: absolute; border-radius: 50%; background: rgba(237,109,15,.14);
+}
+.dx-hw .moon::before { width: 18%; height: 18%; top: 22%; left: 58%; }
+.dx-hw .moon::after  { width: 10%; height: 10%; top: 76%; left: 58%; }
+
+/* Picardie 小劇場：所有座標都是月亮的百分比 */
+.dx-hw .scene { position: absolute; inset: 0; mix-blend-mode: multiply; clip-path: circle(50% at 50% 50%); }
+.dx-hw .stage { position: absolute; inset: 0; }
+.dx-hw .scene-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.dx-hw .pc { position: absolute; mix-blend-mode: multiply; }
+.dx-hw .pc img { display: block; width: 100%; height: auto;
+  -webkit-mask-image: radial-gradient(closest-side, #1B1230 82%, transparent 100%); mask-image: radial-gradient(closest-side, #1B1230 82%, transparent 100%); }
+.dx-hw .pc-g { width: 34.7%; left: 33.2%; top: 38.1%; transform: rotate(180deg); }
+.dx-hw .pc-a { width: 32.3%; left: 5.7%;  top: 49.4%; transform: rotate(180deg); }
+.dx-hw .pc-p { width: 30.8%; left: 62.9%; top: 47%;   transform: rotate(180deg); }
+.dx-hw .hat { transform-box: fill-box; transform-origin: 50% 100%; animation: dxhwSway 2.8s ease-in-out infinite; }
+.dx-hw .eyes { transform-box: fill-box; transform-origin: center; animation: dxhwWink 4.5s infinite; }
+.dx-hw .eyes-b { animation-delay: 1.4s; }
+.dx-hw .eyes-c { animation-delay: 2.7s; }
+.dx-hw .pumpkin { transform-box: fill-box; transform-origin: 50% 100%; animation: dxhwSway 3.2s ease-in-out infinite; }
+.dx-hw .burst {
+  position: absolute; top: 12%; right: 9%;
+  width: clamp(104px, 13vw, 176px); aspect-ratio: 1;
+  background: var(--pumpkin); color: var(--white); border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  animation: dxhwPulse 1.8s ease-in-out infinite;
+  box-shadow: 0 0 0 6px rgba(237,109,15,.25), 0 16px 34px rgba(27,18,48,.35);
+  text-align: center; line-height: 1;
+}
+.dx-hw .burst small { font-size: clamp(10px, 1.1vw, 13px); font-weight: 700; letter-spacing: .14em; margin-bottom: 4px; display: block; }
+.dx-hw .burst strong { font-family: 'Fraunces', serif; font-size: clamp(38px, 5vw, 68px); font-weight: 900; font-style: italic; display: block; }
+.dx-hw .burst strong i { font-family: 'Noto Sans TC', sans-serif; font-style: normal; font-size: .42em; font-weight: 900; margin-left: 2px; }
+
+.dx-hw .bat { position: absolute; color: #1B1230; animation: dxhwFly 5s ease-in-out infinite; }
+.dx-hw .bat svg { width: 100%; height: auto; animation: dxhwFlap .45s ease-in-out infinite; transform-origin: center; }
+.dx-hw .bat-1 { width: 74px; top: 16%; left: 12%; }
+.dx-hw .bat-2 { width: 46px; top: 34%; left: 30%; animation-duration: 6.5s; animation-delay: -2s; }
+.dx-hw .bat-3 { width: 56px; top: 9%; left: 52%; animation-duration: 7s; animation-delay: -4s; }
+.dx-hw .star {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%; background: var(--white);
+  animation: dxhwTwinkle 2.6s ease-in-out infinite;
+}
+
+@media (max-width: 860px) {
+  .dx-hw .hero { grid-template-columns: 1fr; min-height: 0; }
+  .dx-hw .hero-vis { order: -1; min-height: 96vw; }
+  .dx-hw .moon { width: 84vw; transform: translate(-50%, -50%); }
+  .dx-hw .burst { width: 27vw; top: 8%; right: 5%; }
+  .dx-hw .burst strong { font-size: 10.5vw; }
+  .dx-hw .burst small { font-size: 2.8vw; }
+  .dx-hw .hero-copy { padding: 12px 24px 56px; }
+  .dx-hw .cd-u { min-width: 0; flex: 1; }
+  .dx-hw .cd-row { width: 100%; }
+  .dx-hw .hero-cd { width: 100%; }
+}
+
+/* ══ MARQUEE ══ */
+.dx-hw .marquee-wrap { background: var(--pumpkin); overflow: hidden; padding: 14px 0; position: relative; z-index: 3; }
+.dx-hw .marquee-track { display: flex; width: max-content; animation: dxhwMarquee 38s linear infinite; }
+.dx-hw .marquee-item {
+  display: flex; align-items: center; gap: 14px; padding: 0 22px; white-space: nowrap;
+  color: var(--white); font-size: 16px; font-weight: 900; letter-spacing: .08em;
+}
+.dx-hw .marquee-item svg { width: 26px; height: auto; color: var(--ink); flex-shrink: 0; }
+.dx-hw .marquee-item em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 900; color: var(--ink); }
+
+/* ══ WHY DURALEX ══ */
+.dx-hw .why { background: var(--cream); padding: 0 56px 100px; position: relative; }
+.dx-hw .drip { display: block; height: 56px; color: var(--pumpkin); margin: 0 -56px 56px; width: calc(100% + 112px); max-width: none; }
+.dx-hw .sec-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--pumpkin-dk); margin-bottom: 8px; }
+.dx-hw .sec-h2 {
+  font-family: 'Fraunces', 'Noto Sans TC', serif; font-weight: 900;
+  font-size: clamp(28px, 3.8vw, 50px); line-height: 1.15; color: var(--ink);
+}
+.dx-hw .sec-h2 em { font-style: italic; color: var(--pumpkin); }
+.dx-hw .sec-h2 em[lang="fr"] { white-space: nowrap; font-size: .86em; }
+.dx-hw .why-inner { max-width: 1160px; margin: 0 auto; }
+.dx-hw .why-hd { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: end; margin-bottom: 60px; }
+.dx-hw .why-lead { font-size: 15px; line-height: 1.9; color: var(--muted); }
+.dx-hw .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1.5px solid var(--ink); }
+.dx-hw .why-item { padding: 34px 28px 8px 0; }
+.dx-hw .why-item + .why-item { padding-left: 28px; border-left: 1px solid var(--line); }
+.dx-hw .why-n {
+  font-family: 'Fraunces', serif; font-weight: 900; font-style: italic;
+  font-size: clamp(44px, 4.6vw, 64px); line-height: 1; color: var(--ink); margin-bottom: 16px;
+  letter-spacing: -.02em;
+}
+.dx-hw .why-n sup { font-size: .42em; color: var(--pumpkin); margin-left: 2px; vertical-align: top; position: relative; top: .3em; }
+.dx-hw .why-t { font-size: 16px; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
+.dx-hw .why-d { font-size: 13px; line-height: 1.8; color: var(--muted); }
+.dx-hw .honor {
+  margin-top: 64px; display: grid; grid-template-columns: 340px 1fr;
+  border-radius: 22px; overflow: hidden; background: var(--ink); color: var(--white);
+  border: 1.5px solid var(--ink);
+}
+.dx-hw .honor-k { font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+.dx-hw .honor-award {
+  background: var(--white); padding: 30px 30px 28px;
+  display: flex; flex-direction: column; justify-content: center; text-align: center;
+}
+.dx-hw .honor-award .honor-k { color: var(--pumpkin-dk); margin-bottom: 10px; }
+.dx-hw .honor-logo { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto 16px; }
+.dx-hw .honor-d { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.6; }
+.dx-hw .flag {
+  display: inline-block; width: 21px; height: 14px; vertical-align: -2px; margin-right: 7px;
+  border-radius: 2px; box-shadow: 0 0 0 1px rgba(27,18,48,.12);
+}
+.dx-hw .honor-museum { padding: 40px 44px; }
+.dx-hw .honor-lead { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,.75); margin-bottom: 22px; max-width: 34em; }
+.dx-hw .honor-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; }
+.dx-hw .honor-list li { padding: 16px 0; border-top: 1px solid rgba(255,255,255,.12); display: flex; flex-direction: column; gap: 2px; }
+.dx-hw .honor-list li:nth-child(odd) { padding-right: 24px; }
+.dx-hw .honor-list li:nth-child(even) { padding-left: 24px; border-left: 1px solid rgba(255,255,255,.12); }
+.dx-hw .honor-mn { font-family: 'Fraunces', serif; font-style: italic; font-weight: 700; font-size: clamp(20px, 2.1vw, 28px); line-height: 1.15; color: var(--white); }
+.dx-hw .honor-ml { font-size: 12px; letter-spacing: .08em; color: rgba(255,255,255,.6); margin-top: 4px; }
+@media (max-width: 860px) {
+  .dx-hw .why { padding: 0 24px 64px; }
+  .dx-hw .drip { margin: 0 -24px 36px; width: calc(100% + 48px); height: 36px; }
+  .dx-hw .why-hd { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+  .dx-hw .why-grid { grid-template-columns: 1fr 1fr; }
+  .dx-hw .why-item, .dx-hw .why-item + .why-item { padding: 26px 16px 22px 0; border-left: none; }
+  .dx-hw .why-item:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+  .dx-hw .why-item:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .dx-hw .honor { margin-top: 40px; grid-template-columns: 1fr; border-radius: 18px; }
+  .dx-hw .honor-award { padding: 22px 20px 22px; }
+  .dx-hw .honor-museum { padding: 28px 24px 16px; }
+  .dx-hw .honor-list li:nth-child(odd) { padding-right: 12px; }
+  .dx-hw .honor-list li:nth-child(even) { padding-left: 12px; }
+}
+
+/* ══ PICKS + BASKET ══ */
+.dx-hw .picks {
+  background: linear-gradient(180deg, var(--night-2) 0%, var(--night) 100%);
+  padding: 96px 56px 40px; position: relative;
+}
+.dx-hw .picks-inner { max-width: 1200px; margin: 0 auto; }
+.dx-hw .picks-hd { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 44px; flex-wrap: wrap; }
+.dx-hw .picks .sec-eyebrow { color: var(--amber); }
+.dx-hw .picks .sec-h2 { color: var(--white); }
+.dx-hw .picks-note { font-size: 13px; color: rgba(255,255,255,.65); max-width: 26em; }
+.dx-hw .picks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+@media (max-width: 980px) { .dx-hw .picks-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .dx-hw .picks { padding: 64px 16px 28px; } .dx-hw .picks-grid { gap: 12px; } }
+
+.dx-hw .card {
+  background: var(--paper); border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column; position: relative;
+  border: 2px solid transparent;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+.dx-hw .card:hover { transform: translateY(-6px) rotate(-.6deg); border-color: var(--pumpkin); box-shadow: 0 18px 40px rgba(27,18,48,.4); }
+.dx-hw .card-tag {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  font-size: 11px; font-weight: 900; letter-spacing: .08em;
+  padding: 4px 11px; border-radius: 999px; transform: rotate(-4deg);
+  background: var(--ink); color: var(--white);
+}
+.dx-hw .card:nth-child(4n+1) .card-tag { background: var(--pumpkin); }
+.dx-hw .card:nth-child(4n+2) .card-tag { background: var(--plum); }
+.dx-hw .card:nth-child(4n+3) .card-tag { background: var(--slime); color: var(--ink); }
+.dx-hw .card-img { display: block; aspect-ratio: 1; background: var(--white); padding: 16px; overflow: hidden; }
+.dx-hw .card-img img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: transform .6s cubic-bezier(.25,.46,.45,.94); }
+.dx-hw .card-img.cover { padding: 0; }
+.dx-hw .card-img.cover img { object-fit: cover; mix-blend-mode: normal; }
+.dx-hw .card:hover .card-img img { transform: scale(1.07); }
+.dx-hw .card-info { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
+.dx-hw .card-series { font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--pumpkin-dk); margin-bottom: 4px; }
+.dx-hw .card-name { font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 3px; }
+.dx-hw .card-qty { font-size: 11px; color: var(--muted); margin-bottom: 10px; flex: 1; }
+.dx-hw .card-price { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+.dx-hw .card-price small { font-family: 'Noto Sans TC', sans-serif; font-size: 11px; font-weight: 400; color: var(--muted); margin-left: 4px; }
+.dx-hw .card-more {
+  display: block; text-align: center;
+  font-size: 13px; font-weight: 700; letter-spacing: .06em;
+  background: var(--ink); color: var(--white);
+  border-radius: 999px; padding: 9px 10px;
+  transition: background .2s;
+}
+.dx-hw .card:hover .card-more { background: var(--pumpkin); }
+.dx-hw .picks-more { text-align: center; padding: 36px 0 20px; }
+.dx-hw .picks-more a {
+  color: var(--white); font-size: 13px; font-weight: 700; letter-spacing: .14em;
+  border-bottom: 1.5px solid var(--pumpkin); padding-bottom: 3px; transition: color .2s;
+}
+.dx-hw .picks-more a:hover { color: var(--amber); }
+
+/* 淺色版（餐盤＋沙拉碗） */
+.dx-hw .picks.light { background: var(--cream); }
+.dx-hw .picks.light .sec-eyebrow { color: var(--pumpkin-dk); }
+.dx-hw .picks.light .sec-h2 { color: var(--ink); }
+.dx-hw .picks.light .picks-note { color: var(--muted); }
+.dx-hw .picks.light .card { border-color: var(--line); }
+/* 餐盤與禮盒多為情境照：滿版裁切 */
+.dx-hw .picks.light .card-img, .dx-hw .picks.gift .card-img { padding: 0; }
+.dx-hw .picks.light .card-img img, .dx-hw .picks.gift .card-img img { object-fit: cover; mix-blend-mode: normal; }
+.dx-hw .picks.light .card:hover { border-color: var(--pumpkin); box-shadow: 0 18px 40px rgba(27,18,48,.14); }
+.dx-hw .picks.light .picks-more a { color: var(--ink); }
+.dx-hw .picks.light .picks-more a:hover { color: var(--pumpkin-dk); }
+
+/* 禮盒版：橫式大卡 */
+.dx-hw .picks.gift { background: linear-gradient(160deg, var(--plum) 0%, var(--night-2) 70%); }
+.dx-hw .picks.gift .picks-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.dx-hw .picks.gift .card { flex-direction: row; }
+.dx-hw .picks.gift .card-img { width: 46%; flex-shrink: 0; }
+.dx-hw .picks.gift .card-info { padding: 24px 22px; justify-content: center; }
+.dx-hw .picks.gift .card-name { font-size: 18px; }
+.dx-hw .picks.gift .card-qty { flex: 0; margin-bottom: 16px; }
+.dx-hw .picks.gift .card-price { font-size: 24px; }
+.dx-hw .picks.gift .card-tag { background: var(--pumpkin); color: var(--white); }
+@media (max-width: 860px) {
+  .dx-hw .picks.gift .picks-grid { grid-template-columns: 1fr; gap: 12px; }
+  .dx-hw .picks.gift .card-img { width: 42%; padding: 10px; }
+  .dx-hw .picks.gift .card-info { padding: 16px 14px; }
+  .dx-hw .picks.gift .card-name { font-size: 15px; }
+  .dx-hw .picks.gift .card-price { font-size: 20px; }
+}
+
+/* ══ CTA ══ */
+.dx-hw .cta {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(237,109,15,.35) 0%, transparent 60%),
+    var(--night);
+  padding: 110px 56px; text-align: center; position: relative; overflow: hidden;
+}
+.dx-hw .cta-inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+.dx-hw .cta-pumpkin { width: 86px; margin: 0 auto 18px; color: var(--pumpkin); animation: dxhwFloat 4s ease-in-out infinite; }
+.dx-hw .cta-pumpkin svg { width: 100%; height: auto; }
+.dx-hw .cta-h2 {
+  font-family: 'Fraunces', 'Noto Sans TC', serif; font-weight: 900;
+  font-size: clamp(30px, 5vw, 58px); line-height: 1.15; color: var(--white); margin-bottom: 14px;
+}
+.dx-hw .cta-h2 em { font-style: italic; color: var(--pumpkin); }
+.dx-hw .cta-p { font-size: 15px; color: rgba(255,255,255,.72); margin-bottom: 34px; }
+.dx-hw .cta .cd { display: inline-block; margin-bottom: 40px; }
+.dx-hw .cta .cd-row { justify-content: center; }
+.dx-hw .cta .cd-n { font-size: 40px; color: var(--amber); }
+.dx-hw .cta .cd-u { min-width: 78px; }
+.dx-hw .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 768px) {
+  .dx-hw .cta { padding: 76px 24px; }
+  .dx-hw .cta .cd-u { min-width: 62px; }
+  .dx-hw .cta .cd-n { font-size: 30px; }
+}
+
+/* ══ 手機／直式版主視覺：置中排版，填滿寬度 ══ */
+@media (max-width: 860px) {
+  .dx-hw .hero-vis { min-height: 90vw; }
+  .dx-hw .hero-copy { align-items: center; text-align: center; padding: 0 20px 44px; }
+  .dx-hw .hero-eyebrow { margin-bottom: 14px; }
+  .dx-hw .hero-eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--amber); }
+  .dx-hw .hero-badge { margin-bottom: 16px; }
+  .dx-hw .hero-h1 { font-size: min(12vw, 76px); white-space: nowrap; margin-bottom: 14px; }
+  .dx-hw .hero-h1 br { display: none; }
+  .dx-hw .hero-offer { font-size: min(7.6vw, 46px); margin-bottom: 22px; }
+  .dx-hw .hero-actions { justify-content: center; margin-bottom: 26px; }
+  .dx-hw .hero-cd { width: 100%; max-width: 460px; }
+  .dx-hw .hero-cd .cd-label { text-align: center; }
+}
+
+/* ══ 手機版微調（≤520px） ══ */
+@media (max-width: 520px) {
+  .dx-hw .hero-vis { min-height: 100vw; }
+  .dx-hw .moon { width: 78vw; }
+  .dx-hw .hero-copy { padding: 8px 20px 48px; }
+  .dx-hw .hero-actions { gap: 10px; flex-wrap: nowrap; width: 100%; margin-bottom: 30px; }
+  .dx-hw .hero-offer { margin-bottom: 24px; }
+  .dx-hw .cta-actions { gap: 10px; flex-wrap: nowrap; }
+  .dx-hw .btn-pri, .dx-hw .btn-sec { padding: 13px 18px; font-size: 13px; letter-spacing: .06em; white-space: nowrap; flex: 1; text-align: center; }
+  .dx-hw .btn-sec { padding: 12px 18px; }
+
+  .dx-hw .why-grid { grid-template-columns: 1fr; }
+  .dx-hw .why-grid .why-item {
+    display: grid; grid-template-columns: 108px 1fr; column-gap: 14px; align-items: start;
+    padding: 20px 0; border-left: none; border-top: 1px solid var(--line);
+  }
+  .dx-hw .why-grid .why-item:first-child { border-top: none; }
+  .dx-hw .why-grid .why-n { grid-row: 1 / span 2; font-size: 38px; margin: 2px 0 0; }
+  .dx-hw .why-grid .why-t { margin-bottom: 4px; }
+
+  .dx-hw .honor-k { letter-spacing: .08em; font-size: 10px; }
+  .dx-hw .honor-list { grid-template-columns: 1fr; }
+  .dx-hw .honor-list li:nth-child(odd), .dx-hw .honor-list li:nth-child(even) { padding: 14px 0; border-left: none; }
+  .dx-hw .honor-mn { font-size: 22px; }
+
+  .dx-hw .card-info { padding: 12px 12px 14px; }
+  .dx-hw .card-name { font-size: 13px; }
+  .dx-hw .card-price { font-size: 18px; }
+  .dx-hw .picks.gift .card-info { padding: 14px 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dx-hw *, .dx-hw *::before, .dx-hw *::after { animation: none !important; transition: none !important; }
+  .dx-hw .reveal, .dx-hw .hero-copy > * { opacity: 1 !important; transform: none !important; }
+}
+</style>
+
+<div class="dx-hw">
+
+<!-- SVG 圖示（蝙蝠 / 幽靈 / 南瓜），整頁共用 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="dxhw-bat" viewBox="0 0 64 30">
+    <path fill="currentColor" d="M32 12l-3-6-1 5c-6-6-16-7-26-3 5 1 8 4 9 8 3-2 6-2 8 1 2-2 5-2 7 1 1 3 3 6 6 9 3-3 5-6 6-9 2-3 5-3 7-1 2-3 5-3 8-1 1-4 4-7 9-8-10-4-20-3-26 3l-1-5z"/>
+  </symbol>
+  <symbol id="dxhw-ghost" viewBox="0 0 48 56">
+    <path fill="currentColor" d="M24 2C12 2 5 11 5 23v31l6-5 6 5 7-5 7 5 6-5 6 5V23C43 11 36 2 24 2z"/>
+    <ellipse cx="17" cy="23" rx="3.2" ry="4.4" fill="#1B1230"/>
+    <ellipse cx="31" cy="23" rx="3.2" ry="4.4" fill="#1B1230"/>
+    <ellipse cx="24" cy="34" rx="3.4" ry="2.4" fill="#1B1230"/>
+  </symbol>
+  <symbol id="dxhw-flag-us" viewBox="0 0 38 20"><rect width="38" height="20" fill="#B22234"/><rect y="1.54" width="38" height="1.54" fill="#fff"/><rect y="4.62" width="38" height="1.54" fill="#fff"/><rect y="7.69" width="38" height="1.54" fill="#fff"/><rect y="10.77" width="38" height="1.54" fill="#fff"/><rect y="13.85" width="38" height="1.54" fill="#fff"/><rect y="16.92" width="38" height="1.54" fill="#fff"/><rect width="15.2" height="10.77" fill="#3C3B6E"/><circle cx="1.6" cy="1.5" r=".55" fill="#fff"/><circle cx="4.6" cy="1.5" r=".55" fill="#fff"/><circle cx="7.6" cy="1.5" r=".55" fill="#fff"/><circle cx="10.6" cy="1.5" r=".55" fill="#fff"/><circle cx="13.6" cy="1.5" r=".55" fill="#fff"/><circle cx="3.1" cy="4.1" r=".55" fill="#fff"/><circle cx="6.1" cy="4.1" r=".55" fill="#fff"/><circle cx="9.1" cy="4.1" r=".55" fill="#fff"/><circle cx="12.1" cy="4.1" r=".55" fill="#fff"/><circle cx="15.1" cy="4.1" r=".55" fill="#fff"/><circle cx="1.6" cy="6.7" r=".55" fill="#fff"/><circle cx="4.6" cy="6.7" r=".55" fill="#fff"/><circle cx="7.6" cy="6.7" r=".55" fill="#fff"/><circle cx="10.6" cy="6.7" r=".55" fill="#fff"/><circle cx="13.6" cy="6.7" r=".55" fill="#fff"/><circle cx="3.1" cy="9.3" r=".55" fill="#fff"/><circle cx="6.1" cy="9.3" r=".55" fill="#fff"/><circle cx="9.1" cy="9.3" r=".55" fill="#fff"/><circle cx="12.1" cy="9.3" r=".55" fill="#fff"/><circle cx="15.1" cy="9.3" r=".55" fill="#fff"/></symbol>
+  <symbol id="dxhw-flag-uk" viewBox="0 0 60 30"><rect width="60" height="30" fill="#012169"/><path d="M0 0L60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0L60 30M60 0L0 30" stroke="#C8102E" stroke-width="2.4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></symbol>
+  <symbol id="dxhw-flag-fr" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002654"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></symbol>
+  <symbol id="dxhw-flag-jp" viewBox="0 0 3 2"><rect width="3" height="2" fill="#fff"/><circle cx="1.5" cy="1" r=".6" fill="#BC002D"/></symbol>
+  <symbol id="dxhw-pumpkin" viewBox="0 0 64 60">
+    <path fill="currentColor" d="M29 4h7v9c14 1 25 10 25 23S49 58 32 58 3 49 3 36s11-22 26-23z"/>
+    <path fill="#1B1230" d="M17 28l7 9H12zM47 28l5 9H40zM16 44h32l-5 6-5-4-6 5-6-5-5 4z"/>
+  </symbol>
+</svg>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-copy">
+    <div class="hero-eyebrow">Halloween 2026</div>
+    <div class="hero-badge">10 / 22 — 10 / 31 限時 10 天</div>
+    <div class="hero-h1" aria-hidden="true">Trick<br> or <em>Treat!</em></div>
+    <h2 class="hero-offer"><span class="hero-offer-top">Duralex 萬聖節優惠活動</span><br>任選 <b>3 件</b> <b>85 折</b></h2>
+    <div class="hero-actions">
+      <a href="#dxhw-picks" class="btn-pri">萬聖節精選 →</a>
+      <a href="#dxhw-why" class="btn-sec">法國 Duralex</a>
+    </div>
+    <div class="cd hero-cd" data-dxhw-cd>
+      <span class="cd-label">活動結束倒數</span>
+      <div class="cd-row">
+        <div class="cd-u"><span class="cd-n" data-cd="d">--</span><span class="cd-l">天</span></div>
+        <div class="cd-u"><span class="cd-n" data-cd="h">--</span><span class="cd-l">時</span></div>
+        <div class="cd-u"><span class="cd-n" data-cd="m">--</span><span class="cd-l">分</span></div>
+        <div class="cd-u"><span class="cd-n" data-cd="s">--</span><span class="cd-l">秒</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-vis" aria-hidden="true">
+    <span class="star" style="top:12%;left:22%"></span>
+    <span class="star" style="top:24%;left:74%;animation-delay:-1s"></span>
+    <span class="star" style="top:62%;left:14%;animation-delay:-1.6s"></span>
+    <span class="star" style="top:8%;left:86%;animation-delay:-.6s"></span>
+    <span class="star" style="top:76%;left:88%;animation-delay:-2s"></span>
+    <span class="star" style="top:44%;left:6%;animation-delay:-.3s"></span>
+    <div class="moon">
+      <div class="scene">
+        <div class="stage">
+        <div class="pc pc-a"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTA5NzUzLzE3MTgyNjQ0MjhfZWFiYTg0NGQ1NzhhYzI2M2Q4ZjEuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=20b78df9d8fd06ea" alt=""></div>
+        <div class="pc pc-g"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMTkzLzE3NjU5NzI1MzNfNDNmZTc5N2RmZDVmN2EwMjExZDAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=23c9b39c705beb42" alt=""></div>
+        <div class="pc pc-p"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMjU1LzE3NjYwMDc1NDhfZTEwMGE4ZmI4MDRlMTBmYWY5M2QucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=95f887dab150ed98" alt=""></div>
+        <svg class="scene-svg scene-front" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <g stroke="#1B1230" stroke-linejoin="round" stroke-linecap="round">
+            <!-- 中：巫婆鬼（綠） -->
+            <g class="eyes"><ellipse cx="45.3" cy="55.2" rx="1.8" ry="2.7" fill="#1B1230" stroke="none"/><ellipse cx="54.7" cy="55.2" rx="1.8" ry="2.7" fill="#1B1230" stroke="none"/></g>
+            <g transform="translate(50 48.2) scale(.93) translate(-50 -38.6)">
+              <g class="hat">
+                <path d="M41.5 38.2C43.5 30 46 22.5 51 16.5c3-3.5 7-4 10-2-3.5.4-5.5 2.8-6.5 6.8 1 6 2.3 11.4 3.5 16.9z" fill="#1B1230" stroke-width=".7"/>
+                <path d="M42.6 34c4.4 1.2 10.4 1.2 14.6 0l.6 3c-4.8 1.3-10.8 1.3-15.8 0z" fill="#ED6D0F" stroke-width=".5"/>
+                <rect x="48.2" y="34.2" width="3.6" height="2.8" rx=".3" fill="none" stroke="#F5B041" stroke-width=".6"/>
+                <ellipse cx="50" cy="38.6" rx="17" ry="3.2" fill="#1B1230" stroke-width=".7"/>
+              </g>
+            </g>
+            <!-- 左：南瓜鬼（琥珀） -->
+            <g transform="translate(21.5 51.4) scale(1.05) translate(-16.5 -48.5)">
+              <g class="eyes eyes-b"><ellipse cx="13.8" cy="55.5" rx="1.3" ry="2" fill="#1B1230" stroke="none"/><ellipse cx="19.2" cy="55.5" rx="1.3" ry="2" fill="#1B1230" stroke="none"/></g>
+              <path d="M7.6 58c-1.5 3 0 6 4 6.5-1.5-2-2-4-1.7-6z" fill="#FFF6E5" stroke-width=".55"/>
+              <path d="M25.4 58c1.5 3 0 6-4 6.5 1.5-2 2-4 1.7-6z" fill="#FFF6E5" stroke-width=".55"/>
+              <g class="pumpkin">
+                <path d="M16.2 60.4c-.2-1 .2-2 1-2.6" fill="none" stroke="#1B1230" stroke-width=".9"/>
+                <ellipse cx="16.5" cy="64.8" rx="5.4" ry="4.3" fill="#ED6D0F" stroke-width=".6"/>
+                <path d="M16.5 60.6c-1.6 1.2-2.2 6.8 0 8.4M16.5 60.6c1.6 1.2 2.2 6.8 0 8.4M12.6 61.8c-1.2 2-1.2 4.8.2 6.2M20.4 61.8c1.2 2 1.2 4.8-.2 6.2" fill="none" stroke-width=".4" opacity=".7"/>
+                <path d="M13.8 63.4l1.4-1.6.8 1.8zM19.2 63.4l-1.4-1.6-.8 1.8zM13.4 65.6l1.2.9.9-.8.9.9.9-.8.9.9 1.2-.9-.7 1.6h-4.6z" fill="#1B1230" stroke="none"/>
+              </g>
+            </g>
+            <!-- 右：吸血鬼（梅紫） -->
+            <g transform="translate(78.5 50.8) scale(1.05) translate(-83.5 -48)">
+              <path d="M76.6 52.5L71 59.5l-.6 11.5h4.6z" fill="#1B1230" stroke-width=".55"/>
+              <path d="M90.4 52.5l5.6 7 .6 11.5h-4.6z" fill="#1B1230" stroke-width=".55"/>
+              <path d="M75.6 54.5l-3.6 5.4-.4 10.6M91.4 54.5l3.6 5.4.4 10.6" fill="none" stroke="#6B2D5C" stroke-width=".7"/>
+              <g class="eyes eyes-c"><ellipse cx="80.8" cy="55.5" rx="1.3" ry="2" fill="#1B1230" stroke="none"/><ellipse cx="86.2" cy="55.5" rx="1.3" ry="2" fill="#1B1230" stroke="none"/></g>
+              <path d="M81.9 59.6l.85 2.3.85-2.3zM83.9 59.6l.85 2.3.85-2.3z" fill="#FFFFFF" stroke-width=".35"/>
+            </g>
+          </g>
+        </svg>
+        </div>
+      </div>
+    </div>
+    <div class="bat bat-1"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg></div>
+    <div class="bat bat-2"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg></div>
+    <div class="bat bat-3"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg></div>
+    <div class="burst"><small>任選 3 件</small><strong>85<i>折</i></strong></div>
+  </div>
+</section>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg><em>Trick or Treat</em></div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg>任選 3 件 85 折</div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg>10/22 — 10/31</div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg>100% 法國製造</div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg><em>Happy Halloween</em></div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg>自由混搭 湊滿就折</div>
+    <!-- duplicate -->
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg><em>Trick or Treat</em></div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg>任選 3 件 85 折</div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg>10/22 — 10/31</div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg>100% 法國製造</div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg><em>Happy Halloween</em></div>
+    <div class="marquee-item"><svg viewBox="0 0 64 30"><use href="#dxhw-bat"/></svg>自由混搭 湊滿就折</div>
+  </div>
+</div>
+
+<!-- ══════════ WHY DURALEX ══════════ -->
+<section class="why" id="dxhw-why">
+  <svg class="drip" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="currentColor" d="M0 0h1200v14c-30 0-30 30-60 30s-20-30-60-30-40 12-80 12-30-12-70-12-30 44-60 44-30-44-70-44-50 16-90 16-40-16-80-16-30 34-60 34-30-34-70-34-50 10-90 10-40-10-80-10-30 40-60 40-30-40-70-40-60 14-100 14-50-14-100-14z"/>
+  </svg>
+  <div class="why-inner">
+    <div class="why-hd">
+      <div class="reveal">
+        <div class="sec-eyebrow">Why Duralex · Since 1945</div>
+        <h2 class="sec-h2">法國國民玻璃餐具品牌<br><em lang="fr">Duralex, c’est du solide</em></h2>
+      </div>
+      <p class="why-lead reveal d1">從巴黎小酒館到紐約 MoMA，Duralex 八十年來只做一件事：讓每天都在用的強化玻璃杯與餐具，耐用、安全、而且好看。節日餐桌用得到，節日過後一樣天天用。</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="why-n">1945</div>
+        <div class="why-t">擋風玻璃級強化工藝</div>
+        <div class="why-d">以汽車擋風玻璃的強化技術，打造日常餐具，奠定八十年傳奇。</div>
+      </div>
+      <div class="why-item reveal d1">
+        <div class="why-n">3.5<sup>×</sup></div>
+        <div class="why-t">強度是普通玻璃 3.5 倍</div>
+        <div class="why-d">耐撞耐用；萬一碎裂也是圓潤鈍角顆粒，而非鋒利碎片，有小孩與寵物的家更安心。</div>
+      </div>
+      <div class="why-item reveal d2">
+        <div class="why-n">100<sup>%</sup></div>
+        <div class="why-t">堅持法國製造</div>
+        <div class="why-d">至今仍在法國中部 La Chapelle-Saint-Mesmin 工廠生產，批量著色，色澤恆久。</div>
+      </div>
+      <div class="why-item reveal d3">
+        <div class="why-n">0</div>
+        <div class="why-t">無鉛・無鎘・無雙酚 A</div>
+        <div class="why-d">無孔隙玻璃不殘留細菌與異味，100% 可回收，用得久才是真環保。</div>
+      </div>
+    </div>
+    <div class="honor reveal">
+      <div class="honor-award">
+        <div class="honor-k">Award</div>
+        <img class="honor-logo" src="https://abbyupyoung-cloud.github.io/duralex-product-page/good-design-award.jpg" width="1000" height="841" alt="Duralex Picardie 玻璃杯榮獲日本 Good Design Long Life Design Award">
+        <div class="honor-d"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-jp" width="30" height="20"/></svg>日本 Good Design 獎<br>Long Life Design Award · Picardie</div>
+      </div>
+      <div class="honor-museum">
+        <div class="honor-k">博物館永久典藏 · Permanent Collections</div>
+        <p class="honor-lead">Duralex 被世界頂尖博物館列入永久典藏。</p>
+        <ul class="honor-list">
+          <li><span class="honor-mn">MoMA</span><span class="honor-ml"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-us" width="30" height="20"/></svg>紐約 New York</span></li>
+          <li><span class="honor-mn">The Met</span><span class="honor-ml"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-us" width="30" height="20"/></svg>紐約 New York</span></li>
+          <li><span class="honor-mn">V&amp;A Museum</span><span class="honor-ml"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-uk" width="30" height="20"/></svg>倫敦 London</span></li>
+          <li><span class="honor-mn">Musée des Arts Décoratifs</span><span class="honor-ml"><svg class="flag" viewBox="0 0 30 20" preserveAspectRatio="none" aria-hidden="true"><use href="#dxhw-flag-fr" width="30" height="20"/></svg>巴黎 Paris</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PICKS ══════════ -->
+<section class="picks" id="dxhw-picks" aria-label="萬聖節精選商品">
+  <div class="picks-inner">
+    <div class="picks-hd reveal">
+      <div>
+        <div class="sec-eyebrow">Pick Your Potion</div>
+        <h2 class="sec-h2">萬聖節<em>商品精選</em></h2>
+      </div>
+      <p class="picks-note">任選 3 件享 85 折，杯、碗、盤自由混搭。</p>
+    </div>
+    <div class="picks-grid">
+
+      <!-- 1 -->
+      <a class="card reveal" href="https://www.duralex.com.tw/products/lysamberetumbler" target="_blank" rel="noopener">
+        <span class="card-tag">南瓜琥珀</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTA5NjcyLzE3MTgyNjI5OThfZDE1OWVhYTMyNTcyMDY4YjhjMTYuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=bb2b8d7dedd0796f" alt="Duralex Lys 玻璃杯（琥珀） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Lys Series</div>
+          <h3 class="card-name">Lys 玻璃杯（琥珀）</h3>
+          <div class="card-qty">多規格 · 160 / 250ml</div>
+          <div class="card-price">NT$290<small>起 / 2入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a class="card reveal d1" href="https://www.duralex.com.tw/products/versaillesplummug" target="_blank" rel="noopener">
+        <span class="card-tag">女巫梅紫</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5Nzc5OTc3LzE3NjQ2NTY1NjdfMGJmNGE0NTRjNzUyNmU2MDlhYjQuanBlZyJdLFsicCIsInRodW1iIiwiMjA0OHgyMDQ4Il1d.jpeg?sha=796b96f4d26e5023" alt="Duralex Versailles 馬克杯（梅紫） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Versailles Series</div>
+          <h3 class="card-name">Versailles 馬克杯（梅紫）</h3>
+          <div class="card-qty">2入</div>
+          <div class="card-price">NT$500<small>/ 2入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a class="card reveal d2" href="https://www.duralex.com.tw/products/versaillesgreenmug" target="_blank" rel="noopener">
+        <span class="card-tag">魔藥綠</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5Nzc4NzQ1LzE3NjQ2NTY3NjlfMzhlOTVmMTc1MDFmNmZjZmM1NzQuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=a5e80d8e92a1a70f" alt="Duralex Versailles 馬克杯（綠） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Versailles Series</div>
+          <h3 class="card-name">Versailles 馬克杯（綠）</h3>
+          <div class="card-qty">2入</div>
+          <div class="card-price">NT$500<small>/ 2入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a class="card reveal d3" href="https://www.duralex.com.tw/products/versaillescreolemug" target="_blank" rel="noopener">
+        <span class="card-tag">焦糖糖果</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5Nzc1NDE0LzE3NTkzNzIzNjhfMjIxNDdjMmQzMjI5MzY0MmI2ZmUuanBlZyJdLFsicCIsInRodW1iIiwiMjA0OHgyMDQ4Il1d.jpeg?sha=747e5fe1643439de" alt="Duralex Versailles 馬克杯（焦糖棕） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Versailles Series</div>
+          <h3 class="card-name">Versailles 馬克杯（焦糖棕）</h3>
+          <div class="card-qty">2入</div>
+          <div class="card-price">NT$500<small>/ 2入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a class="card reveal" href="https://www.duralex.com.tw/products/picardiesaphirtumbler" target="_blank" rel="noopener">
+        <span class="card-tag">午夜寶藍</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwMDUzLzE3NjU5NzA4NDRfMzQ5YjczZGFhNGQ1ZjJiMjNlYjAucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=b0abf6c35b1b5a7d" alt="Duralex Picardie 玻璃杯（寶藍） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Picardie Series</div>
+          <h3 class="card-name">Picardie 玻璃杯（寶藍）</h3>
+          <div class="card-qty">多規格 · 160 / 250 / 330ml</div>
+          <div class="card-price">NT$390<small>起 / 2入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 6 -->
+      <a class="card reveal d1" href="https://www.duralex.com.tw/products/picardiemixedtumbler" target="_blank" rel="noopener">
+        <span class="card-tag">雙色變裝</span>
+        <div class="card-img cover"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU5MjMwODM3LzE3NTg2ODU5NzJfMmI2NGJkZGZmNzE5MjhlZDU3NjUuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=545527f91494ac7a" alt="Duralex Picardie 玻璃杯組（雙色） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Picardie Series</div>
+          <h3 class="card-name">Picardie 玻璃杯組（雙色）</h3>
+          <div class="card-qty">4入 · 兩色各 2 只</div>
+          <div class="card-price">NT$720<small>/ 4入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 7 -->
+      <a class="card reveal d2" href="https://www.duralex.com.tw/products/lysstackablemarinemug" target="_blank" rel="noopener">
+        <span class="card-tag">幽靈海藍</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTc2MTY2LzE3MTg2OTkxNzJfM2U3YWQyZjdkZDk5M2I3Njc2ZTcuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=9d26f9111c880838" alt="Duralex Lys 馬克杯（海水藍） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Lys Series</div>
+          <h3 class="card-name">Lys 馬克杯（海水藍）</h3>
+          <div class="card-qty">2入</div>
+          <div class="card-price">NT$560<small>/ 2入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 8 -->
+      <a class="card reveal d3" href="https://www.duralex.com.tw/products/manhattancleartumbler" target="_blank" rel="noopener">
+        <span class="card-tag">水晶透明</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTQxMzU3LzE3MTg2MTA1OTBfMWE2OGZhNTA4NGZkZWFhNDljNDcuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=2e79afdc829d6cca" alt="Duralex Manhattan 系列玻璃杯 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Manhattan Series</div>
+          <h3 class="card-name">Manhattan 系列玻璃杯</h3>
+          <div class="card-qty">2入 · 透明</div>
+          <div class="card-price">NT$400<small>/ 2入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="picks-more">
+      <a href="https://www.duralex.com.tw/collections/all" target="_blank" rel="noopener">查看所有商品 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 餐盤＋沙拉碗 ══════════ -->
+<section class="picks light" id="dxhw-plates" aria-label="餐盤＋沙拉碗">
+  <div class="picks-inner">
+    <div class="picks-hd reveal">
+      <div>
+        <div class="sec-eyebrow">Plates &amp; Salad Bowls</div>
+        <h2 class="sec-h2">派對<em>餐桌</em></h2>
+      </div>
+    </div>
+    <div class="picks-grid">
+
+      <!-- 1 -->
+      <a class="card reveal" href="https://www.duralex.com.tw/products/picardieamberplate-20260827151005" target="_blank" rel="noopener">
+        <span class="card-tag">南瓜琥珀</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTMxMjAwLzE3NTkzMDY5NTZfYjlmYmVhOTc0ZWY3NGJmMTZhMzkuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=232c2bb3f3ec7778" alt="Duralex Picardie 主餐盤（琥珀） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Picardie Series</div>
+          <h3 class="card-name">Picardie 主餐盤（琥珀）</h3>
+          <div class="card-qty">23 / 26cm · 2~6入</div>
+          <div class="card-price">NT$500<small>起</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a class="card reveal d1" href="https://www.duralex.com.tw/products/lysamberdessertplate" target="_blank" rel="noopener">
+        <span class="card-tag">糖果小盤</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTEwMDE4LzE3NzYzOTE3MDJfMWJhYjY4NjQ0ZWZhOGM5OTMzOTMuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=87bf9f697211b547" alt="Duralex Lys 甜點盤（琥珀） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Lys Series</div>
+          <h3 class="card-name">Lys 甜點盤（琥珀）</h3>
+          <div class="card-qty">19cm · 2~6入</div>
+          <div class="card-price">NT$440<small>起</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a class="card reveal d2" href="https://www.duralex.com.tw/products/lyscocktailsepiaplate" target="_blank" rel="noopener">
+        <span class="card-tag">焦糖糖果</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYxMDE4NDkzLzE3NzYzMzE1MDJfOGEzYjAzOGUzMWM5NmY5OWY4YjEuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=598b739c903e7d38" alt="Duralex Lys 湯盤（焦糖棕） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Lys Series</div>
+          <h3 class="card-name">Lys 湯盤（焦糖棕）</h3>
+          <div class="card-qty">21cm · 2~6入</div>
+          <div class="card-price">NT$500<small>起</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a class="card reveal d3" href="https://www.duralex.com.tw/products/lysgreenplate" target="_blank" rel="noopener">
+        <span class="card-tag">魔藥綠</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYxMTAyMjU3LzE3NzYzMzIzMzFfOGViNTdlNzBmOWRiZWI4ODk0YzEuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=572ad44b35b97851" alt="Duralex Lys 甜點盤（綠） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Lys Series</div>
+          <h3 class="card-name">Lys 甜點盤（綠）</h3>
+          <div class="card-qty">19cm · 2~6入</div>
+          <div class="card-price">NT$500<small>起</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a class="card reveal" href="https://www.duralex.com.tw/products/ramequin" target="_blank" rel="noopener">
+        <span class="card-tag">甜點小盅</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2OTMxMjU5LzE3NzYzMjY4NTdfM2YyNGEyMTJjZjhhOGYyOWNmMTIuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=f68e11c71b39a831" alt="Duralex Ramequin 甜點盅（透明） 法國製強化玻璃" loading="lazy" decoding="async" style="width:108%;height:108%;max-width:none;margin:-4%;"></div>
+        <div class="card-info">
+          <div class="card-series">Ramequin Series</div>
+          <h3 class="card-name">Ramequin 甜點盅（透明）</h3>
+          <div class="card-qty">130~240ml · 4入</div>
+          <div class="card-price">NT$480<small>起 / 4入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 6 -->
+      <a class="card reveal d1" href="https://www.duralex.com.tw/products/lysambertablebowl-20260831111106" target="_blank" rel="noopener">
+        <span class="card-tag">琥珀暖光</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQzMTMwLzE3NzYzMzE3NDFfOWY1MGYzMjExMjBkNTI1NWE4NmEucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=4771bb768767328f" alt="Duralex Lys 沙拉碗（琥珀） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Lys Series</div>
+          <h3 class="card-name">Lys 沙拉碗（琥珀）</h3>
+          <div class="card-qty">910ml · 2~6入</div>
+          <div class="card-price">NT$580<small>起</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 7 -->
+      <a class="card reveal d2" href="https://www.duralex.com.tw/products/lysgreentablebowl" target="_blank" rel="noopener">
+        <span class="card-tag">女巫大釜</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYxMTAzMzc3LzE3NzY0MTY2NDBfMGM2YzljYmIyMjU4Y2M3NzAyNGUucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=681ccd2f3c93209a" alt="Duralex Lys 沙拉碗（綠） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Lys Series</div>
+          <h3 class="card-name">Lys 沙拉碗（綠）</h3>
+          <div class="card-qty">2200ml · 1~2入</div>
+          <div class="card-price">NT$590<small>起</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 8 -->
+      <a class="card reveal d3" href="https://www.duralex.com.tw/products/lyssapphirebowl-20260831110501" target="_blank" rel="noopener">
+        <span class="card-tag">午夜寶藍</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQyOTE4LzE3NzYzMzE5MjVfNjcyZDFhNzZiZTIzOTcwYzYwYTUuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=c6a0ffc1ed0ba344" alt="Duralex Lys 沙拉碗（寶藍） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Lys Series</div>
+          <h3 class="card-name">Lys 沙拉碗（寶藍）</h3>
+          <div class="card-qty">910ml · 2入</div>
+          <div class="card-price">NT$580<small>/ 2入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+    </div>
+    <div class="picks-more">
+      <a href="https://www.duralex.com.tw/collections/all-plates" target="_blank" rel="noopener">查看所有餐盤 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 萬聖節禮盒 ══════════ -->
+<section class="picks gift" id="dxhw-gifts" aria-label="萬聖節禮盒">
+  <div class="picks-inner">
+    <div class="picks-hd reveal">
+      <div>
+        <div class="sec-eyebrow">Gift Boxes</div>
+        <h2 class="sec-h2">萬聖節<em>送禮</em>首選</h2>
+      </div>
+      <p class="picks-note">交換禮物、派對伴手禮，送一份用得久的法式日常。</p>
+    </div>
+    <div class="picks-grid">
+
+      <!-- 1 -->
+      <a class="card reveal" href="https://www.duralex.com.tw/products/picardiemixedtumbler-2025mas" target="_blank" rel="noopener">
+        <span class="card-tag">人氣禮盒</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYyODE1NjM1LzE3NjQ4MjQ1NjVfNDc0NTVmNTdhODcwZTY3Y2U0NzQucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=0dd9f8972e7a71b0" alt="Duralex Picardie 彩色禮盒 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Picardie Gift Box</div>
+          <h3 class="card-name">Picardie 彩色禮盒</h3>
+          <div class="card-qty">250ml · 4入 · 海水藍、寶藍、琥珀、梅紫</div>
+          <div class="card-price">NT$799<small>/ 4入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a class="card reveal d1" href="https://www.duralex.com.tw/products/picardiemixtumbler" target="_blank" rel="noopener">
+        <span class="card-tag">三色禮盒</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzY4ODk3NzY5LzE3ODI0Mzg0NzBfZDAxM2U3ZDMyOWNkZTkwZTczZTcucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=a2b86de0b22f76c6" alt="Duralex Picardie 法國國慶禮盒 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Picardie Gift Box</div>
+          <h3 class="card-name">Picardie 法國國慶禮盒</h3>
+          <div class="card-qty">250ml · 3入 · 霧白、寶藍、梅紫</div>
+          <div class="card-price">NT$699<small>/ 3入</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a class="card reveal d2" href="https://www.duralex.com.tw/products/lysstackablemarinemug-20261" target="_blank" rel="noopener">
+        <span class="card-tag">杯盤組</span>
+        <div class="card-img"><img src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzcyNzAxNjczLzE3OTExODk4MTZfNzlmMDgxMmEwM2JiN2VjOGEyYTcucG5nIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIl1d.png?sha=d1215717e77c5e6a" alt="Duralex Lys 杯盤組（琥珀） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Lys Set</div>
+          <h3 class="card-name">Lys 杯盤組（琥珀）</h3>
+          <div class="card-qty">180ml 杯 + 13.5cm 盤 · 6入組</div>
+          <div class="card-price">NT$1,512<small>/ 組</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a class="card reveal d3" href="https://www.duralex.com.tw/products/gigognecleartumbler-set" target="_blank" rel="noopener">
+        <span class="card-tag">杯盤組</span>
+        <div class="card-img"><img src="https://cdn-next.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ3NTg0NTUyLzE3ODc2NDA4MzhfMDA1YTkwOTM1YjU0YTUyYWNiYzYucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=353e5574173cecbc" alt="Duralex Gigogne 杯盤組（透明） 法國製強化玻璃" loading="lazy" decoding="async"></div>
+        <div class="card-info">
+          <div class="card-series">Gigogne Set</div>
+          <h3 class="card-name">Gigogne 杯盤組（透明）</h3>
+          <div class="card-qty">220ml 杯 + 13.4cm 盤 · 6入組</div>
+          <div class="card-price">NT$1,620<small>/ 組</small></div>
+          <span class="card-more">看商品 →</span>
+        </div>
+      </a>
+
+    </div>
+    <div class="picks-more">
+      <a href="https://www.duralex.com.tw/collections/sets" target="_blank" rel="noopener">查看所有禮盒與套組 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="cta-pumpkin reveal" aria-hidden="true"><svg viewBox="0 0 64 60"><use href="#dxhw-pumpkin"/></svg></div>
+    <h2 class="cta-h2 reveal d1"><em>湊滿三件</em>帶回家</h2>
+    <p class="cta-p reveal d2">任選 3 件 85 折，活動只到 10/31 23:59。</p>
+    <div class="cd reveal d2" data-dxhw-cd>
+      <span class="cd-label">活動結束倒數</span>
+      <div class="cd-row">
+        <div class="cd-u"><span class="cd-n" data-cd="d">--</span><span class="cd-l">天</span></div>
+        <div class="cd-u"><span class="cd-n" data-cd="h">--</span><span class="cd-l">時</span></div>
+        <div class="cd-u"><span class="cd-n" data-cd="m">--</span><span class="cd-l">分</span></div>
+        <div class="cd-u"><span class="cd-n" data-cd="s">--</span><span class="cd-l">秒</span></div>
+      </div>
+    </div>
+    <div class="cta-actions reveal d3">
+      <a href="https://www.duralex.com.tw/collections/all" class="btn-pri" target="_blank" rel="noopener">全站立即選購 →</a>
+      <a href="#dxhw-picks" class="btn-sec">回到精選商品</a>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Duralex 萬聖節優惠活動｜任選 3 件 85 折（2026/10/22–10/31）",
+ "numberOfItems": 20,
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Duralex Lys 玻璃杯（琥珀）",
+   "url": "https://www.duralex.com.tw/products/lysamberetumbler"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Duralex Versailles 馬克杯（梅紫）",
+   "url": "https://www.duralex.com.tw/products/versaillesplummug"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Duralex Versailles 馬克杯（綠）",
+   "url": "https://www.duralex.com.tw/products/versaillesgreenmug"
+  },
+  {
+   "@type": "ListItem",
+   "position": 4,
+   "name": "Duralex Versailles 馬克杯（焦糖棕）",
+   "url": "https://www.duralex.com.tw/products/versaillescreolemug"
+  },
+  {
+   "@type": "ListItem",
+   "position": 5,
+   "name": "Duralex Picardie 玻璃杯（寶藍）",
+   "url": "https://www.duralex.com.tw/products/picardiesaphirtumbler"
+  },
+  {
+   "@type": "ListItem",
+   "position": 6,
+   "name": "Duralex Picardie 玻璃杯組（雙色）",
+   "url": "https://www.duralex.com.tw/products/picardiemixedtumbler"
+  },
+  {
+   "@type": "ListItem",
+   "position": 7,
+   "name": "Duralex Lys 馬克杯（海水藍）",
+   "url": "https://www.duralex.com.tw/products/lysstackablemarinemug"
+  },
+  {
+   "@type": "ListItem",
+   "position": 8,
+   "name": "Duralex Manhattan 系列玻璃杯",
+   "url": "https://www.duralex.com.tw/products/manhattancleartumbler"
+  },
+  {
+   "@type": "ListItem",
+   "position": 9,
+   "name": "Duralex Picardie 主餐盤（琥珀）",
+   "url": "https://www.duralex.com.tw/products/picardieamberplate-20260827151005"
+  },
+  {
+   "@type": "ListItem",
+   "position": 10,
+   "name": "Duralex Lys 甜點盤（琥珀）",
+   "url": "https://www.duralex.com.tw/products/lysamberdessertplate"
+  },
+  {
+   "@type": "ListItem",
+   "position": 11,
+   "name": "Duralex Lys 湯盤（焦糖棕）",
+   "url": "https://www.duralex.com.tw/products/lyscocktailsepiaplate"
+  },
+  {
+   "@type": "ListItem",
+   "position": 12,
+   "name": "Duralex Lys 甜點盤（綠）",
+   "url": "https://www.duralex.com.tw/products/lysgreenplate"
+  },
+  {
+   "@type": "ListItem",
+   "position": 13,
+   "name": "Duralex Ramequin 甜點盅（透明）",
+   "url": "https://www.duralex.com.tw/products/ramequin"
+  },
+  {
+   "@type": "ListItem",
+   "position": 14,
+   "name": "Duralex Lys 沙拉碗（琥珀）",
+   "url": "https://www.duralex.com.tw/products/lysambertablebowl-20260831111106"
+  },
+  {
+   "@type": "ListItem",
+   "position": 15,
+   "name": "Duralex Lys 沙拉碗（綠）",
+   "url": "https://www.duralex.com.tw/products/lysgreentablebowl"
+  },
+  {
+   "@type": "ListItem",
+   "position": 16,
+   "name": "Duralex Lys 沙拉碗（寶藍）",
+   "url": "https://www.duralex.com.tw/products/lyssapphirebowl-20260831110501"
+  },
+  {
+   "@type": "ListItem",
+   "position": 17,
+   "name": "Duralex Picardie 彩色禮盒",
+   "url": "https://www.duralex.com.tw/products/picardiemixedtumbler-2025mas"
+  },
+  {
+   "@type": "ListItem",
+   "position": 18,
+   "name": "Duralex Picardie 法國國慶禮盒",
+   "url": "https://www.duralex.com.tw/products/picardiemixtumbler"
+  },
+  {
+   "@type": "ListItem",
+   "position": 19,
+   "name": "Duralex Lys 杯盤組（琥珀）",
+   "url": "https://www.duralex.com.tw/products/lysstackablemarinemug-20261"
+  },
+  {
+   "@type": "ListItem",
+   "position": 20,
+   "name": "Duralex Gigogne 杯盤組（透明）",
+   "url": "https://www.duralex.com.tw/products/gigognecleartumbler-set"
+  }
+ ]
+}
+</script>
+
+<script>
+(function () {
+  var root = document.querySelector('.dx-hw');
+  if (!root) return;
+
+  // 活動結束時間
+  var END = new Date('2026-10-31T23:59:59+08:00');
+
+  // Scroll reveal
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    root.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    root.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  // 活動結束倒數
+  var cds = root.querySelectorAll('[data-dxhw-cd]');
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    var diff = Math.max(END - new Date(), 0);
+    cds.forEach(function (cd) {
+      if (!diff) { cd.querySelector('.cd-label').textContent = '活動已結束，感謝參與'; cd.classList.add('ended'); return; }
+      cd.querySelector('[data-cd="d"]').textContent = pad(Math.floor(diff / 86400000));
+      cd.querySelector('[data-cd="h"]').textContent = pad(Math.floor(diff % 86400000 / 3600000));
+      cd.querySelector('[data-cd="m"]').textContent = pad(Math.floor(diff % 3600000 / 60000));
+      cd.querySelector('[data-cd="s"]').textContent = pad(Math.floor(diff % 60000 / 1000));
+    });
+  }
+  tick(); setInterval(tick, 1000);
+})();
+</script>
+
+</div>
+    <!-- ══════════ 萬聖節活動區塊 END ══════════ -->
+
+
+    <!-- QA Marquee -->
+    <section class="overflow-hidden bg-white border-b border-gray-100 py-2 relative z-10" aria-label="產品特色跑馬燈">
+        <div class="scrolling-promotion">
+            <ul class="promotion m-0 p-0 list-none">
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_794b505f-9745-45ae-a47a-d1d25379c687.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">100% 法國製造</span></li>
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_ba90c11c-69bc-46a2-8c89-fc636438a0a5.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">3.5倍強化硬度</span></li>
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_e2c3bce1-ae3f-4fa4-a7e9-dd5a1c3df6b8.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">無毒安全認證</span></li>
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_4c2143c1-9feb-40e5-93b3-02bc21fe7301.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">100% 可回收</span></li>
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_ceb85677-2e0f-453b-88c9-b53a6b4d92b2.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">批量著色技術</span></li>
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_513267da-7b35-4159-8485-73b78f0bb094.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">130°C 耐熱衝擊</span></li>
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_8f1f1a18-3912-4702-89c0-1168080b2d23.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">適用洗碗機</span></li>
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_570cb9d3-c9fb-4b2e-860f-97d72a4b1c63.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">適用微波爐</span></li>
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_794b505f-9745-45ae-a47a-d1d25379c687.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">100% 法國製造</span></li>
+                <li class="promotion__item"><img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_ba90c11c-69bc-46a2-8c89-fc636438a0a5.png" class="qa-marquee-img" alt="" aria-hidden="true" loading="lazy"><span class="qa-text">3.5倍強化硬度</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section class="py-16 md:py-24 bg-[#f8f9fa] relative z-20" aria-labelledby="category-title">
+        <div class="max-w-[1600px] mx-auto px-4 md:px-8">
+            <div class="text-center mb-10 md:mb-12 reveal-element">
+                <h2 id="category-title" class="text-3xl md:text-5xl font-bold text-[#1f286f] mb-4 uppercase tracking-tighter">Shop by Category</h2>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6" role="list">
+                <a href="https://www.duralex.com.tw/collections/all-tumblers" class="col-span-2 lg:col-span-1 relative group card-radius cursor-pointer reveal-element delay-100 flex flex-col h-[400px] lg:h-full" target="_blank" rel="noopener" role="listitem">
+                    <div class="relative flex-grow card-radius overflow-hidden h-full">
+                        <img src="https://www.duralexusa.com/cdn/shop/files/step_1.png?v=1752715252&width=800" class="img-zoom w-full h-full object-cover" alt="Tumblers 經典玻璃杯系列" loading="lazy">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition duration-500"></div>
+                        <div class="absolute bottom-6 left-6 text-white z-10">
+                            <h3 class="text-3xl md:text-5xl font-black mb-3 uppercase leading-tight">Tumblers<br><span class="text-lg md:text-2xl font-bold tracking-widest">經典玻璃杯</span></h3>
+                            <span class="btn-pill btn-pill-white">Shop Now</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="col-span-1 flex flex-col gap-3 md:gap-6 h-full" role="presentation">
+                    <a href="https://www.duralex.com.tw/collections/all-plates" class="flex-1 relative group card-radius cursor-pointer reveal-element delay-200 aspect-[4/3] lg:aspect-[4/3]" target="_blank" rel="noopener" role="listitem">
+                        <img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_2ae8eaa3-c84a-425f-9e53-85d6d12dbc14.png" class="img-zoom w-full h-full object-cover" alt="Plates 餐盤系列" loading="lazy">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+                        <div class="absolute bottom-6 left-6 text-white z-10">
+                            <h3 class="text-xl md:text-2xl font-bold mb-1 uppercase">Plates <span class="block text-sm font-normal normal-case">餐盤系列</span></h3>
+                            <span class="link-underline font-bold text-xs md:text-sm text-white border-white">Explore</span>
+                        </div>
+                    </a>
+                    <a href="https://www.duralex.com.tw/collections/all-bowls" class="flex-1 relative group card-radius cursor-pointer reveal-element delay-300 aspect-[4/3] lg:aspect-[4/3]" target="_blank" rel="noopener" role="listitem">
+                        <img src="https://www.duralexusa.com/cdn/shop/files/14112023-DSC_3428-resized-ConvertImage.jpg?v=1704817157&width=800" class="img-zoom w-full h-full object-cover" alt="Bowls 碗缽系列" loading="lazy">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+                        <div class="absolute bottom-6 left-6 text-white z-10">
+                            <h3 class="text-xl md:text-2xl font-bold mb-1 uppercase">Bowls <span class="block text-sm font-normal normal-case">碗缽系列</span></h3>
+                            <span class="link-underline font-bold text-xs md:text-sm text-white border-white">Explore</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-span-1 flex flex-col gap-3 md:gap-6 h-full" role="presentation">
+                    <a href="https://www.duralex.com.tw/search?q=%E9%A6%AC%E5%85%8B%E6%9D%AF" class="flex-1 relative group card-radius cursor-pointer reveal-element delay-200 aspect-[4/3] lg:aspect-[4/3]" target="_blank" rel="noopener" role="listitem">
+                        <img src="https://www.duralexusa.com/cdn/shop/files/2022-09-23-duralex-1130_9559eb07-b250-4f81-a50e-df21edc42534.jpg?v=1765162462&width=1080" class="img-zoom w-full h-full object-cover" alt="Mugs 馬克杯系列" loading="lazy">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+                        <div class="absolute bottom-6 left-6 text-white z-10">
+                            <h3 class="text-xl md:text-2xl font-bold mb-1 uppercase">Mugs <span class="block text-sm font-normal normal-case">馬克杯</span></h3>
+                            <span class="link-underline font-bold text-xs md:text-sm text-white border-white">Explore</span>
+                        </div>
+                    </a>
+                    <a href="https://www.duralex.com.tw/search?q=%E4%BF%9D%E9%AE%AE" class="flex-1 relative group card-radius cursor-pointer reveal-element delay-300 aspect-[4/3] lg:aspect-[4/3]" target="_blank" rel="noopener" role="listitem">
+                        <img src="https://www.duralexusa.com/cdn/shop/files/FRESHBOX_4_BD.jpg?v=1704297220&width=2000" class="img-zoom w-full h-full object-cover" alt="Storage 保鮮盒系列" loading="lazy">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+                        <div class="absolute bottom-6 left-6 text-white z-10">
+                            <h3 class="text-xl md:text-2xl font-bold mb-1 uppercase">Storage <span class="block text-sm font-normal normal-case">保鮮盒</span></h3>
+                            <span class="link-underline font-bold text-xs md:text-sm text-white border-white">Explore</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRANCE BESTSELLERS -->
+    <section class="pb-16 md:pb-24 max-w-7xl mx-auto px-6" aria-labelledby="fr-bestsellers-title">
+        <div class="mb-12"><h2 id="fr-bestsellers-title" class="text-2xl md:text-4xl font-black text-[#1f286f] mb-2 uppercase">FRANCE BESTSELLERS</h2><p class="text-[#c1bebc] font-bold tracking-widest uppercase">法國熱銷</p></div>
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+            <a href="https://www.duralex.com.tw/collections/picardie" class="group relative" target="_blank" rel="noopener" role="listitem">
+                <div class="aspect-[3/2] mb-4 card-radius overflow-hidden relative"><img src="https://duralexcanada.ca/cdn/shop/files/Le-Picardie-Water-Juice-Glass-Set-of-6-Duralex-Canada-Tough-Tempered-Glassware-34819391914261.jpg?v=1751031828&width=700" alt="Picardie 系列" class="img-zoom" loading="lazy"><div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"><span class="btn-pill shadow-lg">more</span></div></div>
+                <h3 class="text-lg font-bold">Picardie</h3><p class="text-[#1f286f] font-bold">NT$200 起</p>
+            </a>
+            <a href="https://www.duralex.com.tw/collections/gigogne" class="group relative" target="_blank" rel="noopener" role="listitem">
+                <div class="aspect-[3/2] mb-4 card-radius overflow-hidden relative"><img src="https://www.duralex.com/cdn/shop/articles/Duralex_4091_cd0846d5-6764-41b8-88a5-e7d073e22628.png?v=1749112361" alt="Gigogne 系列" class="img-zoom" loading="lazy"><div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"><span class="btn-pill shadow-lg">more</span></div></div>
+                <h3 class="text-lg font-bold">Gigogne</h3><p class="text-[#1f286f] font-bold">NT$200 起</p>
+            </a>
+            <a href="https://www.duralex.com.tw/collections/lys-plate" class="group relative" target="_blank" rel="noopener" role="listitem">
+                <div class="aspect-[3/2] mb-4 card-radius overflow-hidden relative"><img src="https://www.duralex.com/cdn/shop/articles/IMG-20221012-WA0001_995a22ed-9953-45a8-9952-2885f885b5a9.jpg?v=1749112067" alt="Lys 系列玻璃盤" class="img-zoom" loading="lazy"><div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"><span class="btn-pill shadow-lg">more</span></div></div>
+                <h3 class="text-lg font-bold">Lys 系列玻璃盤</h3><p class="text-[#1f286f] font-bold">NT$440 起</p>
+            </a>
+            <a href="https://www.duralex.com.tw/collections/other" class="group relative" target="_blank" rel="noopener" role="listitem">
+                <div class="aspect-[3/2] mb-4 card-radius overflow-hidden relative"><img src="https://www.duralex.com/cdn/shop/articles/Idee-cadeau-vaisselle-trouvez-l_inspiration-avec-Duralex.png?v=1750746686" alt="Lys 系列保鮮盒" class="img-zoom" loading="lazy"><div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"><span class="btn-pill shadow-lg">more</span></div></div>
+                <h3 class="text-lg font-bold">Lys 系列保鮮盒</h3><p class="text-[#1f286f] font-bold">NT$200 起</p>
+            </a>
+            <a href="https://www.duralex.com.tw/collections/%E9%85%92%E6%9D%AF" class="group relative" target="_blank" rel="noopener" role="listitem">
+                <div class="aspect-[3/2] mb-4 card-radius overflow-hidden relative"><img src="https://www.duralex.com/cdn/shop/articles/Quel-verre-pour-quel-cocktail.png?v=1750686124" alt="Manhattan & Jazz 系列" class="img-zoom" loading="lazy"><div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"><span class="btn-pill shadow-lg">more</span></div></div>
+                <h3 class="text-lg font-bold">Manhattan & Jazz 系列</h3><p class="text-[#1f286f] font-bold">NT$300 起</p>
+            </a>
+            <a href="https://www.duralex.com.tw/collections/versailles" class="group relative" target="_blank" rel="noopener" role="listitem">
+                <div class="aspect-[3/2] mb-4 card-radius overflow-hidden relative"><img src="https://www.duralex.com/cdn/shop/articles/Recette-cafe-3-idees-de-breuvages-reconfortants-et-delicieusement-cafeines.png?v=1750747722" alt="Versailles 系列" class="img-zoom" loading="lazy"><div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"><span class="btn-pill shadow-lg">more</span></div></div>
+                <h3 class="text-lg font-bold">Versailles 系列</h3><p class="text-[#1f286f] font-bold">NT$460 起</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 雷雕客製化服務專區（整合單一區塊） -->
+    <section class="py-16 md:py-24 max-w-7xl mx-auto px-6 reveal-element" aria-labelledby="custom-title">
+        <div class="mb-10">
+            <p class="text-[#c1bebc] font-bold tracking-[0.2em] uppercase mb-3 text-[10px]">玻璃杯雷雕文字客製</p>
+            <h2 id="custom-title" class="text-3xl md:text-4xl font-black text-[#1f286f] leading-tight mb-2">
+                Duralex <span class="text-[#ed6d0f]">雷雕客製服務</span>
+            </h2>
+            <div class="h-1 w-10 bg-[#ed6d0f] mb-6 rounded-full"></div>
+            <p class="text-gray-500 text-sm md:text-base leading-relaxed max-w-2xl font-medium">兩款經典杯型、三種容量選擇，輸入姓名或短句即可雷雕於杯身，打造獨一無二的專屬水杯。無論是送禮、婚禮小物或犒賞自己，都能一秒預覽成品樣式。</p>
+        </div>
+
+        <div class="dgc-unified grid md:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+
+            <!-- 左半：服務介紹 + 分別定價 + 優勢 -->
+            <div class="dgc-info-col">
+                <h3 class="font-editorial text-xl md:text-2xl font-black text-[#1f286f] mb-3">刻上你的專屬字樣</h3>
+                <p class="dgc-look-desc mb-0">Duralex 法國強化玻璃杯身純淨通透，搭配精密雷雕工藝，讓姓名、暱稱或紀念日期永久留存於杯面，不易脫落也不影響洗碗機、微波爐的日常使用。</p>
+
+                <div class="dgc-gift-scenarios">
+                    <p class="dgc-look-eyebrow" style="color:#ed6d0f;">貼心送禮提案・客製化的完美時刻</p>
+                    <div class="dgc-gift-list">
+                        <div class="dgc-gift-item">
+                            <div class="dgc-gift-icon"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></div>
+                            <div>
+                                <div class="dgc-gift-title">個人獨享</div>
+                                <p class="dgc-gift-desc">在辦公室或家中的專屬指定杯，再也不怕被別人拿錯。</p>
+                            </div>
+                        </div>
+                        <div class="dgc-gift-item">
+                            <div class="dgc-gift-icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+                            <div>
+                                <div class="dgc-gift-title">戀人對杯</div>
+                                <p class="dgc-gift-desc">刻上彼此的名字或紀念日，讓每個平凡的對飲日子都過成浪漫。</p>
+                            </div>
+                        </div>
+                        <div class="dgc-gift-item">
+                            <div class="dgc-gift-icon"><i class="fa-solid fa-gift" aria-hidden="true"></i></div>
+                            <div>
+                                <div class="dgc-gift-title">知己摯友</div>
+                                <p class="dgc-gift-desc">最精緻的生日禮、節慶交換禮、入厝禮，送進心坎裡的實用質感。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="dgc-adv-list">
+                    <li class="dgc-adv-item"><i class="fa-solid fa-check"></i><span>最小訂量 1 件，個人自用、企業採購皆可少量客製</span></li>
+                    <li class="dgc-adv-item"><i class="fa-solid fa-check"></i><span>雷雕文字永久附著，正常清洗、微波、洗碗機使用不脫落</span></li>
+                    <li class="dgc-adv-item"><i class="fa-solid fa-check"></i><span>2 款經典杯型、3 種容量，適合水杯、咖啡杯、調酒杯等多種場景</span></li>
+                    <li class="dgc-adv-item"><i class="fa-solid fa-check"></i><span>也可選擇其他杯款及顏色，歡迎聯繫客服</span></li>
+                </ul>
+
+                <div class="dgc-price-table">
+                    <div class="dgc-price-row">
+                        <div class="dgc-price-style">
+                            <span class="dgc-price-style-name">UNIE 220ml</span>
+                            <span class="dgc-price-style-desc">現代俐落／北歐極簡風</span>
+                        </div>
+                        <div class="dgc-price-amounts">
+                            <span class="item"><span class="cap">1入</span><span class="amt">NT$420</span></span>
+                            <span class="item"><span class="cap">2入</span><span class="amt">NT$840</span></span>
+                        </div>
+                    </div>
+                    <div class="dgc-price-row">
+                        <div class="dgc-price-style">
+                            <span class="dgc-price-style-name">LYS 160ml</span>
+                            <span class="dgc-price-style-desc">經典復古／法式圓潤杯身</span>
+                        </div>
+                        <div class="dgc-price-amounts">
+                            <span class="item"><span class="cap">1入</span><span class="amt">NT$430</span></span>
+                            <span class="item"><span class="cap">2入</span><span class="amt">NT$860</span></span>
+                        </div>
+                    </div>
+                    <div class="dgc-price-row">
+                        <div class="dgc-price-style">
+                            <span class="dgc-price-style-name">LYS 210ml</span>
+                            <span class="dgc-price-style-desc">經典復古／加大容量</span>
+                        </div>
+                        <div class="dgc-price-amounts">
+                            <span class="item"><span class="cap">1入</span><span class="amt">NT$450</span></span>
+                            <span class="item"><span class="cap">2入</span><span class="amt">NT$900</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-5 mt-8">
+                    <a href="https://www.duralex.com.tw/pages/purchasing" class="btn-pill" target="_blank" rel="noopener">詢問報價及企業採購</a>
+                    <a href="https://www.duralex.com.tw/blogs/news/duralex-custom-glass-cup" class="text-xs font-bold text-[#1f286f] underline underline-offset-4 hover:text-[#ed6d0f] transition uppercase tracking-widest" target="_blank" rel="noopener">案例介紹</a>
+                </div>
+            </div>
+
+            <!-- 右半：單一即時預覽 widget -->
+            <div class="dgc-look-try">
+                <div class="dgc-look-eyebrow" style="color:#ed6d0f;">TRY YOUR NAME ・ 輸入文字即時預覽</div>
+
+                <div class="dgc-style-tabs" id="dgc-style-tabs">
+                    <button class="dgc-style-tab active" data-style="unie220" type="button">UNIE 220ml</button>
+                    <button class="dgc-style-tab" data-style="lys160" type="button">LYS 160ml</button>
+                    <button class="dgc-style-tab" data-style="lys210" type="button">LYS 210ml</button>
+                </div>
+
+                <div class="dgc-preview-stage">
+                    <img alt="Duralex 客製化玻璃杯即時預覽" class="dgc-preview-img" id="dgc-preview-img" src="//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_23256ad0-521f-48da-9a0f-9edbb0e3b557.jpg" loading="lazy">
+                    <div class="dgc-preview-text dgc-font-arial" id="dgc-text">Your Name</div>
+                </div>
+
+                <div class="dgc-preview-controls">
+                    <div class="dgc-preview-row-2col">
+                        <div class="dgc-field">
+                            <div class="dgc-field-label-row"><label for="dgc-input">雕刻文字</label><span class="dgc-char-count" id="dgc-count">0 / 10</span></div>
+                            <input id="dgc-input" maxlength="10" placeholder="例如 Amy &amp; Leo" type="text">
+                            <div class="dgc-field-hint">只能雷雕英文及數字，請注意大小寫</div>
+                        </div>
+                        <div class="dgc-field">
+                            <label for="dgc-font">字型</label>
+                            <select id="dgc-font">
+                                <option value="arial">Arial</option>
+                                <option value="bodoni">Bodoni MT Condensed</option>
+                                <option value="script">Freestyle Script</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="dgc-preview-row-2col dgc-preview-row-bottom">
+                        <div class="dgc-field">
+                            <label>雕刻位置</label>
+                            <div class="dgc-pos-toggle" id="dgc-pos">
+                                <button class="dgc-pos-btn active" data-pos="center" type="button">置中</button>
+                                <button class="dgc-pos-btn" data-pos="lower" type="button">偏下</button>
+                            </div>
+                        </div>
+                        <div class="dgc-field">
+                            <div class="dgc-copy-row">
+                                <button class="dgc-copy-btn" id="dgc-copy" type="button">複製客製備註文字</button>
+                                <span class="dgc-copy-feedback" id="dgc-feedback">已複製！</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dgc-field-hint">偏下：約離杯底 1.5 公分</div>
+                    <p class="dgc-preview-note">＊模擬預覽效果，實際雕刻會依杯身弧度略有差異，最終以師傅手工判斷為準。</p>
+
+                    <a href="https://www.duralex.com.tw/products/lyscleartumbler-customized" class="dgc-buy-btn" target="_blank" rel="noopener">
+                        立即選購客製化玻璃杯
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Crisis & Solution (Specs Section) -->
+    <section id="specs" class="w-full flex bg-white border-b border-gray-100" aria-label="強化玻璃比較標準">
+        <div class="flex flex-col md:flex-row w-full items-stretch min-h-[600px]">
+            <div class="w-full md:w-[45%] bg-white p-8 md:p-12 lg:p-16 flex flex-col justify-center md:border-r border-gray-100">
+                <div class="max-w-xl mx-auto w-full md:ml-auto md:mr-0 md:pr-4 lg:pr-12">
+                    <div class="inline-flex items-center gap-3 border-l-4 border-[#ed6d0f] pl-4 mb-8"><span class="text-xs font-black uppercase tracking-[0.2em] text-[#ed6d0f]">STATUS: VULNERABLE</span></div>
+                    <h2 class="text-3xl lg:text-5xl font-black text-gray-900 mb-6 leading-tight tracking-tight">一般玻璃的脆弱性</h2>
+                    <p class="text-base md:text-lg font-bold text-gray-500 mb-12 leading-relaxed">普通玻璃無法應對現代生活的溫差與碰撞。微波爐、洗碗機與冷熱交替，是導致破損的主因。</p>
+                    <ul class="space-y-4 m-0 p-0 list-none">
+                        <li class="flex items-center gap-4 p-2"><i class="fa-solid fa-xmark text-[#ed6d0f] text-xl w-8 text-center" aria-hidden="true"></i><div><div class="text-base md:text-lg font-black text-gray-900">易產生銳利碎片</div><div class="text-xs font-bold text-gray-400 uppercase">Safety Hazard</div></div></li>
+                        <li class="flex items-center gap-4 p-2"><i class="fa-solid fa-temperature-empty text-[#ed6d0f] text-xl w-8 text-center" aria-hidden="true"></i><div><div class="text-base md:text-lg font-black text-gray-900">無法承受熱衝擊</div><div class="text-xs font-bold text-gray-400 uppercase">Thermal Failure</div></div></li>
+                        <li class="flex items-center gap-4 p-2"><i class="fa-solid fa-bug text-[#ed6d0f] text-xl w-8 text-center" aria-hidden="true"></i><div><div class="text-base md:text-lg font-black text-gray-900">表面孔隙殘留細菌</div><div class="text-xs font-bold text-gray-400 uppercase">Hygiene Risk</div></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-full md:w-[55%] bg-duralex-blue p-8 md:p-12 lg:p-16 flex flex-col justify-center relative z-20">
+                <div class="max-w-xl mx-auto w-full md:mr-auto md:ml-0 md:pl-4 lg:pl-12 text-white"> 
+                    <div class="inline-flex items-center gap-3 border-l-4 border-duralex-orange pl-4 mb-8"><span class="text-xs font-black uppercase tracking-[0.2em] text-duralex-orange">The Standard</span></div>
+                    <h2 class="text-3xl lg:text-5xl font-black mb-6 leading-none tracking-tight">定義強化標準</h2>
+                    <p class="text-base md:text-lg font-bold text-white/80 mb-12 leading-relaxed">玻璃在高溫加熱至約 700°C 後，立即以冷空氣急速冷卻，讓表面產生壓縮張力，進而大幅提升其耐衝擊與耐熱強度。</p>
+                    <ul class="space-y-6 m-0 p-0 list-none">
+                        <li class="flex items-center gap-6"><div class="w-16 h-16 bg-white/10 flex items-center justify-center text-duralex-orange text-2xl font-black rounded-lg">3.5<span class="text-sm">倍</span></div><div><div class="text-lg md:text-xl font-black text-white leading-none mb-1">Stronger</div><div class="text-xs font-bold uppercase tracking-widest text-white/40">強化硬度</div></div></li>
+                        <li class="flex items-center gap-6"><div class="w-16 h-16 bg-white/10 flex items-center justify-center text-duralex-orange text-2xl font-black rounded-lg">130<span class="text-sm">°C</span></div><div><div class="text-lg md:text-xl font-black text-white leading-none mb-1">Shock Proof</div><div class="text-xs font-bold uppercase tracking-widest text-white/40">耐熱衝擊</div></div></li>
+                        <li class="flex items-center gap-6 group">
+                            <div class="w-16 h-16 bg-white/10 flex items-center justify-center text-duralex-orange text-2xl font-black rounded-lg shrink-0"><i class="fa-solid fa-temperature-half" aria-hidden="true"></i></div>
+                            <div class="flex-1">
+                                <div class="text-lg md:text-xl font-black text-white leading-none mb-2">-20°C ~ 200°C</div>
+                                <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden relative"><div class="absolute inset-0 bg-gradient-to-r from-blue-400 via-white to-[#ed6d0f]"></div></div>
+                                <div class="flex justify-between text-[10px] text-white/50 mt-1 font-bold uppercase tracking-wider"><span>Freeze</span><span>Boil</span><span>Oven</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Good Design Award -->
+    <section class="py-20 md:py-32 bg-white text-[#1f286f] reveal-element" aria-labelledby="award-title">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <span class="inline-block border border-[#ed6d0f] text-[#ed6d0f] px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-6">永續設計獎</span>
+                <h2 id="award-title" class="text-4xl md:text-4xl lg:text-6xl font-black mb-6 leading-tight uppercase">獲獎肯定的<br />工業設計傑作</h2>
+                <p class="text-[#1f286f]/80 text-lg font-medium leading-relaxed">英國獨立報專為 Duralex 做的報導提及，設計大師 Patrick Taylor 將 Duralex Picardie 玻璃杯視為最經典的設計之一，Picardie 常做為課堂中最佳簡單設計範例。</p>
+            </div>
+            <div class="md:w-1/2">
+                <div class="card-radius shadow-2xl transform md:rotate-3">
+                    <img src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L2F0dGFjaGVkX3Bob3Rvcy8xNzYxNzk0Nzc5X0dvb2QgZGVzaWduLnBuZy5wbmciXV0.png?sha=d2693ee69e3f31a4" alt="Good Design Award 獲獎標誌" class="w-full h-auto object-cover" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="py-16 md:py-24 bg-[#f8f9fa]" aria-labelledby="news-title">
+        <div class="max-w-7xl mx-auto px-6 reveal-element">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-3">
+                    <h2 id="news-title" class="text-3xl font-black text-[#1f286f] uppercase">Latest News</h2>
+                    <a href="https://www.duralex.com.tw/blogs/news" class="text-sm font-bold text-[#ed6d0f] hover:underline" target="_blank" rel="noopener">View All →</a>
+                </div>
+                <div class="h-1 w-12 bg-[#ed6d0f] mx-auto my-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" role="list">
+                <a href="https://www.duralex.com.tw/blogs/news/store-opening-glass-guide" class="group block cursor-pointer" target="_blank" rel="noopener" role="listitem">
+    <article>
+        <div class="relative overflow-hidden card-radius aspect-[1540/1000] mb-6 shadow-md bg-white flex items-center justify-center">
+            <img src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L2Jsb2dzLzQ4NzYzL3N0b3JlLW9wZW5pbmctZ2xhc3MtZ3VpZGVfMTYxOGJlNTZhMTM5MWQ4NmM5Y2QucG5nIl0sWyJwIiwidGh1bWIiLCI1MDB4NTAwIl1d.png?sha=9b6db04f78de7c16" 
+                 alt="開店玻璃杯怎麼選？咖啡廳、甜點店、餐廳 Duralex 採購指南" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy">
+        </div>
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Cafe</span>
+            <span class="h-px w-8 bg-gray-300"></span>
+        </div>
+        <h3 class="text-2xl font-bold text-[#1f286f] mb-3 group-hover:text-[#ed6d0f] transition leading-tight">開店玻璃杯怎麼選？咖啡廳、甜點店、餐廳 Duralex 採購指南</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">開店玻璃杯到底該怎麼選？與其一開始就從外型挑選，不如先從店型、菜單與實際使用情境出發。本篇將依照咖啡廳、甜點店、早午餐與餐廳等不同店型，整理玻璃杯的選擇方向。</p>
+        <span class="text-xs font-bold text-[#1f286f] border-b-2 border-[#1f286f] pb-0.5 group-hover:border-[#ed6d0f] group-hover:text-[#ed6d0f] transition">Read More</span>
+    </article>
+</a>
+                <a href="https://www.duralex.com.tw/blogs/news/corporate-gift-guide" class="group block cursor-pointer" target="_blank" rel="noopener" role="listitem">
+                    <article>
+                        <div class="relative overflow-hidden card-radius aspect-[1540/1000] mb-6 shadow-md bg-white flex items-center justify-center">
+                            <img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_fe882707-7e6a-43ac-9215-cc7879d8e94c.png" 
+                                 alt="客製化玻璃杯推薦｜企業禮品不想再送馬克杯、保溫杯？" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy">
+                        </div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Custom</span>
+                            <span class="h-px w-8 bg-gray-300"></span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#1f286f] mb-3 group-hover:text-[#ed6d0f] transition leading-tight">企業贈品推薦｜企業送禮送什麼最有質感？挑選重點、TOP 5 推薦排行榜</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-4">挑選企業贈品最容易犯的錯誤，是只比較價格、忽略實用性與ESG永續趨勢。好的企業贈品應具備四個條件：實用性高、能代表品牌形象、支援少量客製化、符合ESG永續理念。</p>
+                        <span class="text-xs font-bold text-[#1f286f] border-b-2 border-[#1f286f] pb-0.5 group-hover:border-[#ed6d0f] group-hover:text-[#ed6d0f] transition">Read More</span>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authorized Distributor -->
+    <section class="bg-white py-16 md:py-24 border-t border-gray-100 reveal-element" aria-label="台灣總代理資訊">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex flex-col items-center w-fit mx-auto">
+                 <img src="https://cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_ca929d4d-75b3-4ab2-82d2-4aa7982da382.png" alt="上洋產業 台灣總代理" class="w-[680px] mb-8" loading="lazy">
+                 <h4 class="text-2xl font-bold text-[#1f286f] mb-6 whitespace-nowrap">台灣總代理：上洋產業</h4>
+            </div>
+            <p class="text-gray-600 leading-loose font-medium">上洋產業為 Duralex 官方指定台灣銷售代理。確保每一位消費者選購之 Duralex 產品均為品質正品。</p>
+        </div>
+    </section>
+
+    <!-- Service Link Cards -->
+    <section class="py-12 md:py-20 w-full bg-[#1f286f] text-white" aria-label="顧客服務連結">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8" role="list">
+            <div class="aspect-square bg-[#151c52] rounded-2xl relative hover:-translate-y-1 transition-transform group w-full overflow-hidden" role="listitem">
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-2 sm:p-4 md:p-6">
+                    <i class="fa-solid fa-award text-2xl sm:text-3xl md:text-4xl mb-2 md:mb-4 text-white/90 group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                    <h5 class="font-bold text-[12px] sm:text-sm md:text-base text-white tracking-wider sm:tracking-widest text-center leading-snug">100% 法國製造</h5>
+                </div>
+            </div>
+            <div class="aspect-square bg-[#151c52] rounded-2xl relative hover:-translate-y-1 transition-transform group w-full overflow-hidden" role="listitem">
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-2 sm:p-4 md:p-6">
+                    <div class="flex gap-2 sm:gap-3 mb-2 md:mb-4 text-white/90 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-apple text-2xl sm:text-3xl md:text-4xl" aria-hidden="true"></i>
+                        <i class="fa-brands fa-line text-2xl sm:text-3xl md:text-4xl" aria-hidden="true"></i>
+                    </div>
+                    <h5 class="font-bold text-[12px] sm:text-sm md:text-base text-white tracking-wider sm:tracking-widest leading-snug text-center">Apple Pay<br>LINE Pay</h5>
+                </div>
+            </div>
+            <a href="https://www.duralex.com.tw/pages/purchasing" target="_blank" rel="noopener" class="aspect-square bg-[#151c52] rounded-2xl relative hover:-translate-y-1 transition-transform group w-full overflow-hidden" role="listitem">
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-2 sm:p-4 md:p-6">
+                    <i class="fa-solid fa-handshake-angle text-2xl sm:text-3xl md:text-4xl mb-2 md:mb-4 text-white/90 group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                    <h5 class="font-bold text-[12px] sm:text-sm md:text-base text-white tracking-wider sm:tracking-widest text-center leading-snug">企業採購方案</h5>
+                </div>
+            </a>
+            <div class="aspect-square bg-[#151c52] rounded-2xl relative hover:-translate-y-1 transition-transform group w-full overflow-hidden" role="listitem">
+                <div class="absolute inset-0 flex flex-col items-center justify-center p-2 sm:p-4 md:p-6">
+                    <i class="fa-solid fa-truck-fast text-2xl sm:text-3xl md:text-4xl mb-2 md:mb-4 text-white/90 group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                    <h5 class="font-bold text-[12px] sm:text-sm md:text-base text-white tracking-wider sm:tracking-widest text-center leading-snug">滿 $1,200 免運</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-element').forEach((el) => observer.observe(el));
+
+        // 雷雕客製化即時預覽 Logic（單一整合 widget，可切換款式）
+        const dgcStyleData = {
+            unie220: {
+                name: 'UNIE 220ml 客製化玻璃杯',
+                img: '//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_6c0b4417-6aaf-4c82-a4cb-6dc76753e7c4.jpg'
+            },
+            lys160: {
+                name: 'LYS 160ml 客製化玻璃杯',
+                img: '//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_d6c70e5e-c18b-4e48-8816-70daff8a1107.jpg'
+            },
+            lys210: {
+                name: 'LYS 210ml 客製化玻璃杯',
+                img: '//cdn-general.cybassets.com/s/files/29375/ckeditor/pictures/content_7c79d7aa-10b8-4df2-957b-2a34da5f561d.jpg'
+            }
+        };
+        const dgcFontLabels = { arial: 'Arial', bodoni: 'Bodoni MT Condensed', script: 'Freestyle Script' };
+        const dgcPosLabels = { center: '置中', lower: '偏下' };
+
+        const dgcTabs = document.getElementById('dgc-style-tabs');
+        const dgcInput = document.getElementById('dgc-input');
+        const dgcCount = document.getElementById('dgc-count');
+        const dgcFont = document.getElementById('dgc-font');
+        const dgcPos = document.getElementById('dgc-pos');
+        const dgcText = document.getElementById('dgc-text');
+        const dgcImg = document.getElementById('dgc-preview-img');
+        const dgcCopyBtn = document.getElementById('dgc-copy');
+        const dgcFeedback = document.getElementById('dgc-feedback');
+
+        if (dgcTabs && dgcInput && dgcText && dgcImg) {
+            let dgcCurrentStyle = 'unie220';
+            let dgcCurrentPos = 'center';
+            let dgcFeedbackTimer = null;
+            const dgcStage = dgcImg.closest('.dgc-preview-stage');
+
+            // 雕刻位置的「垂直落點」是相對於「玻璃杯照片本身」的高度比例，
+            // 而不是整個預覽框的高度 — 因為每款杯型照片的長寬比不同，
+            // object-fit 之後圖片在框內的實際位置也不同，若用整框百分比
+            // 定位，文字會隨著杯型跑到錯誤的高度（例如跑到杯底陰影外）。
+            const DGC_POS_FRACTION = {
+                unie220: { center: 0.46, lower: 0.75 },
+                lys160:  { center: 0.59, lower: 0.70 },
+                lys210:  { center: 0.52, lower: 0.70 }
+            };
+
+            const dgcPositionText = () => {
+                if (!dgcStage || !dgcImg.complete || !dgcImg.naturalWidth) return;
+                const styleFractions = DGC_POS_FRACTION[dgcCurrentStyle] || DGC_POS_FRACTION.lys160;
+                const fraction = styleFractions[dgcCurrentPos] !== undefined ? styleFractions[dgcCurrentPos] : 0.52;
+                const topPx = dgcImg.offsetTop + dgcImg.offsetHeight * fraction;
+                dgcText.style.top = topPx + 'px';
+            };
+
+            const updatePreview = () => {
+                const val = dgcInput.value.trim();
+                dgcText.textContent = val.length ? val : 'Your Name';
+                dgcText.classList.toggle('dgc-has-text', val.length > 0);
+                if (dgcCount) dgcCount.textContent = dgcInput.value.length + ' / 10';
+            };
+            dgcInput.addEventListener('input', updatePreview);
+            updatePreview();
+
+            if (dgcImg.complete) {
+                dgcPositionText();
+            } else {
+                dgcImg.addEventListener('load', dgcPositionText);
+            }
+            window.addEventListener('resize', dgcPositionText);
+
+            dgcTabs.querySelectorAll('.dgc-style-tab').forEach((tab) => {
+                tab.addEventListener('click', () => {
+                    dgcCurrentStyle = tab.dataset.style;
+                    dgcTabs.querySelectorAll('.dgc-style-tab').forEach((t) => t.classList.toggle('active', t === tab));
+                    const data = dgcStyleData[dgcCurrentStyle];
+                    if (data) {
+                        dgcImg.style.opacity = '0.4';
+                        setTimeout(() => {
+                            dgcImg.src = data.img;
+                            dgcImg.alt = data.name + ' 即時預覽';
+                            dgcImg.style.opacity = '1';
+                            // 圖片來源改變後，等新圖尺寸確定再重新計算文字落點
+                            if (dgcImg.complete) {
+                                dgcPositionText();
+                            } else {
+                                dgcImg.addEventListener('load', dgcPositionText, { once: true });
+                            }
+                        }, 150);
+                    }
+                });
+            });
+
+            if (dgcFont) {
+                dgcFont.addEventListener('change', () => {
+                    dgcText.classList.remove('dgc-font-arial', 'dgc-font-bodoni', 'dgc-font-script');
+                    dgcText.classList.add('dgc-font-' + dgcFont.value);
+                });
+            }
+
+            if (dgcPos) {
+                dgcPos.querySelectorAll('.dgc-pos-btn').forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        dgcCurrentPos = btn.dataset.pos;
+                        dgcPos.querySelectorAll('.dgc-pos-btn').forEach((b) => b.classList.toggle('active', b === btn));
+                        dgcPositionText();
+                    });
+                });
+            }
+
+            if (dgcCopyBtn) {
+                dgcCopyBtn.addEventListener('click', () => {
+                    const text = dgcInput.value.trim() || 'Your Name';
+                    const fontLabel = dgcFontLabels[dgcFont ? dgcFont.value : 'arial'];
+                    const posLabel = dgcPosLabels[dgcCurrentPos];
+                    const styleName = dgcStyleData[dgcCurrentStyle] ? dgcStyleData[dgcCurrentStyle].name : '';
+                    const remark = '商品：' + styleName + '｜雕刻文字：' + text + '｜字型：' + fontLabel + '｜雕刻位置：' + posLabel;
+
+                    const showFeedback = () => {
+                        if (!dgcFeedback) return;
+                        dgcFeedback.classList.add('show');
+                        clearTimeout(dgcFeedbackTimer);
+                        dgcFeedbackTimer = setTimeout(() => dgcFeedback.classList.remove('show'), 2000);
+                    };
+
+                    const fallbackCopy = () => {
+                        const ta = document.createElement('textarea');
+                        ta.value = remark;
+                        document.body.appendChild(ta);
+                        ta.select();
+                        try { document.execCommand('copy'); } catch (e) {}
+                        document.body.removeChild(ta);
+                        showFeedback();
+                    };
+
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(remark).then(showFeedback).catch(fallbackCopy);
+                    } else {
+                        fallbackCopy();
+                    }
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>
