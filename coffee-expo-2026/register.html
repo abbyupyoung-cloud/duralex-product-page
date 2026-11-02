@@ -6,37 +6,40 @@
 <title>Duralex 咖啡展借杯</title>
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <style>
-  :root { --navy: #24305E; --orange: #F47B20; --bg: #F5F3EF; --line: #DDD8CF; --muted: #6B6B6B; --danger: #C0392B; }
+  /* 品牌色：主色 #1f286f、強調 #ed6d0f、次色 #ffffff、搭配 #c1bebc */
+  :root { --navy: #1F286F; --orange: #ED6D0F; --white: #FFFFFF; --stone: #C1BEBC; --stone-soft: #F3F2F1;
+          --bg: #FFFFFF; --line: #C1BEBC; --muted: #6E6A68; --danger: #C0392B; }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: #222; font: 16px/1.6 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
-  header { background: var(--navy); color: #fff; padding: 20px 16px 18px; }
-  header small { opacity: .75; letter-spacing: .08em; }
-  header h1 { margin: 2px 0 0; font-size: 22px; }
+  body { margin: 0; background: var(--bg); color: #1D1D1F; font: 16px/1.6 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
+  header { background: var(--navy); color: var(--white); text-align: center; padding-bottom: 18px; }
+  header img { display: block; width: 100%; max-width: 520px; margin: 0 auto; aspect-ratio: 1200 / 425; object-fit: cover; }
+  header h1 { margin: 0; font-size: 20px; letter-spacing: .12em; }
+  header h1::after { content: ""; display: block; width: 28px; height: 3px; background: var(--orange); margin: 8px auto 0; }
   main { padding: 16px; max-width: 520px; margin: 0 auto; }
-  .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
   label { display: block; font-weight: 600; font-size: 14px; margin: 14px 0 4px; }
   label .opt { font-weight: 400; color: var(--muted); }
   input, select { width: 100%; padding: 12px; font-size: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
   .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
-  .terms { font-size: 13px; color: #444; background: #FAF8F4; border-radius: 8px; padding: 10px 12px; margin-top: 14px; }
+  .terms { font-size: 13px; color: #444; background: var(--stone-soft); border-radius: 8px; padding: 10px 12px; margin-top: 14px; }
   .terms ol { margin: 6px 0 0; padding-left: 20px; }
   .agree { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; margin-top: 12px; }
   .agree input { width: auto; margin-top: 5px; }
   button { width: 100%; padding: 14px; font-size: 17px; font-weight: 700; border: 0; border-radius: 10px; margin-top: 16px; }
   .primary { background: var(--orange); color: #fff; }
-  .ghost { background: #fff; color: var(--navy); border: 1px solid var(--navy); }
+  .ghost { background: var(--white); color: var(--navy); border: 1px solid var(--navy); }
   button:disabled { opacity: .5; }
   .err { color: var(--danger); font-size: 14px; margin-top: 10px; min-height: 1em; }
-  .banner { background: #FFF4E5; border: 1px solid #F5C58A; border-radius: 10px; padding: 12px; font-size: 14px; margin-bottom: 14px; }
+  .banner { background: #FDF0E6; border: 1px solid #F3B887; border-radius: 10px; padding: 12px; font-size: 14px; margin-bottom: 14px; }
   .banner a { color: var(--navy); font-weight: 700; }
   .ticket .no { font-size: 40px; font-weight: 800; color: var(--navy); letter-spacing: .04em; }
-  .pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 13px; background: #E8ECF7; color: var(--navy); }
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 13px; background: #E6E8F2; color: var(--navy); }
   .center { text-align: center; color: var(--muted); padding: 40px 0; }
   .hidden { display: none; }
 </style>
 </head>
 <body>
-<header><small>DURALEX × 台北咖啡展</small><h1>借杯登記</h1></header>
+<header><img src="assets/logo-banner.png" alt="Duralex Made in France depuis 1945"><h1>咖啡展借杯登記</h1></header>
 <main>
   <div id="friend" class="banner hidden">
     借杯證會傳到 Duralex 官方帳號聊天室，請先 <a id="addFriend" href="#">加入好友</a>，再回來登記。
