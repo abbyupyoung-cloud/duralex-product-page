@@ -198,7 +198,7 @@ $('edit').addEventListener('click', () => { fillForm(state.prefill); show('form'
     } catch (_) { /* 未連結官方帳號時略過 */ }
     if (state.record) return renderTicket(state.record);
     if (!state.open) {
-      $('closed').innerHTML = `<b>目前不在借杯登記時間</b><p style="color:var(--muted)">展期每日 ${c.regOpen}–${c.regClose} 開放登記，歡迎到 ${c.booth} 攤位找我們！</p>`;
+      $('closed').innerHTML = `<b>目前不在借杯登記時間</b><p style="color:var(--muted)">展期 ${c.expoRange || ''}，每日 ${c.regOpen}–${c.regClose} 開放登記，歡迎到 ${c.booth} 攤位找我們！</p>`;
       return show('closed');
     }
     fillForm(state.prefill);
