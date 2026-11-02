@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>借杯攤位後台</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<style>
+  :root { --navy: #24305E; --orange: #F47B20; --green: #1E8E5A; --red: #C0392B; --bg: #F2F2F2; --line: #DDD; --muted: #6B6B6B; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: #222; font: 15px/1.5 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--navy); color: #fff; padding: 10px 12px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: 12px; text-align: center; }
+  .stats b { display: block; font-size: 18px; }
+  .cash { margin-top: 6px; font-size: 13px; text-align: center; opacity: .9; }
+  .search { display: flex; gap: 6px; margin-top: 10px; }
+  .search input[type=search] { flex: 1; padding: 10px; font-size: 16px; border: 0; border-radius: 8px; }
+  .search button { padding: 0 14px; border: 0; border-radius: 8px; background: var(--orange); color: #fff; font-weight: 700; }
+  .all { font-size: 13px; margin-top: 6px; display: flex; align-items: center; gap: 6px; }
+  main { padding: 12px; max-width: 640px; margin: 0 auto; }
+  .card { background: #fff; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .no { font-size: 24px; font-weight: 800; color: var(--navy); }
+  .pill { padding: 2px 10px; border-radius: 99px; font-size: 13px; background: #EEE; }
+  .pill.out { background: #FFE9D6; color: #A34E0A; }
+  .pill.reg { background: #E8ECF7; color: var(--navy); }
+  .meta { color: var(--muted); font-size: 13px; }
+  .who { font-size: 17px; font-weight: 600; margin: 2px 0; }
+  .btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
+  .btns button { padding: 12px 4px; font-size: 15px; font-weight: 700; border: 0; border-radius: 8px; color: #fff; }
+  .btns .wide { grid-column: 1 / -1; }
+  .lend { background: var(--orange); }
+  .ret { background: var(--green); }
+  .dmg { background: var(--red); }
+  .buy { background: var(--navy); }
+  .sub { background: #fff !important; color: var(--navy) !important; border: 1px solid var(--line) !important; font-weight: 400 !important; }
+  button:disabled { opacity: .45; }
+  #toast { position: fixed; left: 12px; right: 12px; bottom: 16px; padding: 12px; border-radius: 10px; background: #222; color: #fff; text-align: center; display: none; z-index: 3; }
+  #toast.warn { background: var(--red); }
+  .center { text-align: center; color: var(--muted); padding: 30px 0; }
+  code { user-select: all; background: #EEE; padding: 2px 6px; border-radius: 4px; word-break: break-all; }
+</style>
+</head>
+<body>
+<header id="head" style="display:none">
+  <div class="stats">
+    <div><b id="sOut">–</b>借出中</div>
+    <div><b id="sLent">–</b>已借出</div>
+    <div><b id="sRet">–</b>已還</div>
+    <div><b id="sReg">–</b>待領杯</div>
+  </div>
+  <div class="cash">現場購買 <span id="sBuy">–</span>｜破損 <span id="sDmg">–</span>｜逾時 <span id="sOver">–</span>｜押金現金應有 <b id="sCash">–</b></div>
+  <form class="search" id="searchForm">
+    <input type="search" id="q" placeholder="編號 / 手機末 4 碼 / 姓名">
+    <button>搜尋</button>
+  </form>
+  <label class="all"><input type="checkbox" id="all"> 包含其他日期</label>
+</header>
+<main id="list"><div class="center">載入中…</div></main>
+<div id="toast"></div>
+
+<script>
+const LIFF_ID = '2012334609-09pGZWSN';
+const API_URL = 'https://script.google.com/macros/s/AKfycbwrDNp0Kf891EpghabUx7Cx0dPNcNhD1r48HyWB2p9ieIUQM-T_GkWwJgJ0AGhkXzV8iA/exec';
+const DEPOSIT = 100;
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2));
+
+async function api(action, body = {}) {
+  const res = await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action, accessToken: liff.getAccessToken(), ...body }) });
+  const j = await res.json();
+  if (!j.ok) {
+    if (j.code === 'AUTH') { liff.logout(); liff.login({ redirectUri: location.href }); }
+    throw new Error(j.message);
+  }
+  return j.data;
+}
+
+let toastTimer;
+function toast(msg, warn) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = warn ? 'warn' : '';
+  t.style.display = 'block';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => (t.style.display = 'none'), warn ? 6000 : 2500);
+}
+
+async function loadStats() {
+  try {
+    const s = await api('stats');
+    $('sOut').textContent = s.outNow; $('sLent').textContent = s.lent; $('sRet').textContent = s.returned;
+    $('sReg').textContent = s.registered; $('sBuy').textContent = s.onsite; $('sDmg').textContent = s.damaged;
+    $('sOver').textContent = s.overdue; $('sCash').textContent = '$' + s.cashDeposit.toLocaleString();
+  } catch (x) { /* 統計失敗不影響操作 */ }
+}
+
+function cardHtml(r) {
+  const pill = r.status === '借出中' ? 'out' : r.status === '已登記' ? 'reg' : '';
+  const counts = [r.returned && `已還 ${r.returned}`, r.onsite && `現場購買 ${r.onsite}`, r.damaged && `破損 ${r.damaged}`, r.overdue && `逾時 ${r.overdue}`].filter(Boolean).join('・');
+  let btns = '';
+  if (r.status === '已登記') {
+    btns = `<button class="lend wide" data-act="lend">已收押金 $${r.cups * DEPOSIT}・借出 ${r.cups} 杯</button>`;
+  } else if (r.status === '借出中') {
+    btns = `<button class="ret" data-act="returned">還 1 杯</button><button class="buy" data-act="onsite">現場購買 1 杯</button><button class="dmg" data-act="damaged">破損 1 杯</button>`;
+  }
+  if (r.status === '已登記' || r.status === '借出中') btns += `<button class="sub wide" data-act="resend">補發借杯證</button>`;
+  return `
+    <div class="top"><span class="no">${esc(r.id)}</span><span class="pill ${pill}">${esc(r.status)}${r.status === '借出中' ? ` ${r.outstanding}/${r.cups}` : ''}</span></div>
+    <div class="who">${esc(r.name)} <span class="meta">手機末 ${esc(r.phoneTail)}</span></div>
+    <div class="meta">借 ${r.cups} 杯・${esc(r.date)}${r.lentAt ? '・借出 ' + esc(r.lentAt.slice(11, 16)) : ''}${counts ? '・' + counts : ''}</div>
+    ${btns ? `<div class="btns">${btns}</div>` : ''}`;
+}
+
+const records = new Map();
+
+function render(list) {
+  const main = $('list');
+  records.clear();
+  list.forEach((r) => records.set(r.id, r));
+  if (!list.length) { main.innerHTML = '<div class="center">沒有符合的登記</div>'; return; }
+  main.innerHTML = '';
+  list.forEach((r) => {
+    const el = document.createElement('div');
+    el.className = 'card';
+    el.dataset.id = r.id;
+    el.innerHTML = cardHtml(r);
+    main.appendChild(el);
+  });
+}
+
+async function search() {
+  try {
+    render(await api('search', { text: $('q').value, all: $('all').checked }));
+  } catch (x) { toast(x.message, true); }
+}
+
+const CONFIRM = {
+  lend: (r) => `確認已收 ${r.name} 押金 $${r.cups * DEPOSIT}，借出 ${r.cups} 杯？`,
+  returned: (r) => `${r.name} 歸還 1 杯（完整無損），退押金 $${DEPOSIT}？`,
+  onsite: (r) => `${r.name} 現場購買 1 杯？\n請先在 POS 結帳開發票，此杯不會列入財務補開名單。`,
+  damaged: (r) => `${r.name} 歸還的 1 杯破損？\n押金不退，將列入財務開票名單。`,
+  resend: (r) => `補發借杯證給 ${r.name}？`,
+};
+const DONE = { lend: '已借出', returned: '已還杯，請退押金', onsite: '已記錄現場購買', damaged: '已記錄破損', resend: '已補發借杯證' };
+
+$('list').addEventListener('click', async (e) => {
+  const btn = e.target.closest('button[data-act]');
+  if (!btn) return;
+  const card = btn.closest('.card');
+  const act = btn.dataset.act;
+  const rec = records.get(card.dataset.id);
+  if (!confirm(CONFIRM[act](rec))) return;
+  card.querySelectorAll('button').forEach((b) => (b.disabled = true));
+  try {
+    let data;
+    if (act === 'resend') data = await api('resend', { id: rec.id });
+    else if (act === 'lend') data = await api('lend', { id: rec.id, reqId: uuid() });
+    else data = await api('settle', { id: rec.id, kind: act, reqId: uuid() });
+    if (data.record) { records.set(rec.id, data.record); card.innerHTML = cardHtml(data.record); }
+    if (data.pushFailed) toast(`${DONE[act]}，但 LINE 通知傳送失敗（客人可能封鎖官方帳號），請口頭告知`, true);
+    else toast(data.already ? '這筆已經借出過了' : DONE[act]);
+    loadStats();
+  } catch (x) {
+    toast(x.message, true);
+    card.querySelectorAll('button').forEach((b) => (b.disabled = false));
+  }
+});
+
+$('searchForm').addEventListener('submit', (e) => { e.preventDefault(); search(); });
+$('all').addEventListener('change', search);
+
+(async () => {
+  try {
+    await liff.init({ liffId: LIFF_ID });
+    if (!liff.isLoggedIn()) return liff.login({ redirectUri: location.href });
+    const me = await api('whoami');
+    if (!me.isStaff) {
+      $('list').innerHTML = `<div class="card">此帳號尚未開通工作人員權限。<br>請把下面的 ID 傳給管理員，加入指令碼屬性 STAFF_IDS：<p><code>${esc(me.userId)}</code></p>（${esc(me.displayName)}）</div>`;
+      return;
+    }
+    $('head').style.display = 'block';
+    await Promise.all([loadStats(), search()]);
+    setInterval(loadStats, 60000);
+  } catch (x) {
+    $('list').innerHTML = `<div class="center">載入失敗：${esc(x.message)}</div>`;
+  }
+})();
+</script>
+</body>
+</html>
