@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duralex 咖啡展借杯</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<style>
+  body { margin: 0; background: #F5F3EF; color: #6B6B6B; font: 15px/1.6 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; text-align: center; padding: 80px 16px; }
+</style>
+</head>
+<body>
+<p id="msg">載入中…</p>
+<script>
+// LIFF 會先開啟 Endpoint（本頁），帶著 liff.state=/register.html 或 /staff.html，
+// liff.init() 會自動轉到該頁；直接開本頁則導向客人登記頁。
+const LIFF_ID = '2012334609-09pGZWSN';
+const hasState = new URLSearchParams(location.search).has('liff.state');
+liff.init({ liffId: LIFF_ID })
+  .then(() => { if (!hasState) location.replace('register.html'); })
+  .catch((e) => { document.getElementById('msg').textContent = '載入失敗：' + e.message; });
+</script>
+</body>
+</html>
