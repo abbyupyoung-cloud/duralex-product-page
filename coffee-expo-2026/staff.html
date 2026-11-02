@@ -111,7 +111,7 @@ function cardHtml(r) {
   return `
     <div class="top"><span class="no">${esc(r.id)}</span><span class="pill ${pill}">${esc(r.status)}${r.status === '借出中' ? ` ${r.outstanding}/${r.cups}` : ''}</span></div>
     <div class="who">${esc(r.name)} <span class="meta">手機末 ${esc(r.phoneTail)}</span></div>
-    <div class="meta">借 ${r.cups} 杯・${esc(r.date)}${r.lentAt ? '・借出 ' + esc(r.lentAt.slice(11, 16)) : ''}${counts ? '・' + counts : ''}</div>
+    <div class="meta">借 ${r.cups} 杯・${esc(r.dateLabel || r.date)}${r.lentAt ? '・借出 ' + esc(r.lentAt.slice(11, 16)) : ''}${counts ? '・' + counts : ''}</div>
     ${btns ? `<div class="btns">${btns}</div>` : ''}`;
 }
 
