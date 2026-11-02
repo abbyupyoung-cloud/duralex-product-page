@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>找不到頁面</title>
+<style>
+  body { margin: 0; background: #FFFFFF; color: #6E6A68; font: 15px/1.6 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; text-align: center; padding: 80px 16px; }
+</style>
+<script>
+// 網站共用的 404 頁。只處理咖啡展借杯資料夾：網址打錯（多了括號、反引號、大小寫）時轉到正確頁面。
+(function () {
+  var base = '/duralex-product-page/coffee-expo-2026/';
+  var path = decodeURIComponent(location.pathname);
+  if (path.indexOf(base) !== 0) return;
+  var page = /staff/i.test(path) ? 'staff.html' : 'register.html';
+  location.replace(base + page + location.search + location.hash);
+})();
+</script>
+</head>
+<body>
+<p>找不到這個頁面。</p>
+</body>
+</html>
