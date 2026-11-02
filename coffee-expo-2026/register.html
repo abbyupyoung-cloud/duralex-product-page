@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Duralex 咖啡展借杯</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<style>
+  :root { --navy: #24305E; --orange: #F47B20; --bg: #F5F3EF; --line: #DDD8CF; --muted: #6B6B6B; --danger: #C0392B; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: #222; font: 16px/1.6 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
+  header { background: var(--navy); color: #fff; padding: 20px 16px 18px; }
+  header small { opacity: .75; letter-spacing: .08em; }
+  header h1 { margin: 2px 0 0; font-size: 22px; }
+  main { padding: 16px; max-width: 520px; margin: 0 auto; }
+  .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  label { display: block; font-weight: 600; font-size: 14px; margin: 14px 0 4px; }
+  label .opt { font-weight: 400; color: var(--muted); }
+  input, select { width: 100%; padding: 12px; font-size: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+  .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .terms { font-size: 13px; color: #444; background: #FAF8F4; border-radius: 8px; padding: 10px 12px; margin-top: 14px; }
+  .terms ol { margin: 6px 0 0; padding-left: 20px; }
+  .agree { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; margin-top: 12px; }
+  .agree input { width: auto; margin-top: 5px; }
+  button { width: 100%; padding: 14px; font-size: 17px; font-weight: 700; border: 0; border-radius: 10px; margin-top: 16px; }
+  .primary { background: var(--orange); color: #fff; }
+  .ghost { background: #fff; color: var(--navy); border: 1px solid var(--navy); }
+  button:disabled { opacity: .5; }
+  .err { color: var(--danger); font-size: 14px; margin-top: 10px; min-height: 1em; }
+  .banner { background: #FFF4E5; border: 1px solid #F5C58A; border-radius: 10px; padding: 12px; font-size: 14px; margin-bottom: 14px; }
+  .banner a { color: var(--navy); font-weight: 700; }
+  .ticket .no { font-size: 40px; font-weight: 800; color: var(--navy); letter-spacing: .04em; }
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 13px; background: #E8ECF7; color: var(--navy); }
+  .center { text-align: center; color: var(--muted); padding: 40px 0; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<header><small>DURALEX × 台北咖啡展</small><h1>借杯登記</h1></header>
+<main>
+  <div id="friend" class="banner hidden">
+    借杯證會傳到 Duralex 官方帳號聊天室，請先 <a id="addFriend" href="#">加入好友</a>，再回來登記。
+  </div>
+  <div id="loading" class="center">載入中…</div>
+  <div id="closed" class="card hidden"></div>
+
+  <div id="ticket" class="card ticket hidden">
+    <div class="pill" id="tStatus"></div>
+    <div class="no" id="tNo"></div>
+    <div id="tInfo"></div>
+    <button class="primary" id="resend">重新傳送借杯證到聊天室</button>
+    <button class="ghost hidden" id="edit">修改登記資料</button>
+    <button class="ghost" onclick="liff.closeWindow()">回到聊天室</button>
+    <div class="err" id="tErr"></div>
+  </div>
+
+  <form id="form" class="card hidden" novalidate>
+    <label>姓名</label>
+    <input name="name" autocomplete="name" required>
+    <label>手機</label>
+    <input name="phone" type="tel" inputmode="numeric" placeholder="0912345678" autocomplete="tel" required>
+    <label>Email</label>
+    <input name="email" type="email" autocomplete="email" required>
+    <label>借杯數</label>
+    <select name="cups"></select>
+    <label>手機條碼載具 <span class="opt">（選填）</span></label>
+    <input name="carrier" placeholder="/ABC1234" autocapitalize="characters">
+    <div class="hint">逾時未還時發票會存入載具；未填寫則寄送至 Email。</div>
+    <label>統一編號 <span class="opt">（選填）</span></label>
+    <input name="taxId" inputmode="numeric" maxlength="8">
+    <div id="companyWrap" class="hidden">
+      <label>公司抬頭</label>
+      <input name="company">
+    </div>
+    <div class="terms">
+      <b>借杯須知</b>
+      <ol id="terms"></ol>
+    </div>
+    <label class="agree"><input type="checkbox" name="agree"> 我已閱讀並同意以上借杯須知與個資使用說明</label>
+    <button class="primary" type="submit" id="submit">送出並取得借杯證</button>
+    <div class="err" id="fErr"></div>
+  </form>
+
+  <div id="done" class="card hidden" style="text-align:center">
+    <div style="font-size:40px">☕</div>
+    <b>借杯證已傳送到聊天室</b>
+    <p style="color:var(--muted);font-size:14px">請至攤位出示聊天室裡的借杯證，支付押金後領杯。</p>
+    <button class="primary" onclick="liff.closeWindow()">回到聊天室</button>
+  </div>
+</main>
+
+<script>
+const LIFF_ID = '2012334609-09pGZWSN';
+const API_URL = 'https://script.google.com/macros/s/AKfycbwrDNp0Kf891EpghabUx7Cx0dPNcNhD1r48HyWB2p9ieIUQM-T_GkWwJgJ0AGhkXzV8iA/exec';
+
+const $ = (id) => document.getElementById(id);
+const show = (...ids) => ['loading', 'closed', 'ticket', 'form', 'done'].forEach((k) => $(k).classList.toggle('hidden', !ids.includes(k)));
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2));
+let reqId = uuid();
+let state = null;
+
+async function api(action, body = {}) {
+  const res = await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action, accessToken: liff.getAccessToken(), ...body }) });
+  const j = await res.json();
+  if (!j.ok) {
+    if (j.code === 'AUTH') { liff.logout(); liff.login({ redirectUri: location.href }); }
+    throw new Error(j.message);
+  }
+  return j.data;
+}
+
+function renderTerms(c) {
+  $('terms').innerHTML = [
+    `借杯需支付每杯 $${c.deposit} 押金，請至 ${c.booth} 攤位出示借杯證後付款領杯。`,
+    `請於借杯當日 ${c.cutoff} 前歸還完整無損的杯子，即可退還押金。`,
+    `逾時未還或破損視同購買（每杯 $${c.deposit} 含稅），電子發票將於 ${c.invoiceDate}前寄送至您的載具或 Email。`,
+    `參加本借杯活動，即表示您同意本公司為辦理借用、押金退還、開立發票、顧客服務及品牌行銷通知之目的，蒐集並使用您的姓名、聯絡方式、發票載具及活動使用紀錄等個人資料，於活動期間及目的存續期間內，在中華民國境內，由本公司及其委託之合作廠商以電子或紙本方式處理與利用。您得依個資法行使查閱、更正、刪除或停止利用等權利，詳見<a href="https://www.duralex.com.tw/pages/privacy" target="_blank">隱私權政策</a>。`,
+  ].map((t) => `<li>${t}</li>`).join('');
+}
+
+function renderTicket(r) {
+  const label = { '已登記': '已登記・待領杯', '借出中': `借出中・尚有 ${r.outstanding} 杯未還` }[r.status] || r.status;
+  $('tStatus').textContent = label;
+  $('tNo').textContent = r.id;
+  $('tInfo').textContent = `${r.name}｜借 ${r.cups} 杯｜押金 $${r.cups * state.config.deposit}`;
+  $('edit').classList.toggle('hidden', r.status !== '已登記' || !state.open);
+  show('ticket');
+}
+
+function fillForm(p) {
+  const f = $('form');
+  const c = state.config;
+  f.cups.innerHTML = Array.from({ length: c.maxCups }, (_, i) => `<option value="${i + 1}">${i + 1} 杯（押金 $${(i + 1) * c.deposit}）</option>`).join('');
+  if (p) ['name', 'phone', 'email', 'carrier', 'taxId', 'company'].forEach((k) => { f[k].value = p[k] || ''; });
+  if (state.record) f.cups.value = state.record.cups;
+  $('companyWrap').classList.toggle('hidden', !f.taxId.value);
+}
+
+$('form').taxId.addEventListener('input', (e) => $('companyWrap').classList.toggle('hidden', !e.target.value));
+
+$('form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target;
+  $('fErr').textContent = '';
+  $('submit').disabled = true;
+  try {
+    const form = {
+      name: f.name.value, phone: f.phone.value, email: f.email.value, cups: Number(f.cups.value),
+      carrier: f.carrier.value, taxId: f.taxId.value, company: f.taxId.value ? f.company.value : '', agree: f.agree.checked,
+    };
+    const data = await api('register', { form, reqId });
+    reqId = uuid();
+    state.record = data.record;
+    if (data.pushFailed) {
+      $('tErr').textContent = '借杯證傳送失敗，請確認已加入 Duralex 官方帳號好友，再按「重新傳送」。';
+      renderTicket(data.record);
+    } else {
+      show('done');
+    }
+  } catch (x) {
+    $('fErr').textContent = x.message;
+  } finally {
+    $('submit').disabled = false;
+  }
+});
+
+$('resend').addEventListener('click', async () => {
+  $('resend').disabled = true;
+  $('tErr').textContent = '';
+  try {
+    const d = await api('resendMine');
+    $('tErr').textContent = d.pushFailed ? '傳送失敗，請確認已加入 Duralex 官方帳號好友。' : '已重新傳送，請回聊天室查看。';
+  } catch (x) {
+    $('tErr').textContent = x.message;
+  } finally {
+    $('resend').disabled = false;
+  }
+});
+
+$('edit').addEventListener('click', () => { fillForm(state.prefill); show('form'); });
+
+(async () => {
+  try {
+    await liff.init({ liffId: LIFF_ID });
+    if (!liff.isLoggedIn()) return liff.login({ redirectUri: location.href });
+    state = await api('myRecord');
+    const c = state.config;
+    renderTerms(c);
+    try {
+      const fr = await liff.getFriendship();
+      if (!fr.friendFlag) {
+        $('addFriend').href = 'https://line.me/R/ti/p/' + encodeURIComponent(c.oaId);
+        $('friend').classList.remove('hidden');
+      }
+    } catch (_) { /* 未連結官方帳號時略過 */ }
+    if (state.record) return renderTicket(state.record);
+    if (!state.open) {
+      $('closed').innerHTML = `<b>目前不在借杯登記時間</b><p style="color:var(--muted)">展期每日 ${c.regOpen}–${c.regClose} 開放登記，歡迎到 ${c.booth} 攤位找我們！</p>`;
+      return show('closed');
+    }
+    fillForm(state.prefill);
+    show('form');
+  } catch (x) {
+    $('loading').textContent = '載入失敗：' + x.message;
+  }
+})();
+</script>
+</body>
+</html>
