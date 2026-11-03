@@ -141,7 +141,7 @@ async function search() {
 const CONFIRM = {
   lend: (r) => `確認已收 ${r.name} 押金 $${r.cups * DEPOSIT}，借出 ${r.cups} 杯？`,
   returned: (r) => `${r.name} 歸還 1 杯（完整無損），退押金 $${DEPOSIT}？`,
-  onsite: (r) => `${r.name} 現場購買 1 杯？\n請先在 POS 結帳開發票，此杯不會列入財務補開名單。`,
+  onsite: (r) => `${r.name} 現場購買 1 杯？\n押金 $${DEPOSIT} 轉為貨款，不退。請告知客人：電子發票 11/30 前寄到載具或 Email。`,
   damaged: (r) => `${r.name} 歸還的 1 杯破損？\n押金不退，將列入財務開票名單。`,
   resend: (r) => `補發借杯證給 ${r.name}？`,
 };
