@@ -11,9 +11,8 @@
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: #222; font: 15px/1.5 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
   header { position: sticky; top: 0; z-index: 2; background: var(--navy); color: #fff; padding: 10px 12px; }
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: 12px; text-align: center; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; font-size: 12px; text-align: center; }
   .stats b { display: block; font-size: 18px; }
-  .cash { margin-top: 6px; font-size: 13px; text-align: center; opacity: .9; }
   .search { display: flex; gap: 6px; margin-top: 10px; }
   .search input[type=search] { flex: 1; padding: 10px; font-size: 16px; border: 0; border-radius: 8px; }
   .search button { padding: 0 14px; border: 0; border-radius: 8px; background: var(--orange); color: #fff; font-weight: 700; }
@@ -45,12 +44,10 @@
 <body>
 <header id="head" style="display:none">
   <div class="stats">
-    <div><b id="sOut">–</b>借出中</div>
     <div><b id="sLent">–</b>已借出</div>
     <div><b id="sRet">–</b>已還</div>
     <div><b id="sReg">–</b>待領杯</div>
   </div>
-  <div class="cash">現場購買 <span id="sBuy">–</span>｜破損 <span id="sDmg">–</span>｜逾時 <span id="sOver">–</span>｜押金現金應有 <b id="sCash">–</b></div>
   <form class="search" id="searchForm">
     <input type="search" id="q" placeholder="編號 / 手機末 4 碼 / 姓名">
     <button>搜尋</button>
@@ -92,9 +89,7 @@ function toast(msg, warn) {
 async function loadStats() {
   try {
     const s = await api('stats');
-    $('sOut').textContent = s.outNow; $('sLent').textContent = s.lent; $('sRet').textContent = s.returned;
-    $('sReg').textContent = s.registered; $('sBuy').textContent = s.onsite; $('sDmg').textContent = s.damaged;
-    $('sOver').textContent = s.overdue; $('sCash').textContent = '$' + s.cashDeposit.toLocaleString();
+    $('sLent').textContent = s.lent; $('sRet').textContent = s.returned; $('sReg').textContent = s.registered;
   } catch (x) { /* 統計失敗不影響操作 */ }
 }
 
