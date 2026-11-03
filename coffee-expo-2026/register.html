@@ -19,6 +19,7 @@
   .card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
   label { display: block; font-weight: 600; font-size: 14px; margin: 14px 0 4px; }
   label .opt { font-weight: 400; color: var(--muted); }
+  label .req { font-weight: 400; color: var(--orange); }
   input, select { width: 100%; padding: 12px; font-size: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
   .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
   .terms { font-size: 13px; color: #444; background: var(--stone-soft); border-radius: 8px; padding: 10px 12px; margin-top: 14px; }
@@ -58,11 +59,11 @@
   </div>
 
   <form id="form" class="card hidden" novalidate>
-    <label>姓名</label>
+    <label>姓名 <span class="req">（必填）</span></label>
     <input name="name" autocomplete="name" required>
-    <label>手機</label>
+    <label>手機 <span class="req">（必填）</span></label>
     <input name="phone" type="tel" inputmode="numeric" placeholder="0912345678" autocomplete="tel" required>
-    <label>Email</label>
+    <label>Email <span class="req">（必填）</span></label>
     <input name="email" type="email" autocomplete="email" required>
     <label>借杯數</label>
     <select name="cups"></select>
