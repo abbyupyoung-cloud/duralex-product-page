@@ -12,7 +12,7 @@
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: #1D1D1F; font: 16px/1.6 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
   header { background: var(--navy); color: var(--white); text-align: center; padding-bottom: 18px; }
-  header img { display: block; width: 100%; max-width: 520px; margin: 0 auto; aspect-ratio: 1200 / 425; object-fit: cover; }
+  header img { display: block; width: 70%; max-width: 364px; margin: 0 auto; aspect-ratio: 1200 / 425; object-fit: cover; }
   header h1 { margin: 0; font-size: 20px; letter-spacing: .12em; }
   header h1::after { content: ""; display: block; width: 28px; height: 3px; background: var(--orange); margin: 8px auto 0; }
   main { padding: 16px; max-width: 520px; margin: 0 auto; }
@@ -76,10 +76,11 @@
       <input name="company">
     </div>
     <div class="terms">
-      <b>借杯須知</b>
+      <b>🔈 借杯前請注意</b>
       <ol id="terms"></ol>
+      <p id="termsEnd" style="margin:8px 0 0"></p>
     </div>
-    <label class="agree"><input type="checkbox" name="agree"> 我已閱讀並同意以上借杯須知與個資使用說明</label>
+    <label class="agree"><input type="checkbox" name="agree"> 我已閱讀並同意以上借杯注意事項與個資使用說明</label>
     <button class="primary" type="submit" id="submit">送出並取得借杯證</button>
     <div class="err" id="fErr"></div>
   </form>
@@ -114,11 +115,12 @@ async function api(action, body = {}) {
 
 function renderTerms(c) {
   $('terms').innerHTML = [
-    `借杯需支付每杯 $${c.deposit} 押金，請至 ${c.booth} 攤位出示借杯證後付款領杯。`,
-    `請於借杯當日 ${c.cutoff} 前歸還完整無損的杯子，即可退還押金。`,
-    `逾時未還或破損視同購買（每杯 $${c.deposit} 含稅），電子發票將於 ${c.invoiceDate}前寄送至您的載具或 Email。`,
-    `參加本借杯活動，即表示您同意本公司為辦理借用、押金退還、開立發票、顧客服務及品牌行銷通知之目的，蒐集並使用您的姓名、聯絡方式、發票載具及活動使用紀錄等個人資料，於活動期間及目的存續期間內，在中華民國境內，由本公司及其委託之合作廠商以電子或紙本方式處理與利用。您得依個資法行使查閱、更正、刪除或停止利用等權利，詳見<a href="https://www.duralex.com.tw/pages/privacy" target="_blank">隱私權政策</a>。`,
+    `帶走玻璃咖啡杯前確認完整無損，並請於當日🔸${c.cutoff}前歸還，若逾時未還，將視同購買並開立發票，電子發票將於 ${c.invoiceDate}前寄送至您的載具或 Email。`,
+    `借杯需支付💲${c.deposit}元押金，送出表單後，我們會將「借杯證」傳送到 LINE 聊天室，作為押金收取憑證。`,
+    `玻璃咖啡杯歸還時完整無損、出示借杯證，即可退回押金。`,
+    `參加本借杯活動，即表示您同意本公司為辦理借用、押金退還、開立發票、顧客服務及品牌行銷通知之目的，蒐集並使用您的姓名、聯絡方式、發票載具、活動使用紀錄等個人資料，於活動期間及目的存續期間內，在中華民國境內，由本公司及其委託之合作廠商以電子或紙本方式處理與利用。您得個資行使查閱、更正、刪除或停止利用等權利，詳細內容請參閱本公司隱私權政策：<a href="https://www.duralex.com.tw/pages/privacy" target="_blank">https://www.duralex.com.tw/pages/privacy</a>。`,
   ].map((t) => `<li>${t}</li>`).join('');
+  $('termsEnd').textContent = '若確認無問題，請填寫下方資料並送出，到攤位支付押金後，我們就會把杯子交給你，請你快樂的使用他，但也請幫我們好好照顧他☺';
 }
 
 function renderTicket(r) {
