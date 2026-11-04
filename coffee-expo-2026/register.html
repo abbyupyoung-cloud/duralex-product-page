@@ -3,102 +3,212 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F286F">
 <title>Duralex 咖啡展借杯</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <style>
   /* 品牌色：主色 #1f286f、強調 #ed6d0f、次色 #ffffff、搭配 #c1bebc */
-  :root { --navy: #1F286F; --orange: #ED6D0F; --white: #FFFFFF; --stone: #C1BEBC; --stone-soft: #F3F2F1;
-          --bg: #FFFFFF; --line: #C1BEBC; --muted: #6E6A68; --danger: #C0392B; }
+  :root { --navy: #1F286F; --navy-2: #2B3584; --orange: #ED6D0F; --orange-soft: #FDF0E6; --white: #FFFFFF;
+          --stone: #C1BEBC; --stone-soft: #F3F2F1; --field: #F7F6F5; --ink: #1D1D1F; --muted: #6E6A68; --danger: #C0392B; }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: #1D1D1F; font: 16px/1.6 -apple-system, "PingFang TC", "Noto Sans TC", sans-serif; }
-  header { background: var(--navy); color: var(--white); text-align: center; padding-bottom: 18px; }
-  header img { display: block; width: 70%; max-width: 364px; margin: 0 auto; aspect-ratio: 1200 / 425; object-fit: cover; }
-  header h1 { margin: 0; font-size: 20px; letter-spacing: .12em; }
-  header h1::after { content: ""; display: block; width: 28px; height: 3px; background: var(--orange); margin: 8px auto 0; }
-  main { padding: 16px; max-width: 520px; margin: 0 auto; }
-  .card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
-  label { display: block; font-weight: 600; font-size: 14px; margin: 14px 0 4px; }
+  body { margin: 0; background: var(--stone-soft); color: var(--ink);
+         font: 16px/1.6 "Noto Sans TC", -apple-system, "PingFang TC", sans-serif; -webkit-font-smoothing: antialiased; }
+
+  /* 頁首 */
+  header { position: relative; background: var(--navy); color: var(--white); text-align: center;
+           padding: 4px 16px 64px; overflow: hidden; }
+  header::before { content: ""; position: absolute; width: 340px; height: 340px; right: -140px; top: -150px;
+                   border-radius: 50%; background: var(--navy-2); }
+  header::after { content: ""; position: absolute; width: 180px; height: 180px; left: -90px; bottom: -110px;
+                  border-radius: 50%; border: 28px solid rgba(237,109,15,.18); }
+  header > * { position: relative; z-index: 1; }
+  header img { display: block; width: 62%; max-width: 320px; margin: 0 auto; aspect-ratio: 1200 / 425; object-fit: cover; }
+  .eyebrow { display: inline-block; font-size: 12px; letter-spacing: .2em; color: var(--orange); font-weight: 700;
+             background: rgba(255,255,255,.08); padding: 3px 12px; border-radius: 99px; }
+  header h1 { margin: 10px 0 4px; font-size: 28px; font-weight: 900; letter-spacing: .08em; }
+  .sub { font-size: 13px; opacity: .8; margin: 0; }
+
+  main { padding: 0 16px 40px; max-width: 520px; margin: -40px auto 0; position: relative; z-index: 2; }
+
+  /* 重點資訊 */
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--white); border-radius: 18px;
+           box-shadow: 0 10px 30px rgba(31,40,111,.12); margin-bottom: 16px; }
+  .facts div { padding: 14px 6px; text-align: center; }
+  .facts div + div { border-left: 1px solid var(--stone-soft); }
+  .facts b { display: block; font-size: 20px; font-weight: 900; color: var(--navy); line-height: 1.3; }
+  .facts span { font-size: 12px; color: var(--muted); }
+
+  /* 步驟 */
+  .steps { display: flex; justify-content: space-between; list-style: none; padding: 0; margin: 4px 4px 18px; counter-reset: s; }
+  .steps li { flex: 1; text-align: center; font-size: 12px; color: var(--muted); position: relative; counter-increment: s; }
+  .steps li::before { content: counter(s); display: grid; place-items: center; width: 28px; height: 28px; margin: 0 auto 4px;
+                      border-radius: 50%; background: var(--white); color: var(--navy); font-weight: 700; border: 2px solid var(--stone); }
+  .steps li:first-child::before { background: var(--orange); border-color: var(--orange); color: var(--white); }
+  .steps li + li::after { content: ""; position: absolute; top: 14px; right: calc(50% + 18px); width: calc(100% - 36px);
+                          height: 2px; background: var(--stone); }
+
+  .card { background: var(--white); border-radius: 18px; padding: 20px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(31,40,111,.05); }
+  .card h2 { margin: 0 0 4px; font-size: 18px; color: var(--navy); }
+  .section { margin-top: 22px; padding-top: 18px; border-top: 1px dashed var(--stone); }
+  .section-note { font-size: 13px; color: var(--muted); margin: 0; }
+
+  label { display: block; font-weight: 700; font-size: 14px; margin: 14px 0 6px; color: var(--navy); }
   label .opt { font-weight: 400; color: var(--muted); }
-  label .req { font-weight: 400; color: var(--orange); }
-  input, select { width: 100%; padding: 12px; font-size: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-  .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
-  .terms { font-size: 13px; color: #444; background: var(--stone-soft); border-radius: 8px; padding: 10px 12px; margin-top: 14px; }
-  .terms ol { margin: 6px 0 0; padding-left: 20px; }
-  .agree { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; margin-top: 12px; }
-  .agree input { width: auto; margin-top: 5px; }
-  button { width: 100%; padding: 14px; font-size: 17px; font-weight: 700; border: 0; border-radius: 10px; margin-top: 16px; }
-  .primary { background: var(--orange); color: #fff; }
-  .ghost { background: var(--white); color: var(--navy); border: 1px solid var(--navy); }
+  label .req { font-weight: 500; font-size: 12px; color: var(--orange); margin-left: 2px; }
+  input, select { width: 100%; padding: 13px 14px; font: inherit; border: 1.5px solid transparent; border-radius: 12px;
+                  background: var(--field); color: var(--ink); transition: border-color .15s, background .15s; }
+  input:focus, select:focus { outline: none; border-color: var(--orange); background: var(--white); }
+  input::placeholder { color: #A9A5A3; }
+  .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  details.terms { margin-top: 22px; background: var(--stone-soft); border-radius: 12px; font-size: 13px; color: #444; }
+  details.terms summary { list-style: none; cursor: pointer; padding: 12px 14px; font-weight: 700; color: var(--navy);
+                          display: flex; justify-content: space-between; align-items: center; }
+  details.terms summary::-webkit-details-marker { display: none; }
+  details.terms summary::after { content: "收合"; font-size: 12px; font-weight: 400; color: var(--muted); }
+  details.terms:not([open]) summary::after { content: "展開"; }
+  details.terms ol { margin: 0; padding: 0 14px 14px 32px; }
+  details.terms li + li { margin-top: 6px; }
+  details.terms a { color: var(--navy); }
+
+  .agree { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; color: var(--ink); margin-top: 16px; line-height: 1.5; }
+  .agree input { width: 20px; height: 20px; flex: none; margin: 1px 0 0; accent-color: var(--orange); }
+
+  button { width: 100%; padding: 15px; font: inherit; font-size: 17px; font-weight: 700; border: 0; border-radius: 14px;
+           margin-top: 18px; cursor: pointer; transition: transform .1s, opacity .15s; }
+  button:active { transform: scale(.98); }
+  .primary { background: var(--orange); color: var(--white); box-shadow: 0 8px 20px rgba(237,109,15,.3); }
+  .ghost { background: var(--white); color: var(--navy); border: 1.5px solid var(--stone); margin-top: 10px; }
   button:disabled { opacity: .5; }
-  .err { color: var(--danger); font-size: 14px; margin-top: 10px; min-height: 1em; }
-  .banner { background: #FDF0E6; border: 1px solid #F3B887; border-radius: 10px; padding: 12px; font-size: 14px; margin-bottom: 14px; }
-  .banner a { color: var(--navy); font-weight: 700; }
-  .ticket .no { font-size: 40px; font-weight: 800; color: var(--navy); letter-spacing: .04em; }
-  .pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 13px; background: #E6E8F2; color: var(--navy); }
+  .err { color: var(--danger); font-size: 14px; margin-top: 10px; min-height: 1em; text-align: center; }
+
+  .banner { display: flex; gap: 10px; align-items: flex-start; background: var(--orange-soft); border-radius: 14px;
+            padding: 14px; font-size: 14px; margin-bottom: 14px; }
+  .banner::before { content: "!"; flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+                    background: var(--orange); color: #fff; font-weight: 900; font-size: 13px; }
+  .banner a { color: var(--orange); font-weight: 700; }
+
+  /* 借杯證 */
+  .ticket { padding: 0; overflow: hidden; }
+  .ticket .top { background: var(--navy); color: var(--white); padding: 20px; position: relative; }
+  .ticket .top::before, .ticket .top::after { content: ""; position: absolute; bottom: -10px; width: 20px; height: 20px;
+                                              border-radius: 50%; background: var(--stone-soft); }
+  .ticket .top::before { left: -10px; } .ticket .top::after { right: -10px; }
+  .ticket .label { font-size: 12px; letter-spacing: .15em; opacity: .7; }
+  .ticket .no { font-size: 44px; font-weight: 900; letter-spacing: .04em; line-height: 1.2; margin-bottom: 8px; }
+  .pill { display: inline-block; padding: 3px 12px; border-radius: 99px; font-size: 13px; font-weight: 700;
+          background: var(--orange); color: var(--white); }
+  .ticket .bottom { padding: 18px 20px 20px; border-top: 2px dashed var(--stone); }
+  #tInfo { font-size: 15px; color: var(--ink); }
+
+  .closed { text-align: center; padding: 28px 20px; }
+  .closed .icon, .done .icon { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 12px; border-radius: 50%; font-size: 30px; }
+  .closed .icon { background: var(--stone-soft); }
+  .done { text-align: center; padding: 32px 20px 20px; }
+  .done .icon { background: var(--orange); color: var(--white); font-weight: 900; box-shadow: 0 8px 20px rgba(237,109,15,.3); }
+  .done h2 { font-size: 22px; }
+  .done p { color: var(--muted); font-size: 14px; margin: 6px 0 0; }
+
   .center { text-align: center; color: var(--muted); padding: 40px 0; }
-  .hidden { display: none; }
+  .spinner { width: 28px; height: 28px; margin: 0 auto 10px; border-radius: 50%; border: 3px solid var(--stone);
+             border-top-color: var(--orange); animation: spin .8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  footer { text-align: center; font-size: 12px; color: var(--muted); padding: 0 16px 28px; }
+  .hidden { display: none !important; }
 </style>
 </head>
 <body>
-<header><img src="assets/logo-banner.png" alt="Duralex Made in France depuis 1945"><h1>咖啡展借杯登記</h1></header>
+<header>
+  <img src="assets/logo-banner.png" alt="Duralex Made in France depuis 1945">
+  <span class="eyebrow">TAIPEI COFFEE EXPO 2026</span>
+  <h1>咖啡展借杯</h1>
+  <p class="sub" id="sub">借一只法國玻璃杯，喝完再還回來</p>
+</header>
 <main>
-  <div id="friend" class="banner hidden">
-    借杯證會傳到 Duralex 官方帳號聊天室，請先 <a id="addFriend" href="#">加入好友</a>，再回來登記。
+  <div class="facts" id="facts">
+    <div><b id="fDeposit">$100</b><span>每杯押金</span></div>
+    <div><b id="fCups">1 杯</b><span>每人限借</span></div>
+    <div><b id="fCutoff">16:00</b><span>當日前歸還</span></div>
   </div>
-  <div id="loading" class="center">載入中…</div>
-  <div id="closed" class="card hidden"></div>
+
+  <div id="friend" class="banner hidden">
+    <div>借杯證會傳到 Duralex 官方帳號聊天室，請先 <a id="addFriend" href="#">加入好友</a>，再回來登記。</div>
+  </div>
+  <div id="loading" class="center"><div class="spinner"></div>載入中…</div>
+  <div id="closed" class="card closed hidden"></div>
 
   <div id="ticket" class="card ticket hidden">
-    <div class="pill" id="tStatus"></div>
-    <div class="no" id="tNo"></div>
-    <div id="tInfo"></div>
-    <button class="primary" id="resend">重新傳送借杯證到聊天室</button>
-    <button class="ghost hidden" id="edit">修改登記資料</button>
-    <button class="ghost" onclick="liff.closeWindow()">回到聊天室</button>
-    <div class="err" id="tErr"></div>
+    <div class="top">
+      <div class="label">借杯證編號</div>
+      <div class="no" id="tNo"></div>
+      <div class="pill" id="tStatus"></div>
+    </div>
+    <div class="bottom">
+      <div id="tInfo"></div>
+      <button class="primary" id="resend">重新傳送借杯證到聊天室</button>
+      <button class="ghost hidden" id="edit">修改登記資料</button>
+      <button class="ghost" onclick="liff.closeWindow()">回到聊天室</button>
+      <div class="err" id="tErr"></div>
+    </div>
   </div>
 
-  <form id="form" class="card hidden" novalidate>
-    <label>姓名 <span class="req">（必填）</span></label>
-    <input name="name" autocomplete="name" required>
-    <label>手機 <span class="req">（必填）</span></label>
-    <input name="phone" type="tel" inputmode="numeric" placeholder="0912345678" autocomplete="tel" required>
-    <label>Email <span class="req">（必填）</span></label>
-    <input name="email" type="email" autocomplete="email" required>
-    <label id="cupsLabel">借杯數</label>
-    <select name="cups"></select>
-    <label>手機條碼載具 <span class="opt">（選填）</span></label>
-    <input name="carrier" placeholder="/ABC1234" autocapitalize="characters">
-    <div class="hint">逾時未還時發票會存入載具；未填寫則寄送至 Email。</div>
-    <label>統一編號 <span class="opt">（選填）</span></label>
-    <input name="taxId" inputmode="numeric" maxlength="8">
-    <div id="companyWrap" class="hidden">
-      <label>公司抬頭</label>
-      <input name="company">
-    </div>
-    <div class="terms">
-      <b>借杯須知</b>
-      <ol id="terms"></ol>
-    </div>
-    <label class="agree"><input type="checkbox" name="agree"> 我已閱讀並同意以上借杯須知與個資使用說明</label>
-    <button class="primary" type="submit" id="submit">送出並取得借杯證</button>
-    <div class="err" id="fErr"></div>
-  </form>
+  <div id="formWrap" class="hidden">
+    <ol class="steps">
+      <li>線上登記</li><li>攤位出示借杯證</li><li>付押金領杯</li><li>還杯退押金</li>
+    </ol>
+    <form id="form" class="card" novalidate>
+      <h2>借杯登記</h2>
+      <p class="section-note">約 1 分鐘完成，送出後借杯證會傳到 LINE 聊天室。</p>
+      <label>姓名<span class="req">必填</span></label>
+      <input name="name" autocomplete="name" placeholder="王小明" required>
+      <label>手機<span class="req">必填</span></label>
+      <input name="phone" type="tel" inputmode="numeric" placeholder="0912345678" autocomplete="tel" required>
+      <label>Email<span class="req">必填</span></label>
+      <input name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+      <label id="cupsLabel">借杯數</label>
+      <select name="cups"></select>
 
-  <div id="done" class="card hidden" style="text-align:center">
-    <div style="font-size:40px">☕</div>
-    <b>借杯證已傳送到聊天室</b>
-    <p style="color:var(--muted);font-size:14px">請至攤位出示聊天室裡的借杯證，支付押金後領杯。</p>
+      <div class="section">
+        <h2>發票資訊 <span class="opt" style="font-size:13px;font-weight:400;color:var(--muted)">（選填）</span></h2>
+        <p class="section-note">只有購買、破損或逾時未還時才會開發票。</p>
+        <label>手機條碼載具</label>
+        <input name="carrier" placeholder="/ABC1234" autocapitalize="characters">
+        <div class="hint">未填寫時，發票會寄送至 Email。</div>
+        <label>統一編號</label>
+        <input name="taxId" inputmode="numeric" maxlength="8" placeholder="8 碼數字">
+        <div id="companyWrap" class="hidden">
+          <label>公司抬頭</label>
+          <input name="company">
+        </div>
+      </div>
+
+      <details class="terms" open>
+        <summary>借杯須知</summary>
+        <ol id="terms"></ol>
+      </details>
+      <label class="agree"><input type="checkbox" name="agree"> 我已閱讀並同意以上借杯須知與個資使用說明</label>
+      <button class="primary" type="submit" id="submit">送出並取得借杯證</button>
+      <div class="err" id="fErr"></div>
+    </form>
+  </div>
+
+  <div id="done" class="card done hidden">
+    <div class="icon">✓</div>
+    <h2>借杯證已傳送到聊天室</h2>
+    <p>請到攤位出示聊天室裡的借杯證，<br>支付押金後就能領杯。</p>
     <button class="primary" onclick="liff.closeWindow()">回到聊天室</button>
   </div>
 </main>
+<footer>Duralex Taiwan・Made in France depuis 1945</footer>
 
 <script>
 const LIFF_ID = '2012334609-09pGZWSN';
 const API_URL = 'https://script.google.com/macros/s/AKfycbw6LdRl7bfeHCsBS2TwJ3oY7fZ2uNTT4s6QGn6m4FZQGnnD5Zc89ednMq2fpBp3UAC_5g/exec';
 
 const $ = (id) => document.getElementById(id);
-const show = (...ids) => ['loading', 'closed', 'ticket', 'form', 'done'].forEach((k) => $(k).classList.toggle('hidden', !ids.includes(k)));
+const show = (...ids) => ['loading', 'closed', 'ticket', 'formWrap', 'done'].forEach((k) => $(k).classList.toggle('hidden', !ids.includes(k)));
 const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2));
 let reqId = uuid();
 let state = null;
@@ -111,6 +221,14 @@ async function api(action, body = {}) {
     throw new Error(j.message);
   }
   return j.data;
+}
+
+function renderFacts(c) {
+  $('fDeposit').textContent = '$' + c.deposit;
+  $('fCups').textContent = c.maxCups + ' 杯';
+  $('fCups').nextElementSibling.textContent = c.maxCups > 1 ? '每人最多' : '每人限借';
+  $('fCutoff').textContent = c.cutoff;
+  $('sub').textContent = `${c.expoRange || ''}・${c.booth}`;
 }
 
 function renderTerms(c) {
@@ -182,7 +300,7 @@ $('resend').addEventListener('click', async () => {
   }
 });
 
-$('edit').addEventListener('click', () => { fillForm(state.prefill); show('form'); });
+$('edit').addEventListener('click', () => { fillForm(state.prefill); show('formWrap'); });
 
 (async () => {
   try {
@@ -190,6 +308,7 @@ $('edit').addEventListener('click', () => { fillForm(state.prefill); show('form'
     if (!liff.isLoggedIn()) return liff.login({ redirectUri: location.href });
     state = await api('myRecord');
     const c = state.config;
+    renderFacts(c);
     renderTerms(c);
     try {
       const fr = await liff.getFriendship();
@@ -200,11 +319,11 @@ $('edit').addEventListener('click', () => { fillForm(state.prefill); show('form'
     } catch (_) { /* 未連結官方帳號時略過 */ }
     if (state.record) return renderTicket(state.record);
     if (!state.open) {
-      $('closed').innerHTML = `<b>目前不在借杯登記時間</b><p style="color:var(--muted)">展期 ${c.expoRange || ''}，每日 ${c.regOpen}–${c.regClose} 開放登記，歡迎到 ${c.booth} 攤位找我們！</p>`;
+      $('closed').innerHTML = `<div class="icon">☕</div><h2>目前不在借杯登記時間</h2><p style="color:var(--muted);margin:6px 0 0">展期 ${c.expoRange || ''}<br>每日 ${c.regOpen}–${c.regClose} 開放登記<br>歡迎到 ${c.booth} 攤位找我們！</p>`;
       return show('closed');
     }
     fillForm(state.prefill);
-    show('form');
+    show('formWrap');
   } catch (x) {
     $('loading').textContent = '載入失敗：' + x.message;
   }
