@@ -38,6 +38,21 @@
   #toast { position: fixed; left: 12px; right: 12px; bottom: 16px; padding: 12px; border-radius: 10px; background: #222; color: #fff; text-align: center; display: none; z-index: 3; }
   #toast.warn { background: var(--red); }
   .center { text-align: center; color: var(--muted); padding: 30px 0; }
+  .search .refresh { background: rgba(255,255,255,.18); padding: 0 12px; font-size: 18px; }
+  .search .refresh.spin { opacity: .5; }
+  #statsLink { display: block; margin: 28px auto 72px; border: 0; background: none; color: #B5B2B0; font-size: 12px;
+    text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  #dailyMask { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: none; align-items: flex-end; justify-content: center; z-index: 4; }
+  #dailyMask.show { display: flex; }
+  #dailyPanel { background: #fff; width: 100%; max-width: 640px; max-height: 80vh; overflow: auto; border-radius: 16px 16px 0 0; padding: 16px 12px 24px; }
+  #dailyPanel h3 { margin: 0 0 10px; font-size: 16px; color: var(--navy); display: flex; justify-content: space-between; align-items: center; }
+  #dailyPanel h3 button { border: 0; background: none; font-size: 22px; color: var(--muted); }
+  #dailyTable { width: 100%; border-collapse: collapse; font-size: 13px; }
+  #dailyTable th, #dailyTable td { padding: 8px 4px; text-align: right; border-bottom: 1px solid #EEE; white-space: nowrap; }
+  #dailyTable th:first-child, #dailyTable td:first-child { text-align: left; }
+  #dailyTable th { color: var(--muted); font-weight: 400; font-size: 12px; }
+  #dailyTable tr.total td { font-weight: 700; color: var(--navy); border-top: 2px solid var(--navy); border-bottom: 0; }
+  .dailyNote { font-size: 11px; color: var(--muted); margin-top: 10px; line-height: 1.6; }
   code { user-select: all; background: #EEE; padding: 2px 6px; border-radius: 4px; word-break: break-all; }
 </style>
 </head>
@@ -49,12 +64,20 @@
     <div><b id="sReg">–</b>待領杯</div>
   </div>
   <form class="search" id="searchForm">
-    <input type="search" id="q" placeholder="編號 / 手機末 4 碼 / 姓名">
+    <input type="search" id="q" placeholder="編號（可只打數字）/ 手機末碼 / 姓名">
     <button>搜尋</button>
+    <button type="button" class="refresh" id="refresh" aria-label="重新整理">↻</button>
   </form>
   <label class="all"><input type="checkbox" id="all"> 包含其他日期</label>
 </header>
 <main id="list"><div class="center">載入中…</div></main>
+<button id="statsLink" type="button" style="display:none">每日統計</button>
+<div id="dailyMask">
+  <div id="dailyPanel">
+    <h3>每日借還杯統計 <button type="button" id="dailyClose" aria-label="關閉">×</button></h3>
+    <div id="dailyBody">載入中…</div>
+  </div>
+</div>
 <div id="toast"></div>
 
 <script>
@@ -166,6 +189,34 @@ $('list').addEventListener('click', async (e) => {
 });
 
 $('searchForm').addEventListener('submit', (e) => { e.preventDefault(); search(); });
+
+// 重新整理：重抓統計與清單（保留目前的搜尋字與日期勾選）
+$('refresh').addEventListener('click', async () => {
+  const b = $('refresh');
+  if (b.classList.contains('spin')) return;
+  b.classList.add('spin');
+  await Promise.all([loadStats(), search()]);
+  b.classList.remove('spin');
+  toast('已更新');
+});
+
+// 每日統計（頁面最底部的淡灰色小字）
+const dRow = (d, cls) => `<tr class="${cls || ''}"><td>${esc(d.label)}</td><td>${d.lent}</td><td>${d.returned}</td>` +
+  `<td>${d.bought}</td><td>${d.outNow}</td><td>$${d.cashDeposit.toLocaleString()}</td></tr>`;
+$('statsLink').addEventListener('click', async () => {
+  $('dailyMask').classList.add('show');
+  $('dailyBody').textContent = '載入中…';
+  try {
+    const { days, total } = await api('daily');
+    if (!days.length) { $('dailyBody').textContent = '還沒有資料'; return; }
+    $('dailyBody').innerHTML = '<table id="dailyTable"><tr><th>日期</th><th>借出</th><th>已還</th><th>已購買</th><th>借出中</th><th>押金留存</th></tr>' +
+      days.map((d) => dRow(d)).join('') + (days.length > 1 ? dRow(total, 'total') : '') + '</table>' +
+      '<div class="dailyNote">已購買明細：' + days.map((d) => `${esc(d.label)} 現場 ${d.onsite}／破損 ${d.damaged}／逾時 ${d.overdue}`).join('；') +
+      '<br>押金留存＝（借出 − 已還）× $' + DEPOSIT + '，購買的押金直接轉貨款。</div>';
+  } catch (x) { $('dailyBody').textContent = '讀取失敗：' + x.message; }
+});
+$('dailyClose').addEventListener('click', () => $('dailyMask').classList.remove('show'));
+$('dailyMask').addEventListener('click', (e) => { if (e.target === $('dailyMask')) $('dailyMask').classList.remove('show'); });
 $('all').addEventListener('change', search);
 
 (async () => {
@@ -178,6 +229,7 @@ $('all').addEventListener('change', search);
       return;
     }
     $('head').style.display = 'block';
+    $('statsLink').style.display = 'block';
     await Promise.all([loadStats(), search()]);
     setInterval(loadStats, 60000);
   } catch (x) {
