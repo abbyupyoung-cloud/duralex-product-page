@@ -1,5 +1,5 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Duralex 咖啡地圖｜聖誕限定 × 草悟系</title><style>body{margin:0;background:#f5f7fd}</style></head><body>
-<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v3 2026-11-19（插畫・乾淨版）
+<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v4 2026-11-19（真實杯款聖誕主視覺＋品牌介紹）
      待替換：① 9、10 號店家 ② 各店地址/營業時間 ③ Google My Maps 嵌入網址 ④ IG 指定貼文連結（12/14 發布後）⑤ KOL 影片 -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;display=swap" rel="stylesheet" />
 <style type="text/css">
@@ -50,27 +50,70 @@
 .dxcm-nav .dxcm-btn{margin-left:auto;padding:.4rem 1rem;font-size:.85rem;box-shadow:none}
 @media(min-width:860px){.dxcm-links{display:flex}.dxcm-nav .dxcm-btn{margin-left:.3rem}}
 
-/* ── HERO ── */
-.dxcm-hero{position:relative;text-align:center;padding:2.4rem 0 0;background:linear-gradient(#f5f7fd 0%,#eaf0fd 60%,#f5f7fd 100%)}
-.dxcm-hero-top{position:relative;z-index:3;padding:0 1rem}
-.dxcm-co{display:inline-flex;align-items:center;gap:.6rem;font-family:'Playfair Display',serif;font-weight:900;font-size:.85rem;letter-spacing:.25em;color:var(--navy)}
-.dxcm-co i{width:1px;height:14px;background:var(--navy);opacity:.4}
-.dxcm-wrap h1.dxcm-title{margin:.6rem 0 .2rem;font-weight:900;font-size:clamp(2.8rem,10vw,5rem);color:var(--navy);letter-spacing:.06em;line-height:1.1;text-shadow:4px 4px 0 var(--gold)}
-.dxcm-title small{display:block;font-family:'Playfair Display',serif;font-size:.36em;letter-spacing:.3em;color:var(--red);text-shadow:none;margin-bottom:.2rem}
-.dxcm-sub{display:inline-block;margin:.8rem 0 .6rem !important;background:#fff;border:2px solid var(--navy);color:var(--navy);font-weight:700;font-size:clamp(.92rem,2.6vw,1.1rem);letter-spacing:.18em;padding:.3rem 1.2rem;border-radius:999px}
-.dxcm-date{font-weight:900;color:var(--navy);font-size:clamp(1rem,3vw,1.2rem);letter-spacing:.04em;margin:0 !important}
-.dxcm-date span{color:var(--muted);font-weight:500;font-size:.85em}
-.dxcm-scene{position:relative;z-index:2;margin-top:-1rem}
-.dxcm-scene svg{display:block;width:100%;height:auto}
-.dxcm-steam{animation:dxcm-steam 3s ease-in-out infinite}
-.dxcm-steam.s2{animation-delay:1s}.dxcm-steam.s3{animation-delay:2s}
-@keyframes dxcm-steam{0%{opacity:0;transform:translateY(10px)}40%{opacity:1}100%{opacity:0;transform:translateY(-12px)}}
-.dxcm-pin{animation:dxcm-bob 2.6s ease-in-out infinite}
-.dxcm-pin.p2{animation-delay:.6s}.dxcm-pin.p3{animation-delay:1.2s}.dxcm-pin.p4{animation-delay:1.8s}
-@keyframes dxcm-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.dxcm-scroll{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:4;color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.2rem}
-.dxcm-scroll b{width:30px;height:30px;border:2px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;animation:dxcm-bob 1.8s ease-in-out infinite}
-@media(max-width:640px){.dxcm-scroll{display:none}}
+/* ── HERO（真實杯款 × 聖誕裝扮）── */
+.dxcm-hero{position:relative;background:radial-gradient(ellipse at 75% 45%,#2c3a96 0%,var(--navy) 50%,#151c4f 100%);color:#fff;overflow:hidden;padding:3rem 1rem 3.5rem;margin-top:-1px}
+.dxcm-hero-grid{position:relative;z-index:3;max-width:1080px;margin:0 auto;display:grid;gap:2rem;align-items:center;grid-template-columns:1fr}
+@media(min-width:880px){.dxcm-hero-grid{grid-template-columns:1fr 1.05fr}}
+.dxcm-hero-txt{text-align:left}
+.dxcm-eyeline{display:flex;align-items:center;gap:.8rem;color:var(--gold);font-weight:900;letter-spacing:.3em;font-size:.8rem}
+.dxcm-eyeline::before{content:'';width:34px;height:1px;background:var(--gold)}
+.dxcm-datepill{display:inline-block;margin:1rem 0 .4rem;background:var(--gold);color:var(--navy);font-weight:900;font-size:.9rem;letter-spacing:.08em;padding:.3rem 1rem;border-radius:999px}
+.dxcm-wrap h1.dxcm-big{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:clamp(3.4rem,10vw,6rem);line-height:.98;color:#fff;letter-spacing:-.01em;margin:.4rem 0 1rem}
+.dxcm-big em{color:var(--gold);font-style:italic}
+.dxcm-hero-name{font-weight:900;font-size:clamp(1.4rem,4vw,2rem);line-height:1.35;margin:0 0 .4rem !important}
+.dxcm-hero-deal{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;font-weight:900;font-size:clamp(1.5rem,4.6vw,2.3rem);line-height:1.2;margin-bottom:1.6rem}
+.dxcm-chip{display:inline-block;background:var(--gold);color:var(--navy);padding:.05em .35em;border-radius:6px;transform:rotate(-2deg)}
+.dxcm-chip.r{background:var(--red);color:#fff;transform:rotate(2deg)}
+.dxcm-hero .dxcm-cta{justify-content:flex-start}
+.dxcm-btn-ghost{color:#fff !important;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
+.dxcm-hero-co{margin-top:1.4rem !important;font-size:.8rem;color:#aeb7e6;letter-spacing:.08em}
+
+.dxcm-globe-wrap{position:relative;max-width:520px;width:100%;margin:0 auto}
+.dxcm-globe{position:relative;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 50% 40%,#fffaf0 0%,#fbefd8 70%,#f3dfbd 100%);box-shadow:0 0 0 14px rgba(255,250,240,.07),0 0 80px rgba(255,236,190,.35);overflow:hidden;clip-path:circle(50% at 50% 50%)}
+.dxcm-globe svg.dxcm-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.dxcm-pc{position:absolute;mix-blend-mode:multiply}
+.dxcm-pc img{display:block;width:100%;height:auto}
+.dxcm-pc-c{width:36.6%;left:-1.24%;top:46.97%}
+.dxcm-pc-p{width:41.48%;left:29.14%;top:39.78%}
+.dxcm-pc-g{width:29.28%;left:67.2%;top:42.84%}
+.dxcm-sway{transform-box:fill-box;transform-origin:50% 100%;animation:dxcm-sway 3s ease-in-out infinite}
+.dxcm-sway.b{animation-duration:3.6s;animation-delay:-1s}
+@keyframes dxcm-sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.dxcm-blink{transform-box:fill-box;transform-origin:center;animation:dxcm-blink 4.5s infinite}
+.dxcm-blink.b{animation-delay:1.5s}.dxcm-blink.c{animation-delay:2.8s}
+@keyframes dxcm-blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.dxcm-nose{animation:dxcm-glow 1.6s ease-in-out infinite}
+@keyframes dxcm-glow{0%,100%{filter:drop-shadow(0 0 0 #ff4d4d)}50%{filter:drop-shadow(0 0 1.4px #ff4d4d)}}
+.dxcm-gsnow{position:absolute;top:-6%;color:#cfd8f5;font-size:12px;animation:dxcm-gfall linear infinite;pointer-events:none}
+@keyframes dxcm-gfall{to{transform:translate(10px,560px) rotate(300deg)}}
+.dxcm-burst{position:absolute;top:2%;right:0;width:clamp(96px,22%,132px);aspect-ratio:1;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.05;box-shadow:0 0 0 6px rgba(226,87,76,.25),0 14px 30px rgba(0,0,0,.3);animation:dxcm-pulse 1.8s ease-in-out infinite;z-index:4}
+.dxcm-burst small{font-size:.75rem;font-weight:900;letter-spacing:.08em}
+.dxcm-burst strong{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:clamp(1.6rem,4vw,2.2rem)}
+.dxcm-burst span{font-size:.85rem;font-weight:900}
+@keyframes dxcm-pulse{0%,100%{transform:scale(1) rotate(-6deg)}50%{transform:scale(1.06) rotate(-6deg)}}
+.dxcm-hflake{position:absolute;top:-20px;color:#fff;opacity:.55;pointer-events:none;z-index:1;animation:dxcm-hfall linear infinite}
+@keyframes dxcm-hfall{to{transform:translate(20px,900px) rotate(360deg)}}
+
+/* ── 關於 Duralex ── */
+.dxcm-about-top{text-align:center;margin-bottom:2.2rem}
+.dxcm-about-top .dxcm-fr{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--red);font-size:1.15rem;margin-top:.4rem}
+.dxcm-feats{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:640px){.dxcm-feats{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.dxcm-feats{grid-template-columns:repeat(4,1fr)}}
+.dxcm-feat{background:#fff;border:2px solid var(--navy);border-radius:22px;padding:1.4rem 1.2rem}
+.dxcm-feat-n{font-family:'Playfair Display',serif;font-weight:900;font-size:2.4rem;color:var(--navy);line-height:1}
+.dxcm-feat-n sub{font-size:.45em;vertical-align:baseline;margin-left:.1em;color:var(--red)}
+.dxcm-feat h3{font-size:1rem;font-weight:900;color:var(--navy);margin:.6rem 0 .3rem}
+.dxcm-feat p{font-size:.85rem;color:var(--muted);margin:0;line-height:1.7}
+.dxcm-award{display:grid;gap:1.2rem;grid-template-columns:1fr;align-items:center;margin-top:1.4rem;background:var(--navy);color:#fff;border-radius:26px;padding:1.6rem}
+@media(min-width:760px){.dxcm-award{grid-template-columns:1fr 1.2fr;padding:2rem 2.4rem}}
+.dxcm-award img{border-radius:16px;width:100%}
+.dxcm-award h3{font-size:1.3rem;font-weight:900;margin-bottom:.2rem}
+.dxcm-award .en{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);margin-bottom:.8rem !important}
+.dxcm-award p{font-size:.9rem;color:#c9d0f0}
+.dxcm-museums{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem !important}
+.dxcm-museums li{background:rgba(255,255,255,.1);border-radius:999px;padding:.25rem .85rem;font-size:.8rem;font-weight:700}
+.dxcm-museums li span{color:var(--gold);margin-left:.3rem;font-weight:500}
 
 /* ── 卡片共用 ── */
 .dxcm-card{position:relative;background:#fff;border:2px solid var(--navy);border-radius:26px;padding:2.4rem 1.4rem 1.8rem}
@@ -191,115 +234,98 @@
     <nav class="dxcm-nav">
       <span class="dxcm-logo">DURALEX<span>×</span>草悟系</span>
       <div class="dxcm-links">
-        <a href="#dxcm-how">活動辦法</a><a href="#dxcm-map">咖啡地圖</a><a href="#dxcm-cups">贈品杯款</a><a href="#dxcm-lottery">曬杯抽獎</a><a href="#dxcm-faq">注意事項</a>
+        <a href="#dxcm-how">活動辦法</a><a href="#dxcm-map">咖啡地圖</a><a href="#dxcm-cups">贈品杯款</a><a href="#dxcm-lottery">曬杯抽獎</a><a href="#dxcm-about">關於 Duralex</a><a href="#dxcm-faq">注意事項</a>
       </div>
       <a class="dxcm-btn dxcm-btn-red" href="#dxcm-map">找咖啡廳</a>
     </nav>
   </div>
 
-  <!-- ═══ HERO ═══ -->
+  <!-- ═══ HERO：真實杯款 × 聖誕裝扮 ═══ -->
   <header class="dxcm-hero">
-    <svg class="dxcm-deco" style="top:30px;left:4%;width:90%;height:300px" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
-      <path class="dxcm-star" d="M60 60 l5 14 14 5 -14 5 -5 14 -5 -14 -14 -5 14 -5z"/>
-      <path class="dxcm-star d1" d="M930 40 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4z"/>
-      <path class="dxcm-star d2" d="M140 210 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/>
-      <path class="dxcm-star" d="M870 200 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z"/>
-      <circle cx="220" cy="90" r="5" fill="#b9c7f2"/><circle cx="790" cy="120" r="6" fill="#f3b9b2"/><circle cx="40" cy="160" r="4" fill="#f3b9b2"/><circle cx="960" cy="150" r="4" fill="#b9c7f2"/>
-    </svg>
-    <div class="dxcm-hero-top">
-      <div class="dxcm-co">DURALEX <i></i> 草悟系</div>
-      <h1 class="dxcm-title"><small>Noël 2026</small>聖誕咖啡地圖</h1>
-      <p class="dxcm-sub">以法式經典，盛裝聖誕美好</p>
-      <p class="dxcm-date">2026.12.14 <span>(一)</span> — 2027.01.15 <span>(五)</span></p>
+    <div aria-hidden="true">
+      <span class="dxcm-hflake" style="left:3%;font-size:10px;animation-duration:12s;animation-delay:-3s">❄</span>
+      <span class="dxcm-hflake" style="left:14%;font-size:14px;animation-duration:15s;animation-delay:-9s">❄</span>
+      <span class="dxcm-hflake" style="left:27%;font-size:7px;animation-duration:10s;animation-delay:-2s">●</span>
+      <span class="dxcm-hflake" style="left:41%;font-size:11px;animation-duration:14s;animation-delay:-6s">❄</span>
+      <span class="dxcm-hflake" style="left:56%;font-size:6px;animation-duration:9s;animation-delay:-4s">●</span>
+      <span class="dxcm-hflake" style="left:68%;font-size:13px;animation-duration:16s;animation-delay:-11s">❄</span>
+      <span class="dxcm-hflake" style="left:83%;font-size:7px;animation-duration:11s;animation-delay:-7s">●</span>
+      <span class="dxcm-hflake" style="left:95%;font-size:11px;animation-duration:13s;animation-delay:-1s">❄</span>
     </div>
+    <div class="dxcm-hero-grid">
+      <div class="dxcm-hero-txt">
+        <div class="dxcm-eyeline">NOËL 2026 · 草悟系</div>
+        <span class="dxcm-datepill">12 / 14 — 1 / 15 聖誕限定</span>
+        <h1 class="dxcm-big">Joyeux<br /><em>Noël!</em></h1>
+        <p class="dxcm-hero-name">Duralex 聖誕咖啡地圖</p>
+        <div class="dxcm-hero-deal">消費滿 <span class="dxcm-chip">$200</span> 送 <span class="dxcm-chip r">玻璃杯</span></div>
+        <div class="dxcm-cta">
+          <a class="dxcm-btn dxcm-btn-red" href="#dxcm-how">怎麼拿杯 →</a>
+          <a class="dxcm-btn dxcm-btn-ghost" href="#dxcm-map">看咖啡地圖</a>
+        </div>
+        <p class="dxcm-hero-co">以法式經典，盛裝聖誕美好｜草悟道 10 間咖啡廳聯合企劃</p>
+      </div>
 
-    <div class="dxcm-scene" aria-hidden="true">
-      <svg viewBox="0 0 1000 600">
-        <!-- 天空圓頂 -->
-        <circle cx="500" cy="640" r="520" fill="#dde6fb"/>
-        <circle cx="500" cy="640" r="440" fill="#d2ddf8"/>
-        <!-- 後方咖啡廳（藏在山丘後） -->
-        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
-          <rect x="556" y="318" width="96" height="80" fill="#fff4e2"/>
-          <rect x="546" y="304" width="116" height="18" rx="5" fill="#fff"/>
-          <rect x="572" y="340" width="26" height="30" rx="3" fill="#ffd56b"/>
-          <rect x="610" y="340" width="26" height="30" rx="3" fill="#ffd56b"/>
-        </g>
-        <!-- 山丘（綠園道） -->
-        <ellipse cx="500" cy="660" rx="500" ry="270" fill="#cfe9d8" stroke="#1f286f" stroke-width="3"/>
-        <!-- 散步道 -->
-        <path d="M120 600 C260 520 360 540 450 500 S620 430 720 450 S850 470 900 520" fill="none" stroke="#fffaf0" stroke-width="26" stroke-linecap="round"/>
-        <path d="M120 600 C260 520 360 540 450 500 S620 430 720 450 S850 470 900 520" fill="none" stroke="#1f286f" stroke-width="2.5" stroke-dasharray="2 12" stroke-linecap="round" opacity=".5"/>
+      <div class="dxcm-globe-wrap" aria-hidden="true">
+        <div class="dxcm-globe">
+          <!-- 背景層：雪地、小樹、星星 -->
+          <svg class="dxcm-layer" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <g fill="#f5c451"><path d="M20 20 l1 2.6 2.6 1 -2.6 1 -1 2.6 -1 -2.6 -2.6 -1 2.6 -1z"/><path d="M78 26 l.8 2 2 .8 -2 .8 -.8 2 -.8 -2 -2 -.8 2 -.8z"/><path d="M50 12 l.7 1.8 1.8 .7 -1.8 .7 -.7 1.8 -.7 -1.8 -1.8 -.7 1.8 -.7z"/></g>
+            <ellipse cx="50" cy="95" rx="68" ry="14" fill="#ffffff"/>
+            <ellipse cx="50" cy="95" rx="68" ry="14" fill="none" stroke="#e7d9bd" stroke-width=".4"/>
+          </svg>
 
-        <!-- 左咖啡廳（藍色遮陽棚） -->
-        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
-          <rect x="190" y="396" width="124" height="86" fill="#fff4e2"/>
-          <rect x="180" y="382" width="144" height="20" rx="6" fill="#fff"/>
-          <rect x="206" y="430" width="90" height="38" rx="3" fill="#ffd56b"/>
-          <path d="M196 404 h112 l-6 22 h-100z" fill="#4a63c9"/>
-          <path d="M218 404 l-4 22 M242 404 l-2 22 M266 404 l2 22 M290 404 l4 22" stroke-width="2"/>
-          <line x1="251" y1="430" x2="251" y2="468" stroke-width="2"/>
-        </g>
-        <!-- 右咖啡廳（紅屋頂） -->
-        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
-          <rect x="702" y="392" width="118" height="86" fill="#fff4e2"/>
-          <path d="M690 396 L761 340 L832 396z" fill="#e2574c"/>
-          <path d="M716 384 L761 349 L806 384" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-          <path d="M722 478 v-40 a14 14 0 0 1 28 0 v40" fill="#ffd56b"/>
-          <rect x="766" y="420" width="38" height="30" rx="3" fill="#ffd56b"/>
-          <line x1="785" y1="420" x2="785" y2="450" stroke-width="2"/>
-        </g>
+          <!-- 真實杯款（白底照片 × 正片疊底） -->
+          <div class="dxcm-pc dxcm-pc-c"><img src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4ODMwMDkzLzE3NTc0MTA2MzdfZTM1ZGU3NzQ1MTM5MGJjYTA0NDIuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=8a302aa9ce9cb3f7" alt="" /></div>
+          <div class="dxcm-pc dxcm-pc-p"><img src="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzQ2ODk4MDE5LzE3MTgxODgyODVfNzYwYzRjMmU5NzdkNDllYWI3ZDYuanBlZyJdLFsicCIsInRodW1iIiwiNjAweDYwMCJdXQ.jpeg?sha=586a6db36e0e1f80" alt="" /></div>
+          <!-- TODO：上 CYBERBIZ 前把這張圖上傳到後台並換網址 -->
+          <div class="dxcm-pc dxcm-pc-g"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/xmas-gigogne-latte.jpg" alt="" /></div>
 
-        <!-- 聖誕樹 -->
-        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
-          <g transform="translate(118 520)"><rect x="-6" y="-12" width="12" height="16" fill="#9a6a45"/><polygon points="-34,-10 0,-66 34,-10" fill="#3f8f6b"/><polygon points="-27,-42 0,-92 27,-42" fill="#3f8f6b"/><polygon points="-19,-72 0,-112 19,-72" fill="#3f8f6b"/><path class="dxcm-star" d="M0 -126 l4 9 9 4 -9 4 -4 9 -4 -9 -9 -4 9 -4z" stroke-width="2"/></g>
-          <g transform="translate(372 470)"><rect x="-5" y="-10" width="10" height="13" fill="#9a6a45"/><polygon points="-27,-8 0,-52 27,-8" fill="#4e9f7a"/><polygon points="-21,-33 0,-72 21,-33" fill="#4e9f7a"/><circle cx="-8" cy="-22" r="4" fill="#e2574c" stroke-width="2"/><circle cx="10" cy="-44" r="4" fill="#f5c451" stroke-width="2"/></g>
-          <g transform="translate(878 540)"><rect x="-6" y="-12" width="12" height="16" fill="#9a6a45"/><polygon points="-32,-10 0,-62 32,-10" fill="#3f8f6b"/><polygon points="-25,-40 0,-86 25,-40" fill="#3f8f6b"/><circle cx="12" cy="-24" r="4.5" fill="#f5c451" stroke-width="2"/><circle cx="-10" cy="-50" r="4.5" fill="#e2574c" stroke-width="2"/></g>
-        </g>
+          <!-- 前景層：聖誕裝扮 -->
+          <svg class="dxcm-layer" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <g stroke="#1f286f" stroke-linejoin="round" stroke-linecap="round" transform="translate(50 84) scale(1.22) translate(-50 -84)">
+              <!-- 中：Provence 聖誕老公公 -->
+              <g class="dxcm-sway">
+                <path d="M41.2 54 C42 46 47 40.5 54 38.8 C57.5 38 60.5 39.5 61.6 42.2 C59.4 41.4 57.8 42.4 57.6 44.8 C58 48 58.6 51 58.9 54 z" fill="#e2574c" stroke-width=".5"/>
+                <circle cx="62" cy="43" r="2.4" fill="#fff" stroke-width=".45"/>
+                <rect x="39.4" y="52.3" width="21.4" height="4.4" rx="2.2" fill="#fff" stroke-width=".5"/>
+              </g>
+              <g class="dxcm-blink"><ellipse cx="46.4" cy="63.5" rx="1.05" ry="1.6" fill="#1f286f" stroke="none"/><ellipse cx="53.8" cy="63.5" rx="1.05" ry="1.6" fill="#1f286f" stroke="none"/></g>
+              <circle cx="43.6" cy="67" r="1.6" fill="#f29a92" stroke="none" opacity=".75"/><circle cx="56.6" cy="67" r="1.6" fill="#f29a92" stroke="none" opacity=".75"/>
+              <path d="M48 67.4 q2.1 2 4.2 0" fill="none" stroke-width=".55"/>
 
-        <!-- 地標針 -->
-        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
-          <g class="dxcm-pin"><path d="M252 368 c-6 -12 -24 -22 -24 -40 a24 24 0 0 1 48 0 c0 18 -18 28 -24 40z" fill="#e2574c"/><circle cx="252" cy="328" r="9" fill="#fff"/></g>
-          <g class="dxcm-pin p2"><path d="M604 290 c-5 -10 -20 -18 -20 -33 a20 20 0 0 1 40 0 c0 15 -15 23 -20 33z" fill="#f5c451"/><circle cx="604" cy="257" r="7.5" fill="#fff"/></g>
-          <g class="dxcm-pin p3"><path d="M761 330 c-6 -12 -24 -22 -24 -40 a24 24 0 0 1 48 0 c0 18 -18 28 -24 40z" fill="#e2574c"/><circle cx="761" cy="290" r="9" fill="#fff"/></g>
-          <g class="dxcm-pin p4"><path d="M440 420 c-5 -10 -18 -17 -18 -31 a18 18 0 0 1 36 0 c0 14 -13 21 -18 31z" fill="#4a63c9"/><circle cx="440" cy="389" r="7" fill="#fff"/></g>
-        </g>
+              <!-- 左：Caprice 麋鹿 -->
+              <g class="dxcm-sway b" stroke="#8a5a3c" stroke-width="1.1" fill="none">
+                <path d="M20.5 62.6 C20 58.6 18.2 56.4 15.6 55.2 M19.6 59.2 L16.4 58.8 M18.9 57.3 L18.3 54.5"/>
+                <path d="M27.5 62.6 C28 58.6 29.8 56.4 32.4 55.2 M28.4 59.2 L31.6 58.8 M29.1 57.3 L29.7 54.5"/>
+              </g>
+              <path d="M18.2 63.4 q-2.6 -.4 -3.4 1.6 q1.8 .8 3.4 -.2z" fill="#c99872" stroke-width=".35"/>
+              <path d="M29.8 63.4 q2.6 -.4 3.4 1.6 q-1.8 .8 -3.4 -.2z" fill="#c99872" stroke-width=".35"/>
+              <g class="dxcm-blink b"><ellipse cx="21.3" cy="68.6" rx=".95" ry="1.45" fill="#1f286f" stroke="none"/><ellipse cx="26.7" cy="68.6" rx=".95" ry="1.45" fill="#1f286f" stroke="none"/></g>
+              <circle class="dxcm-nose" cx="24" cy="72" r="1.8" fill="#e2574c" stroke-width=".35"/>
+              <circle cx="23.4" cy="71.4" r=".5" fill="#fff" stroke="none"/>
 
-        <!-- 主角：Duralex 玻璃杯拿鐵 -->
-        <g stroke-linecap="round" fill="none" stroke="#1f286f" stroke-width="4" opacity=".55">
-          <path class="dxcm-steam" d="M470 402 q-12 -16 0 -30 q12 -14 0 -30"/>
-          <path class="dxcm-steam s2" d="M500 396 q-12 -16 0 -30 q12 -14 0 -30"/>
-          <path class="dxcm-steam s3" d="M530 402 q-12 -16 0 -30 q12 -14 0 -30"/>
-        </g>
-        <g stroke="#1f286f" stroke-width="3.5" stroke-linejoin="round">
-          <polygon points="424,470 576,470 565,560 435,560" fill="#8a5634" stroke="none"/>
-          <polygon points="420,450 580,450 577,474 423,474" fill="#f3e3c8" stroke="none"/>
-          <path d="M500 462 c-8 -9 -20 -4 -14 4 l14 6 l14 -6 c6 -8 -6 -13 -14 -4z" fill="#c98a54" stroke="none"/>
-          <polygon points="410,416 590,416 572,566 428,566" fill="rgba(255,255,255,.35)"/>
-          <line x1="412" y1="436" x2="588" y2="436" stroke-width="2.5"/>
-          <g stroke-width="2" opacity=".35"><line x1="440" y1="438" x2="446" y2="510"/><line x1="470" y1="438" x2="473" y2="510"/><line x1="500" y1="438" x2="500" y2="510"/><line x1="530" y1="438" x2="527" y2="510"/><line x1="560" y1="438" x2="554" y2="510"/></g>
-          <rect x="424" y="446" width="8" height="96" rx="4" fill="#fff" stroke="none" opacity=".7" transform="rotate(-6 428 494)"/>
-        </g>
-        <!-- 禮物盒 -->
-        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
-          <rect x="600" y="512" width="62" height="52" rx="4" fill="#e2574c"/>
-          <rect x="594" y="498" width="74" height="18" rx="4" fill="#e2574c"/>
-          <rect x="624" y="498" width="14" height="66" fill="#f5c451"/>
-          <path d="M631 498 c-10 -20 -30 -14 -22 -2 z M631 498 c10 -20 30 -14 22 -2 z" fill="#f5c451"/>
-        </g>
-        <!-- 冬青 -->
-        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
-          <path d="M392 556 q-30 -8 -44 8 q14 4 12 16 q16 -8 32 -24z" fill="#3f8f6b"/>
-          <circle cx="396" cy="552" r="7" fill="#e2574c"/><circle cx="408" cy="560" r="6" fill="#e2574c"/>
-        </g>
-        <!-- 雲 -->
-        <g stroke="#1f286f" stroke-width="3" fill="#fff" stroke-linejoin="round">
-          <path d="M-10 600 v-26 a26 26 0 0 1 34 -24 a34 34 0 0 1 62 -6 a26 26 0 0 1 40 20 a22 22 0 0 1 20 36z"/>
-          <path d="M1010 600 v-24 a24 24 0 0 0 -32 -24 a32 32 0 0 0 -58 -4 a24 24 0 0 0 -38 20 a20 20 0 0 0 -18 32z"/>
-        </g>
-        <!-- 雪點 -->
-        <g fill="#fff"><circle cx="330" cy="300" r="4"/><circle cx="690" cy="250" r="3.5"/><circle cx="160" cy="330" r="3"/><circle cx="860" cy="320" r="4"/><circle cx="520" cy="300" r="3"/></g>
-      </svg>
+              <!-- 右：Gigogne 拿鐵雪人（毛帽＋圍巾） -->
+              <g class="dxcm-sway">
+                <path d="M69.6 63.4 C69.6 55.6 82.4 55.6 82.4 63.4 z" fill="#3f8f6b" stroke-width=".5"/>
+                <path d="M72.5 59 v4 M75 57.6 v5.6 M77.5 57.6 v5.6 M80 59 v4" stroke="#2f7a59" stroke-width=".4"/>
+                <circle cx="76" cy="56" r="1.9" fill="#fff" stroke-width=".45"/>
+                <rect x="68.9" y="62" width="14.2" height="2.9" rx="1.2" fill="#2f7a59" stroke-width=".5"/>
+              </g>
+              <g class="dxcm-blink c"><circle cx="73.6" cy="69.2" r="1.25" fill="#fff" stroke-width=".35"/><circle cx="78.4" cy="69.2" r="1.25" fill="#fff" stroke-width=".35"/><circle cx="73.8" cy="69.4" r=".55" fill="#1f286f" stroke="none"/><circle cx="78.6" cy="69.4" r=".55" fill="#1f286f" stroke="none"/></g>
+              <path d="M69.9 72.6 q6.1 1.6 12.2 0 l-.2 2.6 q-5.9 1.5 -11.8 0z" fill="#e2574c" stroke-width=".45"/>
+              <path d="M72.6 73.1 l-.2 2.6 M75.4 73.5 v2.6 M78.4 73.4 l.1 2.6" stroke="#fff" stroke-width=".7"/>
+              <path d="M79.2 74.8 l1.1 6.6 l2.6 -.5 l-1.4 -6.4z" fill="#e2574c" stroke-width=".45"/>
+              <path d="M80 77 l2.3 -.4 M80.5 79.2 l2.3 -.4" stroke="#fff" stroke-width=".6"/>
+            </g>
+          </svg>
+          <span class="dxcm-gsnow" style="left:12%;animation-duration:9s;animation-delay:-2s">❄</span>
+          <span class="dxcm-gsnow" style="left:34%;font-size:8px;animation-duration:7s;animation-delay:-5s">●</span>
+          <span class="dxcm-gsnow" style="left:58%;animation-duration:10s;animation-delay:-1s">❄</span>
+          <span class="dxcm-gsnow" style="left:80%;font-size:8px;animation-duration:8s;animation-delay:-6s">●</span>
+        </div>
+        <div class="dxcm-burst"><small>單筆滿</small><strong>$200</strong><span>送玻璃杯</span></div>
+      </div>
     </div>
   </header>
 
@@ -380,6 +406,36 @@
         <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQ5NzgyLzE3ODk3MTc1MTlfNmI4MTdhMTg3MDQ4OWVlYTNmM2MuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=95bc39847b560b88" alt="Duralex Provence 玻璃杯 160ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 300 只</span></div>
       </div>
       <p class="dxcm-note">※ 贈品款式／顏色以現場實物為準，無法指定款式。</p>
+    </div>
+  </section>
+
+  <!-- ═══ 關於 Duralex ═══ -->
+  <section class="dxcm-sec" id="dxcm-about" style="padding-top:1rem">
+    <div class="dxcm-inner">
+      <div class="dxcm-about-top">
+        <div class="dxcm-kicker">WHY DURALEX · SINCE 1945</div>
+        <h2 class="dxcm-h2">法國<mark>國民玻璃餐具</mark>品牌</h2>
+        <p class="dxcm-fr">Duralex, c&#39;est du solide</p>
+        <p class="dxcm-lead" style="margin-bottom:0 !important">從巴黎小酒館到紐約 MoMA，Duralex 八十年來只做一件事：<br />讓每天都在用的強化玻璃杯與餐具，耐用、安全、而且好看。</p>
+      </div>
+      <div class="dxcm-feats">
+        <div class="dxcm-feat"><div class="dxcm-feat-n">1945</div><h3>擋風玻璃級強化工藝</h3><p>以汽車擋風玻璃的強化技術打造日常餐具，奠定八十年傳奇。</p></div>
+        <div class="dxcm-feat"><div class="dxcm-feat-n">3.5<sub>×</sub></div><h3>強度是普通玻璃 3.5 倍</h3><p>耐撞耐用；萬一碎裂也是圓潤鈍角顆粒，有小孩與寵物的家更安心。</p></div>
+        <div class="dxcm-feat"><div class="dxcm-feat-n">100<sub>%</sub></div><h3>堅持法國製造</h3><p>至今仍在法國中部 La Chapelle-Saint-Mesmin 工廠生產。</p></div>
+        <div class="dxcm-feat"><div class="dxcm-feat-n">0</div><h3>無鉛・無鎘・無雙酚 A</h3><p>無孔隙玻璃不殘留細菌與異味，100% 可回收。</p></div>
+      </div>
+      <div class="dxcm-award">
+        <img src="https://abbyupyoung-cloud.github.io/duralex-product-page/good-design-award.jpg" alt="Duralex Picardie 玻璃杯榮獲日本 Good Design Long Life Design Award" loading="lazy" />
+        <div>
+          <h3>日本 Good Design 獎</h3>
+          <p class="en">Long Life Design Award · Picardie</p>
+          <p>經典杯型被世界頂尖博物館列入永久典藏：</p>
+          <ul class="dxcm-museums">
+            <li>MoMA<span>紐約</span></li><li>The Met<span>紐約</span></li><li>V&amp;A Museum<span>倫敦</span></li><li>Musée des Arts Décoratifs<span>巴黎</span></li>
+          </ul>
+          <div class="dxcm-cta" style="justify-content:flex-start;margin-top:1.2rem"><a class="dxcm-btn dxcm-btn-red" href="https://www.duralex.com.tw/" target="_blank" rel="noopener">逛 Duralex 官網 <i>›</i></a></div>
+        </div>
+      </div>
     </div>
   </section>
 
