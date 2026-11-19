@@ -1,5 +1,5 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Duralex 咖啡地圖｜聖誕限定 × 草悟系</title><style>body{margin:0;background:#fff}</style></head><body>
-<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v7 2026-11-19（滿版＋插畫地圖主視覺）
+<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v8 2026-11-19（官方 logo、Google 多店地圖、獎品線稿、移除 $200 圓章）
      待替換：① 9、10 號店家 ② 各店地址/營業時間 ③ Google My Maps 嵌入網址 ④ IG 指定貼文連結（12/14 發布後）⑤ KOL 影片 -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;display=swap" rel="stylesheet" />
 <style type="text/css">
@@ -130,7 +130,9 @@
 .dxcm-shop.is-tbd .dxcm-shop-meta{color:#c9d0f0}
 
 /* ── Logo 徽章 ── */
-.dxcm-badge{display:block;flex:0 0 auto}
+.dxcm-badge{display:inline-block;flex:0 0 auto;background:#1f286f;overflow:hidden;line-height:0}
+/* 官方藍字白底 logo → 深藍底白字：灰階反相後用「濾色」疊在深藍上 */
+.dxcm-badge img{width:100%;height:100%;object-fit:contain;filter:grayscale(1) invert(1) contrast(8);mix-blend-mode:screen;transform:scale(1.12)}
 .dxcm-logo{display:inline-flex;align-items:center;gap:.5rem}
 .dxcm-co{gap:.8rem}
 .dxcm-co b{font-family:'Noto Sans TC',sans-serif;font-size:1.05rem;letter-spacing:.2em}
@@ -210,7 +212,7 @@
 .dxcm-prizes{display:grid;gap:1rem;grid-template-columns:1fr}
 @media(min-width:760px){.dxcm-prizes{grid-template-columns:repeat(3,1fr)}}
 .dxcm-prize{background:#fff;border:2px solid var(--navy);border-radius:22px;padding:1.4rem 1.2rem 1.3rem;text-align:center}
-.dxcm-prize svg{width:76px;height:76px;margin:0 auto .6rem;display:block}
+.dxcm-prize svg.dxcm-art{width:150px;height:150px;margin:0 auto .8rem;display:block;background:var(--sky);border-radius:50%;padding:6px}
 .dxcm-prize-tag{display:inline-block;font-weight:900;font-size:.82rem;border-radius:999px;padding:.15rem .8rem;margin-bottom:.5rem;color:#fff}
 .dxcm-prize h3{font-size:1.02rem;font-weight:900;color:var(--navy)}
 .dxcm-prize p{font-size:.82rem;color:var(--muted);margin:.35rem 0 0}
@@ -253,7 +255,7 @@ html,body{overflow-x:hidden}
   <!-- 導覽列 -->
   <div class="dxcm-navwrap">
     <nav class="dxcm-nav">
-      <span class="dxcm-logo"><svg class="dxcm-badge" width="40" height="40" viewBox="0 0 200 200" role="img" aria-label="Duralex Made in France Depuis 1945"><rect width="200" height="200" fill="#1f286f"/><defs><path id="dxbnt" d="M22 96 A82 82 0 0 1 178 96"/><path id="dxbnb" d="M28 110 A78 78 0 0 0 172 110"/></defs><text fill="#fff" font-family="Instrument Sans,Noto Sans TC,Arial,sans-serif" font-weight="700" font-size="15.5" letter-spacing="3.2"><textPath href="#dxbnt" startOffset="50%" text-anchor="middle">MADE IN FRANCE</textPath></text><text fill="#fff" font-family="Instrument Sans,Noto Sans TC,Arial,sans-serif" font-weight="700" font-size="15.5" letter-spacing="4.2"><textPath href="#dxbnb" startOffset="50%" text-anchor="middle">DEPUIS 1945</textPath></text><image href="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L2F0dGFjaGVkX3Bob3Rvcy8xNzY5MDY3NjcyX0R1cmFsZXggbG9nbyDnmb0ucG5nLnBuZyJdXQ.png?sha=116aaf690123bef9" x="30" y="76" width="140" height="48.2"/></svg><span>×</span>草悟系</span>
+      <span class="dxcm-logo"><span class="dxcm-badge" style="width:40px;height:40px"><img src="https://www.duralex.com/cdn/shop/files/300921_DURALEX_LOGO_BLUEonWHITE.png?v=1648651615&amp;width=300" alt="Duralex Made in France Depuis 1945" /></span><span>×</span>草悟系</span>
       <div class="dxcm-links">
         <a href="#dxcm-how">活動辦法</a><a href="#dxcm-about">關於 Duralex</a><a href="#dxcm-map">咖啡地圖</a><a href="#dxcm-cups">贈品杯款</a><a href="#dxcm-lottery">曬杯抽獎</a><a href="#dxcm-faq">注意事項</a>
       </div>
@@ -276,7 +278,7 @@ html,body{overflow-x:hidden}
     </div>
     <div class="dxcm-hero-grid">
       <div class="dxcm-hero-txt">
-        <div class="dxcm-co"><svg class="dxcm-badge" width="76" height="76" viewBox="0 0 200 200" role="img" aria-label="Duralex Made in France Depuis 1945"><rect width="200" height="200" fill="#1f286f"/><defs><path id="dxbht" d="M22 96 A82 82 0 0 1 178 96"/><path id="dxbhb" d="M28 110 A78 78 0 0 0 172 110"/></defs><text fill="#fff" font-family="Instrument Sans,Noto Sans TC,Arial,sans-serif" font-weight="700" font-size="15.5" letter-spacing="3.2"><textPath href="#dxbht" startOffset="50%" text-anchor="middle">MADE IN FRANCE</textPath></text><text fill="#fff" font-family="Instrument Sans,Noto Sans TC,Arial,sans-serif" font-weight="700" font-size="15.5" letter-spacing="4.2"><textPath href="#dxbhb" startOffset="50%" text-anchor="middle">DEPUIS 1945</textPath></text><image href="https://cdn-general.cybassets.com/media/W1siZiIsIjI5Mzc1L2F0dGFjaGVkX3Bob3Rvcy8xNzY5MDY3NjcyX0R1cmFsZXggbG9nbyDnmb0ucG5nLnBuZyJdXQ.png?sha=116aaf690123bef9" x="30" y="76" width="140" height="48.2"/></svg><i></i><b>草悟系</b></div>
+        <div class="dxcm-co"><span class="dxcm-badge" style="width:80px;height:80px"><img src="https://www.duralex.com/cdn/shop/files/300921_DURALEX_LOGO_BLUEonWHITE.png?v=1648651615&amp;width=300" alt="Duralex Made in France Depuis 1945" /></span><i></i><b>草悟系</b></div>
         <h1 class="dxcm-title"><small>Noël 2026</small>聖誕咖啡地圖</h1>
         <p class="dxcm-sub">以法式經典，盛裝聖誕美好</p>
         <p class="dxcm-date">2026.12.14 <span>(一)</span> — 2027.01.15 <span>(五)</span></p>
@@ -340,7 +342,6 @@ html,body{overflow-x:hidden}
           <span class="dxcm-gsnow" style="left:58%;animation-duration:10s;animation-delay:-1s">❄</span>
           <span class="dxcm-gsnow" style="left:80%;font-size:8px;animation-duration:8s;animation-delay:-6s">●</span>
         </div>
-        <div class="dxcm-burst"><small>單筆滿</small><strong>$200</strong><span>送玻璃杯</span></div>
       </div>
     </div>
   </header>
@@ -414,10 +415,11 @@ html,body{overflow-x:hidden}
       <p class="dxcm-lead">沿著綠園道散步，<b>10 間</b>咖啡廳都能換杯。<br />每店每日限量、發完為止，早點出門比較好喔！</p>
       <div class="dxcm-mapcard">
         <div class="dxcm-map">
-          <!-- TODO：換成 Google My Maps 嵌入網址（地圖 → 分享 → 嵌入我的網站） -->
-          <iframe src="https://www.google.com/maps?q=%E8%8D%89%E6%82%9F%E9%81%93%20%E5%8F%B0%E4%B8%AD&amp;z=16&amp;output=embed" loading="lazy" title="草悟系咖啡地圖" allowfullscreen=""></iframe>
+          <!-- 8 家合作店家依序串成步行路線（順序＝下方店卡 01～08）；確定 9、10 號店後把地址加在 daddr 最後（+to:地址） -->
+          <iframe src="https://maps.google.com/maps?saddr=台中市西區館前路79號&amp;daddr=台中市西區大和路73號+to:台中市西區模範街46巷6號+to:台中市西區民生路368巷3號+to:台中市西區昇平街78號+to:台中市西區忠明南路325號+to:台中市西區昇平街20號+to:台中市西區公益路68號&amp;dirflg=w&amp;hl=zh-TW&amp;output=embed" loading="lazy" title="草悟系咖啡地圖" allowfullscreen=""></iframe>
         </div>
       </div>
+      <p style="text-align:center;font-size:.82rem;color:#c9d0f0;margin:-1.2rem 0 1.6rem">地圖已標出 8 家合作咖啡廳，串成一條散步路線｜<a href="https://www.google.com/maps/dir/台中市西區館前路79號/台中市西區大和路73號/台中市西區模範街46巷6號/台中市西區民生路368巷3號/台中市西區昇平街78號/台中市西區忠明南路325號/台中市西區昇平街20號/台中市西區公益路68號/data=!4m2!4m1!3e2" target="_blank" rel="noopener" style="color:#ed6d0f;font-weight:700">用 Google 地圖開啟完整路線 ›</a></p>
 
       <div class="dxcm-shops">
         <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/phase.jpg" alt="Phase Coffee Roasters × 碧月 Dessert Instagram 頭像" loading="lazy" /><b>01</b></div><div class="dxcm-shop-body"><h3>Phase Coffee Roasters × 碧月 Dessert <small>勤美術館店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區館前路79號</span><span>🕘 每日 11:00–19:00</span></p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Phase%20Coffee%20Roasters%20x%20%E7%A2%A7%E6%9C%88Dessert%20%E5%8B%A4%E7%BE%8E%E8%A1%93%E9%A4%A8%E5%BA%97" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/phase_coffee_roasters" target="_blank" rel="noopener">Instagram</a></div></div></div>
@@ -464,17 +466,59 @@ html,body{overflow-x:hidden}
       </ol>
       <div class="dxcm-prizes">
         <div class="dxcm-prize">
-          <svg viewBox="0 0 80 80" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><rect x="16" y="34" width="48" height="36" rx="3" fill="#1f286f"/><rect x="12" y="24" width="56" height="13" rx="3" fill="#2d3a8c"/><rect x="34" y="24" width="12" height="46" fill="#ed6d0f"/><path d="M40 24 c-8 -16 -24 -10 -16 0z M40 24 c8 -16 24 -10 16 0z" fill="#ed6d0f"/></svg>
+          <!-- 線稿：飛利浦 Baristina 義式咖啡機 -->
+          <svg class="dxcm-art" viewBox="0 0 160 160" fill="none" stroke="#1f286f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="56" y="14" width="48" height="8" rx="4"/>
+            <path d="M52 22 h56 v26 q0 4 -4 4 h-48 q-4 0 -4 -4z"/>
+            <g stroke-width="1.6"><ellipse cx="64" cy="38" rx="3.5" ry="2.4" transform="rotate(-20 64 38)"/><ellipse cx="74" cy="42" rx="3.5" ry="2.4" transform="rotate(15 74 42)"/><ellipse cx="86" cy="37" rx="3.5" ry="2.4" transform="rotate(-10 86 37)"/><ellipse cx="96" cy="43" rx="3.5" ry="2.4" transform="rotate(25 96 43)"/><ellipse cx="80" cy="46" rx="3.5" ry="2.4"/><ellipse cx="69" cy="47" rx="3.5" ry="2.4" transform="rotate(30 69 47)"/><ellipse cx="91" cy="48" rx="3.5" ry="2.4" transform="rotate(-25 91 48)"/></g>
+            <path d="M46 62 q0 -10 10 -10 h48 q10 0 10 10 v70 h-68z"/>
+            <path d="M54 60 v66 M106 60 v66" stroke-width="1.2" opacity=".45"/>
+            <circle cx="80" cy="70" r="6"/><path d="M76 84 h8"/>
+            <path d="M114 82 h14 q8 0 8 6 q0 6 -8 6 h-14"/>
+            <rect x="72" y="94" width="16" height="7" rx="2"/>
+            <path d="M68 106 h24 l-3 22 h-18z"/>
+            <path d="M70 114 h20" stroke-width="1.4"/><path d="M72 118 l14 0 M73 122 l12 0" stroke-width="1" opacity=".5"/>
+            <rect x="38" y="132" width="84" height="10" rx="4"/>
+            <path d="M78 101 v3" stroke="#ed6d0f" stroke-width="2.4"/>
+          </svg>
           <span class="dxcm-prize-tag" style="background:var(--navy)">社群人氣獎 ×1</span>
           <h3>飛利浦 Baristina<br />一滑極萃義式咖啡機</h3><p>留言照片按讚數最高的人</p>
         </div>
         <div class="dxcm-prize">
-          <svg viewBox="0 0 80 80" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><rect x="16" y="34" width="48" height="36" rx="3" fill="#c1bebc"/><rect x="12" y="24" width="56" height="13" rx="3" fill="#d6d4d2"/><rect x="34" y="24" width="12" height="46" fill="#1f286f"/><path d="M40 24 c-8 -16 -24 -10 -16 0z M40 24 c8 -16 24 -10 16 0z" fill="#1f286f"/></svg>
+          <!-- 線稿：one-meter 轉轉煮茶機 -->
+          <svg class="dxcm-art" viewBox="0 0 160 160" fill="none" stroke="#1f286f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M64 30 v-8 q0 -6 6 -6 h20 q6 0 6 6 v8"/>
+            <rect x="48" y="30" width="64" height="12" rx="4"/>
+            <path d="M52 42 h56 v76 q0 6 -6 6 h-44 q-6 0 -6 -6z"/>
+            <path d="M58 46 v68" stroke-width="1.2" opacity=".45"/>
+            <path d="M54 62 q13 5 26 0 t26 0" stroke-width="1.6"/>
+            <circle cx="72" cy="82" r="10"/><path d="M72 72 v20 M62 82 h20 M65 75 l14 14 M79 75 l-14 14" stroke-width="1"/>
+            <circle cx="93" cy="100" r="9"/><path d="M93 91 v18 M84 100 h18 M87 94 l12 12 M99 94 l-12 12" stroke-width="1"/>
+            <path d="M84 70 q8 -10 16 -4 q-8 8 -16 4z" stroke-width="1.6"/>
+            <circle cx="70" cy="108" r="2"/><circle cx="96" cy="78" r="2"/>
+            <rect x="108" y="96" width="12" height="8" rx="2"/>
+            <rect x="42" y="124" width="76" height="18" rx="6"/>
+            <rect x="70" y="130" width="20" height="6" rx="1.5" stroke="#ed6d0f"/>
+          </svg>
           <span class="dxcm-prize-tag" style="background:var(--gray);color:var(--navy)">風格美感獎 ×1</span>
           <h3>one-meter<br />轉轉煮茶機</h3><p>品牌評選最有美感的打卡照</p>
         </div>
         <div class="dxcm-prize">
-          <svg viewBox="0 0 80 80" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><rect x="16" y="34" width="48" height="36" rx="3" fill="#ed6d0f"/><rect x="12" y="24" width="56" height="13" rx="3" fill="#f39a4f"/><rect x="34" y="24" width="12" height="46" fill="#ffffff"/><path d="M40 24 c-8 -16 -24 -10 -16 0z M40 24 c8 -16 24 -10 16 0z" fill="#ffffff"/></svg>
+          <!-- 線稿：Fellow 不鏽鋼雙層真空濾杯組 -->
+          <svg class="dxcm-art" viewBox="0 0 160 160" fill="none" stroke="#1f286f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M70 22 q4 -6 0 -12 M80 20 q4 -6 0 -12 M90 22 q4 -6 0 -12" stroke-width="1.6" opacity=".55"/>
+            <rect x="44" y="30" width="72" height="8" rx="4"/>
+            <path d="M48 38 h64 l-14 40 h-36z"/>
+            <path d="M55 42 h50 l-11 32 h-28z" stroke-width="1.2" opacity=".5"/>
+            <path d="M62 50 l6 18 M80 46 v24 M98 50 l-6 18" stroke-width="1" opacity=".45"/>
+            <rect x="58" y="78" width="44" height="7" rx="2"/>
+            <path d="M80 88 q-2.5 4 0 5.5 q2.5 -1.5 0 -5.5z" stroke="#ed6d0f" fill="#ed6d0f"/>
+            <path d="M56 85 h48 v48 q0 9 -9 9 h-30 q-9 0 -9 -9z"/>
+            <path d="M62 89 v42 q0 5 5 5" stroke-width="1.2" opacity=".5"/>
+            <path d="M57 114 q11 3 23 0 t23 0" stroke-width="1.6"/>
+            <path d="M64 120 h32 M66 126 h28" stroke-width="1" opacity=".45"/>
+            <path d="M104 96 q12 0 12 14 q0 12 -12 12" />
+          </svg>
           <span class="dxcm-prize-tag" style="background:var(--red)">幸運隨機獎 ×1</span>
           <h3>Fellow 不鏽鋼<br />雙層真空濾杯組</h3><p>完成留言任務就能參加抽獎</p>
         </div>
