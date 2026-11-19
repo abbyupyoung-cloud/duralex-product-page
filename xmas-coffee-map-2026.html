@@ -1,328 +1,350 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Duralex 咖啡地圖｜聖誕限定 × 草悟系</title><style>body{margin:0;background:#fbf6ec}</style></head><body>
-<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v2 2026-11-19（節慶版）
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Duralex 咖啡地圖｜聖誕限定 × 草悟系</title><style>body{margin:0;background:#f5f7fd}</style></head><body>
+<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v3 2026-11-19（插畫・乾淨版）
      待替換：① 9、10 號店家 ② 各店地址/營業時間 ③ Google My Maps 嵌入網址 ④ IG 指定貼文連結（12/14 發布後）⑤ KOL 影片 -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Noto+Serif+TC:wght@700;900&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;display=swap" rel="stylesheet" />
 <style type="text/css">
-.dxcm-wrap{--navy:#1f286f;--deep:#161d52;--red:#c8353a;--green:#2e6b4f;--gold:#f2c14e;--cream:#fbf6ec;--ink:#1c2150;
-  font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:var(--cream);line-height:1.8;max-width:1200px;margin:0 auto;overflow:hidden}
+.dxcm-wrap{--navy:#1f286f;--red:#e2574c;--green:#3f8f6b;--gold:#f5c451;--sky:#e6ecfb;--bg:#f5f7fd;--line:#1f286f;--text:#2c3260;--muted:#6b7196;
+  font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--bg);line-height:1.8;max-width:1200px;margin:0 auto;overflow:hidden;position:relative}
 .dxcm-wrap *{box-sizing:border-box}
 .dxcm-wrap img{max-width:100%;display:block;height:auto}
 .dxcm-wrap p{margin:0 0 .8rem}
-.dxcm-wrap h1,.dxcm-wrap h2,.dxcm-wrap h3{margin:0;line-height:1.3}
+.dxcm-wrap h1,.dxcm-wrap h2,.dxcm-wrap h3{margin:0;line-height:1.35}
 .dxcm-wrap ul,.dxcm-wrap ol{margin:0;padding:0}
 .dxcm-wrap li{list-style:none !important}
-.dxcm-inner{max-width:960px;margin:0 auto;position:relative;z-index:2}
-.dxcm-sec{position:relative;padding:3.5rem 1rem 4rem;scroll-margin-top:56px}
-.dxcm-navy{background:var(--navy);color:#fff}
-.dxcm-wave{display:block;width:100%;height:42px;position:absolute;left:0;bottom:-1px;z-index:3}
-.dxcm-wave.top{top:-1px;bottom:auto;transform:rotate(180deg)}
+.dxcm-inner{max-width:980px;margin:0 auto;position:relative;z-index:2}
+.dxcm-sec{position:relative;padding:4rem 1rem;scroll-margin-top:72px}
+
+/* 裝飾星點 */
+.dxcm-deco{position:absolute;pointer-events:none;z-index:1}
+.dxcm-star{fill:var(--gold);animation:dxcm-tw 2.4s ease-in-out infinite}
+.dxcm-star.d1{animation-delay:.8s}.dxcm-star.d2{animation-delay:1.6s}
+@keyframes dxcm-tw{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.dxcm-star{transform-box:fill-box;transform-origin:center}
 
 /* 標題 */
-.dxcm-hand{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--red);text-align:center;line-height:1;transform:rotate(-3deg);margin-bottom:.35rem}
-.dxcm-navy .dxcm-hand{color:var(--gold)}
-.dxcm-wrap h2.dxcm-h2{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(1.6rem,4.5vw,2.3rem);text-align:center;color:var(--navy);letter-spacing:.06em}
-.dxcm-navy h2.dxcm-h2{color:#fff}
-.dxcm-h2 em{font-style:normal;color:var(--red)}
-.dxcm-navy .dxcm-h2 em{color:var(--gold)}
-.dxcm-lead{text-align:center;font-size:.95rem;max-width:600px;margin:.8rem auto 2.2rem !important;color:#545a80}
-.dxcm-navy .dxcm-lead{color:#c9cfee}
+.dxcm-kicker{text-align:center;font-weight:900;color:var(--red);font-size:.95rem;letter-spacing:.1em;margin-bottom:.3rem}
+.dxcm-wrap h2.dxcm-h2{font-weight:900;font-size:clamp(1.55rem,4.4vw,2.2rem);text-align:center;color:var(--navy);letter-spacing:.04em}
+.dxcm-h2 mark{background:linear-gradient(transparent 62%,rgba(245,196,81,.75) 62%);color:inherit;padding:0 .1em}
+.dxcm-lead{text-align:center;font-size:.98rem;max-width:620px;margin:.7rem auto 2.4rem !important;color:var(--muted)}
 .dxcm-lead br{display:none}
 @media(min-width:640px){.dxcm-lead br{display:inline}}
+.dxcm-lead b{color:var(--red)}
 
 /* 按鈕 */
-.dxcm-cta{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
-.dxcm-btn{display:inline-block;text-decoration:none !important;font-weight:900;font-size:.95rem;padding:.8rem 1.7rem;border-radius:999px;letter-spacing:.05em;transition:transform .15s}
+.dxcm-cta{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.dxcm-btn{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none !important;font-weight:900;font-size:1rem;padding:.75rem 1.6rem;border-radius:999px;transition:transform .15s,box-shadow .15s}
 .dxcm-btn:hover{transform:translateY(-2px)}
-.dxcm-btn-red{background:var(--red);color:#fff !important;box-shadow:0 4px 0 #8f2226}
-.dxcm-btn-gold{background:var(--gold);color:var(--navy) !important;box-shadow:0 4px 0 #b88a1c}
-.dxcm-btn-ghost{border:2px solid currentColor;color:#fff !important}
+.dxcm-btn-red{background:var(--red);color:#fff !important;box-shadow:0 4px 0 #b9443b}
+.dxcm-btn-navy{background:var(--navy);color:#fff !important}
+.dxcm-btn-line{background:#fff;color:var(--navy) !important;box-shadow:inset 0 0 0 2px var(--navy)}
+.dxcm-btn i{font-style:normal;display:inline-flex;width:22px;height:22px;border-radius:50%;background:#fff;color:var(--red);align-items:center;justify-content:center;font-size:.8rem}
 
-/* 導覽 */
-.dxcm-nav{position:sticky;top:0;z-index:30;background:var(--deep);display:flex;gap:.2rem;overflow-x:auto;padding:.5rem .6rem;scrollbar-width:none}
-.dxcm-nav::-webkit-scrollbar{display:none}
-.dxcm-nav a{flex:0 0 auto;text-decoration:none;font-size:.85rem;font-weight:700;color:#fff;padding:.35rem .8rem;border-radius:999px;white-space:nowrap}
-.dxcm-nav a:hover{background:var(--red)}
-@media(min-width:760px){.dxcm-nav{justify-content:center}}
+/* ── 導覽列 ── */
+.dxcm-navwrap{position:sticky;top:0;z-index:30;padding:.6rem .75rem 0}
+.dxcm-nav{display:flex;align-items:center;gap:.5rem;background:#fff;border:2px solid var(--navy);border-radius:999px;padding:.35rem .4rem .35rem 1.1rem;max-width:980px;margin:0 auto}
+.dxcm-logo{font-family:'Playfair Display',serif;font-weight:900;color:var(--navy);letter-spacing:.12em;font-size:.95rem;white-space:nowrap}
+.dxcm-logo span{color:var(--red);margin:0 .2rem}
+.dxcm-links{display:none;margin-left:auto;gap:.2rem}
+.dxcm-links a{text-decoration:none;color:var(--navy);font-weight:700;font-size:.9rem;padding:.3rem .75rem;border-radius:999px}
+.dxcm-links a:hover{background:var(--sky)}
+.dxcm-nav .dxcm-btn{margin-left:auto;padding:.4rem 1rem;font-size:.85rem;box-shadow:none}
+@media(min-width:860px){.dxcm-links{display:flex}.dxcm-nav .dxcm-btn{margin-left:.3rem}}
 
 /* ── HERO ── */
-.dxcm-hero{position:relative;background:radial-gradient(ellipse at 70% 40%,#2e3a8f 0%,var(--navy) 55%,var(--deep) 100%);color:#fff;padding:4.2rem 1rem 5.5rem;overflow:hidden}
-.dxcm-lights{position:absolute;top:0;left:0;right:0;height:46px;z-index:4;pointer-events:none}
-.dxcm-lights svg{position:absolute;inset:0;width:100%;height:24px}
-.dxcm-bulb{position:absolute;top:10px;width:12px;height:18px;margin-left:-6px;border-radius:50% 50% 50% 50%/40% 40% 60% 60%;animation:dxcm-twinkle 1.6s ease-in-out infinite}
-.dxcm-bulb::before{content:'';position:absolute;top:-4px;left:3px;width:6px;height:5px;background:#5b6290;border-radius:1px}
-.dxcm-bulb:nth-child(4n+2){background:var(--red);box-shadow:0 0 10px var(--red)}
-.dxcm-bulb:nth-child(4n+3){background:var(--gold);box-shadow:0 0 10px var(--gold);animation-delay:.4s}
-.dxcm-bulb:nth-child(4n){background:#5fd39a;box-shadow:0 0 10px #5fd39a;animation-delay:.8s}
-.dxcm-bulb:nth-child(4n+1){background:#fff;box-shadow:0 0 10px #fff;animation-delay:1.2s}
-@keyframes dxcm-twinkle{0%,100%{opacity:1}50%{opacity:.35}}
-.dxcm-flake{position:absolute;top:-20px;color:#fff;opacity:.8;pointer-events:none;z-index:1;animation:dxcm-fall linear infinite}
-@keyframes dxcm-fall{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(18px,450px) rotate(180deg)}100%{transform:translate(-8px,900px) rotate(360deg)}}
+.dxcm-hero{position:relative;text-align:center;padding:2.4rem 0 0;background:linear-gradient(#f5f7fd 0%,#eaf0fd 60%,#f5f7fd 100%)}
+.dxcm-hero-top{position:relative;z-index:3;padding:0 1rem}
+.dxcm-co{display:inline-flex;align-items:center;gap:.6rem;font-family:'Playfair Display',serif;font-weight:900;font-size:.85rem;letter-spacing:.25em;color:var(--navy)}
+.dxcm-co i{width:1px;height:14px;background:var(--navy);opacity:.4}
+.dxcm-wrap h1.dxcm-title{margin:.6rem 0 .2rem;font-weight:900;font-size:clamp(2.8rem,10vw,5rem);color:var(--navy);letter-spacing:.06em;line-height:1.1;text-shadow:4px 4px 0 var(--gold)}
+.dxcm-title small{display:block;font-family:'Playfair Display',serif;font-size:.36em;letter-spacing:.3em;color:var(--red);text-shadow:none;margin-bottom:.2rem}
+.dxcm-sub{display:inline-block;margin:.8rem 0 .6rem !important;background:#fff;border:2px solid var(--navy);color:var(--navy);font-weight:700;font-size:clamp(.92rem,2.6vw,1.1rem);letter-spacing:.18em;padding:.3rem 1.2rem;border-radius:999px}
+.dxcm-date{font-weight:900;color:var(--navy);font-size:clamp(1rem,3vw,1.2rem);letter-spacing:.04em;margin:0 !important}
+.dxcm-date span{color:var(--muted);font-weight:500;font-size:.85em}
+.dxcm-scene{position:relative;z-index:2;margin-top:-1rem}
+.dxcm-scene svg{display:block;width:100%;height:auto}
+.dxcm-steam{animation:dxcm-steam 3s ease-in-out infinite}
+.dxcm-steam.s2{animation-delay:1s}.dxcm-steam.s3{animation-delay:2s}
+@keyframes dxcm-steam{0%{opacity:0;transform:translateY(10px)}40%{opacity:1}100%{opacity:0;transform:translateY(-12px)}}
+.dxcm-pin{animation:dxcm-bob 2.6s ease-in-out infinite}
+.dxcm-pin.p2{animation-delay:.6s}.dxcm-pin.p3{animation-delay:1.2s}.dxcm-pin.p4{animation-delay:1.8s}
+@keyframes dxcm-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.dxcm-scroll{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:4;color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.2rem}
+.dxcm-scroll b{width:30px;height:30px;border:2px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;animation:dxcm-bob 1.8s ease-in-out infinite}
+@media(max-width:640px){.dxcm-scroll{display:none}}
 
-.dxcm-hero-grid{display:grid;gap:1.5rem;align-items:center;grid-template-columns:1fr}
-@media(min-width:820px){.dxcm-hero-grid{grid-template-columns:1.15fr 1fr}}
-.dxcm-hero-txt{text-align:center}
-@media(min-width:820px){.dxcm-hero-txt{text-align:left}}
-.dxcm-badge{display:inline-block;background:var(--red);color:#fff;font-weight:900;font-size:.85rem;letter-spacing:.12em;padding:.3rem 1rem;border-radius:999px;transform:rotate(-3deg);box-shadow:0 3px 0 #8f2226}
-.dxcm-brand{font-family:'Playfair Display',serif;font-weight:900;letter-spacing:.18em;font-size:clamp(1.3rem,3.6vw,1.8rem);margin:1.1rem 0 0;color:#fff}
-.dxcm-brand small{display:block;font-size:.55em;letter-spacing:.3em;color:#aab3e6;font-weight:700}
-.dxcm-wrap h1.dxcm-title{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(3.2rem,11vw,5.6rem);color:var(--gold);line-height:1.05;letter-spacing:.04em;text-shadow:0 4px 0 rgba(0,0,0,.18)}
-.dxcm-sub{display:inline-block;margin:1rem 0 1.4rem !important;background:#fff;color:var(--navy);font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(.95rem,2.6vw,1.15rem);letter-spacing:.2em;padding:.35rem 1.2rem;border-radius:999px}
-.dxcm-ticket{display:inline-flex;align-items:stretch;background:var(--cream);color:var(--navy);border-radius:10px;position:relative;margin-bottom:1.6rem;font-weight:900}
-.dxcm-ticket::before,.dxcm-ticket::after{content:'';position:absolute;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--navy)}
-.dxcm-ticket::before{left:-8px}.dxcm-ticket::after{right:-8px}
-.dxcm-ticket span{padding:.55rem 1.1rem;font-family:'Playfair Display',serif;font-size:1.15rem;line-height:1.2;text-align:center}
-.dxcm-ticket span small{display:block;font-family:'Noto Sans TC',sans-serif;font-size:.65rem;letter-spacing:.15em;color:var(--red)}
-.dxcm-ticket i{border-left:2px dashed rgba(31,40,111,.3);margin:.4rem 0}
-.dxcm-hero .dxcm-cta{justify-content:center}
-@media(min-width:820px){.dxcm-hero .dxcm-cta{justify-content:flex-start}}
+/* ── 卡片共用 ── */
+.dxcm-card{position:relative;background:#fff;border:2px solid var(--navy);border-radius:26px;padding:2.4rem 1.4rem 1.8rem}
+@media(min-width:760px){.dxcm-card{padding:2.8rem 2.6rem 2.2rem}}
+.dxcm-bookmark{position:absolute;top:-2px;left:26px;width:34px;height:44px;background:var(--red);border:2px solid var(--navy);border-top:0;clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%)}
 
-.dxcm-art{position:relative;max-width:360px;margin:0 auto;width:100%}
-.dxcm-art svg{width:100%;height:auto;display:block;overflow:visible}
-.dxcm-steam{animation:dxcm-steam 3s ease-in-out infinite;transform-origin:center bottom}
-.dxcm-steam:nth-of-type(2){animation-delay:1s}.dxcm-steam:nth-of-type(3){animation-delay:2s}
-@keyframes dxcm-steam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.8}100%{opacity:0;transform:translateY(-14px)}}
-.dxcm-tag{position:absolute;right:2%;top:38%;background:var(--cream);color:var(--red);font-weight:900;padding:.6rem .9rem .6rem 1.3rem;border-radius:4px 10px 10px 4px;transform:rotate(10deg);box-shadow:0 6px 14px rgba(0,0,0,.25);line-height:1.25;text-align:center;font-size:.85rem;animation:dxcm-swing 3s ease-in-out infinite;transform-origin:0 50%}
-.dxcm-tag::before{content:'';position:absolute;left:6px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--navy)}
-.dxcm-tag b{display:block;font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy)}
-@keyframes dxcm-swing{0%,100%{transform:rotate(10deg)}50%{transform:rotate(4deg)}}
-
-/* ── 活動一：掛球步驟 ── */
-.dxcm-garland{position:relative;display:grid;gap:1.6rem;grid-template-columns:1fr;margin-top:1rem}
-@media(min-width:760px){.dxcm-garland{grid-template-columns:repeat(3,1fr);padding-top:1.5rem}
-  .dxcm-garland::before{content:'';position:absolute;top:0;left:4%;right:4%;height:40px;border-top:3px solid var(--green);border-radius:50%/100% 100% 0 0;opacity:.0}}
-.dxcm-step{position:relative;display:flex;gap:1rem;align-items:flex-start;background:#fff;border-radius:20px;padding:1.2rem 1.1rem;box-shadow:0 6px 0 rgba(31,40,111,.08)}
-@media(min-width:760px){.dxcm-step{flex-direction:column;align-items:center;text-align:center;padding:2.6rem 1.2rem 1.5rem;margin-top:2.2rem}}
-.dxcm-orn{flex:0 0 auto;position:relative;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;color:#fff;margin-top:8px}
-.dxcm-orn::before{content:'';position:absolute;top:-9px;left:50%;width:18px;height:10px;margin-left:-9px;background:var(--gold);border-radius:3px 3px 0 0}
-.dxcm-orn::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.55) 0,rgba(255,255,255,0) 35%)}
-.dxcm-orn.r{background:var(--red)}.dxcm-orn.g{background:var(--green)}.dxcm-orn.y{background:#e3a92b}
-@media(min-width:760px){.dxcm-orn{position:absolute;top:-44px;left:50%;margin:0 0 0 -38px;width:76px;height:76px;font-size:2rem;animation:dxcm-sway 4s ease-in-out infinite;transform-origin:50% -40px}
-  .dxcm-step:nth-child(2) .dxcm-orn{animation-delay:-1.3s}.dxcm-step:nth-child(3) .dxcm-orn{animation-delay:-2.6s}}
-@keyframes dxcm-sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
-.dxcm-step h3{font-size:1.12rem;font-weight:900;color:var(--navy);margin-bottom:.35rem}
-.dxcm-step p{font-size:.9rem;color:#545a80;margin:0}
-.dxcm-step b{color:var(--red)}
+/* ── 活動一 ── */
+.dxcm-quota{text-align:center;font-weight:900;color:var(--navy);margin-bottom:1rem !important;font-size:1rem}
+.dxcm-quota b{color:var(--red);font-size:1.15em}
+.dxcm-steps{display:grid;gap:1.4rem;grid-template-columns:1fr}
+@media(min-width:760px){.dxcm-steps{grid-template-columns:repeat(3,1fr);gap:1.6rem}}
+.dxcm-step{display:flex;gap:1rem;align-items:flex-start}
+@media(min-width:760px){.dxcm-step{flex-direction:column;align-items:center;text-align:center}}
+.dxcm-ico{flex:0 0 auto;width:84px;height:84px;border-radius:50%;background:var(--sky);display:flex;align-items:center;justify-content:center}
+@media(min-width:760px){.dxcm-ico{width:110px;height:110px}}
+.dxcm-ico svg{width:72%;height:72%}
+.dxcm-step-n{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--red);font-size:.9rem}
+.dxcm-step h3{font-size:1.1rem;font-weight:900;color:var(--navy);margin:.05rem 0 .3rem}
+.dxcm-step p{font-size:.9rem;color:var(--muted);margin:0}
+.dxcm-step b{color:var(--navy)}
 .dxcm-step a{color:var(--red);font-weight:900}
-.dxcm-ribbon{position:relative;display:table;margin:2.4rem auto 0;background:var(--red);color:#fff;font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(1.05rem,3.4vw,1.4rem);padding:.7rem 1.8rem;text-align:center;letter-spacing:.06em}
-.dxcm-ribbon::before,.dxcm-ribbon::after{content:'';position:absolute;top:8px;width:24px;height:100%;background:#9e262a;z-index:-1}
-.dxcm-ribbon::before{left:-16px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,40% 50%)}
-.dxcm-ribbon::after{right:-16px;clip-path:polygon(0 0,100% 0,60% 50%,100% 100%,0 100%)}
-.dxcm-stickers{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:1.6rem !important}
-.dxcm-stickers li{font-size:.85rem;font-weight:900;padding:.4rem 1rem;border-radius:10px;border:2px dashed currentColor;background:#fff}
-.dxcm-stickers li:nth-child(1){color:var(--green);transform:rotate(-2deg)}
-.dxcm-stickers li:nth-child(2){color:var(--red);transform:rotate(1.5deg);background:#fff1ef;font-size:.95rem}
-.dxcm-stickers li:nth-child(3){color:var(--navy);transform:rotate(-1deg)}
+.dxcm-get{margin:2rem auto 0;display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;background:#fff7e3;border-radius:16px;padding:.9rem 1rem;font-weight:900;color:var(--navy);font-size:1.05rem;text-align:center}
+.dxcm-get b{color:var(--red)}
+.dxcm-rules-mini{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1rem !important}
+.dxcm-rules-mini li{font-size:.82rem;font-weight:700;color:var(--navy);background:var(--sky);border-radius:999px;padding:.25rem .85rem}
+.dxcm-rules-mini li.hot{background:var(--red);color:#fff}
+.dxcm-after{text-align:center;margin-top:2rem}
 
-/* ── 地圖：郵票店卡 ── */
-.dxcm-mapbox{position:relative;background:#fff;padding:10px;border-radius:6px;transform:rotate(-.6deg);box-shadow:0 10px 24px rgba(0,0,0,.3);margin:0 .4rem 2.6rem}
-.dxcm-mapbox::before,.dxcm-mapbox::after{content:'';position:absolute;width:96px;height:26px;background:rgba(242,193,78,.85);top:-12px;z-index:2}
-.dxcm-mapbox::before{left:-14px;transform:rotate(-28deg)}
-.dxcm-mapbox::after{right:-14px;transform:rotate(28deg);background:rgba(200,53,58,.8)}
-.dxcm-map{aspect-ratio:4/3.4;background:#e8e6df}
+/* ── 地圖區塊（深藍圓角大塊）── */
+.dxcm-block{position:relative;background:var(--navy);color:#fff;border-radius:36px;margin:0 .6rem;padding:4rem 1rem 6rem;overflow:hidden}
+@media(min-width:760px){.dxcm-block{margin:0 1.2rem}}
+.dxcm-block .dxcm-kicker{color:var(--gold)}
+.dxcm-block h2.dxcm-h2{color:#fff}
+.dxcm-block .dxcm-h2 mark{background:linear-gradient(transparent 62%,rgba(226,87,76,.85) 62%)}
+.dxcm-block .dxcm-lead{color:#c9d0f0}
+.dxcm-block .dxcm-lead b{color:var(--gold)}
+.dxcm-loop{position:absolute;inset:0;pointer-events:none;opacity:.12}
+.dxcm-marquee{position:absolute;left:0;bottom:.4rem;white-space:nowrap;font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:clamp(3rem,9vw,5.5rem);color:rgba(255,255,255,.1);animation:dxcm-mq 40s linear infinite;pointer-events:none;line-height:1}
+@keyframes dxcm-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.dxcm-mapcard{background:#fff;border-radius:22px;padding:8px;margin-bottom:2rem}
+.dxcm-map{border-radius:16px;overflow:hidden;aspect-ratio:4/3.4;background:#e8ebf3}
 @media(min-width:760px){.dxcm-map{aspect-ratio:16/8}}
 .dxcm-map iframe{width:100%;height:100%;border:0;display:block}
-.dxcm-shops{display:grid;gap:1.2rem;grid-template-columns:1fr}
+.dxcm-shops{display:grid;gap:.9rem;grid-template-columns:1fr}
 @media(min-width:640px){.dxcm-shops{grid-template-columns:repeat(2,1fr)}}
-.dxcm-shop{position:relative;background:var(--cream);color:var(--ink);padding:1.2rem 1.2rem 1.1rem;border-radius:4px;outline:2px dashed rgba(31,40,111,.28);outline-offset:-8px}
-.dxcm-shop:nth-child(odd){transform:rotate(-.7deg)}.dxcm-shop:nth-child(even){transform:rotate(.7deg)}
-.dxcm-shop:hover{transform:rotate(0) scale(1.02);transition:transform .2s}
-.dxcm-pm{position:absolute;top:-10px;right:12px;width:58px;height:58px;border-radius:50%;border:3px double var(--red);color:var(--red);background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(12deg);font-family:'Playfair Display',serif;font-weight:900;line-height:1}
-.dxcm-pm small{font-size:.5rem;letter-spacing:.12em;font-family:'Noto Sans TC',sans-serif}
-.dxcm-pm b{font-size:1.25rem}
-.dxcm-shop h3{font-size:1.02rem;font-weight:900;color:var(--navy);padding-right:62px}
-.dxcm-shop-addr{font-size:.8rem;color:#6a6f8f;margin:.2rem 0 .7rem !important;line-height:1.5;padding-right:50px}
-.dxcm-shop-links{display:flex;gap:.45rem;flex-wrap:wrap}
-.dxcm-shop-links a{text-decoration:none;font-size:.76rem;font-weight:900;padding:.28rem .8rem;border-radius:999px;background:var(--navy);color:#fff !important}
-.dxcm-shop-links a + a{background:transparent;color:var(--navy) !important;box-shadow:inset 0 0 0 1.5px var(--navy)}
-.dxcm-shop.is-tbd{background:transparent;outline-color:rgba(255,255,255,.35);color:#c9cfee}
-.dxcm-shop.is-tbd h3{color:#fff}.dxcm-shop.is-tbd .dxcm-shop-addr{color:#c9cfee}
-.dxcm-shop.is-tbd .dxcm-pm{background:var(--navy);border-color:var(--gold);color:var(--gold)}
+.dxcm-shop{display:flex;gap:.9rem;align-items:flex-start;background:#fff;color:var(--text);border-radius:20px;padding:1rem 1.1rem}
+.dxcm-shop-pin{flex:0 0 auto;width:38px;height:46px}
+.dxcm-shop-body{flex:1;min-width:0}
+.dxcm-shop h3{font-size:1rem;font-weight:900;color:var(--navy)}
+.dxcm-shop-addr{font-size:.8rem;color:var(--muted);margin:.1rem 0 .55rem !important;line-height:1.5}
+.dxcm-shop-links{display:flex;gap:.4rem;flex-wrap:wrap}
+.dxcm-shop-links a{text-decoration:none;font-size:.76rem;font-weight:700;padding:.22rem .8rem;border-radius:999px;background:var(--sky);color:var(--navy) !important}
+.dxcm-shop-links a:hover{background:var(--navy);color:#fff !important}
+.dxcm-shop.is-tbd{background:transparent;border:2px dashed rgba(255,255,255,.35);color:#c9d0f0}
+.dxcm-shop.is-tbd h3{color:#fff}.dxcm-shop.is-tbd .dxcm-shop-addr{color:#c9d0f0}
 
-/* ── 杯款：禮物吊牌 ── */
-.dxcm-cups{display:grid;gap:1.4rem 1rem;grid-template-columns:repeat(2,1fr);padding-top:1.4rem}
-@media(min-width:760px){.dxcm-cups{grid-template-columns:repeat(4,1fr)}}
-.dxcm-cup{position:relative;background:#fff;border-radius:14px;padding:1.6rem .8rem 1rem;text-align:center;box-shadow:0 6px 0 rgba(31,40,111,.08);transform-origin:50% -20px;animation:dxcm-sway 5s ease-in-out infinite}
-.dxcm-cup:nth-child(2){animation-delay:-1.2s}.dxcm-cup:nth-child(3){animation-delay:-2.4s}.dxcm-cup:nth-child(4){animation-delay:-3.6s}
-.dxcm-cup::before{content:'';position:absolute;top:10px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--cream);box-shadow:inset 0 0 0 2px rgba(31,40,111,.2)}
-.dxcm-cup::after{content:'';position:absolute;top:-22px;left:50%;width:2px;height:34px;background:var(--red)}
-.dxcm-cup img{width:78%;margin:.4rem auto .5rem;aspect-ratio:1/1;object-fit:cover;border-radius:50%}
+/* ── 杯款 ── */
+.dxcm-cups{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.dxcm-cups{grid-template-columns:repeat(4,1fr);gap:1.2rem}}
+.dxcm-cup{background:#fff;border:2px solid var(--navy);border-radius:22px;padding:1rem .8rem 1.1rem;text-align:center;transition:transform .2s}
+.dxcm-cup:hover{transform:translateY(-4px)}
+.dxcm-cup-img{border-radius:16px;overflow:hidden;background:var(--sky);margin-bottom:.8rem}
+.dxcm-cup-img img{width:100%;aspect-ratio:1/1;object-fit:cover}
 .dxcm-cup h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy)}
-.dxcm-cup-ml{font-family:'Playfair Display',serif;font-weight:900;color:var(--red);font-size:1.6rem;line-height:1.1}
-.dxcm-cup-qty{display:inline-block;margin-top:.4rem;font-size:.72rem;font-weight:900;color:#fff;background:var(--green);padding:.15rem .65rem;border-radius:999px}
-.dxcm-note{font-size:.8rem;color:#6a6f8f;text-align:center;margin-top:1.4rem !important}
+.dxcm-cup-ml{font-weight:900;color:var(--red);font-size:1.05rem}
+.dxcm-cup-qty{display:inline-block;margin-top:.3rem;font-size:.75rem;font-weight:700;color:var(--muted)}
+.dxcm-note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:1.2rem !important}
 
-/* ── 抽獎：禮盒 ── */
-.dxcm-redsec{background:var(--red) radial-gradient(rgba(255,255,255,.12) 1.5px,transparent 1.6px) 0 0/22px 22px;color:#fff}
-.dxcm-redsec .dxcm-hand{color:var(--gold)}
-.dxcm-redsec h2.dxcm-h2{color:#fff}
-.dxcm-redsec .dxcm-lead{color:#ffe3e0}
-.dxcm-gifts{display:grid;gap:1.6rem;grid-template-columns:1fr;margin-top:2.6rem}
-@media(min-width:760px){.dxcm-gifts{grid-template-columns:repeat(3,1fr)}}
-.dxcm-gift{position:relative;background:#fff;color:var(--ink);border-radius:12px;text-align:center;padding:0 1.1rem 1.3rem;margin-top:1.2rem}
-.dxcm-lid{position:relative;height:74px;margin:0 -1.1rem 1rem;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center}
-.dxcm-lid::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:22px;margin-left:-11px;background:var(--gold)}
-.dxcm-gift.n .dxcm-lid{background:var(--navy)}.dxcm-gift.g .dxcm-lid{background:var(--green)}.dxcm-gift.r .dxcm-lid{background:#e3a92b}.dxcm-gift.r .dxcm-lid::before{background:var(--red)}
-.dxcm-bow{position:absolute;top:-22px;left:50%;width:0;height:0}
-.dxcm-bow::before,.dxcm-bow::after{content:'';position:absolute;top:0;width:30px;height:24px;border:6px solid var(--gold);border-radius:50% 50% 50% 50%/60% 60% 40% 40%}
-.dxcm-bow::before{right:2px;transform:rotate(-25deg)}.dxcm-bow::after{left:2px;transform:rotate(25deg)}
-.dxcm-gift.r .dxcm-bow::before,.dxcm-gift.r .dxcm-bow::after{border-color:#fff}
-.dxcm-prize-tag{position:relative;z-index:1;background:#fff;color:var(--red);font-weight:900;font-size:.85rem;border-radius:999px;padding:.2rem .9rem}
-.dxcm-gift h3{font-size:1.05rem;font-weight:900;color:var(--navy)}
-.dxcm-gift p{font-size:.82rem;color:#6a6f8f;margin:.4rem 0 0}
-.dxcm-cal{display:grid;gap:.8rem;grid-template-columns:repeat(2,1fr);margin-top:2.8rem !important}
-@media(min-width:760px){.dxcm-cal{grid-template-columns:repeat(4,1fr)}}
-.dxcm-cal li{background:#fff;color:var(--ink);border-radius:10px;overflow:hidden;text-align:center;box-shadow:0 5px 0 rgba(0,0,0,.15)}
-.dxcm-cal-m{display:block;background:var(--navy);color:#fff;font-size:.75rem;font-weight:900;letter-spacing:.12em;padding:.3rem}
-.dxcm-cal-d{display:block;font-family:'Playfair Display',serif;font-weight:900;font-size:2.1rem;color:var(--red);line-height:1.2;margin-top:.3rem}
-.dxcm-cal-t{display:block;font-size:.8rem;font-weight:700;padding:0 .6rem .8rem;line-height:1.45;color:#3c4170}
+/* ── 抽獎 ── */
+.dxcm-howto{display:grid;gap:1rem;grid-template-columns:1fr;margin-bottom:2.4rem}
+@media(min-width:760px){.dxcm-howto{grid-template-columns:repeat(3,1fr)}}
+.dxcm-howto li{display:flex;align-items:center;gap:.8rem;background:var(--sky);border-radius:18px;padding:.9rem 1rem;font-weight:700;color:var(--navy);font-size:.95rem;line-height:1.5}
+.dxcm-howto li b{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif}
+.dxcm-prizes{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:760px){.dxcm-prizes{grid-template-columns:repeat(3,1fr)}}
+.dxcm-prize{background:#fff;border:2px solid var(--navy);border-radius:22px;padding:1.4rem 1.2rem 1.3rem;text-align:center}
+.dxcm-prize svg{width:76px;height:76px;margin:0 auto .6rem;display:block}
+.dxcm-prize-tag{display:inline-block;font-weight:900;font-size:.82rem;border-radius:999px;padding:.15rem .8rem;margin-bottom:.5rem;color:#fff}
+.dxcm-prize h3{font-size:1.02rem;font-weight:900;color:var(--navy)}
+.dxcm-prize p{font-size:.82rem;color:var(--muted);margin:.35rem 0 0}
+.dxcm-tl{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem .8rem;margin-top:2.8rem !important}
+@media(min-width:760px){.dxcm-tl{grid-template-columns:repeat(4,1fr)}
+  .dxcm-tl::before{content:'';position:absolute;top:9px;left:12%;right:12%;border-top:2px dashed rgba(31,40,111,.35)}}
+.dxcm-tl li{position:relative;text-align:center}
+.dxcm-tl li::before{content:'';display:block;width:20px;height:20px;margin:0 auto .5rem;border-radius:50%;background:#fff;border:3px solid var(--red);position:relative;z-index:1}
+.dxcm-tl li b{display:block;font-weight:900;color:var(--navy);font-size:1rem}
+.dxcm-tl li span{display:block;font-size:.82rem;color:var(--muted);line-height:1.5}
 
 /* ── KOL ── */
 .dxcm-kol{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr);max-width:560px;margin:0 auto}
-.dxcm-kol-card{aspect-ratio:9/13;border-radius:16px;border:2px dashed rgba(255,255,255,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#c9cfee;font-size:.85rem;text-align:center;padding:1rem}
-.dxcm-kol-card b{font-size:1.8rem;margin-bottom:.3rem}
+.dxcm-kol-card{aspect-ratio:9/13;border-radius:22px;border:2px dashed rgba(31,40,111,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:1rem;background:#fff}
+.dxcm-kol-card b{width:48px;height:48px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem}
 
 /* ── FAQ ── */
-.dxcm-faq{max-width:720px;margin:0 auto}
-.dxcm-faq details{background:#fff;border-radius:14px;margin-bottom:.7rem;padding:.9rem 1.1rem;box-shadow:0 4px 0 rgba(31,40,111,.07)}
-.dxcm-faq summary{cursor:pointer;font-weight:900;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.dxcm-faq{max-width:760px;margin:0 auto}
+.dxcm-faq details{background:#fff;border:2px solid var(--navy);border-radius:18px;margin-bottom:.7rem;padding:.85rem 1.1rem}
+.dxcm-faq summary{cursor:pointer;font-weight:900;color:var(--navy);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .dxcm-faq summary::-webkit-details-marker{display:none}
-.dxcm-faq summary::after{content:'+';flex:0 0 26px;height:26px;border-radius:50%;background:var(--red);color:#fff;text-align:center;line-height:26px;font-weight:900}
-.dxcm-faq details[open] summary::after{content:'−';background:var(--green)}
-.dxcm-faq details p{font-size:.9rem;color:#545a80;margin:.6rem 0 0 !important}
-.dxcm-rules{max-width:720px;margin:2.2rem auto 0 !important;font-size:.8rem;color:#6a6f8f;counter-reset:r}
-.dxcm-rules li{position:relative;padding-left:1.6rem;margin-bottom:.35rem;counter-increment:r}
-.dxcm-rules li::before{content:counter(r);position:absolute;left:0;top:.2rem;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--navy);color:#fff;font-size:.65rem;text-align:center;line-height:1.1rem}
+.dxcm-faq summary::after{content:'+';flex:0 0 26px;height:26px;border-radius:50%;background:var(--sky);color:var(--navy);text-align:center;line-height:26px;font-weight:900;transition:transform .2s}
+.dxcm-faq details[open] summary::after{transform:rotate(45deg);background:var(--red);color:#fff}
+.dxcm-faq details p{font-size:.9rem;color:var(--muted);margin:.6rem 0 0 !important}
+.dxcm-rules{max-width:760px;margin:2rem auto 0 !important;font-size:.8rem;color:var(--muted);counter-reset:r}
+.dxcm-rules li{position:relative;padding-left:1.5rem;margin-bottom:.3rem;counter-increment:r}
+.dxcm-rules li::before{content:counter(r) '.';position:absolute;left:0;font-weight:700;color:var(--navy)}
 
 /* ── Footer ── */
-.dxcm-foot{position:relative;background:var(--deep);color:#c9cfee;text-align:center;padding:4rem 1rem 3rem;font-size:.85rem}
-.dxcm-merry{font-family:'Caveat',cursive;font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:1rem}
-.dxcm-foot-org{display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;justify-content:center;margin-bottom:1.5rem}
-.dxcm-foot-org b{color:#fff;margin-left:.4rem}
+.dxcm-foot{text-align:center;padding:3rem 1rem 3.5rem;font-size:.85rem;color:var(--muted);border-top:2px dashed rgba(31,40,111,.2);margin:0 1rem}
+.dxcm-foot-org{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;justify-content:center;margin-bottom:1.3rem}
+.dxcm-foot-org b{color:var(--navy);margin-left:.4rem}
 
-@media(prefers-reduced-motion:reduce){.dxcm-wrap *{animation:none !important}.dxcm-flake{display:none}}
+@media(prefers-reduced-motion:reduce){.dxcm-wrap *{animation:none !important}}
 </style>
 
 <div class="dxcm-wrap">
 
-  <nav class="dxcm-nav">
-    <a href="#dxcm-how">🎁 滿額送杯</a>
-    <a href="#dxcm-map">🗺 咖啡地圖</a>
-    <a href="#dxcm-cups">🥛 贈品杯款</a>
-    <a href="#dxcm-lottery">📸 曬杯抽獎</a>
-    <a href="#dxcm-faq">❓ 注意事項</a>
-  </nav>
+  <!-- 導覽列 -->
+  <div class="dxcm-navwrap">
+    <nav class="dxcm-nav">
+      <span class="dxcm-logo">DURALEX<span>×</span>草悟系</span>
+      <div class="dxcm-links">
+        <a href="#dxcm-how">活動辦法</a><a href="#dxcm-map">咖啡地圖</a><a href="#dxcm-cups">贈品杯款</a><a href="#dxcm-lottery">曬杯抽獎</a><a href="#dxcm-faq">注意事項</a>
+      </div>
+      <a class="dxcm-btn dxcm-btn-red" href="#dxcm-map">找咖啡廳</a>
+    </nav>
+  </div>
 
-  <!-- ═══ 1. HERO ═══ -->
+  <!-- ═══ HERO ═══ -->
   <header class="dxcm-hero">
-    <div class="dxcm-lights" aria-hidden="true">
-      <svg viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 1 Q5 9 10 1 Q15 9 20 1 Q25 9 30 1 Q35 9 40 1 Q45 9 50 1 Q55 9 60 1 Q65 9 70 1 Q75 9 80 1 Q85 9 90 1 Q95 9 100 1" fill="none" stroke="#5b6290" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
-      <span class="dxcm-bulb" style="left:5%"></span><span class="dxcm-bulb" style="left:15%"></span><span class="dxcm-bulb" style="left:25%"></span><span class="dxcm-bulb" style="left:35%"></span><span class="dxcm-bulb" style="left:45%"></span><span class="dxcm-bulb" style="left:55%"></span><span class="dxcm-bulb" style="left:65%"></span><span class="dxcm-bulb" style="left:75%"></span><span class="dxcm-bulb" style="left:85%"></span><span class="dxcm-bulb" style="left:95%"></span>
-    </div>
-    <div aria-hidden="true">
-      <span class="dxcm-flake" style="left:4%;font-size:10px;animation-duration:11s;animation-delay:-2s">❄</span>
-      <span class="dxcm-flake" style="left:12%;font-size:16px;animation-duration:14s;animation-delay:-7s">❄</span>
-      <span class="dxcm-flake" style="left:21%;font-size:8px;animation-duration:9s;animation-delay:-4s">●</span>
-      <span class="dxcm-flake" style="left:30%;font-size:12px;animation-duration:13s;animation-delay:-10s">❄</span>
-      <span class="dxcm-flake" style="left:38%;font-size:6px;animation-duration:8s;animation-delay:-1s">●</span>
-      <span class="dxcm-flake" style="left:47%;font-size:14px;animation-duration:15s;animation-delay:-5s">❄</span>
-      <span class="dxcm-flake" style="left:55%;font-size:7px;animation-duration:10s;animation-delay:-8s">●</span>
-      <span class="dxcm-flake" style="left:63%;font-size:11px;animation-duration:12s;animation-delay:-3s">❄</span>
-      <span class="dxcm-flake" style="left:71%;font-size:6px;animation-duration:9s;animation-delay:-6s">●</span>
-      <span class="dxcm-flake" style="left:79%;font-size:15px;animation-duration:16s;animation-delay:-12s">❄</span>
-      <span class="dxcm-flake" style="left:87%;font-size:8px;animation-duration:10s;animation-delay:-2.5s">●</span>
-      <span class="dxcm-flake" style="left:94%;font-size:12px;animation-duration:13s;animation-delay:-9s">❄</span>
+    <svg class="dxcm-deco" style="top:30px;left:4%;width:90%;height:300px" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
+      <path class="dxcm-star" d="M60 60 l5 14 14 5 -14 5 -5 14 -5 -14 -14 -5 14 -5z"/>
+      <path class="dxcm-star d1" d="M930 40 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4z"/>
+      <path class="dxcm-star d2" d="M140 210 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/>
+      <path class="dxcm-star" d="M870 200 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z"/>
+      <circle cx="220" cy="90" r="5" fill="#b9c7f2"/><circle cx="790" cy="120" r="6" fill="#f3b9b2"/><circle cx="40" cy="160" r="4" fill="#f3b9b2"/><circle cx="960" cy="150" r="4" fill="#b9c7f2"/>
+    </svg>
+    <div class="dxcm-hero-top">
+      <div class="dxcm-co">DURALEX <i></i> 草悟系</div>
+      <h1 class="dxcm-title"><small>Noël 2026</small>聖誕咖啡地圖</h1>
+      <p class="dxcm-sub">以法式經典，盛裝聖誕美好</p>
+      <p class="dxcm-date">2026.12.14 <span>(一)</span> — 2027.01.15 <span>(五)</span></p>
     </div>
 
-    <div class="dxcm-inner dxcm-hero-grid">
-      <div class="dxcm-hero-txt">
-        <span class="dxcm-badge">★ 聖誕限定企劃 ★</span>
-        <div class="dxcm-brand"><small>MADE IN FRANCE · DEPUIS 1945</small>DURALEX × 草悟系</div>
-        <h1 class="dxcm-title">咖啡地圖</h1>
-        <p class="dxcm-sub">以法式經典，盛裝聖誕美好</p><br />
-        <div class="dxcm-ticket"><span><small>START</small>12.14 MON</span><i></i><span><small>END</small>01.15 FRI</span></div>
-        <div class="dxcm-cta">
-          <a class="dxcm-btn dxcm-btn-gold" href="#dxcm-how">怎麼免費拿杯？</a>
-          <a class="dxcm-btn dxcm-btn-ghost" href="#dxcm-map">看咖啡地圖</a>
-        </div>
-      </div>
+    <div class="dxcm-scene" aria-hidden="true">
+      <svg viewBox="0 0 1000 600">
+        <!-- 天空圓頂 -->
+        <circle cx="500" cy="640" r="520" fill="#dde6fb"/>
+        <circle cx="500" cy="640" r="440" fill="#d2ddf8"/>
+        <!-- 後方咖啡廳（藏在山丘後） -->
+        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
+          <rect x="556" y="318" width="96" height="80" fill="#fff4e2"/>
+          <rect x="546" y="304" width="116" height="18" rx="5" fill="#fff"/>
+          <rect x="572" y="340" width="26" height="30" rx="3" fill="#ffd56b"/>
+          <rect x="610" y="340" width="26" height="30" rx="3" fill="#ffd56b"/>
+        </g>
+        <!-- 山丘（綠園道） -->
+        <ellipse cx="500" cy="660" rx="500" ry="270" fill="#cfe9d8" stroke="#1f286f" stroke-width="3"/>
+        <!-- 散步道 -->
+        <path d="M120 600 C260 520 360 540 450 500 S620 430 720 450 S850 470 900 520" fill="none" stroke="#fffaf0" stroke-width="26" stroke-linecap="round"/>
+        <path d="M120 600 C260 520 360 540 450 500 S620 430 720 450 S850 470 900 520" fill="none" stroke="#1f286f" stroke-width="2.5" stroke-dasharray="2 12" stroke-linecap="round" opacity=".5"/>
 
-      <div class="dxcm-art" aria-hidden="true">
-        <svg viewBox="0 0 240 250">
-          <ellipse cx="120" cy="232" rx="98" ry="12" fill="#161d52" opacity=".6"/>
-          <!-- steam -->
-          <path class="dxcm-steam" d="M95 58 q-10 -14 0 -26 q10 -12 0 -26" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".7"/>
-          <path class="dxcm-steam" d="M120 52 q-10 -14 0 -26 q10 -12 0 -26" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".7"/>
-          <path class="dxcm-steam" d="M145 58 q-10 -14 0 -26 q10 -12 0 -26" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".7"/>
-          <!-- coffee -->
-          <polygon points="57,108 183,108 173,222 67,222" fill="#6b3b1f"/>
-          <polygon points="56,96 184,96 183,112 57,112" fill="#c98a54"/>
-          <ellipse cx="120" cy="96" rx="64" ry="9" fill="#f1dcc0"/>
-          <path d="M120 101 c-9 -8 -20 -3 -14 4 l14 -2 l14 2 c6 -7 -5 -12 -14 -4z" fill="#c98a54"/>
-          <!-- glass (Picardie 輪廓) -->
-          <polygon points="50,70 190,70 176,226 64,226" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/>
-          <rect x="50" y="70" width="140" height="18" fill="rgba(255,255,255,.12)"/>
-          <g stroke="rgba(255,255,255,.32)" stroke-width="1.6" stroke-linecap="round">
-            <line x1="74" y1="90" x2="79" y2="168"/><line x1="98" y1="90" x2="100" y2="168"/><line x1="120" y1="90" x2="120" y2="168"/><line x1="142" y1="90" x2="140" y2="168"/><line x1="166" y1="90" x2="161" y2="168"/>
-          </g>
-          <path d="M70 168 Q120 180 170 168" fill="none" stroke="rgba(255,255,255,.32)" stroke-width="1.6"/>
-          <rect x="62" y="96" width="6" height="110" rx="3" fill="rgba(255,255,255,.45)" transform="rotate(-5 65 150)"/>
-          <!-- holly -->
-          <g transform="translate(40 206)">
-            <path d="M0 0 q-22 -6 -34 6 q10 4 8 12 q12 -6 26 -18z" fill="#2e6b4f"/>
-            <path d="M6 2 q8 -22 26 -24 q-2 10 6 14 q-16 2 -32 10z" fill="#3d8a66"/>
-            <circle cx="2" cy="-2" r="6" fill="#c8353a"/><circle cx="12" cy="4" r="5.5" fill="#c8353a"/><circle cx="-6" cy="6" r="5" fill="#e04a4f"/>
-          </g>
-          <!-- sparkles -->
-          <g fill="#f2c14e">
-            <path d="M206 40 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/>
-            <path d="M28 70 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z"/>
-            <path d="M214 150 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
-          </g>
-        </svg>
-        <div class="dxcm-tag">消費滿額<b>FREE!</b>送玻璃杯</div>
-      </div>
+        <!-- 左咖啡廳（藍色遮陽棚） -->
+        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
+          <rect x="190" y="396" width="124" height="86" fill="#fff4e2"/>
+          <rect x="180" y="382" width="144" height="20" rx="6" fill="#fff"/>
+          <rect x="206" y="430" width="90" height="38" rx="3" fill="#ffd56b"/>
+          <path d="M196 404 h112 l-6 22 h-100z" fill="#4a63c9"/>
+          <path d="M218 404 l-4 22 M242 404 l-2 22 M266 404 l2 22 M290 404 l4 22" stroke-width="2"/>
+          <line x1="251" y1="430" x2="251" y2="468" stroke-width="2"/>
+        </g>
+        <!-- 右咖啡廳（紅屋頂） -->
+        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
+          <rect x="702" y="392" width="118" height="86" fill="#fff4e2"/>
+          <path d="M690 396 L761 340 L832 396z" fill="#e2574c"/>
+          <path d="M716 384 L761 349 L806 384" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+          <path d="M722 478 v-40 a14 14 0 0 1 28 0 v40" fill="#ffd56b"/>
+          <rect x="766" y="420" width="38" height="30" rx="3" fill="#ffd56b"/>
+          <line x1="785" y1="420" x2="785" y2="450" stroke-width="2"/>
+        </g>
+
+        <!-- 聖誕樹 -->
+        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
+          <g transform="translate(118 520)"><rect x="-6" y="-12" width="12" height="16" fill="#9a6a45"/><polygon points="-34,-10 0,-66 34,-10" fill="#3f8f6b"/><polygon points="-27,-42 0,-92 27,-42" fill="#3f8f6b"/><polygon points="-19,-72 0,-112 19,-72" fill="#3f8f6b"/><path class="dxcm-star" d="M0 -126 l4 9 9 4 -9 4 -4 9 -4 -9 -9 -4 9 -4z" stroke-width="2"/></g>
+          <g transform="translate(372 470)"><rect x="-5" y="-10" width="10" height="13" fill="#9a6a45"/><polygon points="-27,-8 0,-52 27,-8" fill="#4e9f7a"/><polygon points="-21,-33 0,-72 21,-33" fill="#4e9f7a"/><circle cx="-8" cy="-22" r="4" fill="#e2574c" stroke-width="2"/><circle cx="10" cy="-44" r="4" fill="#f5c451" stroke-width="2"/></g>
+          <g transform="translate(878 540)"><rect x="-6" y="-12" width="12" height="16" fill="#9a6a45"/><polygon points="-32,-10 0,-62 32,-10" fill="#3f8f6b"/><polygon points="-25,-40 0,-86 25,-40" fill="#3f8f6b"/><circle cx="12" cy="-24" r="4.5" fill="#f5c451" stroke-width="2"/><circle cx="-10" cy="-50" r="4.5" fill="#e2574c" stroke-width="2"/></g>
+        </g>
+
+        <!-- 地標針 -->
+        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
+          <g class="dxcm-pin"><path d="M252 368 c-6 -12 -24 -22 -24 -40 a24 24 0 0 1 48 0 c0 18 -18 28 -24 40z" fill="#e2574c"/><circle cx="252" cy="328" r="9" fill="#fff"/></g>
+          <g class="dxcm-pin p2"><path d="M604 290 c-5 -10 -20 -18 -20 -33 a20 20 0 0 1 40 0 c0 15 -15 23 -20 33z" fill="#f5c451"/><circle cx="604" cy="257" r="7.5" fill="#fff"/></g>
+          <g class="dxcm-pin p3"><path d="M761 330 c-6 -12 -24 -22 -24 -40 a24 24 0 0 1 48 0 c0 18 -18 28 -24 40z" fill="#e2574c"/><circle cx="761" cy="290" r="9" fill="#fff"/></g>
+          <g class="dxcm-pin p4"><path d="M440 420 c-5 -10 -18 -17 -18 -31 a18 18 0 0 1 36 0 c0 14 -13 21 -18 31z" fill="#4a63c9"/><circle cx="440" cy="389" r="7" fill="#fff"/></g>
+        </g>
+
+        <!-- 主角：Duralex 玻璃杯拿鐵 -->
+        <g stroke-linecap="round" fill="none" stroke="#1f286f" stroke-width="4" opacity=".55">
+          <path class="dxcm-steam" d="M470 402 q-12 -16 0 -30 q12 -14 0 -30"/>
+          <path class="dxcm-steam s2" d="M500 396 q-12 -16 0 -30 q12 -14 0 -30"/>
+          <path class="dxcm-steam s3" d="M530 402 q-12 -16 0 -30 q12 -14 0 -30"/>
+        </g>
+        <g stroke="#1f286f" stroke-width="3.5" stroke-linejoin="round">
+          <polygon points="424,470 576,470 565,560 435,560" fill="#8a5634" stroke="none"/>
+          <polygon points="420,450 580,450 577,474 423,474" fill="#f3e3c8" stroke="none"/>
+          <path d="M500 462 c-8 -9 -20 -4 -14 4 l14 6 l14 -6 c6 -8 -6 -13 -14 -4z" fill="#c98a54" stroke="none"/>
+          <polygon points="410,416 590,416 572,566 428,566" fill="rgba(255,255,255,.35)"/>
+          <line x1="412" y1="436" x2="588" y2="436" stroke-width="2.5"/>
+          <g stroke-width="2" opacity=".35"><line x1="440" y1="438" x2="446" y2="510"/><line x1="470" y1="438" x2="473" y2="510"/><line x1="500" y1="438" x2="500" y2="510"/><line x1="530" y1="438" x2="527" y2="510"/><line x1="560" y1="438" x2="554" y2="510"/></g>
+          <rect x="424" y="446" width="8" height="96" rx="4" fill="#fff" stroke="none" opacity=".7" transform="rotate(-6 428 494)"/>
+        </g>
+        <!-- 禮物盒 -->
+        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
+          <rect x="600" y="512" width="62" height="52" rx="4" fill="#e2574c"/>
+          <rect x="594" y="498" width="74" height="18" rx="4" fill="#e2574c"/>
+          <rect x="624" y="498" width="14" height="66" fill="#f5c451"/>
+          <path d="M631 498 c-10 -20 -30 -14 -22 -2 z M631 498 c10 -20 30 -14 22 -2 z" fill="#f5c451"/>
+        </g>
+        <!-- 冬青 -->
+        <g stroke="#1f286f" stroke-width="3" stroke-linejoin="round">
+          <path d="M392 556 q-30 -8 -44 8 q14 4 12 16 q16 -8 32 -24z" fill="#3f8f6b"/>
+          <circle cx="396" cy="552" r="7" fill="#e2574c"/><circle cx="408" cy="560" r="6" fill="#e2574c"/>
+        </g>
+        <!-- 雲 -->
+        <g stroke="#1f286f" stroke-width="3" fill="#fff" stroke-linejoin="round">
+          <path d="M-10 600 v-26 a26 26 0 0 1 34 -24 a34 34 0 0 1 62 -6 a26 26 0 0 1 40 20 a22 22 0 0 1 20 36z"/>
+          <path d="M1010 600 v-24 a24 24 0 0 0 -32 -24 a32 32 0 0 0 -58 -4 a24 24 0 0 0 -38 20 a20 20 0 0 0 -18 32z"/>
+        </g>
+        <!-- 雪點 -->
+        <g fill="#fff"><circle cx="330" cy="300" r="4"/><circle cx="690" cy="250" r="3.5"/><circle cx="160" cy="330" r="3"/><circle cx="860" cy="320" r="4"/><circle cx="520" cy="300" r="3"/></g>
+      </svg>
     </div>
-
-    <svg class="dxcm-wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 34 C120 14 200 50 320 30 S520 8 640 30 S860 52 980 28 S1220 6 1440 30 V60 H0Z" fill="#fbf6ec"/></svg>
   </header>
 
-  <!-- ═══ 2. 活動一：滿額送杯 ═══ -->
+  <!-- ═══ 活動一：滿額送杯 ═══ -->
   <section class="dxcm-sec" id="dxcm-how">
     <div class="dxcm-inner">
-      <div class="dxcm-hand">Event 01 ♪</div>
-      <h2 class="dxcm-h2">滿額<em>送</em> Duralex 玻璃杯</h2>
-      <p class="dxcm-lead">活動期間到任一間合作咖啡廳，<br />完成三個小任務，就能把法式經典帶回家！</p>
-      <div class="dxcm-garland">
-        <div class="dxcm-step">
-          <div class="dxcm-orn r">1</div>
-          <div><h3>單筆消費滿 $200</h3><p>任一間<b>合作咖啡廳</b>，內用、外帶都算。</p></div>
+      <div class="dxcm-kicker">EVENT 01</div>
+      <h2 class="dxcm-h2">消費滿額，<mark>免費帶走玻璃杯</mark></h2>
+      <p class="dxcm-lead">活動期間到任一間合作咖啡廳，<br />完成 3 個小任務，就能把法式經典帶回家。</p>
+
+      <div class="dxcm-card">
+        <span class="dxcm-bookmark"></span>
+        <p class="dxcm-quota">限量 <b>1,000</b> 只 ｜ 每店每日限量 <b>3</b> 個</p>
+        <div class="dxcm-steps">
+          <div class="dxcm-step">
+            <div class="dxcm-ico"><svg viewBox="0 0 80 80" fill="none" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><path d="M18 10 h44 v60 l-7 -5 -7 5 -7 -5 -7 5 -7 -5 -9 5z" fill="#fff"/><path d="M27 24 h26 M27 33 h18" stroke-linecap="round"/><text x="40" y="56" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="16" fill="#e2574c" stroke="none">$200</text></svg></div>
+            <div><div class="dxcm-step-n">Step 1</div><h3>單筆消費滿 $200</h3><p>任一間<b>合作咖啡廳</b>，內用、外帶都可以。</p></div>
+          </div>
+          <div class="dxcm-step">
+            <div class="dxcm-ico"><svg viewBox="0 0 80 80" fill="none" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><rect x="22" y="8" width="36" height="64" rx="7" fill="#fff"/><rect x="28" y="18" width="24" height="34" rx="3" fill="#e6ecfb"/><path d="M40 44 c-10 -7 -9 -16 -3 -16 c2 0 3 2 3 3 c0 -1 1 -3 3 -3 c6 0 7 9 -3 16z" fill="#e2574c"/><line x1="36" y1="63" x2="44" y2="63" stroke-linecap="round"/></svg></div>
+            <div><div class="dxcm-step-n">Step 2</div><h3>追蹤 IG＋轉發限動</h3><p>追蹤 <a href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">@duralextaiwan</a>，把活動貼文分享到限動，並 <b>@該咖啡廳</b>。</p></div>
+          </div>
+          <div class="dxcm-step">
+            <div class="dxcm-ico"><svg viewBox="0 0 80 80" fill="none" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><polygon points="24,22 56,22 53,64 27,64" fill="#fff"/><polygon points="26,36 54,36 52.5,62 27.5,62" fill="#c98a54" stroke="none"/><line x1="25" y1="30" x2="55" y2="30" stroke-width="2"/><polygon points="24,22 56,22 53,64 27,64"/><path d="M60 14 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z" fill="#f5c451" stroke-width="1.5"/></svg></div>
+            <div><div class="dxcm-step-n">Step 3</div><h3>結帳出示手機畫面</h3><p>給店員看追蹤和限動畫面，就能免費兌換玻璃杯乙只！</p></div>
+          </div>
         </div>
-        <div class="dxcm-step">
-          <div class="dxcm-orn g">2</div>
-          <div><h3>追蹤 IG＋轉發限動</h3><p>追蹤 <a href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">@duralextaiwan</a>，把活動貼文分享到限動，並 <b>@該咖啡廳</b>。</p></div>
-        </div>
-        <div class="dxcm-step">
-          <div class="dxcm-orn y">3</div>
-          <div><h3>結帳出示手機畫面</h3><p>給店員看一下追蹤和限動畫面就完成了！</p></div>
-        </div>
+        <ul class="dxcm-rules-mini">
+          <li>每人限換一次</li>
+          <li class="hot">每店每日限量 3 個</li>
+          <li>款式隨機・送完為止</li>
+        </ul>
       </div>
-      <div class="dxcm-ribbon">免費兌換 Duralex 玻璃杯乙只！</div>
-      <ul class="dxcm-stickers">
-        <li>每人限換一次</li>
-        <li>⏰ 每店每日限量 3 個</li>
-        <li>款式隨機・送完為止</li>
-      </ul>
+      <div class="dxcm-after"><a class="dxcm-btn dxcm-btn-red" href="#dxcm-map">看看有哪些咖啡廳 <i>›</i></a></div>
     </div>
   </section>
 
-  <!-- ═══ 3. 咖啡地圖 ═══ -->
-  <section class="dxcm-sec dxcm-navy" id="dxcm-map" style="padding-top:5rem;padding-bottom:5.5rem">
-    <svg class="dxcm-wave top" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 34 C120 14 200 50 320 30 S520 8 640 30 S860 52 980 28 S1220 6 1440 30 V60 H0Z" fill="#fbf6ec"/></svg>
+  <!-- ═══ 咖啡地圖 ═══ -->
+  <section class="dxcm-block" id="dxcm-map" style="scroll-margin-top:72px">
+    <svg class="dxcm-loop" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true"><path d="M-50 120 C200 20 300 260 520 180 S760 -20 900 140 S700 420 560 330 S300 520 1050 560" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round"/></svg>
     <div class="dxcm-inner">
-      <div class="dxcm-hand">Let's go café hopping!</div>
-      <h2 class="dxcm-h2">草悟系<em>咖啡地圖</em></h2>
-      <p class="dxcm-lead">沿著綠園道散步，10 間咖啡廳都能換杯。<br />每店每日只有 3 個，早點出門比較好喔！</p>
-      <div class="dxcm-mapbox">
+      <div class="dxcm-kicker">COFFEE MAP</div>
+      <h2 class="dxcm-h2">草悟系<mark>咖啡地圖</mark></h2>
+      <p class="dxcm-lead">沿著綠園道散步，<b>10 間</b>咖啡廳都能換杯。<br />每店每日只有 3 個，早點出門比較好喔！</p>
+      <div class="dxcm-mapcard">
         <div class="dxcm-map">
           <!-- TODO：換成 Google My Maps 嵌入網址（地圖 → 分享 → 嵌入我的網站） -->
           <iframe src="https://www.google.com/maps?q=%E8%8D%89%E6%82%9F%E9%81%93%20%E5%8F%B0%E4%B8%AD&amp;z=16&amp;output=embed" loading="lazy" title="草悟系咖啡地圖" allowfullscreen=""></iframe>
@@ -330,81 +352,95 @@
       </div>
 
       <div class="dxcm-shops">
-        <div class="dxcm-shop"><div class="dxcm-pm"><small>STOP</small><b>01</b></div><h3>Phase X Biyue</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Phase%20X%20Biyue%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/phase_coffee_roasters" target="_blank" rel="noopener">Instagram</a></div></div>
-        <div class="dxcm-shop"><div class="dxcm-pm"><small>STOP</small><b>02</b></div><h3>Roundabout Cafe 圓環咖啡</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Roundabout%20Cafe%20%E5%9C%93%E7%92%B0%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/roundaboutcoffee/" target="_blank" rel="noopener">Instagram</a></div></div>
-        <div class="dxcm-shop"><div class="dxcm-pm"><small>STOP</small><b>03</b></div><h3>Beangood Cafe 冰穀咖啡 草悟店</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%86%B0%E7%A9%80%E5%92%96%E5%95%A1%20%E8%8D%89%E6%82%9F%E5%BA%97" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/beangood_cafe/" target="_blank" rel="noopener">Instagram</a></div></div>
-        <div class="dxcm-shop"><div class="dxcm-pm"><small>STOP</small><b>04</b></div><h3>BUBU ART CAFE 台中審計店</h3><p class="dxcm-shop-addr">台中市西區向上路一段79巷66弄14號（待店家確認）</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=BUBU%20ART%20CAFE%20%E5%8F%B0%E4%B8%AD%E5%AF%A9%E8%A8%88%E5%BA%97" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/bubuartcafe/" target="_blank" rel="noopener">Instagram</a></div></div>
-        <div class="dxcm-shop"><div class="dxcm-pm"><small>STOP</small><b>05</b></div><h3>若草甜點店</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%8B%A5%E8%8D%89%E7%94%9C%E9%BB%9E%E5%BA%97%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/wakakusatw" target="_blank" rel="noopener">Instagram</a></div></div>
-        <div class="dxcm-shop"><div class="dxcm-pm"><small>STOP</small><b>06</b></div><h3>Frankie Feels Good at Corner</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Frankie%20Feels%20Good%20at%20Corner%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/frankiefeelsgood_corner/" target="_blank" rel="noopener">Instagram</a></div></div>
-        <div class="dxcm-shop"><div class="dxcm-pm"><small>STOP</small><b>07</b></div><h3>Coffee Cipher</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Coffee%20Cipher%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeecipher" target="_blank" rel="noopener">Instagram</a></div></div>
-        <div class="dxcm-shop"><div class="dxcm-pm"><small>STOP</small><b>08</b></div><h3>CAFEAO 台中勤美店</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=CAFEAO%20%E5%8F%B0%E4%B8%AD%E5%8B%A4%E7%BE%8E%E5%BA%97" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/cafeao_tw/" target="_blank" rel="noopener">Instagram</a></div></div>
-        <div class="dxcm-shop is-tbd"><div class="dxcm-pm"><small>STOP</small><b>09</b></div><h3>神秘店家 🎁</h3><p class="dxcm-shop-addr">即將公開，敬請期待！</p></div>
-        <div class="dxcm-shop is-tbd"><div class="dxcm-pm"><small>STOP</small><b>10</b></div><h3>神秘店家 🎁</h3><p class="dxcm-shop-addr">即將公開，敬請期待！</p></div>
+        <div class="dxcm-shop"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#e2574c" stroke="#1f286f" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#fff">01</text></svg><div class="dxcm-shop-body"><h3>Phase X Biyue</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Phase%20X%20Biyue%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/phase_coffee_roasters" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#e2574c" stroke="#1f286f" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#fff">02</text></svg><div class="dxcm-shop-body"><h3>Roundabout Cafe 圓環咖啡</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Roundabout%20Cafe%20%E5%9C%93%E7%92%B0%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/roundaboutcoffee/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#e2574c" stroke="#1f286f" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#fff">03</text></svg><div class="dxcm-shop-body"><h3>Beangood Cafe 冰穀咖啡 草悟店</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%86%B0%E7%A9%80%E5%92%96%E5%95%A1%20%E8%8D%89%E6%82%9F%E5%BA%97" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/beangood_cafe/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#e2574c" stroke="#1f286f" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#fff">04</text></svg><div class="dxcm-shop-body"><h3>BUBU ART CAFE 台中審計店</h3><p class="dxcm-shop-addr">台中市西區向上路一段79巷66弄14號（待店家確認）</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=BUBU%20ART%20CAFE%20%E5%8F%B0%E4%B8%AD%E5%AF%A9%E8%A8%88%E5%BA%97" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/bubuartcafe/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#e2574c" stroke="#1f286f" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#fff">05</text></svg><div class="dxcm-shop-body"><h3>若草甜點店</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%8B%A5%E8%8D%89%E7%94%9C%E9%BB%9E%E5%BA%97%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/wakakusatw" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#e2574c" stroke="#1f286f" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#fff">06</text></svg><div class="dxcm-shop-body"><h3>Frankie Feels Good at Corner</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Frankie%20Feels%20Good%20at%20Corner%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/frankiefeelsgood_corner/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#e2574c" stroke="#1f286f" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#fff">07</text></svg><div class="dxcm-shop-body"><h3>Coffee Cipher</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Coffee%20Cipher%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeecipher" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#e2574c" stroke="#1f286f" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#fff">08</text></svg><div class="dxcm-shop-body"><h3>CAFEAO 台中勤美店</h3><p class="dxcm-shop-addr">地址／營業時間 待補</p><div class="dxcm-shop-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=CAFEAO%20%E5%8F%B0%E4%B8%AD%E5%8B%A4%E7%BE%8E%E5%BA%97" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/cafeao_tw/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop is-tbd"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#f5c451" stroke="#fff" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#1f286f">09</text></svg><div class="dxcm-shop-body"><h3>神秘店家</h3><p class="dxcm-shop-addr">即將公開，敬請期待！</p></div></div>
+        <div class="dxcm-shop is-tbd"><svg class="dxcm-shop-pin" viewBox="0 0 38 46"><path d="M19 44 c-4 -9 -17 -15 -17 -27 a17 17 0 0 1 34 0 c0 12 -13 18 -17 27z" fill="#f5c451" stroke="#fff" stroke-width="2.5"/><text x="19" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="13" fill="#1f286f">10</text></svg><div class="dxcm-shop-body"><h3>神秘店家</h3><p class="dxcm-shop-addr">即將公開，敬請期待！</p></div></div>
       </div>
     </div>
-    <svg class="dxcm-wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 34 C120 14 200 50 320 30 S520 8 640 30 S860 52 980 28 S1220 6 1440 30 V60 H0Z" fill="#fbf6ec"/></svg>
+    <div class="dxcm-marquee" aria-hidden="true">Café Hopping ✦ Joyeux Noël ✦ Café Hopping ✦ Joyeux Noël ✦ Café Hopping ✦ Joyeux Noël ✦ Café Hopping ✦ Joyeux Noël ✦&nbsp;</div>
   </section>
 
-  <!-- ═══ 4. 贈品杯款 ═══ -->
+  <!-- ═══ 贈品杯款 ═══ -->
   <section class="dxcm-sec" id="dxcm-cups">
     <div class="dxcm-inner">
-      <div class="dxcm-hand">Your Christmas gift</div>
-      <h2 class="dxcm-h2">這次送的是<em>這些杯</em></h2>
-      <p class="dxcm-lead">法國製造強化玻璃，耐熱又耐摔，<br />裝熱拿鐵、黑咖啡都好看。限量 1,000 只，隨機送出！</p>
+      <div class="dxcm-kicker">THE GLASSES</div>
+      <h2 class="dxcm-h2">這次送的<mark>法式玻璃杯</mark></h2>
+      <p class="dxcm-lead">法國製造強化玻璃，耐熱又耐摔，<br />裝熱拿鐵、黑咖啡都好看。共 4 款，隨機送出！</p>
       <div class="dxcm-cups">
-        <div class="dxcm-cup"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4ODMwMDkzLzE3NzQ1MTU3MDJfZmMxYjA0ZTI3NzI3MmM0ZmNmYmIucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=a2f338f91a85e5c3" alt="Duralex Caprice 玻璃杯" loading="lazy" /><h3>Caprice</h3><div class="dxcm-cup-ml">200ml</div><span class="dxcm-cup-qty">限量 200 只</span></div>
-        <div class="dxcm-cup"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4NTM2NTM2LzE3NzQ1MDQ4NjdfMzA0NDViZDg4ZTIxMDBiNTQ0MzEucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=bf8ca16c9a20c1b9" alt="Duralex Gigogne 玻璃杯" loading="lazy" /><h3>Gigogne</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 200 只</span></div>
-        <div class="dxcm-cup"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQ5NzgyLzE3ODk3MTc1MTlfNmI4MTdhMTg3MDQ4OWVlYTNmM2MuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=95bc39847b560b88" alt="Duralex Provence 玻璃杯 130ml" loading="lazy" /><h3>Provence</h3><div class="dxcm-cup-ml">130ml</div><span class="dxcm-cup-qty">限量 300 只</span></div>
-        <div class="dxcm-cup"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQ5NzgyLzE3ODk3MTc1MTlfNmI4MTdhMTg3MDQ4OWVlYTNmM2MuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=95bc39847b560b88" alt="Duralex Provence 玻璃杯 160ml" loading="lazy" /><h3>Provence</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 300 只</span></div>
+        <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4ODMwMDkzLzE3NzQ1MTU3MDJfZmMxYjA0ZTI3NzI3MmM0ZmNmYmIucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=a2f338f91a85e5c3" alt="Duralex Caprice 玻璃杯" loading="lazy" /></div><h3>Caprice</h3><div class="dxcm-cup-ml">200ml</div><span class="dxcm-cup-qty">限量 200 只</span></div>
+        <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4NTM2NTM2LzE3NzQ1MDQ4NjdfMzA0NDViZDg4ZTIxMDBiNTQ0MzEucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=bf8ca16c9a20c1b9" alt="Duralex Gigogne 玻璃杯" loading="lazy" /></div><h3>Gigogne</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 200 只</span></div>
+        <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQ5NzgyLzE3ODk3MTc1MTlfNmI4MTdhMTg3MDQ4OWVlYTNmM2MuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=95bc39847b560b88" alt="Duralex Provence 玻璃杯 130ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">130ml</div><span class="dxcm-cup-qty">限量 300 只</span></div>
+        <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQ5NzgyLzE3ODk3MTc1MTlfNmI4MTdhMTg3MDQ4OWVlYTNmM2MuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=95bc39847b560b88" alt="Duralex Provence 玻璃杯 160ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 300 只</span></div>
       </div>
       <p class="dxcm-note">※ 贈品款式／顏色以現場實物為準，無法指定款式。</p>
     </div>
   </section>
 
-  <!-- ═══ 5. 活動二：曬杯抽獎 ═══ -->
-  <section class="dxcm-sec dxcm-redsec" id="dxcm-lottery" style="padding-top:5rem;padding-bottom:5.5rem">
-    <svg class="dxcm-wave top" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 34 C120 14 200 50 320 30 S520 8 640 30 S860 52 980 28 S1220 6 1440 30 V60 H0Z" fill="#fbf6ec"/></svg>
+  <!-- ═══ 活動二：曬杯抽獎 ═══ -->
+  <section class="dxcm-sec" id="dxcm-lottery" style="padding-top:1rem">
     <div class="dxcm-inner">
-      <div class="dxcm-hand">Event 02 · Bonus!</div>
-      <h2 class="dxcm-h2">帶杯出門 曬照抽大獎</h2>
-      <p class="dxcm-lead">帶著 Duralex 玻璃杯到合作店家拍照，<br />在官方 IG 指定貼文留言曬照＋@2 位好友，就有機會抽中！</p>
-      <div class="dxcm-cta">
-        <!-- TODO：12/14 活動貼文發布後換成貼文網址 -->
-        <a class="dxcm-btn dxcm-btn-gold" href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">📸 前往 IG 指定貼文</a>
+      <div class="dxcm-kicker">EVENT 02</div>
+      <h2 class="dxcm-h2">帶杯出門，<mark>曬照抽大獎</mark></h2>
+      <p class="dxcm-lead">拿到玻璃杯之後，帶著它去散步、拍美照，<br />就有機會把咖啡機帶回家！</p>
+      <ol class="dxcm-howto">
+        <li><b>1</b>帶著 Duralex 玻璃杯到合作店家拍照</li>
+        <li><b>2</b>在官方 IG 指定貼文下方留言曬照</li>
+        <li><b>3</b>同一則留言 @2 位好友，完成！</li>
+      </ol>
+      <div class="dxcm-prizes">
+        <div class="dxcm-prize">
+          <svg viewBox="0 0 80 80" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><rect x="16" y="34" width="48" height="36" rx="3" fill="#1f286f"/><rect x="12" y="24" width="56" height="13" rx="3" fill="#4a63c9"/><rect x="34" y="24" width="12" height="46" fill="#f5c451"/><path d="M40 24 c-8 -16 -24 -10 -16 0z M40 24 c8 -16 24 -10 16 0z" fill="#f5c451"/></svg>
+          <span class="dxcm-prize-tag" style="background:var(--navy)">社群人氣獎 ×1</span>
+          <h3>飛利浦 Baristina<br />一滑極萃義式咖啡機</h3><p>留言照片按讚數最高的人</p>
+        </div>
+        <div class="dxcm-prize">
+          <svg viewBox="0 0 80 80" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><rect x="16" y="34" width="48" height="36" rx="3" fill="#3f8f6b"/><rect x="12" y="24" width="56" height="13" rx="3" fill="#4e9f7a"/><rect x="34" y="24" width="12" height="46" fill="#e2574c"/><path d="M40 24 c-8 -16 -24 -10 -16 0z M40 24 c8 -16 24 -10 16 0z" fill="#e2574c"/></svg>
+          <span class="dxcm-prize-tag" style="background:var(--green)">風格美感獎 ×1</span>
+          <h3>one-meter<br />轉轉煮茶機</h3><p>品牌評選最有美感的打卡照</p>
+        </div>
+        <div class="dxcm-prize">
+          <svg viewBox="0 0 80 80" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><rect x="16" y="34" width="48" height="36" rx="3" fill="#e2574c"/><rect x="12" y="24" width="56" height="13" rx="3" fill="#ef7a70"/><rect x="34" y="24" width="12" height="46" fill="#f5c451"/><path d="M40 24 c-8 -16 -24 -10 -16 0z M40 24 c8 -16 24 -10 16 0z" fill="#f5c451"/></svg>
+          <span class="dxcm-prize-tag" style="background:var(--red)">幸運隨機獎 ×1</span>
+          <h3>Fellow 不鏽鋼<br />雙層真空濾杯組</h3><p>完成留言任務就能參加抽獎</p>
+        </div>
       </div>
-      <div class="dxcm-gifts">
-        <div class="dxcm-gift n"><div class="dxcm-lid"><span class="dxcm-bow"></span><span class="dxcm-prize-tag">社群人氣獎 ×1</span></div><h3>飛利浦 Baristina<br />一滑極萃義式咖啡機</h3><p>留言照片按讚數最高的人</p></div>
-        <div class="dxcm-gift g"><div class="dxcm-lid"><span class="dxcm-bow"></span><span class="dxcm-prize-tag">風格美感獎 ×1</span></div><h3>one-meter<br />轉轉煮茶機</h3><p>品牌評選最有美感的打卡照</p></div>
-        <div class="dxcm-gift r"><div class="dxcm-lid"><span class="dxcm-bow"></span><span class="dxcm-prize-tag">幸運隨機獎 ×1</span></div><h3>Fellow 不鏽鋼<br />雙層真空濾杯組</h3><p>完成留言任務就能參加抽獎</p></div>
-      </div>
-      <ul class="dxcm-cal">
-        <li><span class="dxcm-cal-m">DEC · 一</span><span class="dxcm-cal-d">14</span><span class="dxcm-cal-t">活動開跑<br />IG 指定貼文發布</span></li>
-        <li><span class="dxcm-cal-m">JAN · 日</span><span class="dxcm-cal-d">17</span><span class="dxcm-cal-t">23:59 留言截止<br />人氣獎讚數以此為準</span></li>
-        <li><span class="dxcm-cal-m">JAN · 五</span><span class="dxcm-cal-d">22</span><span class="dxcm-cal-t">官方 IG<br />公布得獎名單</span></li>
-        <li><span class="dxcm-cal-m">JAN · 五</span><span class="dxcm-cal-d">29</span><span class="dxcm-cal-t">得獎者私訊<br />回覆資料截止</span></li>
+      <ul class="dxcm-tl">
+        <li><b>12/14（一）</b><span>活動開跑<br />IG 指定貼文發布</span></li>
+        <li><b>1/17（日）23:59</b><span>留言截止<br />人氣獎讚數以此為準</span></li>
+        <li><b>1/22（五）</b><span>官方 IG<br />公布得獎名單</span></li>
+        <li><b>1/29（五）</b><span>得獎者私訊<br />回覆資料截止</span></li>
       </ul>
+      <div class="dxcm-after" style="margin-top:2.4rem">
+        <!-- TODO：12/14 活動貼文發布後換成貼文網址 -->
+        <a class="dxcm-btn dxcm-btn-red" href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">前往 IG 指定貼文 <i>›</i></a>
+      </div>
     </div>
-    <svg class="dxcm-wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 34 C120 14 200 50 320 30 S520 8 640 30 S860 52 980 28 S1220 6 1440 30 V60 H0Z" fill="#1f286f"/></svg>
   </section>
 
-  <!-- ═══ 6. KOL 探店（12/14 後放影片） ═══ -->
-  <section class="dxcm-sec dxcm-navy" id="dxcm-kol">
+  <!-- ═══ KOL 探店（12/14 後放影片） ═══ -->
+  <section class="dxcm-sec" id="dxcm-kol" style="padding-top:1rem">
     <div class="dxcm-inner">
-      <div class="dxcm-hand">Coffee walk with creators</div>
-      <h2 class="dxcm-h2">跟著創作者<em>一起散步</em></h2>
+      <div class="dxcm-kicker">COFFEE WALK</div>
+      <h2 class="dxcm-h2">跟著創作者<mark>一起散步</mark></h2>
       <p class="dxcm-lead">風格創作者實地走訪草悟系，帶你看看冬天的咖啡巷弄</p>
       <div class="dxcm-kol">
         <div class="dxcm-kol-card"><b>▶</b>創作者 Reels ①<br />12/14 上線</div>
         <div class="dxcm-kol-card"><b>▶</b>創作者 Reels ②<br />12/14 上線</div>
       </div>
     </div>
-    <svg class="dxcm-wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 34 C120 14 200 50 320 30 S520 8 640 30 S860 52 980 28 S1220 6 1440 30 V60 H0Z" fill="#fbf6ec"/></svg>
   </section>
 
-  <!-- ═══ 7. FAQ ═══ -->
-  <section class="dxcm-sec" id="dxcm-faq">
+  <!-- ═══ FAQ ═══ -->
+  <section class="dxcm-sec" id="dxcm-faq" style="padding-top:1rem">
     <div class="dxcm-inner">
-      <div class="dxcm-hand">Q &amp; A</div>
+      <div class="dxcm-kicker">Q &amp; A</div>
       <h2 class="dxcm-h2">常見問題</h2>
       <div class="dxcm-faq" style="margin-top:2rem">
         <details><summary>外帶也可以換杯嗎？</summary><p>可以！內用、外帶單筆消費滿 200 元都能兌換。</p></details>
@@ -425,18 +461,16 @@
     </div>
   </section>
 
-  <!-- ═══ 8. Footer ═══ -->
+  <!-- ═══ Footer ═══ -->
   <footer class="dxcm-foot">
-    <svg class="dxcm-wave top" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 34 C120 14 200 50 320 30 S520 8 640 30 S860 52 980 28 S1220 6 1440 30 V60 H0Z" fill="#fbf6ec"/></svg>
-    <div class="dxcm-merry">Joyeux Noël ✦</div>
     <div class="dxcm-foot-org">
       <span>主辦單位<b>上洋產業股份有限公司</b></span>
       <span>協辦單位<b>草悟系 Green Ripple Life</b></span>
     </div>
     <div class="dxcm-cta">
-      <a class="dxcm-btn dxcm-btn-ghost" href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">Instagram</a>
-      <a class="dxcm-btn dxcm-btn-ghost" href="https://lin.ee/h4XXfhN" target="_blank" rel="noopener">LINE 好友</a>
-      <a class="dxcm-btn dxcm-btn-red" href="https://www.duralex.com.tw/" target="_blank" rel="noopener">逛 Duralex 官網</a>
+      <a class="dxcm-btn dxcm-btn-line" href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">Instagram</a>
+      <a class="dxcm-btn dxcm-btn-line" href="https://lin.ee/h4XXfhN" target="_blank" rel="noopener">LINE 好友</a>
+      <a class="dxcm-btn dxcm-btn-navy" href="https://www.duralex.com.tw/" target="_blank" rel="noopener">逛 Duralex 官網</a>
     </div>
   </footer>
 
