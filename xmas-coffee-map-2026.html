@@ -1,5 +1,5 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Duralex 咖啡地圖｜聖誕限定 × 草悟系</title><style>body{margin:0;background:#fff}</style></head><body>
-<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v8 2026-11-19（官方 logo、Google 多店地圖、獎品線稿、移除 $200 圓章）
+<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v9 2026-11-20（杯子背景融入地圖、文案潤飾、完整活動辦法）
      待替換：① 9、10 號店家 ② 各店地址/營業時間 ③ Google My Maps 嵌入網址 ④ IG 指定貼文連結（12/14 發布後）⑤ KOL 影片 -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;display=swap" rel="stylesheet" />
 <style type="text/css">
@@ -67,10 +67,8 @@
 .dxcm-date span{color:var(--muted);font-weight:500;font-size:.85em}
 
 .dxcm-globe-wrap{position:relative;max-width:540px;width:100%;margin:0 auto}
-.dxcm-globe-wrap::before{content:'';position:absolute;inset:-14px;border-radius:50%;border:3px dashed var(--red);z-index:0;animation:dxcm-spin 60s linear infinite}
-@keyframes dxcm-spin{to{transform:rotate(360deg)}}
 .dxcm-globe{z-index:1}
-.dxcm-globe{position:relative;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 50% 40%,#fffaf0 0%,#fbefd8 70%,#f3dfbd 100%);box-shadow:0 0 0 3px var(--navy);overflow:hidden;clip-path:circle(50% at 50% 50%)}
+.dxcm-globe{position:relative;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 50% 56%,#fffaf2 0%,#fbf4e6 50%,#f7f5f2 100%);overflow:hidden;-webkit-mask-image:radial-gradient(circle closest-side,#000 80%,transparent 100%);mask-image:radial-gradient(circle closest-side,#000 80%,transparent 100%)}
 .dxcm-globe svg.dxcm-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .dxcm-pc{position:absolute;mix-blend-mode:multiply}
 .dxcm-pc img{display:block;width:100%;height:auto}
@@ -241,6 +239,20 @@
 .dxcm-rules li{position:relative;padding-left:1.5rem;margin-bottom:.3rem;counter-increment:r}
 .dxcm-rules li::before{content:counter(r) '.';position:absolute;left:0;font-weight:700;color:var(--navy)}
 
+/* ── 完整活動辦法 ── */
+.dxcm-terms{max-width:760px;margin:2rem auto 0;background:#fff;border:2px solid var(--navy);border-radius:18px;padding:.9rem 1.2rem}
+.dxcm-terms summary{cursor:pointer;font-weight:900;color:var(--navy);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.dxcm-terms summary::-webkit-details-marker{display:none}
+.dxcm-terms summary::after{content:'展開 +';font-size:.8rem;color:var(--red)}
+.dxcm-terms[open] summary::after{content:'收合 −'}
+.dxcm-terms h4{margin:1.2rem 0 .4rem;font-size:.92rem;font-weight:900;color:var(--navy);padding-left:.6rem;border-left:4px solid var(--red)}
+.dxcm-terms ol{margin:0 !important;padding:0 !important}
+.dxcm-terms li{font-size:.8rem;color:var(--muted);line-height:1.75;margin-bottom:.45rem;padding-left:1.9rem;position:relative}
+.dxcm-terms li > b{position:absolute;left:0;color:var(--navy)}
+.dxcm-terms li strong{color:var(--navy)}
+.dxcm-terms .dxcm-sub-terms{margin-top:.4rem !important}
+.dxcm-terms .dxcm-sub-terms li{padding-left:0}
+
 /* ── Footer ── */
 .dxcm-foot{text-align:center;padding:3rem 1rem 3.5rem;font-size:.85rem;color:var(--muted);border-top:2px dashed rgba(31,40,111,.2);margin:0 1rem}
 .dxcm-foot-org{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;justify-content:center;margin-bottom:1.3rem}
@@ -289,8 +301,8 @@ html,body{overflow-x:hidden}
           <!-- 背景層：雪地、小樹、星星 -->
           <svg class="dxcm-layer" viewBox="0 0 100 100" preserveAspectRatio="none">
             <g fill="#f5c451"><path d="M20 20 l1 2.6 2.6 1 -2.6 1 -1 2.6 -1 -2.6 -2.6 -1 2.6 -1z"/><path d="M78 26 l.8 2 2 .8 -2 .8 -.8 2 -.8 -2 -2 -.8 2 -.8z"/><path d="M50 12 l.7 1.8 1.8 .7 -1.8 .7 -.7 1.8 -.7 -1.8 -1.8 -.7 1.8 -.7z"/></g>
-            <ellipse cx="50" cy="95" rx="68" ry="14" fill="#ffffff"/>
-            <ellipse cx="50" cy="95" rx="68" ry="14" fill="none" stroke="#e7d9bd" stroke-width=".4"/>
+            <ellipse cx="50" cy="95" rx="68" ry="14" fill="#ffffff" opacity=".85"/>
+            
           </svg>
 
           <!-- 真實杯款（白底照片 × 正片疊底） -->
@@ -351,7 +363,7 @@ html,body{overflow-x:hidden}
     <div class="dxcm-inner">
       <div class="dxcm-kicker">EVENT 01</div>
       <h2 class="dxcm-h2">消費滿額，<mark>免費帶走玻璃杯</mark></h2>
-      <p class="dxcm-lead">活動期間到任一間合作咖啡廳，<br />完成 3 個小任務，就能把法式經典帶回家。</p>
+      <p class="dxcm-lead">活動期間走進任一間合作咖啡廳，<br />完成三個小步驟，就能把一只法國經典玻璃杯帶回家。</p>
 
       <div class="dxcm-card">
         <span class="dxcm-bookmark"></span>
@@ -359,15 +371,15 @@ html,body{overflow-x:hidden}
         <div class="dxcm-steps">
           <div class="dxcm-step">
             <div class="dxcm-ico"><svg viewBox="0 0 80 80" fill="none" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><path d="M18 10 h44 v60 l-7 -5 -7 5 -7 -5 -7 5 -7 -5 -9 5z" fill="#fff"/><path d="M27 24 h26 M27 33 h18" stroke-linecap="round"/><text x="40" y="56" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="16" fill="#ed6d0f" stroke="none">$200</text></svg></div>
-            <div><div class="dxcm-step-n">Step 1</div><h3>單筆消費滿 $200</h3><p>任一間<b>合作咖啡廳</b>，內用、外帶都可以。</p></div>
+            <div><div class="dxcm-step-n">Step 1</div><h3>單筆消費滿 $200</h3><p>在任一間<b>合作咖啡廳</b>消費，內用、外帶都算。</p></div>
           </div>
           <div class="dxcm-step">
             <div class="dxcm-ico"><svg viewBox="0 0 80 80" fill="none" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><rect x="22" y="8" width="36" height="64" rx="7" fill="#fff"/><rect x="28" y="18" width="24" height="34" rx="3" fill="#e6ecfb"/><path d="M40 44 c-10 -7 -9 -16 -3 -16 c2 0 3 2 3 3 c0 -1 1 -3 3 -3 c6 0 7 9 -3 16z" fill="#ed6d0f"/><line x1="36" y1="63" x2="44" y2="63" stroke-linecap="round"/></svg></div>
-            <div><div class="dxcm-step-n">Step 2</div><h3>追蹤 IG＋轉發限動</h3><p>追蹤 <a href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">@duralextaiwan</a>，把活動貼文分享到限動，並 <b>@該咖啡廳</b>。</p></div>
+            <div><div class="dxcm-step-n">Step 2</div><h3>追蹤 IG、分享限動</h3><p>追蹤 <a href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">@duralextaiwan</a>，將活動貼文分享至限時動態，並標註 <b>@該咖啡廳</b>。</p></div>
           </div>
           <div class="dxcm-step">
             <div class="dxcm-ico"><svg viewBox="0 0 80 80" fill="none" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><polygon points="24,22 56,22 53,64 27,64" fill="#fff"/><polygon points="26,36 54,36 52.5,62 27.5,62" fill="#c98a54" stroke="none"/><line x1="25" y1="30" x2="55" y2="30" stroke-width="2"/><polygon points="24,22 56,22 53,64 27,64"/><path d="M60 14 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z" fill="#f5c451" stroke-width="1.5"/></svg></div>
-            <div><div class="dxcm-step-n">Step 3</div><h3>結帳出示手機畫面</h3><p>給店員看追蹤和限動畫面，就能免費兌換玻璃杯乙只！</p></div>
+            <div><div class="dxcm-step-n">Step 3</div><h3>結帳時出示畫面</h3><p>向店員出示追蹤與限動畫面，即可免費兌換玻璃杯乙只。</p></div>
           </div>
         </div>
         <ul class="dxcm-rules-mini">
@@ -386,7 +398,7 @@ html,body{overflow-x:hidden}
       <div class="dxcm-about-head">
         <div class="dxcm-kicker">WHY DURALEX · SINCE 1945</div>
         <h2 class="dxcm-h2">法國<mark>國民玻璃餐具</mark>品牌</h2>
-        <p class="dxcm-about-lead">從巴黎小酒館到紐約 MoMA，八十年來只做一件事：讓每天都在用的強化玻璃杯，耐用、安全、而且好看。</p>
+        <p class="dxcm-about-lead">從巴黎小酒館到紐約 MoMA，Duralex 八十年來只專注一件事：讓天天使用的強化玻璃杯，耐用、安全，也好看。</p>
       </div>
       <div class="dxcm-feats">
         <div class="dxcm-feat"><div class="dxcm-feat-n">1945</div><div><h3>擋風玻璃級強化工藝</h3><p>以汽車擋風玻璃強化技術打造日常餐具</p></div></div>
@@ -412,7 +424,7 @@ html,body{overflow-x:hidden}
     <div class="dxcm-inner">
       <div class="dxcm-kicker">COFFEE MAP</div>
       <h2 class="dxcm-h2">草悟系<mark>咖啡地圖</mark></h2>
-      <p class="dxcm-lead">沿著綠園道散步，<b>10 間</b>咖啡廳都能換杯。<br />每店每日限量、發完為止，早點出門比較好喔！</p>
+      <p class="dxcm-lead">沿著綠園道慢慢散步，<b>10 間</b>咖啡廳都能兌換玻璃杯。<br />每店每日數量有限、發完為止，建議早點出發！</p>
       <div class="dxcm-mapcard">
         <div class="dxcm-map">
           <!-- 8 家合作店家依序串成步行路線（順序＝下方店卡 01～08）；確定 9、10 號店後把地址加在 daddr 最後（+to:地址） -->
@@ -442,7 +454,7 @@ html,body{overflow-x:hidden}
     <div class="dxcm-inner">
       <div class="dxcm-kicker">THE TUMBLER</div>
       <h2 class="dxcm-h2">活動贈送的<mark>法國製造玻璃杯</mark></h2>
-      <p class="dxcm-lead">法國製造強化玻璃，耐熱又耐摔，<br />裝熱拿鐵、黑咖啡都好看。共 4 款，隨機送出！</p>
+      <p class="dxcm-lead">法國製造的強化玻璃杯，耐熱又耐摔，<br />盛裝熱拿鐵或黑咖啡都好看。共 4 款，隨機贈送。</p>
       <div class="dxcm-cups">
         <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4ODMwMDkzLzE3NzQ1MTU3MDJfZmMxYjA0ZTI3NzI3MmM0ZmNmYmIucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=a2f338f91a85e5c3" alt="Duralex Caprice 玻璃杯" loading="lazy" /></div><h3>Caprice</h3><div class="dxcm-cup-ml">200ml</div><span class="dxcm-cup-qty">限量 200 只</span></div>
         <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4NTM2NTM2LzE3NzQ1MDQ4NjdfMzA0NDViZDg4ZTIxMDBiNTQ0MzEucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=bf8ca16c9a20c1b9" alt="Duralex Gigogne 玻璃杯" loading="lazy" /></div><h3>Gigogne</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 200 只</span></div>
@@ -458,11 +470,11 @@ html,body{overflow-x:hidden}
     <div class="dxcm-inner">
       <div class="dxcm-kicker">EVENT 02</div>
       <h2 class="dxcm-h2">帶杯出門，<mark>曬照抽大獎</mark></h2>
-      <p class="dxcm-lead">拿到玻璃杯之後，帶著它去散步、拍美照，<br />就有機會把咖啡機帶回家！</p>
+      <p class="dxcm-lead">拿到玻璃杯後，帶著它繼續散步、拍下美照，<br />就有機會把咖啡機抱回家！</p>
       <ol class="dxcm-howto">
-        <li><b>1</b>帶著 Duralex 玻璃杯到合作店家拍照</li>
-        <li><b>2</b>在官方 IG 指定貼文下方留言曬照</li>
-        <li><b>3</b>同一則留言 @2 位好友，完成！</li>
+        <li><b>1</b>帶著 Duralex 玻璃杯，在合作店家拍下美照</li>
+        <li><b>2</b>到官方 IG 指定貼文下方留言曬照</li>
+        <li><b>3</b>在同一則留言標註 2 位好友，即完成！</li>
       </ol>
       <div class="dxcm-prizes">
         <div class="dxcm-prize">
@@ -482,7 +494,7 @@ html,body{overflow-x:hidden}
             <path d="M78 101 v3" stroke="#ed6d0f" stroke-width="2.4"/>
           </svg>
           <span class="dxcm-prize-tag" style="background:var(--navy)">社群人氣獎 ×1</span>
-          <h3>飛利浦 Baristina<br />一滑極萃義式咖啡機</h3><p>留言照片按讚數最高的人</p>
+          <h3>飛利浦 Baristina<br />一滑極萃義式咖啡機</h3><p>留言照片按讚數最高者</p>
         </div>
         <div class="dxcm-prize">
           <!-- 線稿：one-meter 轉轉煮茶機 -->
@@ -501,7 +513,7 @@ html,body{overflow-x:hidden}
             <rect x="70" y="130" width="20" height="6" rx="1.5" stroke="#ed6d0f"/>
           </svg>
           <span class="dxcm-prize-tag" style="background:var(--gray);color:var(--navy)">風格美感獎 ×1</span>
-          <h3>one-meter<br />轉轉煮茶機</h3><p>品牌評選最有美感的打卡照</p>
+          <h3>one-meter<br />轉轉煮茶機</h3><p>由品牌評選最具美感的打卡照</p>
         </div>
         <div class="dxcm-prize">
           <!-- 線稿：Fellow 不鏽鋼雙層真空濾杯組 -->
@@ -520,14 +532,14 @@ html,body{overflow-x:hidden}
             <path d="M104 96 q12 0 12 14 q0 12 -12 12" />
           </svg>
           <span class="dxcm-prize-tag" style="background:var(--red)">幸運隨機獎 ×1</span>
-          <h3>Fellow 不鏽鋼<br />雙層真空濾杯組</h3><p>完成留言任務就能參加抽獎</p>
+          <h3>Fellow 不鏽鋼<br />雙層真空濾杯組</h3><p>完成留言任務即可參加抽獎</p>
         </div>
       </div>
       <ul class="dxcm-tl">
-        <li><b>12/14（一）</b><span>活動開跑<br />IG 指定貼文發布</span></li>
-        <li><b>1/17（日）23:59</b><span>留言截止<br />人氣獎讚數以此為準</span></li>
-        <li><b>1/22（五）</b><span>官方 IG<br />公布得獎名單</span></li>
-        <li><b>1/29（五）</b><span>得獎者私訊<br />回覆資料截止</span></li>
+        <li><b>12/14（一）</b><span>活動開跑<br />IG 指定貼文上線</span></li>
+        <li><b>1/17（日）23:59</b><span>留言截止<br />人氣獎讚數以此時為準</span></li>
+        <li><b>1/22（五）18:00 前</b><span>得獎名單公布於<br />指定貼文留言區</span></li>
+        <li><b>1/29（五）</b><span>得獎者私訊<br />提供資料截止</span></li>
       </ul>
       <div class="dxcm-after" style="margin-top:2.4rem">
         <!-- TODO：12/14 活動貼文發布後換成貼文網址 -->
@@ -541,7 +553,7 @@ html,body{overflow-x:hidden}
     <div class="dxcm-inner">
       <div class="dxcm-kicker">COFFEE WALK</div>
       <h2 class="dxcm-h2">跟著創作者<mark>一起散步</mark></h2>
-      <p class="dxcm-lead">風格創作者實地走訪草悟系，帶你看看冬天的咖啡巷弄</p>
+      <p class="dxcm-lead">風格創作者實地走訪草悟系，帶你逛逛冬日的咖啡巷弄。</p>
       <div class="dxcm-kol">
         <div class="dxcm-kol-card"><b>▶</b>創作者 Reels ①<br />12/14 上線</div>
         <div class="dxcm-kol-card"><b>▶</b>創作者 Reels ②<br />12/14 上線</div>
@@ -555,21 +567,49 @@ html,body{overflow-x:hidden}
       <div class="dxcm-kicker">Q &amp; A</div>
       <h2 class="dxcm-h2">常見問題</h2>
       <div class="dxcm-faq" style="margin-top:2rem">
-        <details><summary>外帶也可以換杯嗎？</summary><p>可以！內用、外帶單筆消費滿 200 元都能兌換。</p></details>
-        <details><summary>可以在不同店家各換一個嗎？</summary><p>不行喔，活動期間每人限兌換一次。</p></details>
-        <details><summary>到店時已經換完了怎麼辦？</summary><p>每間店每日限量，當天發完為止，隔天會再補上。也可以看地圖去其他合作店家試試。</p></details>
-        <details><summary>可以指定杯款嗎？</summary><p>杯款隨機贈送，無法指定，以現場實物為準。</p></details>
-        <details><summary>抽獎照片要在哪一間店拍？</summary><p>任一間合作咖啡廳都可以，照片裡要看得到 Duralex 玻璃杯。</p></details>
-        <details><summary>IG 帳號需要公開嗎？</summary><p>需要。限動和留言都要是公開帳號，店家和品牌才看得到。</p></details>
+        <details><summary>外帶也可以兌換嗎？</summary><p>可以！內用或外帶，只要單筆消費滿 200 元都能兌換。</p></details>
+        <details><summary>可以在不同店家各換一只嗎？</summary><p>不行喔，活動期間每人（每個 IG 帳號）限兌換一次。</p></details>
+        <details><summary>到店時已經發完了怎麼辦？</summary><p>每間店每日數量有限，當天發完為止，隔天會再補貨；也可以參考地圖，到其他合作店家試試。</p></details>
+        <details><summary>可以指定杯款嗎？</summary><p>杯款為隨機贈送，無法指定，以現場實物為準。</p></details>
+        <details><summary>抽獎照片要在哪間店拍？</summary><p>任一間合作咖啡廳都可以，只要照片裡看得到 Duralex 玻璃杯即可。</p></details>
+        <details><summary>IG 帳號需要公開嗎？</summary><p>需要。限時動態與留言須以公開帳號發布，店家與品牌才能確認。</p></details>
       </div>
-      <ol class="dxcm-rules">
-        <li>活動期間：2026/12/14（一）至 2027/1/15（五），依各合作店家營業時間為準。</li>
-        <li>兌換玻璃杯每人限一次，每店每日限量，發完為止。</li>
-        <li>贈品款式／顏色以現場實物為準，恕不挑選、不得折換現金。</li>
-        <li>抽獎每個帳號限得獎一次；得獎名單於 2027/1/22（五）在 Duralex 官方 IG 公布，得獎者須於 1/29（五）前私訊提供收件資料，逾期視同放棄。</li>
-        <li>獎品僅寄送台灣本島；依法須申報所得者，將另行通知。</li>
-        <li>主辦單位保有活動最終修改、變更及解釋之權利。</li>
-      </ol>
+      <details class="dxcm-terms">
+        <summary>查看完整活動辦法</summary>
+        <h4>滿額贈玻璃杯</h4>
+        <ol>
+          <li><b>1.</b>活動期間為 2026 年 12 月 14 日（一）起至 2027 年 1 月 15 日（五）止，實際兌換時間依各合作咖啡廳營業時間為準。</li>
+          <li><b>2.</b>於合作咖啡廳單筆消費滿新台幣 200 元，追蹤 Duralex Taiwan 官方 IG（@duralextaiwan），並將活動貼文分享至個人限時動態且標註該合作咖啡廳，結帳時出示畫面即可兌換 Duralex 玻璃杯乙只。</li>
+          <li><b>3.</b>每人（每個 IG 帳號）活動期間限兌換一次。各合作咖啡廳每日兌換數量有限，當日發完為止；活動贈品總數 1,000 只，送完即止。</li>
+          <li><b>4.</b>限時動態須公開發布並保留至少 24 小時。合作咖啡廳得確認參加者之追蹤及分享狀態，未符合條件者恕無法兌換。</li>
+          <li><b>5.</b>贈品款式、顏色為隨機贈送，以現場實物為準，恕不挑選、更換、折現或轉售。</li>
+        </ol>
+        <h4>帶杯曬照抽大獎</h4>
+        <ol>
+          <li><b>6.</b>參加期間為 2026 年 12 月 14 日（一）起至 2027 年 1 月 17 日（日）23:59 止。於 Duralex Taiwan 官方 IG 指定活動貼文下方留言曬出含 Duralex 玻璃杯之照片，並於同一則留言標註 2 位好友，即可參加抽獎。社群人氣獎以截止時之留言按讚數計算；風格美感獎由主辦單位評選；幸運隨機獎自完成留言任務之參加者中隨機抽出。每個帳號限得獎一次。</li>
+          <li><b>7.</b>請勿重複留言洗版，亦禁止使用小帳、抽獎帳號、假帳號或機器人帳號（如追蹤人數過低、無實際生活動態紀錄等）參與抽獎；留言內容不得涉及人身攻擊、歧視、色情、暴力、違法或其他違反善良風俗之內容，主辦單位有權刪除留言並取消參加資格。若經主辦單位認定有異常情形，將取消參加及得獎資格。</li>
+          <li><b>8.</b>得獎名單將於 2027 年 1 月 22 日（五）18:00 前公告於指定活動貼文留言區。</li>
+          <li><b>9.</b>得獎者須於名單公布後 7 日內（2027 年 1 月 29 日（五）前）主動私訊「Duralex Taiwan」官方 IG 帳號，並依主辦單位指示提供姓名、聯絡電話、電子郵件及收件地址，逾期視同放棄，恕不補發。獎項僅寄送臺灣地區。</li>
+          <li><b>10.</b>獎項不得要求折現、轉讓、變更，亦不得要求更換為其他商品；如遇不可抗力因素致獎項無法提供，主辦單位有權以其他等值商品替代。</li>
+          <li><b>11.</b>依《所得稅法》及《各類所得扣繳率標準》規定：獎項價值全年累計超過新台幣 1,000 元（含）以上者，該筆獎項所得將列入得獎者個人年度綜合所得稅申報；單筆超過新台幣 20,000 元者，須依法預繳 10% 中獎稅。得獎者須配合提供身分證明文件並辦理相關稅務手續。非中華民國境內居住之個人，或於一課稅年度內在臺灣地區居留、停留合計未滿 183 天之本國人及外國人，應依相關法令辦理扣繳。若未於期限內完成相關手續或繳付法定稅金，視同放棄得獎及領獎資格。</li>
+          <li><b>12.</b>參加者須年滿 13 歲。得獎者若未滿 18 歲，須另行提供法定代理人同意及相關身分證明文件，並由法定代理人協同辦理領獎手續。</li>
+          <li><b>13.</b>本公司員工、代理商及其配偶、直系親屬不得參與本活動抽獎。得獎者如因違反本條資格限制或前述任一參加資格規定遭取消得獎資格，該獎項不另遞補，視同從缺。</li>
+        </ol>
+        <h4>共同條款</h4>
+        <ol>
+          <li><b>14.</b>個人資料蒐集告知事項：參加者若涉及抽獎及領獎作業，須提供帳號名稱、姓名、電話、電子郵件、收件地址及依法辦理稅務所需之相關資料，供主辦單位（Duralex Taiwan／上洋產業股份有限公司）進行身分確認、活動聯繫、得獎通知、稅務申報及獎項寄送使用。主辦單位將依上述特定目的存續期間辦理紙本或電子化資料保存，僅於本活動相關作業之必要範圍內使用，不將資料提供予其他第三方或跨國境處理。<strong>若參加者拒絕提供或提供之個人資料不完整，將導致無法參與抽獎、無法核對得獎資格，或視同放棄得獎資格。</strong>當事人得依《個人資料保護法》規定，就其個人資料行使查詢、閱覽、複製、補充、更正、停止蒐集處理利用及刪除之權利，如欲行使前述權利，請來信 abby.li@upyoung.com.tw。</li>
+          <li><b>15.</b>本活動由 Duralex Taiwan（上洋產業股份有限公司）主辦、草悟系協辦，與 Meta／Instagram 無任何關聯，Meta／Instagram 不對本活動負任何責任；參加者參加本活動即同意完全免除 Meta／Instagram 就本活動所生之一切責任。</li>
+          <li><b>16.</b>本公司保有修改活動與獎項細節之最終解釋、變更及裁決之權利，所有異動將以官方粉專／IG 公告為準。參加者視同認可並接受本活動辦法之各項規定。如有其他未盡事宜，依主辦單位相關規定或解釋為最後依據，主辦單位保留得隨時終止、變更、補充解釋或修改本活動辦法、獎項等相關活動內容之權利。</li>
+          <li><b>17.</b>著作權授權及肖像權使用同意：
+            <ol class="dxcm-sub-terms">
+              <li>(1) 參加者應保證其參與本活動所提供、上傳、公開分享或以其他方式提交之照片、圖片、文字、影片及其他內容（以下合稱「參加內容」），均為參加者本人原創或已合法取得必要之授權，且未侵害任何第三人之著作權、商標權、肖像權、隱私權或其他權利。如因參加內容涉及侵權或違法情事致主辦單位受有損害，參加者應自負相關法律責任。</li>
+              <li>(2) 參加者同意，自其完成本活動參加程序時起，無償授權 Duralex Taiwan／上洋產業股份有限公司得於本活動相關之目的範圍內，將參加內容使用於活動宣傳、成果展示及品牌社群經營，包括但不限於 Instagram、Facebook、官方網站、電子報及其他官方數位平台之重製、公開傳輸、公開展示、編輯、轉載及分享。</li>
+              <li>(3) 參加者於參加內容中如包含本人或其他可識別人物之肖像、聲音或其他足資辨識個人之資訊，應已取得該等人員就本活動及前述使用範圍之同意；如參加內容含有未成年人肖像，參加者並應確認已取得其法定代理人之同意。</li>
+              <li>(4) 除本活動宣傳及品牌社群推廣之必要範圍外，如主辦單位欲將得獎作品或參加內容另行使用於付費廣告、平面文宣、商品包裝或其他超出本活動目的之商業用途時，將另行取得參加者之書面或其他可得證明之同意。</li>
+            </ol>
+          </li>
+        </ol>
+      </details>
     </div>
   </section>
 
