@@ -1,5 +1,5 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Duralex 咖啡地圖｜聖誕限定 × 草悟系</title><style>body{margin:0;background:#fff}</style></head><body>
-<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v10 2026-11-20（主視覺去圓框：杯子站在地圖雪坡上）
+<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v11 2026-11-23（主視覺：清楚的雪丘分界）
      待替換：① 9、10 號店家 ② 各店地址/營業時間 ③ Google My Maps 嵌入網址 ④ IG 指定貼文連結（12/14 發布後）⑤ KOL 影片 -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;display=swap" rel="stylesheet" />
 <style type="text/css">
@@ -52,7 +52,7 @@
 
 /* ── HERO（真實杯款 × 聖誕裝扮）── */
 .dxcm-hero{position:relative;text-align:center;overflow:hidden;padding:2.4rem 1rem 1.4rem;background:#f7f5f2}
-.dxcm-snowbank{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:calc(1.4rem + min(540px,100vw - 2rem) * .32);z-index:4;pointer-events:none}
+.dxcm-snowbank{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:calc(1.4rem + min(540px,100vw - 2rem) * .32);z-index:2;pointer-events:none}
 .dxcm-mapbg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .dxcm-mpin{animation:dxcm-mbob 2.8s ease-in-out infinite}
 @keyframes dxcm-mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -68,7 +68,8 @@
 .dxcm-date span{color:var(--muted);font-weight:500;font-size:.85em}
 
 .dxcm-globe-wrap{position:relative;max-width:540px;width:100%;margin:0 auto}
-.dxcm-globe-wrap::before{content:'';position:absolute;left:-30%;right:-30%;top:4%;bottom:-16%;background:radial-gradient(ellipse closest-side,#fffbf5 0%,#fffbf5 72%,rgba(255,251,245,0) 100%);pointer-events:none}
+.dxcm-globe-wrap::before{content:'';position:absolute;left:-45%;right:-45%;top:31%;bottom:calc(-1.4rem - 2px);background:linear-gradient(#f4f6fb,#ffffff 55%);border:2px solid var(--navy);border-bottom:0;border-radius:50% 50% 0 0/100% 100% 0 0;pointer-events:none}
+@media(min-width:900px){.dxcm-globe-wrap::before{left:calc(50% - 62vw);right:calc(50% - 62vw);top:34%}}
 .dxcm-globe{position:relative;aspect-ratio:1/1}
 .dxcm-globe svg.dxcm-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .dxcm-pc{position:absolute;mix-blend-mode:multiply}
@@ -289,7 +290,7 @@ html,body{overflow-x:hidden}
       <span class="dxcm-hflake" style="left:83%;font-size:7px;animation-duration:11s;animation-delay:-7s">●</span>
       <span class="dxcm-hflake" style="left:95%;font-size:11px;animation-duration:13s;animation-delay:-1s">❄</span>
     </div>
-    <svg class="dxcm-snowbank" viewBox="0 0 1600 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="M0 78 C110 40 230 28 360 46 C470 62 560 70 660 58 L940 58 C1040 70 1130 62 1240 46 C1370 28 1490 40 1600 78 V200 H0z" fill="#eceff7" stroke="#1f286f" stroke-width="2"/><g stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"><path d="M205 -18.2 l19.0 28.4 h-7.3 l10.4 22.9 h-8.0 l12.2 21.6 h-52.6 l12.2 -21.6 h-8.0 l10.4 -22.9 h-7.3z" fill="#b7d8bd"/><path d="M201.4 52 v-2.7 h7.2 v2.7" fill="#c99872"/><path d="M205 -26.3 l2.4 5 5.4 .6 -4 3.6 1.2 5.4 -5 -2.8 -5 2.8 1.2 -5.4 -4 -3.6 5.4 -.6z" fill="#ed6d0f" stroke-width="1.4"/></g><g stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"><path d="M300 9.3 l13.7 20.5 h-5.3 l7.5 16.6 h-5.7 l8.8 15.6 h-38.0 l8.8 -15.6 h-5.7 l7.5 -16.6 h-5.3z" fill="#b7d8bd"/><path d="M297.4 60 v-2.0 h5.2 v2.0" fill="#c99872"/><path d="M300 3.4 l2.4 5 5.4 .6 -4 3.6 1.2 5.4 -5 -2.8 -5 2.8 1.2 -5.4 -4 -3.6 5.4 -.6z" fill="#ed6d0f" stroke-width="1.4"/></g><g stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"><path d="M1300 9.3 l13.7 20.5 h-5.3 l7.5 16.6 h-5.7 l8.8 15.6 h-38.0 l8.8 -15.6 h-5.7 l7.5 -16.6 h-5.3z" fill="#b7d8bd"/><path d="M1297.4 60 v-2.0 h5.2 v2.0" fill="#c99872"/><path d="M1300 3.4 l2.4 5 5.4 .6 -4 3.6 1.2 5.4 -5 -2.8 -5 2.8 1.2 -5.4 -4 -3.6 5.4 -.6z" fill="#ed6d0f" stroke-width="1.4"/></g><g stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"><path d="M1395 -18.2 l19.0 28.4 h-7.3 l10.4 22.9 h-8.0 l12.2 21.6 h-52.6 l12.2 -21.6 h-8.0 l10.4 -22.9 h-7.3z" fill="#b7d8bd"/><path d="M1391.4 52 v-2.7 h7.2 v2.7" fill="#c99872"/><path d="M1395 -26.3 l2.4 5 5.4 .6 -4 3.6 1.2 5.4 -5 -2.8 -5 2.8 1.2 -5.4 -4 -3.6 5.4 -.6z" fill="#ed6d0f" stroke-width="1.4"/></g><path d="M0 128 C170 98 320 80 480 72 C620 65 720 62 800 62 C880 62 980 65 1120 72 C1280 80 1430 98 1600 128 V200 H0z" fill="#ffffff" stroke="#1f286f" stroke-width="2"/><path d="M40 182 C220 160 380 118 560 96 M1560 182 C1380 160 1220 118 1040 96" fill="none" stroke="#ed6d0f" stroke-width="4" stroke-dasharray="10 10" stroke-linecap="round" opacity=".85"/><g fill="#f5c451"><path d="M520 30 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/><path d="M1090 22 l1.6 4 4 1.6 -4 1.6 -1.6 4 -1.6 -4 -4 -1.6 4 -1.6z"/></g></svg>
+    <svg class="dxcm-snowbank" viewBox="0 0 1600 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="M0 78 C110 40 230 28 360 46 C470 62 560 70 660 58 L940 58 C1040 70 1130 62 1240 46 C1370 28 1490 40 1600 78 V200 H0z" fill="#ffffff" stroke="#1f286f" stroke-width="2"/><g stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"><path d="M205 -18.2 l19.0 28.4 h-7.3 l10.4 22.9 h-8.0 l12.2 21.6 h-52.6 l12.2 -21.6 h-8.0 l10.4 -22.9 h-7.3z" fill="#b7d8bd"/><path d="M201.4 52 v-2.7 h7.2 v2.7" fill="#c99872"/><path d="M205 -26.3 l2.4 5 5.4 .6 -4 3.6 1.2 5.4 -5 -2.8 -5 2.8 1.2 -5.4 -4 -3.6 5.4 -.6z" fill="#ed6d0f" stroke-width="1.4"/></g><g stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"><path d="M300 9.3 l13.7 20.5 h-5.3 l7.5 16.6 h-5.7 l8.8 15.6 h-38.0 l8.8 -15.6 h-5.7 l7.5 -16.6 h-5.3z" fill="#b7d8bd"/><path d="M297.4 60 v-2.0 h5.2 v2.0" fill="#c99872"/><path d="M300 3.4 l2.4 5 5.4 .6 -4 3.6 1.2 5.4 -5 -2.8 -5 2.8 1.2 -5.4 -4 -3.6 5.4 -.6z" fill="#ed6d0f" stroke-width="1.4"/></g><g stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"><path d="M1300 9.3 l13.7 20.5 h-5.3 l7.5 16.6 h-5.7 l8.8 15.6 h-38.0 l8.8 -15.6 h-5.7 l7.5 -16.6 h-5.3z" fill="#b7d8bd"/><path d="M1297.4 60 v-2.0 h5.2 v2.0" fill="#c99872"/><path d="M1300 3.4 l2.4 5 5.4 .6 -4 3.6 1.2 5.4 -5 -2.8 -5 2.8 1.2 -5.4 -4 -3.6 5.4 -.6z" fill="#ed6d0f" stroke-width="1.4"/></g><g stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"><path d="M1395 -18.2 l19.0 28.4 h-7.3 l10.4 22.9 h-8.0 l12.2 21.6 h-52.6 l12.2 -21.6 h-8.0 l10.4 -22.9 h-7.3z" fill="#b7d8bd"/><path d="M1391.4 52 v-2.7 h7.2 v2.7" fill="#c99872"/><path d="M1395 -26.3 l2.4 5 5.4 .6 -4 3.6 1.2 5.4 -5 -2.8 -5 2.8 1.2 -5.4 -4 -3.6 5.4 -.6z" fill="#ed6d0f" stroke-width="1.4"/></g><g fill="#f5c451"><path d="M520 30 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/><path d="M1090 22 l1.6 4 4 1.6 -4 1.6 -1.6 4 -1.6 -4 -4 -1.6 4 -1.6z"/></g></svg>
     <div class="dxcm-hero-grid">
       <div class="dxcm-hero-txt">
         <div class="dxcm-co"><span class="dxcm-badge" style="width:80px;height:80px"><img src="https://www.duralex.com/cdn/shop/files/300921_DURALEX_LOGO_BLUEonWHITE.png?v=1648651615&amp;width=300" alt="Duralex Made in France Depuis 1945" /></span><i></i><b>草悟系</b></div>
@@ -303,6 +304,7 @@ html,body{overflow-x:hidden}
           <!-- 背景層：雪地、小樹、星星 -->
           <svg class="dxcm-layer" viewBox="0 0 100 100" preserveAspectRatio="none">
             <g fill="#f5c451"><path d="M20 20 l1 2.6 2.6 1 -2.6 1 -1 2.6 -1 -2.6 -2.6 -1 2.6 -1z"/><path d="M78 26 l.8 2 2 .8 -2 .8 -.8 2 -.8 -2 -2 -.8 2 -.8z"/><path d="M50 12 l.7 1.8 1.8 .7 -1.8 .7 -.7 1.8 -.7 -1.8 -1.8 -.7 1.8 -.7z"/></g>
+            <ellipse cx="50" cy="83" rx="50" ry="5.5" fill="#e6eaf4"/>
             
             
           </svg>
