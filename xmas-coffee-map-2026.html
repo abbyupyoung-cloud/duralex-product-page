@@ -1,5 +1,5 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Duralex 咖啡地圖｜聖誕限定 × 台中草悟系</title><style>body{margin:0;background:#fff}</style></head><body>
-<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v15 2026-11-23（ABC 排序、官方 logo、品牌照片、地圖卡片加店家介紹）
+<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v16 2026-11-23（品牌區雜誌版型、主視覺依螢幕高度縮放）
      待替換：① 咖啡廳介紹文案請店家確認 ② 02/03/05/08 店內照片 ③ IG 指定貼文連結（12/14 發布後）④ KOL 影片 -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;display=swap" rel="stylesheet" />
 <style type="text/css">
@@ -113,36 +113,41 @@
 @keyframes dxcm-hfall{to{transform:translate(20px,900px) rotate(360deg)}}
 
 /* ── 關於 Duralex（一個螢幕）── */
-.dxcm-about{padding:3rem 1rem;scroll-margin-top:72px;background:var(--sky)}
-@media(min-width:760px){.dxcm-about{padding:3.5rem 1rem}}
+.dxcm-about{padding:3.2rem 1rem 3.6rem;scroll-margin-top:72px;background:var(--sky)}
+@media(min-width:760px){.dxcm-about{padding:4rem 1.4rem}}
 .dxcm-about .dxcm-inner{width:100%}
-.dxcm-about-head{text-align:center;margin-bottom:1.4rem}
-.dxcm-about-lead{font-size:.92rem;color:var(--muted);max-width:620px;margin:.5rem auto 0 !important}
-/* 品牌照片列：手機橫向滑動，桌機一排 6 張 */
-.dxcm-gal{display:flex;gap:.6rem;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -1rem 1rem !important;padding:0 1rem .3rem !important;scrollbar-width:none}
-.dxcm-gal::-webkit-scrollbar{display:none}
-.dxcm-gal li{position:relative;flex:0 0 38%;scroll-snap-align:start;border:2px solid var(--navy);border-radius:16px;overflow:hidden;background:#fff}
-.dxcm-wrap .dxcm-gal img{width:100%;aspect-ratio:1/1;object-fit:cover}
-.dxcm-gal span{position:absolute;left:.4rem;bottom:.4rem;background:rgba(255,255,255,.92);color:var(--navy);font-size:.7rem;font-weight:700;border-radius:999px;padding:0 .55rem;line-height:1.7}
-@media(min-width:760px){.dxcm-gal{overflow:visible;margin:0 0 1rem !important;padding:0 !important}.dxcm-gal li{flex:1 1 0}}
-.dxcm-feats{display:grid;gap:.7rem;grid-template-columns:repeat(2,1fr)}
-@media(min-width:960px){.dxcm-feats{grid-template-columns:repeat(4,1fr)}}
-.dxcm-feat{background:#fff;border:2px solid var(--navy);border-radius:18px;padding:.9rem 1rem;display:flex;flex-direction:column;gap:.3rem}
-.dxcm-feat-n{font-family:'Playfair Display',serif;font-weight:900;font-size:1.8rem;color:var(--navy);line-height:1}
-.dxcm-feat-n sub{font-size:.5em;vertical-align:baseline;margin-left:.1em;color:var(--red)}
-.dxcm-feat h3{font-size:.92rem;font-weight:900;color:var(--navy);margin:0}
-.dxcm-feat p{font-size:.78rem;color:var(--muted);margin:.1rem 0 0;line-height:1.5}
-.dxcm-award{display:grid;gap:1rem;grid-template-columns:96px 1fr;align-items:center;margin-top:.9rem;background:#fff;border:2px solid var(--navy);border-radius:20px;padding:1rem 1.1rem}
-@media(min-width:760px){.dxcm-award{grid-template-columns:150px 1fr auto;padding:1rem 1.6rem}}
-.dxcm-award img{border-radius:12px;width:100%;border:1px solid var(--sky)}
-.dxcm-award h3{font-size:1.05rem;font-weight:900;color:var(--navy)}
-.dxcm-award h3 span{display:block;font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:.82rem;color:var(--red)}
-.dxcm-award p{font-size:.82rem;color:var(--muted);margin:.3rem 0 0 !important}
-.dxcm-museums{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.45rem !important}
-.dxcm-museums li{background:var(--sky);color:var(--navy);border-radius:999px;padding:.12rem .7rem;font-size:.74rem;font-weight:700}
-.dxcm-museums li span{color:var(--red);margin-left:.25rem;font-weight:500}
-.dxcm-award .dxcm-btn{grid-column:1/-1;justify-self:center;font-size:.9rem;padding:.6rem 1.3rem}
-@media(min-width:760px){.dxcm-award .dxcm-btn{grid-column:auto}}
+/* 雜誌跨頁：左照片、右文字 */
+.dxcm-mag{display:grid;gap:3rem;align-items:center}
+@media(min-width:860px){.dxcm-mag{grid-template-columns:5fr 6fr;gap:4rem}}
+.dxcm-mag-ph{position:relative;margin:0 0 1.6rem;padding-right:16%}
+.dxcm-wrap .dxcm-mag-ph .ph1 img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+@media(min-width:860px){.dxcm-wrap .dxcm-mag-ph .ph1 img{aspect-ratio:4/5}}
+.dxcm-mag-ph .ph2{position:absolute;right:0;bottom:-1.6rem;width:44%;background:#fff;padding:6px 6px 0;box-shadow:0 12px 28px rgba(31,40,111,.18);transform:rotate(3deg)}
+.dxcm-wrap .dxcm-mag-ph .ph2 img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.dxcm-mag-ph .ph2 figcaption{font-family:'Playfair Display',serif;font-style:italic;font-size:.72rem;color:var(--navy);text-align:center;padding:.25rem 0 .35rem}
+.dxcm-mag-cap{display:block;font-family:'Playfair Display',serif;font-style:italic;font-size:.74rem;color:var(--muted);margin-top:.5rem;max-width:52%}
+.dxcm-mag-v{display:none}
+@media(min-width:860px){.dxcm-mag-v{display:block;position:absolute;left:-1.9rem;top:0;writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Playfair Display',serif;font-weight:700;font-size:.72rem;letter-spacing:.35em;color:var(--red)}}
+.dxcm-mag-txt .dxcm-kicker{text-align:left;letter-spacing:.18em;font-size:.82rem}
+.dxcm-wrap .dxcm-mag-txt h2.dxcm-h2{text-align:left;font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.25;letter-spacing:.02em}
+.dxcm-mag-lead{font-size:1rem;color:var(--text);line-height:1.95;margin:1.1rem 0 1.6rem !important;padding-top:1.1rem;border-top:2px solid var(--navy)}
+.dxcm-mag-lead::first-letter{float:left;font-weight:900;font-size:3.3em;line-height:1;margin:.08em .14em 0 0;color:var(--navy)}
+.dxcm-stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(31,40,111,.28)}
+.dxcm-stats li{padding:.9rem .9rem .9rem 0;border-bottom:1px solid rgba(31,40,111,.28)}
+.dxcm-stats li:nth-child(even){padding:.9rem 0 .9rem 1rem;border-left:1px solid rgba(31,40,111,.28)}
+.dxcm-stats b{display:block;font-family:'Playfair Display',serif;font-weight:900;font-size:2rem;line-height:1;color:var(--navy)}
+.dxcm-stats b sub{font-size:.45em;vertical-align:baseline;margin-left:.1em;color:var(--red)}
+.dxcm-stats strong{display:block;font-size:.9rem;font-weight:900;color:var(--navy);margin-top:.35rem}
+.dxcm-stats span{display:block;font-size:.76rem;color:var(--muted);line-height:1.5;margin-top:.1rem}
+/* 得獎：底部一條細欄 */
+.dxcm-mag-award{display:grid;grid-template-columns:72px 1fr;gap:.9rem 1.2rem;align-items:center;margin-top:3rem;padding-top:1.4rem;border-top:2px solid var(--navy)}
+@media(min-width:860px){.dxcm-mag-award{grid-template-columns:84px 1fr auto}}
+.dxcm-wrap .dxcm-mag-award img{width:100%;border-radius:8px;background:#fff}
+.dxcm-mag-award h3{font-size:1rem;font-weight:900;color:var(--navy)}
+.dxcm-mag-award h3 em{font-family:'Playfair Display',serif;font-weight:700;font-size:.82rem;color:var(--red);margin-left:.4rem}
+.dxcm-mag-award p{font-size:.8rem;color:var(--muted);margin:.2rem 0 0 !important;line-height:1.6}
+.dxcm-mag-award .dxcm-btn{grid-column:1/-1;justify-self:start;font-size:.88rem;padding:.55rem 1.2rem}
+@media(min-width:860px){.dxcm-mag-award .dxcm-btn{grid-column:auto}}
 
 /* ── 店家卡片：IG 頭像 ── */
 .dxcm-ava{position:relative;flex:0 0 auto;width:56px;height:56px}
@@ -456,31 +461,30 @@ html,body{overflow-x:hidden}
   <!-- ═══ 關於 Duralex（一個螢幕內） ═══ -->
   <section class="dxcm-about" id="dxcm-about">
     <div class="dxcm-inner">
-      <div class="dxcm-about-head">
-        <div class="dxcm-kicker">WHY DURALEX · SINCE 1945</div>
-        <h2 class="dxcm-h2">法國<mark>國民玻璃餐具</mark>品牌</h2>
-        <p class="dxcm-about-lead">從巴黎小酒館到紐約 MoMA，Duralex 八十年來只專注一件事：讓天天使用的強化玻璃杯，耐用、安全，也好看。</p>
+      <div class="dxcm-mag">
+        <div class="dxcm-mag-ph">
+          <span class="dxcm-mag-v" aria-hidden="true">MADE IN FRANCE — DEPUIS 1945</span>
+          <figure class="ph1" style="margin:0"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/factory-tall.jpg" alt="Duralex 法國工廠的玻璃熔爐" loading="lazy" /></figure>
+          <span class="dxcm-mag-cap">N°1945 — Duralex 法國工廠，玻璃在高溫中成形</span>
+          <figure class="ph2" style="margin:0"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/caprice.jpg" alt="Duralex Caprice 玻璃杯盛裝咖啡" loading="lazy" /><figcaption>Caprice, café noir</figcaption></figure>
+        </div>
+        <div class="dxcm-mag-txt">
+          <div class="dxcm-kicker">WHY DURALEX · SINCE 1945</div>
+          <h2 class="dxcm-h2">法國<mark>國民玻璃餐具</mark>品牌</h2>
+          <p class="dxcm-mag-lead">從巴黎小酒館到紐約 MoMA，Duralex 八十年來只專注一件事：讓天天使用的強化玻璃杯，耐用、安全，也好看。</p>
+          <ul class="dxcm-stats">
+            <li><b>1945</b><strong>擋風玻璃級強化工藝</strong><span>以汽車擋風玻璃強化技術打造日常餐具</span></li>
+            <li><b>3.5<sub>×</sub></b><strong>強度是普通玻璃 3.5 倍</strong><span>萬一碎裂也是圓潤鈍角顆粒</span></li>
+            <li><b>100<sub>%</sub></b><strong>堅持法國製造</strong><span>法國中部 La Chapelle-Saint-Mesmin 工廠</span></li>
+            <li><b>0</b><strong>無鉛・無鎘・無雙酚 A</strong><span>無孔隙玻璃，100% 可回收</span></li>
+          </ul>
+        </div>
       </div>
-      <ul class="dxcm-gal">
-        <li><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/factory.jpg" alt="Duralex 法國工廠玻璃熔爐" loading="lazy" /><span>法國工廠・1945</span></li>
-        <li><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/picardie.jpg" alt="Duralex Picardie 經典玻璃杯" loading="lazy" /><span>Picardie 經典杯</span></li>
-        <li><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/noel.jpg" alt="Duralex 玻璃杯聖誕餐桌" loading="lazy" /><span>聖誕餐桌</span></li>
-        <li><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/caprice.jpg" alt="Duralex Caprice 玻璃杯盛裝咖啡" loading="lazy" /><span>Caprice × 咖啡</span></li>
-        <li><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/gigogne.jpg" alt="Duralex Gigogne 早餐咖啡" loading="lazy" /><span>Gigogne 早餐時光</span></li>
-        <li><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/colors.jpg" alt="Duralex 彩色玻璃杯" loading="lazy" /><span>經典色玻璃</span></li>
-      </ul>
-      <div class="dxcm-feats">
-        <div class="dxcm-feat"><div class="dxcm-feat-n">1945</div><div><h3>擋風玻璃級強化工藝</h3><p>以汽車擋風玻璃強化技術打造日常餐具</p></div></div>
-        <div class="dxcm-feat"><div class="dxcm-feat-n">3.5<sub>×</sub></div><div><h3>強度是普通玻璃 3.5 倍</h3><p>萬一碎裂也是圓潤鈍角顆粒</p></div></div>
-        <div class="dxcm-feat"><div class="dxcm-feat-n">100<sub>%</sub></div><div><h3>堅持法國製造</h3><p>法國中部 La Chapelle-Saint-Mesmin 工廠</p></div></div>
-        <div class="dxcm-feat"><div class="dxcm-feat-n">0</div><div><h3>無鉛・無鎘・無雙酚 A</h3><p>無孔隙玻璃，100% 可回收</p></div></div>
-      </div>
-      <div class="dxcm-award">
+      <div class="dxcm-mag-award">
         <img src="https://abbyupyoung-cloud.github.io/duralex-product-page/good-design-award.jpg" alt="Duralex Picardie 玻璃杯榮獲日本 Good Design Long Life Design Award" loading="lazy" />
-        <div class="dxcm-award-txt">
-          <h3>日本 Good Design 獎 <span>Long Life Design Award · Picardie</span></h3>
-          <p>經典杯型被世界頂尖博物館列入永久典藏</p>
-          <ul class="dxcm-museums"><li>MoMA<span>紐約</span></li><li>The Met<span>紐約</span></li><li>V&amp;A Museum<span>倫敦</span></li><li>Musée des Arts Décoratifs<span>巴黎</span></li></ul>
+        <div>
+          <h3>日本 Good Design 獎<em>Long Life Design Award · Picardie</em></h3>
+          <p>經典杯型被世界頂尖博物館列入永久典藏：MoMA 紐約・The Met 紐約・V&amp;A Museum 倫敦・Musée des Arts Décoratifs 巴黎</p>
         </div>
         <a class="dxcm-btn dxcm-btn-red" href="https://www.duralex.com.tw/" target="_blank" rel="noopener">逛 Duralex 官網 <i>›</i></a>
       </div>
