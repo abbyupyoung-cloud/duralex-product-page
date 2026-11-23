@@ -145,8 +145,8 @@
 .dxcm-stats strong{display:block;font-size:.9rem;font-weight:900;color:var(--navy);margin-top:.35rem}
 .dxcm-stats span{display:block;font-size:.76rem;color:var(--muted);line-height:1.5;margin-top:.1rem}
 /* 得獎：底部一條細欄 */
-.dxcm-mag-award{display:grid;grid-template-columns:72px 1fr;gap:.9rem 1.2rem;align-items:center;margin-top:3rem;padding-top:1.4rem;border-top:2px solid var(--navy)}
-@media(min-width:860px){.dxcm-mag-award{grid-template-columns:84px 1fr auto}}
+.dxcm-mag-award{display:grid;grid-template-columns:1fr;gap:.9rem 1.2rem;align-items:center;margin-top:3rem;padding-top:1.4rem;border-top:2px solid var(--navy)}
+@media(min-width:860px){.dxcm-mag-award{grid-template-columns:1fr auto}}
 .dxcm-wrap .dxcm-mag-award img{width:100%;border-radius:8px;background:#fff}
 .dxcm-mag-award h3{font-size:1rem;font-weight:900;color:var(--navy)}
 .dxcm-mag-award h3 em{font-family:'Playfair Display',serif;font-weight:700;font-size:.82rem;color:var(--red);margin-left:.4rem}
@@ -238,7 +238,7 @@
 .dxcm-cafes{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem}
 .dxcm-cafes>.dxcm-cafe{flex:0 0 100%}
 @media(min-width:640px){.dxcm-cafes>.dxcm-cafe{flex-basis:calc(50% - .6rem)}}
-@media(min-width:960px){.dxcm-cafes>.dxcm-cafe{flex-basis:calc(33.333% - .8rem)}}
+@media(min-width:960px){.dxcm-cafes{gap:1rem}.dxcm-cafes>.dxcm-cafe{flex-basis:calc(25% - .75rem)}.dxcm-cafe-bd{padding:.9rem .9rem 1rem}.dxcm-cafe h3{font-size:.98rem}.dxcm-cafe-d{font-size:.82rem}}
 .dxcm-cafe{background:#fff;border:2px solid var(--navy);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:84px;transition:box-shadow .3s}
 .dxcm-cafe:target{box-shadow:0 0 0 5px rgba(237,109,15,.5)}
 .dxcm-cafe-ph{position:relative;aspect-ratio:4/3;background:var(--sky);border-bottom:2px solid var(--navy)}
@@ -489,7 +489,6 @@ html,body{overflow-x:hidden}
         </div>
       </div>
       <div class="dxcm-mag-award">
-        <img src="https://abbyupyoung-cloud.github.io/duralex-product-page/good-design-award.jpg" alt="Duralex Picardie 玻璃杯榮獲日本 Good Design Long Life Design Award" loading="lazy" />
         <div>
           <h3>日本 Good Design 獎<em>Long Life Design Award · Picardie</em></h3>
           <p>經典杯型被世界頂尖博物館列入永久典藏：MoMA 紐約・The Met 紐約・V&amp;A Museum 倫敦・Musée des Arts Décoratifs 巴黎</p>
