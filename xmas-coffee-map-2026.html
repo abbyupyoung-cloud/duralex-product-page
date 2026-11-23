@@ -71,18 +71,19 @@
 .dxcm-globe-wrap{position:relative;max-width:540px;width:100%;margin:0 auto;pointer-events:none}
 /* 電腦版：主視覺壓縮成一屏，打開就看得到杯子 */
 @media(min-width:900px){
-  .dxcm-hero{padding:1.2rem 1rem .8rem}
+  /* 依視窗高度縮放（筆電、螢幕縮放 125–150% 也能一屏看到杯子） */
+  .dxcm-hero{--gw:clamp(260px,calc(100vh - 300px),400px);padding:clamp(.4rem,1.6vh,1.2rem) 1rem .8rem}
   .dxcm-hero-grid{gap:0}
-  .dxcm-wrap h1.dxcm-title{font-size:3.6rem;margin:.3rem 0 0}
+  .dxcm-wrap h1.dxcm-title{font-size:clamp(2.4rem,6.6vh,3.6rem);margin:.2rem 0 0}
   .dxcm-title small{margin-bottom:0}
-  .dxcm-sub{margin:.5rem 0 .4rem !important;font-size:1rem}
-  .dxcm-date{font-size:1.05rem}
-  .dxcm-jump{margin-top:.6rem !important}
-  .dxcm-jump a{font-size:.78rem}
-  .dxcm-wrap img.dxcm-dlx-lg{height:58px}
-  .dxcm-wrap img.dxcm-grl-lg{height:28px}
-  .dxcm-globe-wrap{max-width:400px;margin-top:-104px}
-  .dxcm-snowbank{height:calc(.8rem + 400px * .32)}
+  .dxcm-sub{margin:clamp(.25rem,.8vh,.5rem) 0 clamp(.2rem,.6vh,.4rem) !important;font-size:clamp(.85rem,1.9vh,1rem);padding:.15rem 1rem}
+  .dxcm-date{font-size:clamp(.9rem,2vh,1.05rem)}
+  .dxcm-jump{margin-top:clamp(.3rem,1vh,.6rem) !important}
+  .dxcm-jump a{font-size:.76rem;padding:.05rem .75rem}
+  .dxcm-wrap img.dxcm-dlx-lg{height:clamp(40px,8vh,58px)}
+  .dxcm-wrap img.dxcm-grl-lg{height:clamp(20px,3.9vh,28px)}
+  .dxcm-globe-wrap{max-width:var(--gw);margin-top:calc(var(--gw) * -.26)}
+  .dxcm-snowbank{height:calc(.8rem + var(--gw) * .32)}
 }
 .dxcm-globe-wrap::before{content:'';position:absolute;left:-45%;right:-45%;top:31%;bottom:calc(-1.4rem - 2px);background:linear-gradient(#f4f6fb,#ffffff 55%);border:2px solid var(--navy);border-bottom:0;border-radius:50% 50% 0 0/100% 100% 0 0;pointer-events:none}
 @media(min-width:900px){.dxcm-globe-wrap::before{left:calc(50% - 62vw);right:calc(50% - 62vw);top:34%}}
