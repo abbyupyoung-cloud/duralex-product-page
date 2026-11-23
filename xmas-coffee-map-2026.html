@@ -45,7 +45,8 @@
 .dxcm-logo{font-family:'Playfair Display',serif;font-weight:900;color:var(--navy);letter-spacing:.12em;font-size:.95rem;white-space:nowrap}
 .dxcm-logo span{color:var(--red);margin:0 .2rem}
 .dxcm-links{display:none;margin-left:auto;gap:.2rem}
-.dxcm-links a{text-decoration:none;color:var(--navy);font-weight:700;font-size:.9rem;padding:.3rem .75rem;border-radius:999px}
+.dxcm-links a{text-decoration:none;color:var(--navy);font-weight:700;font-size:.86rem;padding:.3rem .6rem;border-radius:999px;white-space:nowrap}
+.dxcm-nav .dxcm-btn{white-space:nowrap}
 .dxcm-links a:hover{background:var(--sky)}
 .dxcm-nav .dxcm-btn{margin-left:auto;padding:.4rem 1rem;font-size:.85rem;box-shadow:none}
 @media(min-width:860px){.dxcm-links{display:flex}.dxcm-nav .dxcm-btn{margin-left:.3rem}}
@@ -198,9 +199,10 @@
 .dxcm-jump a{text-decoration:none !important;font-size:.82rem;font-weight:700;color:var(--navy) !important;background:#fff;border:2px solid var(--navy);border-radius:999px;padding:.15rem .85rem;transition:background .15s,color .15s}
 .dxcm-jump a:hover{background:var(--navy);color:#fff !important}
 /* ── 咖啡廳介紹 ── */
-.dxcm-cafes{display:grid;gap:1.2rem;grid-template-columns:1fr}
-@media(min-width:640px){.dxcm-cafes{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:960px){.dxcm-cafes{grid-template-columns:repeat(3,1fr)}}
+.dxcm-cafes{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem}
+.dxcm-cafes>.dxcm-cafe{flex:0 0 100%}
+@media(min-width:640px){.dxcm-cafes>.dxcm-cafe{flex-basis:calc(50% - .6rem)}}
+@media(min-width:960px){.dxcm-cafes>.dxcm-cafe{flex-basis:calc(33.333% - .8rem)}}
 .dxcm-cafe{background:#fff;border:2px solid var(--navy);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:84px;transition:box-shadow .3s}
 .dxcm-cafe:target{box-shadow:0 0 0 5px rgba(237,109,15,.5)}
 .dxcm-cafe-ph{position:relative;aspect-ratio:4/3;background:var(--sky);border-bottom:2px solid var(--navy)}
@@ -298,7 +300,7 @@ html,body{overflow-x:hidden}
     <nav class="dxcm-nav">
       <span class="dxcm-logo"><span class="dxcm-badge" style="width:40px;height:40px"><img src="https://www.duralex.com/cdn/shop/files/300921_DURALEX_LOGO_BLUEonWHITE.png?v=1648651615&amp;width=300" alt="Duralex Made in France Depuis 1945" /></span><span>×</span><img class="dxcm-grl" src="https://abbyupyoung-cloud.github.io/duralex-product-page/grl-logo.png" alt="台中草悟系 Green Ripple Life" /></span>
       <div class="dxcm-links">
-        <a href="#dxcm-how">活動辦法</a><a href="#dxcm-about">關於 Duralex</a><a href="#dxcm-map">咖啡地圖</a><a href="#dxcm-cafes">咖啡廳介紹</a><a href="#dxcm-cups">贈品杯款</a><a href="#dxcm-lottery">曬杯抽獎</a><a href="#dxcm-faq">注意事項</a>
+        <a href="#dxcm-how">活動辦法</a><a href="#dxcm-about">關於 Duralex</a><a href="#dxcm-map">咖啡地圖</a><a href="#dxcm-cafes">咖啡廳介紹</a><a href="#dxcm-cups">贈品杯款</a><a href="#dxcm-lottery">曬杯抽獎</a>
       </div>
       <a class="dxcm-btn dxcm-btn-red" href="#dxcm-map">找咖啡廳</a>
     </nav>
