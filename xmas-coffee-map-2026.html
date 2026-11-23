@@ -68,7 +68,22 @@
 .dxcm-date{font-weight:900;color:var(--navy);font-size:clamp(1rem,3vw,1.2rem);letter-spacing:.04em;margin:0 !important}
 .dxcm-date span{color:var(--muted);font-weight:500;font-size:.85em}
 
-.dxcm-globe-wrap{position:relative;max-width:540px;width:100%;margin:0 auto}
+.dxcm-globe-wrap{position:relative;max-width:540px;width:100%;margin:0 auto;pointer-events:none}
+/* 電腦版：主視覺壓縮成一屏，打開就看得到杯子 */
+@media(min-width:900px){
+  .dxcm-hero{padding:1.2rem 1rem .8rem}
+  .dxcm-hero-grid{gap:0}
+  .dxcm-wrap h1.dxcm-title{font-size:3.6rem;margin:.3rem 0 0}
+  .dxcm-title small{margin-bottom:0}
+  .dxcm-sub{margin:.5rem 0 .4rem !important;font-size:1rem}
+  .dxcm-date{font-size:1.05rem}
+  .dxcm-jump{margin-top:.6rem !important}
+  .dxcm-jump a{font-size:.78rem}
+  .dxcm-wrap img.dxcm-dlx-lg{height:58px}
+  .dxcm-wrap img.dxcm-grl-lg{height:28px}
+  .dxcm-globe-wrap{max-width:400px;margin-top:-104px}
+  .dxcm-snowbank{height:calc(.8rem + 400px * .32)}
+}
 .dxcm-globe-wrap::before{content:'';position:absolute;left:-45%;right:-45%;top:31%;bottom:calc(-1.4rem - 2px);background:linear-gradient(#f4f6fb,#ffffff 55%);border:2px solid var(--navy);border-bottom:0;border-radius:50% 50% 0 0/100% 100% 0 0;pointer-events:none}
 @media(min-width:900px){.dxcm-globe-wrap::before{left:calc(50% - 62vw);right:calc(50% - 62vw);top:34%}}
 .dxcm-globe{position:relative;aspect-ratio:1/1}
