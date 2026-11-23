@@ -72,10 +72,10 @@
 /* 電腦版：主視覺壓縮成一屏，打開就看得到杯子 */
 @media(min-width:900px){
   /* 電腦版：左文字、右杯子，一屏看完（依視窗高度縮放） */
-  .dxcm-hero{--gw:clamp(320px,calc(100vh - 150px),500px);padding:1rem 1.6rem 0}
-  .dxcm-hero-grid{grid-template-columns:1fr 1fr;gap:1.5rem;align-items:end;max-width:1120px}
-  .dxcm-hero-txt{text-align:left;justify-self:start;align-self:end;padding:1rem 1.2rem calc(var(--gw) * .34) 0;background:none}
-  .dxcm-wrap h1.dxcm-title{font-size:clamp(2.6rem,7.4vh,4rem);margin:.3rem 0 0}
+  .dxcm-hero{--gw:clamp(300px,calc(100vh - 210px),430px);padding:1rem 1.6rem 0}
+  .dxcm-hero-grid{grid-template-columns:7fr 5fr;gap:2rem;align-items:end;max-width:1120px}
+  .dxcm-hero-txt{text-align:left;justify-self:start;align-self:end;padding:1rem 1.2rem calc(var(--gw) * .2) 0;background:none}
+  .dxcm-wrap h1.dxcm-title{font-size:clamp(2.8rem,8.6vh,4.6rem);margin:.3rem 0 0}
   .dxcm-title small{margin-bottom:.1rem}
   .dxcm-sub{margin:clamp(.4rem,1.2vh,.8rem) 0 clamp(.3rem,1vh,.6rem) !important;font-size:clamp(.9rem,2vh,1.05rem)}
   .dxcm-date{font-size:clamp(.92rem,2.1vh,1.1rem)}
@@ -88,10 +88,10 @@
   .dxcm-hero .dxcm-jump{justify-content:flex-start;max-width:none}
   .dxcm-hero .dxcm-jump a{font-size:.74rem;padding:.05rem .6rem;white-space:nowrap}
   .dxcm-hero::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(247,245,242,.96) 0%,rgba(247,245,242,.9) 34%,rgba(247,245,242,0) 56%)}
-  .dxcm-snowbank{height:calc(var(--gw) * .36)}
+  .dxcm-snowbank{display:none}
 }
 .dxcm-globe-wrap::before{content:'';position:absolute;left:-45%;right:-45%;top:31%;bottom:calc(-1.4rem - 2px);background:linear-gradient(#f4f6fb,#ffffff 55%);border:2px solid var(--navy);border-bottom:0;border-radius:50% 50% 0 0/100% 100% 0 0;pointer-events:none}
-@media(min-width:900px){.dxcm-wrap .dxcm-globe-wrap::before{left:-80%;right:-80%;top:30%;bottom:calc(var(--gw) * -.7)}}
+@media(min-width:900px){.dxcm-wrap .dxcm-globe-wrap::before{left:-16%;right:-16%;top:40%;bottom:calc(var(--gw) * -.32)}.dxcm-wrap .dxcm-pc img{-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 72%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 72%,transparent 100%)}}
 .dxcm-globe{position:relative;aspect-ratio:1/1}
 .dxcm-globe svg.dxcm-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .dxcm-pc{position:absolute;mix-blend-mode:multiply}
@@ -472,8 +472,8 @@ html,body{overflow-x:hidden}
       <div class="dxcm-mag">
         <div class="dxcm-mag-ph">
           <span class="dxcm-mag-v" aria-hidden="true">MADE IN FRANCE — DEPUIS 1945</span>
-          <figure class="ph1" style="margin:0"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/factory-tall.jpg" alt="Duralex 法國工廠的玻璃熔爐" loading="lazy" /></figure>
-          <span class="dxcm-mag-cap">N°1945 — Duralex 法國工廠，玻璃在高溫中成形</span>
+          <figure class="ph1" style="margin:0"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/lifestyle.jpg" alt="朋友圍著餐桌玩牌，桌上擺滿各色 Duralex 玻璃杯" loading="lazy" /></figure>
+          <span class="dxcm-mag-cap">N°1945 — 從早午餐到牌桌，天天都用得上的玻璃杯</span>
           <figure class="ph2" style="margin:0"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/caprice.jpg" alt="Duralex Caprice 玻璃杯盛裝咖啡" loading="lazy" /><figcaption>Caprice, café noir</figcaption></figure>
         </div>
         <div class="dxcm-mag-txt">
