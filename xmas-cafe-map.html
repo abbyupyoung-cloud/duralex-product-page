@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>草悟系咖啡地圖</title>
 <!-- Duralex × 草悟系 聖誕咖啡地圖：合作店家標點地圖（給活動頁 iframe 嵌入用）
-     新增第 9、10 家：在下方 SHOPS 加一行 [編號, 店名, 地址, 營業時間, 緯度, 經度, (選填)圖釘左右位移px] -->
+     新增第 9、10 家：在下方 SHOPS 加一行 [編號, 店名, 地址, 營業時間, 緯度, 經度, (選填)圖釘左右位移px, (選填)指定導航連結] -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
 html,body{margin:0;height:100%;background:#e8ebf3;font-family:'Noto Sans TC',sans-serif}
@@ -27,13 +27,15 @@ html,body{margin:0;height:100%;background:#e8ebf3;font-family:'Noto Sans TC',san
 <script>
 var SHOPS = [
   [1, 'Phase Coffee Roasters × 碧月 Dessert 勤美術館店', '台中市西區館前路79號', '每日 11:00–19:00', 24.1522373, 120.6635989],
-  [2, 'Roundabout Cafe 圓環咖啡 大和店', '台中市西區大和路73號', '10:00–18:00（週三公休）', 24.1499586, 120.667478, -14],
+  [2, 'Roundabout Cafe 圓環咖啡 大和店', '台中市西區大和路73號', '10:00–18:00（週三公休）', 24.1499586, 120.667478, -14, 'https://maps.app.goo.gl/YnjEFN63b7u9sDtn8'],
   [3, 'BeanGood Café 冰穀咖啡 草悟店', '台中市西區模範街46巷6號', '週二–五 10:30–21:00／週六日 10:00–21:00／週一 10:30–19:00', 24.1499077, 120.6671676, 14],
   [4, 'BUBU ART CAFE 橘子布藝術咖啡 台中審計店', '台中市西區民生路368巷3號', '每日 10:30–18:30', 24.1447359, 120.6624653],
   [5, '若草甜點店', '台中市西區昇平街78號', '週四–日 12:30–18:30／週一 13:00–18:30（週二、三公休）', 24.1455853, 120.6614731],
   [6, 'Frankie Feels Good at Corner', '台中市西區忠明南路325號', '週二–五 09:00–17:00／週六日 09:30–18:00（週一公休）', 24.153962, 120.6620537],
   [7, 'Coffee Cipher', '台中市西區昇平街20號', '10:00–18:00（週三公休）', 24.1456537, 120.6637807],
-  [8, 'CAFEAO 台中勤美店', '台中市西區公益路68號 B2', '週日–四 11:00–21:30／週五六 11:00–22:00', 24.1513197, 120.6639377]
+  [8, 'CAFEAO 台中勤美店', '台中市西區公益路68號 B2', '週日–四 11:00–21:30／週五六 11:00–22:00', 24.1513197, 120.6639377],
+  [9, 'NEWSSTAND', '台中市西區民權路229巷21-3號', '每日 11:00–19:00', 24.1488617, 120.6677539],
+  [10, 'COFFEE STOPOVER', '台中市西區民權路217巷24號', '週一–六 11:00–20:00（週日公休）', 24.1479617, 120.6680133]
 ];
 var map = L.map('map', {scrollWheelZoom: false, zoomControl: true, attributionControl: true});
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -48,7 +50,7 @@ SHOPS.forEach(function (s) {
     className: '', iconSize: [40, 52], iconAnchor: [20 + (s[6] || 0), 50], popupAnchor: [0, -46],
     html: '<div class="pin"><svg width="40" height="52" viewBox="0 0 40 52"><path d="M20 50 C15 40 2 32 2 19 a18 18 0 0 1 36 0 C38 32 25 40 20 50z" fill="' + c + '" stroke="#fff" stroke-width="2.5"/><circle cx="20" cy="19" r="11" fill="#fff"/></svg><b style="color:' + c + '">' + s[0] + '</b></div>'
   });
-  var nav = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(s[1] + ' ' + s[2]);
+  var nav = s[7] || 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(s[1] + ' ' + s[2]);
   L.marker([s[4], s[5]], {icon: icon, title: s[1], riseOnHover: true}).addTo(map).bindPopup(
     '<span class="pp-n">' + String(s[0]).padStart(2, '0') + '</span><div class="pp-t">' + esc(s[1]) + '</div>📍 ' + esc(s[2]) + '<br>🕘 ' + esc(s[3]) +
     '<br><a class="pp-a" href="' + nav + '" target="_blank" rel="noopener">Google 地圖導航 ›</a>'
