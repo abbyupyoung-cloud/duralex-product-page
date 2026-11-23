@@ -1,5 +1,5 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Duralex 咖啡地圖｜聖誕限定 × 台中草悟系</title><style>body{margin:0;background:#fff}</style></head><body>
-<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v16 2026-11-23（品牌區雜誌版型、主視覺依螢幕高度縮放）
+<!-- Duralex Taiwan Cyberbiz 自定義 HTML — 聖誕咖啡地圖 × 草悟系（2026.12.14–2027.01.15）初稿 v17 2026-11-23（電腦版主視覺左右排版、杯款連官網、品牌區雜誌版型）
      待替換：① 咖啡廳介紹文案請店家確認 ② 02/03/05/08 店內照片 ③ IG 指定貼文連結（12/14 發布後）④ KOL 影片 -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;display=swap" rel="stylesheet" />
 <style type="text/css">
@@ -71,22 +71,27 @@
 .dxcm-globe-wrap{position:relative;max-width:540px;width:100%;margin:0 auto;pointer-events:none}
 /* 電腦版：主視覺壓縮成一屏，打開就看得到杯子 */
 @media(min-width:900px){
-  /* 依視窗高度縮放（筆電、螢幕縮放 125–150% 也能一屏看到杯子） */
-  .dxcm-hero{--gw:clamp(260px,calc(100vh - 300px),400px);padding:clamp(.4rem,1.6vh,1.2rem) 1rem .8rem}
-  .dxcm-hero-grid{gap:0}
-  .dxcm-wrap h1.dxcm-title{font-size:clamp(2.4rem,6.6vh,3.6rem);margin:.2rem 0 0}
-  .dxcm-title small{margin-bottom:0}
-  .dxcm-sub{margin:clamp(.25rem,.8vh,.5rem) 0 clamp(.2rem,.6vh,.4rem) !important;font-size:clamp(.85rem,1.9vh,1rem);padding:.15rem 1rem}
-  .dxcm-date{font-size:clamp(.9rem,2vh,1.05rem)}
-  .dxcm-jump{margin-top:clamp(.3rem,1vh,.6rem) !important}
-  .dxcm-jump a{font-size:.76rem;padding:.05rem .75rem}
-  .dxcm-wrap img.dxcm-dlx-lg{height:clamp(40px,8vh,58px)}
-  .dxcm-wrap img.dxcm-grl-lg{height:clamp(20px,3.9vh,28px)}
-  .dxcm-globe-wrap{max-width:var(--gw);margin-top:calc(var(--gw) * -.26)}
-  .dxcm-snowbank{height:calc(.8rem + var(--gw) * .32)}
+  /* 電腦版：左文字、右杯子，一屏看完（依視窗高度縮放） */
+  .dxcm-hero{--gw:clamp(320px,calc(100vh - 150px),500px);padding:1rem 1.6rem 0}
+  .dxcm-hero-grid{grid-template-columns:1fr 1fr;gap:1.5rem;align-items:end;max-width:1120px}
+  .dxcm-hero-txt{text-align:left;justify-self:start;align-self:end;padding:1rem 1.2rem calc(var(--gw) * .34) 0;background:none}
+  .dxcm-wrap h1.dxcm-title{font-size:clamp(2.6rem,7.4vh,4rem);margin:.3rem 0 0}
+  .dxcm-title small{margin-bottom:.1rem}
+  .dxcm-sub{margin:clamp(.4rem,1.2vh,.8rem) 0 clamp(.3rem,1vh,.6rem) !important;font-size:clamp(.9rem,2vh,1.05rem)}
+  .dxcm-date{font-size:clamp(.92rem,2.1vh,1.1rem)}
+  .dxcm-jump{margin:clamp(.6rem,1.6vh,1rem) 0 0 !important}
+  .dxcm-jump a{font-size:.78rem}
+  .dxcm-wrap img.dxcm-dlx-lg{height:clamp(44px,8vh,62px)}
+  .dxcm-wrap img.dxcm-grl-lg{height:clamp(21px,3.9vh,30px)}
+  .dxcm-globe-wrap{max-width:var(--gw);margin:0 auto;z-index:1}
+  .dxcm-hero-txt{z-index:2}
+  .dxcm-hero .dxcm-jump{justify-content:flex-start;max-width:none}
+  .dxcm-hero .dxcm-jump a{font-size:.74rem;padding:.05rem .6rem;white-space:nowrap}
+  .dxcm-hero::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(247,245,242,.96) 0%,rgba(247,245,242,.9) 34%,rgba(247,245,242,0) 56%)}
+  .dxcm-snowbank{height:calc(var(--gw) * .36)}
 }
 .dxcm-globe-wrap::before{content:'';position:absolute;left:-45%;right:-45%;top:31%;bottom:calc(-1.4rem - 2px);background:linear-gradient(#f4f6fb,#ffffff 55%);border:2px solid var(--navy);border-bottom:0;border-radius:50% 50% 0 0/100% 100% 0 0;pointer-events:none}
-@media(min-width:900px){.dxcm-globe-wrap::before{left:calc(50% - 62vw);right:calc(50% - 62vw);top:34%}}
+@media(min-width:900px){.dxcm-wrap .dxcm-globe-wrap::before{left:-80%;right:-80%;top:30%;bottom:calc(var(--gw) * -.7)}}
 .dxcm-globe{position:relative;aspect-ratio:1/1}
 .dxcm-globe svg.dxcm-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .dxcm-pc{position:absolute;mix-blend-mode:multiply}
@@ -262,6 +267,9 @@
 .dxcm-cup-img img{width:100%;aspect-ratio:1/1;object-fit:cover}
 .dxcm-cup h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy)}
 .dxcm-cup-ml{font-weight:900;color:var(--red);font-size:1.05rem}
+.dxcm-wrap a.dxcm-cup{display:block;text-decoration:none !important;color:inherit}
+.dxcm-cup-go{display:block;margin-top:.6rem;font-size:.8rem;font-weight:900;color:var(--red)}
+.dxcm-cup:hover .dxcm-cup-go{text-decoration:underline}
 .dxcm-cup-qty{display:inline-block;margin-top:.3rem;font-size:.75rem;font-weight:700;color:var(--muted)}
 .dxcm-note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:1.2rem !important}
 
@@ -555,10 +563,10 @@ html,body{overflow-x:hidden}
       <h2 class="dxcm-h2">活動贈送的<mark>法國製造玻璃杯</mark></h2>
       <p class="dxcm-lead">法國製造的強化玻璃杯，耐熱又耐摔，<br />盛裝熱拿鐵或黑咖啡都好看。共 4 款，隨機贈送。</p>
       <div class="dxcm-cups">
-        <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4ODMwMDkzLzE3NzQ1MTU3MDJfZmMxYjA0ZTI3NzI3MmM0ZmNmYmIucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=a2f338f91a85e5c3" alt="Duralex Caprice 玻璃杯" loading="lazy" /></div><h3>Caprice</h3><div class="dxcm-cup-ml">200ml</div><span class="dxcm-cup-qty">限量 200 只</span></div>
-        <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4NTM2NTM2LzE3NzQ1MDQ4NjdfMzA0NDViZDg4ZTIxMDBiNTQ0MzEucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=bf8ca16c9a20c1b9" alt="Duralex Gigogne 玻璃杯" loading="lazy" /></div><h3>Gigogne</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 200 只</span></div>
-        <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQ5NzgyLzE3ODk3MTc1MTlfNmI4MTdhMTg3MDQ4OWVlYTNmM2MuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=95bc39847b560b88" alt="Duralex Provence 玻璃杯 130ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">130ml</div><span class="dxcm-cup-qty">限量 300 只</span></div>
-        <div class="dxcm-cup"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQ5NzgyLzE3ODk3MTc1MTlfNmI4MTdhMTg3MDQ4OWVlYTNmM2MuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=95bc39847b560b88" alt="Duralex Provence 玻璃杯 160ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 300 只</span></div>
+        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/capriceclearcup" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4ODMwMDkzLzE3NzQ1MTU3MDJfZmMxYjA0ZTI3NzI3MmM0ZmNmYmIucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=a2f338f91a85e5c3" alt="Duralex Caprice 玻璃杯" loading="lazy" /></div><h3>Caprice</h3><div class="dxcm-cup-ml">200ml</div><span class="dxcm-cup-qty">限量 200 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
+        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/gigognecleartumbler-t-2026" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzU4NTM2NTM2LzE3NzQ1MDQ4NjdfMzA0NDViZDg4ZTIxMDBiNTQ0MzEucG5nIl0sWyJwIiwidGh1bWIiLCI0ODB4NDgwIl1d.png?sha=bf8ca16c9a20c1b9" alt="Duralex Gigogne 玻璃杯" loading="lazy" /></div><h3>Gigogne</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 200 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
+        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/provencecleartumbler-21" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQ5NzgyLzE3ODk3MTc1MTlfNmI4MTdhMTg3MDQ4OWVlYTNmM2MuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=95bc39847b560b88" alt="Duralex Provence 玻璃杯 130ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">130ml</div><span class="dxcm-cup-qty">限量 300 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
+        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/provencecleartumbler-21" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://www.duralex.com.tw/media/W1siZiIsIjI5Mzc1L3Byb2R1Y3RzLzYwNjQ5NzgyLzE3ODk3MTc1MTlfNmI4MTdhMTg3MDQ4OWVlYTNmM2MuanBlZyJdLFsicCIsInRodW1iIiwiNDgweDQ4MCJdXQ.jpeg?sha=95bc39847b560b88" alt="Duralex Provence 玻璃杯 160ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 300 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
       </div>
       <p class="dxcm-note">※ 贈品款式／顏色以現場實物為準，無法指定款式。</p>
     </div>
