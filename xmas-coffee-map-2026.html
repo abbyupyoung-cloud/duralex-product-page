@@ -48,7 +48,15 @@
 .dxcm-nav .dxcm-btn{white-space:nowrap}
 .dxcm-links a:hover{background:var(--sky)}
 .dxcm-nav .dxcm-btn{margin-left:auto;padding:.4rem 1rem;font-size:.85rem;box-shadow:none}
-@media(min-width:860px){.dxcm-links{display:flex}.dxcm-nav .dxcm-btn{margin-left:.3rem}}
+/* 電腦版：導覽列改成右側直式浮動 */
+@media(min-width:860px){
+  .dxcm-navwrap{position:fixed;top:50%;right:14px;transform:translateY(-50%);padding:0;z-index:40}
+  .dxcm-nav{flex-direction:column;align-items:stretch;gap:.15rem;border-radius:22px;padding:.55rem .4rem;max-width:none;box-shadow:0 8px 24px rgba(31,40,111,.16)}
+  .dxcm-nav .dxcm-logo{display:none}
+  .dxcm-links{display:flex;flex-direction:column;margin:0;gap:.1rem}
+  .dxcm-links a{font-size:.78rem;padding:.38rem .7rem;text-align:center}
+  .dxcm-nav .dxcm-btn{margin:.3rem 0 0;justify-content:center;font-size:.8rem;padding:.45rem .7rem}
+}
 
 /* ── HERO（真實杯款 × 聖誕裝扮）── */
 .dxcm-hero{position:relative;text-align:center;overflow:hidden;padding:2.4rem 1rem 1.4rem;background:#f7f5f2}
@@ -70,7 +78,7 @@
 .dxcm-globe-wrap{position:relative;max-width:540px;width:100%;margin:0 auto;pointer-events:none}
 /* 電腦版：上文字、下杯子（置中堆疊），依視窗高度縮放，一打開就看得到杯子 */
 @media(min-width:900px){
-  .dxcm-hero{--gw:clamp(280px,calc(100vh - 260px),460px);padding:.8rem 1.6rem 0}
+  .dxcm-hero{--gw:clamp(280px,calc(100vh - 220px),480px);padding:1.4rem 1.6rem 0}
   .dxcm-hero-grid{gap:.2rem;max-width:1120px}
   .dxcm-hero-txt{padding:.2rem 1.6rem .2rem;z-index:2}
   .dxcm-wrap h1.dxcm-title{font-size:clamp(2.4rem,7.4vh,4.2rem);margin:.2rem 0 0}
