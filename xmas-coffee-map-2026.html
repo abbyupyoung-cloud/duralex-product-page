@@ -75,6 +75,16 @@
 .dxcm-nav .dxcm-btn{white-space:nowrap}
 .dxcm-links a:hover{background:var(--sky)}
 .dxcm-nav .dxcm-btn{margin-left:auto;padding:.4rem 1rem;font-size:.85rem;box-shadow:none}
+/* 手機版：導覽列固定在頂端，下方一排可左右滑的區塊連結 */
+@media(max-width:859px){
+  .dxcm-navwrap{position:fixed;top:0;left:0;right:0;z-index:40;padding:.45rem .6rem .5rem;background:linear-gradient(rgba(255,255,255,.96) 75%,rgba(255,255,255,0))}
+  .dxcm-nav{flex-wrap:wrap;border-radius:22px;padding:.3rem .35rem .25rem .9rem;row-gap:.15rem;box-shadow:0 6px 18px rgba(31,40,111,.14)}
+  .dxcm-links{display:flex;order:3;flex:0 0 100%;margin:0 -.35rem 0 -.9rem;padding:.2rem .5rem .1rem;border-top:1px solid rgba(31,40,111,.15);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .dxcm-links::-webkit-scrollbar{display:none}
+  .dxcm-links a{font-size:.8rem;padding:.2rem .6rem;flex:0 0 auto}
+  .dxcm-wrap .dxcm-hero{padding-top:7.6rem}
+  .dxcm-wrap .dxcm-sec,.dxcm-wrap .dxcm-about,.dxcm-wrap .dxcm-block{scroll-margin-top:110px}
+}
 /* 電腦版：導覽列改成右側直式浮動 */
 @media(min-width:860px){
   .dxcm-navwrap{position:fixed;top:50%;right:14px;transform:translateY(-50%);padding:0;z-index:40}
