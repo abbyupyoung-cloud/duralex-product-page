@@ -69,6 +69,35 @@
 @media(max-width:640px){.dxcm-specs{gap:.4rem}.dxcm-specs li{font-size:.82rem;padding:.1rem .7rem;border:1.5px solid var(--navy);border-radius:999px}.dxcm-specs li+li{border-left:1.5px solid var(--navy)}}
 .dxcm-br-m{display:none}
 @media(max-width:640px){.dxcm-br-m{display:inline}}
+/* ── 曬杯示範牆 ── */
+.dxcm-ugc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;margin:2rem 0 0}
+@media(min-width:760px){.dxcm-ugc-grid{grid-template-columns:repeat(3,1fr);gap:1.3rem}}
+.dxcm-post{background:#fff;border:2px solid var(--navy);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:5px 5px 0 rgba(31,40,111,.1)}
+.dxcm-post-hd{display:flex;align-items:center;gap:.5rem;padding:.55rem .7rem}
+.dxcm-post-ava{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--sky);border:2px solid var(--red);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:.8rem;color:var(--navy)}
+.dxcm-post-id{min-width:0;line-height:1.25}
+.dxcm-post-id b{display:block;font-size:.8rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dxcm-post-id span{display:block;font-size:.68rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dxcm-post-ph{position:relative}
+.dxcm-wrap .dxcm-post-ph img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.dxcm-post-cup{position:absolute;left:8px;bottom:8px;background:var(--navy);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.04em;border-radius:999px;padding:.12rem .6rem}
+.dxcm-post-demo{position:absolute;right:8px;top:8px;background:rgba(255,255,255,.92);color:var(--navy);font-size:.64rem;font-weight:700;border-radius:999px;padding:.05rem .5rem}
+.dxcm-post-bd{padding:.55rem .75rem .8rem;font-size:.8rem;line-height:1.6;color:var(--text)}
+.dxcm-post-act{display:flex;align-items:center;gap:.7rem;color:var(--navy);font-weight:700;font-size:.78rem;margin-bottom:.25rem}
+.dxcm-post-act .h{color:var(--red)}
+.dxcm-post-bd p{margin:0 !important}
+.dxcm-post-bd p b{color:var(--navy)}
+.dxcm-post-bd .tag{color:#3a5fb0}
+.dxcm-ugc-tpl{margin:2.2rem auto 0;max-width:720px;border:2px dashed var(--navy);border-radius:18px;padding:1.1rem 1.2rem;background:var(--sky);text-align:center}
+.dxcm-ugc-tpl small{display:block;font-weight:900;color:var(--red);letter-spacing:.14em;font-size:.78rem;margin-bottom:.35rem}
+.dxcm-ugc-tpl p{margin:0 !important;font-weight:700;color:var(--navy);line-height:1.8}
+.dxcm-ugc-tpl p i{font-style:normal;background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:0 .35rem;margin:0 .1rem}
+.dxcm-ugc-tips{display:grid;gap:.8rem;margin:1.4rem 0 0 !important;padding:0 !important;list-style:none}
+@media(min-width:760px){.dxcm-ugc-tips{grid-template-columns:repeat(3,1fr)}}
+.dxcm-ugc-tips li{border:2px solid var(--navy);border-radius:16px;padding:.8rem 1rem;background:#fff;font-size:.86rem;line-height:1.6;color:var(--text)}
+.dxcm-ugc-tips li b{display:block;color:var(--navy);font-size:.95rem;margin-bottom:.15rem}
+.dxcm-ugc-note{text-align:center;font-size:.74rem;color:var(--muted);margin:1rem 0 0 !important}
+
 /* ── 導覽列 ── */
 .dxcm-navwrap{position:sticky;top:0;z-index:30;padding:.6rem .75rem 0}
 .dxcm-nav{display:flex;align-items:center;gap:.5rem;background:#fff;border:2px solid var(--navy);border-radius:999px;padding:.35rem .4rem .35rem 1.1rem;max-width:980px;margin:0 auto}
@@ -716,6 +745,34 @@ html,body{overflow-x:hidden}
       <div class="dxcm-after" style="margin-top:2.4rem">
         <!-- TODO：12/14 活動貼文發布後換成貼文網址 -->
         <a class="dxcm-btn dxcm-btn-red" href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">前往 IG 指定貼文 <i>›</i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 曬杯示範牆（目前為示意照，活動開跑後換成網友留言照） ═══ -->
+  <section class="dxcm-sec" id="dxcm-ugc" style="padding-top:1rem">
+    <div class="dxcm-inner">
+      <div class="dxcm-kicker">PARTAGEZ VOTRE NOËL</div>
+      <h2 class="dxcm-h2">這樣曬杯，<mark>就對了！</mark></h2>
+      <p class="dxcm-lead">拍下你的 Duralex 玻璃杯和咖啡時光，<br />到 IG 指定貼文留言，記得標註 2 位好友。</p>
+      <div class="dxcm-ugc-grid">
+        <article class="dxcm-post"><div class="dxcm-post-hd"><span class="dxcm-post-ava">M</span><div class="dxcm-post-id"><b>@mia.coffeewalk</b><span>📍 Coffee Cipher</span></div></div><div class="dxcm-post-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/caprice.jpg" alt="Duralex Caprice 玻璃杯裝黑咖啡" loading="lazy" /><span class="dxcm-post-cup">Caprice 220ml</span><span class="dxcm-post-demo">示意</span></div><div class="dxcm-post-bd"><div class="dxcm-post-act"><span class="h">♥ 268</span><span>💬 留言</span></div><p><b>mia.coffeewalk</b> 昇平街的午後，用法國玻璃杯喝一杯黑咖啡，好有聖誕假期感 <span class="tag">@好友A @好友B</span></p></div></article>
+        <article class="dxcm-post"><div class="dxcm-post-hd"><span class="dxcm-post-ava">J</span><div class="dxcm-post-id"><b>@jo_dessertdiary</b><span>📍 若草甜點店</span></div></div><div class="dxcm-post-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/provence-dessert.jpg" alt="Duralex Provence 玻璃杯盛裝甜點" loading="lazy" /><span class="dxcm-post-cup">Provence 130ml</span><span class="dxcm-post-demo">示意</span></div><div class="dxcm-post-bd"><div class="dxcm-post-act"><span class="h">♥ 193</span><span>💬 留言</span></div><p><b>jo_dessertdiary</b> 小小的 Provence 裝甜點剛剛好，換到杯子就捨不得放下 <span class="tag">@好友A @好友B</span></p></div></article>
+        <article class="dxcm-post"><div class="dxcm-post-hd"><span class="dxcm-post-ava">T</span><div class="dxcm-post-id"><b>@tingting.tc</b><span>📍 NEWSSTAND</span></div></div><div class="dxcm-post-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/noel.jpg" alt="聖誕餐桌上舉杯的 Duralex 玻璃杯" loading="lazy" /><span class="dxcm-post-cup">Provence 160ml</span><span class="dxcm-post-demo">示意</span></div><div class="dxcm-post-bd"><div class="dxcm-post-act"><span class="h">♥ 341</span><span>💬 留言</span></div><p><b>tingting.tc</b> 和好姊妹乾杯！這杯要帶回家當聖誕派對杯 <span class="tag">@好友A @好友B</span></p></div></article>
+        <article class="dxcm-post"><div class="dxcm-post-hd"><span class="dxcm-post-ava">K</span><div class="dxcm-post-id"><b>@kai.slowmorning</b><span>📍 CAFEAO</span></div></div><div class="dxcm-post-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/xmas-tree.jpg" alt="聖誕樹旁的 Duralex 玻璃杯" loading="lazy" /><span class="dxcm-post-cup">Gigogne 160ml</span><span class="dxcm-post-demo">示意</span></div><div class="dxcm-post-bd"><div class="dxcm-post-act"><span class="h">♥ 412</span><span>💬 留言</span></div><p><b>kai.slowmorning</b> 把今天換到的 Gigogne 帶回家，擺在聖誕樹旁邊剛好 <span class="tag">@好友A @好友B</span></p></div></article>
+        <article class="dxcm-post"><div class="dxcm-post-hd"><span class="dxcm-post-ava">Y</span><div class="dxcm-post-id"><b>@yu_homecafe</b><span>📍 Phase × 碧月</span></div></div><div class="dxcm-post-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/gigogne.jpg" alt="客廳桌上的 Duralex 玻璃杯拿鐵" loading="lazy" /><span class="dxcm-post-cup">Caprice 220ml</span><span class="dxcm-post-demo">示意</span></div><div class="dxcm-post-bd"><div class="dxcm-post-act"><span class="h">♥ 156</span><span>💬 留言</span></div><p><b>yu_homecafe</b> 週末在家做拿鐵，透明杯身看得到漂亮的分層 <span class="tag">@好友A @好友B</span></p></div></article>
+        <article class="dxcm-post"><div class="dxcm-post-hd"><span class="dxcm-post-ava">R</span><div class="dxcm-post-id"><b>@ruby.weekendclub</b><span>📍 BUBU ART CAFE</span></div></div><div class="dxcm-post-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/lifestyle.jpg" alt="朋友聚會桌上的彩色 Duralex 玻璃杯" loading="lazy" /><span class="dxcm-post-cup">Provence 130ml</span><span class="dxcm-post-demo">示意</span></div><div class="dxcm-post-bd"><div class="dxcm-post-act"><span class="h">♥ 227</span><span>💬 留言</span></div><p><b>ruby.weekendclub</b> 跑完咖啡地圖，晚上找朋友來家裡玩牌，每人一杯 <span class="tag">@好友A @好友B</span></p></div></article>
+      </div>
+      <div class="dxcm-ugc-tpl"><small>留言範例</small><p>在 <i>店家名稱</i> 換到 <i>杯款</i>，跟著 Duralex 聖誕跑咖 ☕ <i>@好友1</i> <i>@好友2</i></p></div>
+      <ul class="dxcm-ugc-tips">
+        <li><b>📸 讓杯子入鏡</b>玻璃杯要清楚出現在照片裡，透光的杯身最上相。</li>
+        <li><b>📍 拍出店家特色</b>帶到店裡的吧台、窗景或招牌，照片更有故事。</li>
+        <li><b>🏷️ 標註 2 位好友</b>照片和標註要在同一則留言，才算完成。</li>
+      </ul>
+      <p class="dxcm-ugc-note">※ 以上為示意照片與帳號，實際以活動期間 IG 指定貼文留言為準。</p>
+      <div class="dxcm-after" style="margin-top:1.8rem">
+        <!-- TODO：12/14 活動貼文發布後換成貼文網址 -->
+        <a class="dxcm-btn dxcm-btn-red" href="https://www.instagram.com/duralextaiwan/" target="_blank" rel="noopener">我也要曬杯 <i>›</i></a>
       </div>
     </div>
   </section>
