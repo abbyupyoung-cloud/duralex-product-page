@@ -110,6 +110,20 @@
 .dxcm-wrap .dxcm-kv img{display:block;width:100%;height:auto;margin:0 auto}
 @media(min-width:860px){.dxcm-wrap .dxcm-kv img{width:auto;max-width:100%;max-height:100vh}}
 @media(max-width:859px){.dxcm-wrap .dxcm-kv{padding-top:7.2rem}}
+/* ── 1126 調整：動作示意圖、抽獎流程與獎項區隔 ── */
+.dxcm-wrap .dxcm-ev-ph svg.dxcm-ev-art{display:block;width:100%;height:auto;aspect-ratio:16/10;border-radius:16px}
+.dxcm-wrap .dxcm-ev-ph{overflow:visible}
+.dxcm-wrap .dxcm-ev-ph .dxcm-ev-stamp{top:-30px;right:-22px;bottom:auto;width:84px;height:84px}
+.dxcm-cafe-award{margin:.4rem 0 .6rem !important;padding:.45rem .7rem;border-left:3px solid var(--red);background:var(--sky);border-radius:0 10px 10px 0;font-size:.76rem;font-weight:700;color:var(--navy);line-height:1.6}
+.dxcm-flow{border:2px dashed rgba(31,40,111,.45);border-radius:24px;padding:1.1rem 1rem 1.2rem;margin:0 0 2.6rem;background:#fff}
+.dxcm-wrap .dxcm-flow .dxcm-howto{margin-bottom:0}
+.dxcm-wrap .dxcm-subh{display:flex;align-items:center;justify-content:center;gap:.8rem;font-weight:900;color:var(--navy);letter-spacing:.24em;font-size:1rem;margin:0 0 1rem !important}
+.dxcm-wrap .dxcm-subh::before,.dxcm-wrap .dxcm-subh::after{content:'';flex:0 1 60px;border-top:2px solid var(--navy)}
+.dxcm-wrap .dxcm-subh-prize{color:var(--red)}
+.dxcm-wrap .dxcm-subh-prize::before,.dxcm-wrap .dxcm-subh-prize::after{border-color:var(--red)}
+@media(min-width:760px){.dxcm-flow .dxcm-howto li{position:relative}.dxcm-flow .dxcm-howto li:not(:last-child)::after{content:'›';position:absolute;right:-.85rem;top:50%;transform:translateY(-50%);font-size:1.6rem;font-weight:900;color:var(--red);z-index:1}}
+.dxcm-wrap .dxcm-prize .dxcm-prize-v{display:inline-block;margin-top:.6rem;font-size:.8rem;font-weight:900;color:var(--navy);background:var(--sky);border-radius:999px;padding:.15rem .8rem}
+.dxcm-prize-note{max-width:820px;margin:1.2rem auto 0 !important;font-size:.76rem;line-height:1.7;color:var(--muted);text-align:center}
 /* ── 導覽列 ── */
 .dxcm-navwrap{position:sticky;top:0;z-index:30;padding:.6rem .75rem 0}
 .dxcm-nav{display:flex;align-items:center;gap:.5rem;background:#fff;border:2px solid var(--navy);border-radius:999px;padding:.35rem .4rem .35rem 1.1rem;max-width:980px;margin:0 auto}
@@ -422,7 +436,7 @@ html,body{overflow-x:hidden}
     <nav class="dxcm-nav">
       <span class="dxcm-logo"><img class="dxcm-dlx" src="https://abbyupyoung-cloud.github.io/duralex-product-page/duralex-logo.svg" alt="Duralex Made in France Depuis 1945" /><span>×</span><img class="dxcm-grl" src="https://abbyupyoung-cloud.github.io/duralex-product-page/grl-logo.png" alt="台中草悟系 Green Ripple Life" /></span>
       <div class="dxcm-links">
-        <a href="#dxcm-how">活動辦法</a><a href="#dxcm-about">關於 Duralex</a><a href="#dxcm-map">咖啡地圖</a><a href="#dxcm-cafes">咖啡廳介紹</a><a href="#dxcm-cups">贈品杯款</a><a href="#dxcm-lottery">曬杯抽獎</a>
+        <a href="#dxcm-how">活動辦法</a><a href="#dxcm-lottery">曬杯抽獎</a><a href="#dxcm-about">關於 Duralex</a><a href="#dxcm-map">咖啡地圖</a><a href="#dxcm-cafes">咖啡廳介紹</a><a href="#dxcm-cups">贈品杯款</a>
       </div>
       <a class="dxcm-btn dxcm-btn-red" href="#dxcm-map">找咖啡廳</a>
     </nav>
@@ -440,23 +454,23 @@ html,body{overflow-x:hidden}
   <!-- ═══ HERO 下方：兩個活動概要 ═══ -->
   <section class="dxcm-duo" aria-label="活動概要">
     <svg class="dxcm-garland" viewBox="0 0 1040 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10 C40 10 40 26 80 26 S120 10 160 10 S200 26 240 26 S280 10 320 10 S360 26 400 26 S440 10 480 10 S520 26 560 26 S600 10 640 10 S680 26 720 26 S760 10 800 10 S840 26 880 26 S920 10 960 10 S1000 26 1040 26" fill="none" stroke="#1f286f" stroke-width="2"/><g class="bulb"><rect x="76" y="24" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="80" cy="40" rx="7" ry="10" fill="#ed6d0f" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="156" y="8" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="160" cy="24" rx="7" ry="10" fill="#1f286f" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="236" y="24" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="240" cy="40" rx="7" ry="10" fill="#ffffff" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="316" y="8" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="320" cy="24" rx="7" ry="10" fill="#ed6d0f" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="396" y="24" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="400" cy="40" rx="7" ry="10" fill="#1f286f" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="476" y="8" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="480" cy="24" rx="7" ry="10" fill="#ffffff" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="556" y="24" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="560" cy="40" rx="7" ry="10" fill="#ed6d0f" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="636" y="8" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="640" cy="24" rx="7" ry="10" fill="#1f286f" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="716" y="24" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="720" cy="40" rx="7" ry="10" fill="#ffffff" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="796" y="8" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="800" cy="24" rx="7" ry="10" fill="#ed6d0f" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="876" y="24" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="880" cy="40" rx="7" ry="10" fill="#1f286f" stroke="#1f286f" stroke-width="2"/></g><g class="bulb"><rect x="956" y="8" width="8" height="7" rx="1.5" fill="#c1bebc" stroke="#1f286f" stroke-width="1.5"/><ellipse cx="960" cy="24" rx="7" ry="10" fill="#ffffff" stroke="#1f286f" stroke-width="2"/></g></svg>
-    <div class="dxcm-duo-h"><small>Deux plaisirs de Noël</small><h2>Un café, un verre, un Noël.</h2><p>在台中草悟道，和 Duralex 一起聖誕跑咖</p></div>
+    <div class="dxcm-duo-h"><small>Deux plaisirs de Noël</small><h2>Un café, un verre, un Noël.</h2><p>在台中街區，和 Duralex 一起聖誕跑咖</p></div>
     <div class="dxcm-duo-grid">
       <article class="dxcm-ev">
-        <div class="dxcm-ev-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/provence-dessert.jpg" alt="Duralex Provence 玻璃杯盛裝甜點" loading="lazy" /><span class="dxcm-ev-tag">EVENT 01</span><svg class="dxcm-ev-stamp" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="dxcm-bt-e1" d="M18 50 a32 32 0 0 1 64 0"/><path id="dxcm-bb-e1" d="M14 50 a36 36 0 0 0 72 0"/></defs><circle cx="50" cy="50" r="48" fill="#ffffff" stroke="#1f286f" stroke-width="2"/><circle cx="50" cy="50" r="44" fill="none" stroke="#1f286f" stroke-width="1"/><text stroke="#1f286f" fill="none" stroke-width="1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.4"><textPath href="#dxcm-bt-e1" startOffset="50%" text-anchor="middle">MADE IN</textPath></text><text stroke="#1f286f" x="50" y="55" text-anchor="middle" fill="none" stroke-width="1.1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="17" textLength="60" lengthAdjust="spacingAndGlyphs">DURALEX</text><text stroke="#1f286f" x="50" y="67" text-anchor="middle" fill="none" stroke-width=".9" font-family="Arial,sans-serif" font-weight="700" font-size="8.5" letter-spacing="1">45</text><g stroke="#1f286f" fill="none" stroke-width=".9"><circle cx="22" cy="64" r="4.2"/></g><text stroke="#1f286f" x="22" y="66.6" text-anchor="middle" fill="none" stroke-width=".7" font-family="Arial,sans-serif" font-weight="700" font-size="6">R</text><text stroke="#1f286f" fill="none" stroke-width="1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.4"><textPath href="#dxcm-bb-e1" startOffset="50%" text-anchor="middle">FRANCE</textPath></text></svg></div>
+        <div class="dxcm-ev-ph"><svg class="dxcm-ev-art" viewBox="0 0 320 200" role="img" aria-label="動作示意：到合作咖啡廳消費、出示 IG 追蹤與限動畫面、免費換玻璃杯"><rect width="320" height="200" fill="#f6efe6"/><path d="M0 150 H320 V200 H0Z" fill="#e7d3b8" stroke="#1f286f" stroke-width="2"/><g><path d="M30 62 h46 v80 l-6 -4 -6 4 -6 -4 -6 4 -6 -4 -6 4 -6 -4 -4 4z" fill="#fff" stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"/><path d="M38 76 h30 M38 86 h22 M38 96 h30 M38 106 h16" stroke="#1f286f" stroke-width="2" stroke-linecap="round"/><path d="M38 120 h30" stroke="#ed6d0f" stroke-width="3" stroke-linecap="round"/><text x="53" y="133" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-weight="900" font-size="8.5" fill="#ed6d0f">滿額</text></g><circle cx="30" cy="58" r="11" fill="#ed6d0f" stroke="#1f286f" stroke-width="2"/><text x="30" y="62.5" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="12" fill="#fff">1</text><text x="53" y="180" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="12.5" fill="#1f286f">消費達指定金額</text><path d="M88 102 H112" stroke="#1f286f" stroke-width="2" stroke-dasharray="4 4"/><path d="M106 97 L112 102 L106 107" fill="none" stroke="#1f286f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g><path d="M136 150 q-6 -30 6 -44 l8 -8" fill="#f2c9a5" stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"/><rect x="136" y="50" width="48" height="86" rx="8" fill="#fff" stroke="#1f286f" stroke-width="2.4"/><rect x="142" y="60" width="36" height="62" rx="3" fill="#eef1fb"/><circle cx="152" cy="70" r="5" fill="#fff" stroke="#1f286f" stroke-width="1.5"/><path d="M160 68 h14 M160 73 h9" stroke="#1f286f" stroke-width="1.5" stroke-linecap="round"/><rect x="146" y="80" width="28" height="20" rx="2" fill="#fff" stroke="#1f286f" stroke-width="1.2"/><path d="M160 97 c-6 -4 -8 -7 -8 -10 a4 4 0 0 1 8 -1 a4 4 0 0 1 8 1 c0 3 -2 6 -8 10z" fill="#ed6d0f"/><rect x="148" y="106" width="24" height="9" rx="4.5" fill="#1f286f"/><text x="160" y="113" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="6" fill="#fff">追蹤中</text><path d="M150 128 q10 -8 22 -2 l8 6" fill="#f2c9a5" stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"/></g><circle cx="136" cy="46" r="11" fill="#ed6d0f" stroke="#1f286f" stroke-width="2"/><text x="136" y="50.5" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="12" fill="#fff">2</text><text x="160" y="180" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="12.5" fill="#1f286f">出示追蹤＋限動</text><path d="M196 102 H220" stroke="#1f286f" stroke-width="2" stroke-dasharray="4 4"/><path d="M214 97 L220 102 L214 107" fill="none" stroke="#1f286f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="262" cy="150" rx="32" ry="5" fill="#d6bd9c"/><path d="M239.1 98.0 L284.9 98.0 L279.6 157.4 L244.4 157.4Z" fill="#ffffff" fill-opacity=".85" stroke="#1f286f" stroke-width="2.4" stroke-linejoin="round"/><path d="M242.8 117.0 L281.2 117.0 L277.6 155.4 L246.4 155.4Z" fill="#c98a54"/><path d="M242.8 117.0 L281.2 117.0" stroke="#f3e2cc" stroke-width="3"/><path d="M250.5 100.0 L253.2 115.8" stroke="#1f286f" stroke-width="1.2" opacity=".45"/><path d="M262.0 100.0 L262.0 115.8" stroke="#1f286f" stroke-width="1.2" opacity=".45"/><path d="M273.5 100.0 L270.8 115.8" stroke="#1f286f" stroke-width="1.2" opacity=".45"/><path d="M290 74 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ed6d0f" stroke="#1f286f" stroke-width="1.4" stroke-linejoin="round"/><path d="M234 80 l2 4 4 2 -4 2 -2 4 -2 -4 -4 -2 4 -2z" fill="#fff" stroke="#1f286f" stroke-width="1.2"/><circle cx="238" cy="64" r="11" fill="#ed6d0f" stroke="#1f286f" stroke-width="2"/><text x="238" y="68.5" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="12" fill="#fff">3</text><text x="262" y="180" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="12.5" fill="#1f286f">免費換玻璃杯</text></svg><span class="dxcm-ev-tag">EVENT 01</span><svg class="dxcm-ev-stamp" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="dxcm-bt-e1" d="M18 50 a32 32 0 0 1 64 0"/><path id="dxcm-bb-e1" d="M14 50 a36 36 0 0 0 72 0"/></defs><circle cx="50" cy="50" r="48" fill="#ffffff" stroke="#1f286f" stroke-width="2"/><circle cx="50" cy="50" r="44" fill="none" stroke="#1f286f" stroke-width="1"/><text stroke="#1f286f" fill="none" stroke-width="1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.4"><textPath href="#dxcm-bt-e1" startOffset="50%" text-anchor="middle">MADE IN</textPath></text><text stroke="#1f286f" x="50" y="55" text-anchor="middle" fill="none" stroke-width="1.1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="17" textLength="60" lengthAdjust="spacingAndGlyphs">DURALEX</text><text stroke="#1f286f" x="50" y="67" text-anchor="middle" fill="none" stroke-width=".9" font-family="Arial,sans-serif" font-weight="700" font-size="8.5" letter-spacing="1">45</text><g stroke="#1f286f" fill="none" stroke-width=".9"><circle cx="22" cy="64" r="4.2"/></g><text stroke="#1f286f" x="22" y="66.6" text-anchor="middle" fill="none" stroke-width=".7" font-family="Arial,sans-serif" font-weight="700" font-size="6">R</text><text stroke="#1f286f" fill="none" stroke-width="1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.4"><textPath href="#dxcm-bb-e1" startOffset="50%" text-anchor="middle">FRANCE</textPath></text></svg></div>
         <div class="dxcm-ev-bd">
           <span class="dxcm-ev-fr">Un café, un cadeau</span>
           <h3>滿額贈玻璃杯</h3>
-          <p class="dxcm-ev-sum">在 10 家咖啡廳任一消費滿 <b>$200</b>，完成指定動作，送您 100% 法國製造 Duralex 咖啡杯。</p>
+          <p class="dxcm-ev-sum">在任一合作咖啡廳消費達指定金額，完成指定動作，送您 100% 法國製造 Duralex 咖啡杯。</p>
           <a class="dxcm-btn dxcm-btn-red" href="#dxcm-how">怎麼換杯 <i>›</i></a>
         </div>
       </article>
       <article class="dxcm-ev">
-        <div class="dxcm-ev-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/xmas-tree.jpg" alt="聖誕樹旁的 Duralex 玻璃馬克杯與保鮮盒" style="object-position:50% 82%" loading="lazy" /><span class="dxcm-ev-tag">EVENT 02</span><svg class="dxcm-ev-stamp" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="dxcm-bt-e2" d="M18 50 a32 32 0 0 1 64 0"/><path id="dxcm-bb-e2" d="M14 50 a36 36 0 0 0 72 0"/></defs><circle cx="50" cy="50" r="48" fill="#ffffff" stroke="#1f286f" stroke-width="2"/><circle cx="50" cy="50" r="44" fill="none" stroke="#1f286f" stroke-width="1"/><text stroke="#1f286f" fill="none" stroke-width="1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.4"><textPath href="#dxcm-bt-e2" startOffset="50%" text-anchor="middle">MADE IN</textPath></text><text stroke="#1f286f" x="50" y="55" text-anchor="middle" fill="none" stroke-width="1.1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="17" textLength="60" lengthAdjust="spacingAndGlyphs">DURALEX</text><text stroke="#1f286f" x="50" y="67" text-anchor="middle" fill="none" stroke-width=".9" font-family="Arial,sans-serif" font-weight="700" font-size="8.5" letter-spacing="1">45</text><g stroke="#1f286f" fill="none" stroke-width=".9"><circle cx="22" cy="64" r="4.2"/></g><text stroke="#1f286f" x="22" y="66.6" text-anchor="middle" fill="none" stroke-width=".7" font-family="Arial,sans-serif" font-weight="700" font-size="6">R</text><text stroke="#1f286f" fill="none" stroke-width="1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.4"><textPath href="#dxcm-bb-e2" startOffset="50%" text-anchor="middle">FRANCE</textPath></text></svg></div>
+        <div class="dxcm-ev-ph"><svg class="dxcm-ev-art" viewBox="0 0 320 200" role="img" aria-label="動作示意：用手機拍下 Duralex 玻璃杯，到官方 IG 指定貼文留言曬照並標註 2 位好友"><rect width="320" height="200" fill="#eaf0f8"/><path d="M30 160 L52 104 L74 160Z" fill="#dfe9df" stroke="#1f286f" stroke-width="2" stroke-linejoin="round"/><path d="M52 98 l2 5 5 1 -4 3 1 5 -4 -3 -4 3 1 -5 -4 -3 5 -1z" fill="#ed6d0f"/><circle cx="46" cy="132" r="3" fill="#ed6d0f"/><circle cx="58" cy="146" r="3" fill="#1f286f"/><circle cx="52" cy="120" r="2.5" fill="#1f286f"/><path d="M0 166 H320 V200 H0Z" fill="#dcd2c6" stroke="#1f286f" stroke-width="2"/><path d="M81.3 118.0 L118.7 118.0 L114.3 166.4 L85.7 166.4Z" fill="#ffffff" fill-opacity=".85" stroke="#1f286f" stroke-width="2.4" stroke-linejoin="round"/><path d="M84.7 133.5 L115.3 133.5 L112.3 164.4 L87.7 164.4Z" fill="#c98a54"/><path d="M84.7 133.5 L115.3 133.5" stroke="#f3e2cc" stroke-width="3"/><path d="M90.7 120.0 L92.8 132.5" stroke="#1f286f" stroke-width="1.2" opacity=".45"/><path d="M100.0 120.0 L100.0 132.5" stroke="#1f286f" stroke-width="1.2" opacity=".45"/><path d="M109.3 120.0 L107.2 132.5" stroke="#1f286f" stroke-width="1.2" opacity=".45"/><g><rect x="132" y="34" width="92" height="132" rx="12" fill="#fff" stroke="#1f286f" stroke-width="2.6"/><rect x="140" y="46" width="76" height="96" rx="4" fill="#f6efe6"/><path d="M146 54 h10 M146 54 v10 M210 54 h-10 M210 54 v10 M146 134 h10 M146 134 v-10 M210 134 h-10 M210 134 v-10" stroke="#1f286f" stroke-width="1.6"/><path d="M160.2 76.0 L195.8 76.0 L191.7 122.2 L164.3 122.2Z" fill="#ffffff" fill-opacity=".85" stroke="#1f286f" stroke-width="2.4" stroke-linejoin="round"/><path d="M163.5 90.8 L192.5 90.8 L189.7 120.2 L166.3 120.2Z" fill="#c98a54"/><path d="M163.5 90.8 L192.5 90.8" stroke="#f3e2cc" stroke-width="3"/><path d="M169.1 78.0 L171.2 89.9" stroke="#1f286f" stroke-width="1.2" opacity=".45"/><path d="M178.0 78.0 L178.0 89.9" stroke="#1f286f" stroke-width="1.2" opacity=".45"/><path d="M186.9 78.0 L184.8 89.9" stroke="#1f286f" stroke-width="1.2" opacity=".45"/><circle cx="178" cy="154" r="7" fill="#fff" stroke="#1f286f" stroke-width="2"/><circle cx="178" cy="154" r="3.5" fill="#ed6d0f"/></g><g><rect x="234" y="56" width="74" height="40" rx="12" fill="#fff" stroke="#1f286f" stroke-width="2.2"/><path d="M244 96 l-6 10 14 -10" fill="#fff" stroke="#1f286f" stroke-width="2.2" stroke-linejoin="round"/><text x="271" y="73" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="9.5" fill="#3a5fb0">@好友1</text><text x="271" y="87" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="9.5" fill="#3a5fb0">@好友2</text></g><path d="M262 128 c-9 -6 -12 -10 -12 -14 a6 6 0 0 1 12 -2 a6 6 0 0 1 12 2 c0 4 -3 8 -12 14z" fill="#ed6d0f" stroke="#1f286f" stroke-width="1.8"/><path d="M290 116 c-5 -3 -7 -6 -7 -8 a3.5 3.5 0 0 1 7 -1 a3.5 3.5 0 0 1 7 1 c0 2 -2 5 -7 8z" fill="#fff" stroke="#1f286f" stroke-width="1.5"/><circle cx="132" cy="30" r="11" fill="#ed6d0f" stroke="#1f286f" stroke-width="2"/><text x="132" y="34.5" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="12" fill="#fff">1</text><text x="100" y="186" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="12.5" fill="#1f286f">帶杯拍美照</text><circle cx="234" cy="52" r="11" fill="#ed6d0f" stroke="#1f286f" stroke-width="2"/><text x="234" y="56.5" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="12" fill="#fff">2</text><text x="262" y="186" text-anchor="middle" font-family="Noto Sans TC,sans-serif" font-weight="700" font-size="12.5" fill="#1f286f">IG 留言＋標註</text></svg><span class="dxcm-ev-tag">EVENT 02</span><svg class="dxcm-ev-stamp" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="dxcm-bt-e2" d="M18 50 a32 32 0 0 1 64 0"/><path id="dxcm-bb-e2" d="M14 50 a36 36 0 0 0 72 0"/></defs><circle cx="50" cy="50" r="48" fill="#ffffff" stroke="#1f286f" stroke-width="2"/><circle cx="50" cy="50" r="44" fill="none" stroke="#1f286f" stroke-width="1"/><text stroke="#1f286f" fill="none" stroke-width="1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.4"><textPath href="#dxcm-bt-e2" startOffset="50%" text-anchor="middle">MADE IN</textPath></text><text stroke="#1f286f" x="50" y="55" text-anchor="middle" fill="none" stroke-width="1.1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="17" textLength="60" lengthAdjust="spacingAndGlyphs">DURALEX</text><text stroke="#1f286f" x="50" y="67" text-anchor="middle" fill="none" stroke-width=".9" font-family="Arial,sans-serif" font-weight="700" font-size="8.5" letter-spacing="1">45</text><g stroke="#1f286f" fill="none" stroke-width=".9"><circle cx="22" cy="64" r="4.2"/></g><text stroke="#1f286f" x="22" y="66.6" text-anchor="middle" fill="none" stroke-width=".7" font-family="Arial,sans-serif" font-weight="700" font-size="6">R</text><text stroke="#1f286f" fill="none" stroke-width="1" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="10.5" letter-spacing="2.4"><textPath href="#dxcm-bb-e2" startOffset="50%" text-anchor="middle">FRANCE</textPath></text></svg></div>
         <div class="dxcm-ev-bd">
           <span class="dxcm-ev-fr">Un verre, une photo</span>
           <h3>帶杯曬照抽大獎</h3>
-          <p class="dxcm-ev-sum">帶著玻璃杯跑咖，到官方 IG 分享美照，<b>飛利浦 $19,999 義式咖啡機</b>等你抱回家。</p>
+          <p class="dxcm-ev-sum">帶著您換到的 Duralex 玻璃杯跑咖，到官方 IG 分享美照，<b>飛利浦義式咖啡機等好禮</b>等你抱回家。</p>
           <a class="dxcm-btn dxcm-btn-navy" href="#dxcm-lottery">怎麼抽獎 <i>›</i></a>
         </div>
       </article>
@@ -472,11 +486,11 @@ html,body{overflow-x:hidden}
 
       <div class="dxcm-card">
         <span class="dxcm-bookmark"></span>
-        <p class="dxcm-quota">限量 <b>1,000</b> 只 ｜ 每店每日限量，<b>發完為止</b></p>
+        <p class="dxcm-quota">限量 <b>1,000</b> 只 ｜ 每店每日限量，<b>贈完為止</b></p>
         <div class="dxcm-steps">
           <div class="dxcm-step">
-            <div class="dxcm-ico"><svg viewBox="0 0 80 80" fill="none" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><path d="M18 10 h44 v60 l-7 -5 -7 5 -7 -5 -7 5 -7 -5 -9 5z" fill="#fff"/><path d="M27 24 h26 M27 33 h18" stroke-linecap="round"/><text x="40" y="56" text-anchor="middle" font-family="Playfair Display,serif" font-weight="900" font-size="16" fill="#ed6d0f" stroke="none">$200</text></svg></div>
-            <div><div class="dxcm-step-n">Step 1</div><h3>單筆消費滿 $200</h3><p>在任一間<b>合作咖啡廳</b>消費，內用、外帶都算。</p></div>
+            <div class="dxcm-ico"><svg viewBox="0 0 80 80" fill="none" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><path d="M18 10 h44 v60 l-7 -5 -7 5 -7 -5 -7 5 -7 -5 -9 5z" fill="#fff"/><path d="M27 24 h26 M27 33 h18" stroke-linecap="round"/><path d="M27 43 h22 M27 52 h12" stroke-linecap="round"/></svg></div>
+            <div><div class="dxcm-step-n">Step 1</div><h3>單筆消費達指定金額</h3><p>在任一間<b>合作咖啡廳</b>消費，內用、外帶都算。</p></div>
           </div>
           <div class="dxcm-step">
             <div class="dxcm-ico"><svg viewBox="0 0 80 80" fill="none" stroke="#1f286f" stroke-width="3" stroke-linejoin="round"><rect x="22" y="8" width="36" height="64" rx="7" fill="#fff"/><rect x="28" y="18" width="24" height="34" rx="3" fill="#e6ecfb"/><path d="M40 44 c-10 -7 -9 -16 -3 -16 c2 0 3 2 3 3 c0 -1 1 -3 3 -3 c6 0 7 9 -3 16z" fill="#ed6d0f"/><line x1="36" y1="63" x2="44" y2="63" stroke-linecap="round"/></svg></div>
@@ -488,117 +502,12 @@ html,body{overflow-x:hidden}
           </div>
         </div>
         <ul class="dxcm-rules-mini">
-          <li>每人限換一次</li>
-          <li class="hot">每店每日限量・發完為止</li>
+          <li>每人每店限換一次</li>
+          <li class="hot">每店每日限量・贈完為止</li>
           <li>款式隨機</li>
         </ul>
       </div>
       <div class="dxcm-after"><a class="dxcm-btn dxcm-btn-red" href="#dxcm-map">看看有哪些咖啡廳 <i>›</i></a></div>
-    </div>
-  </section>
-
-  <!-- ═══ 關於 Duralex（一個螢幕內） ═══ -->
-  <section class="dxcm-about" id="dxcm-about">
-    <div class="dxcm-inner">
-      <div class="dxcm-mag">
-        <div class="dxcm-mag-ph">
-          <span class="dxcm-mag-v" aria-hidden="true">MADE IN FRANCE — DEPUIS 1945</span>
-          <figure class="ph1" style="margin:0"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/lifestyle.jpg" alt="朋友圍著餐桌玩牌，桌上擺滿各色 Duralex 玻璃杯" loading="lazy" /></figure>
-          <figure class="ph2" style="margin:0"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/caprice.jpg" alt="Duralex Caprice 玻璃杯盛裝咖啡" loading="lazy" /><figcaption>Caprice, café noir</figcaption></figure>
-        </div>
-        <div class="dxcm-mag-txt">
-          <div class="dxcm-kicker">WHY DURALEX · SINCE 1945</div>
-          <h2 class="dxcm-h2">法國<mark>國民玻璃餐具</mark>品牌</h2>
-          <p class="dxcm-mag-lead">從巴黎小酒館到紐約 MoMA，Duralex 八十年來只專注一件事：讓天天使用的強化玻璃杯，耐用、安全，也好看。</p>
-          <ul class="dxcm-stats">
-            <li><b>1945</b><strong>擋風玻璃級強化工藝</strong><span>以汽車擋風玻璃強化技術打造日常餐具</span></li>
-            <li><b>3.5<sub>×</sub></b><strong>強度是普通玻璃 3.5 倍</strong><span>萬一碎裂也是圓潤鈍角顆粒</span></li>
-            <li><b>100<sub>%</sub></b><strong>堅持法國製造</strong><span>法國中部 La Chapelle-Saint-Mesmin 工廠</span></li>
-            <li><b>0</b><strong>無鉛・無鎘・無雙酚 A</strong><span>無孔隙玻璃，100% 可回收</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="dxcm-mag-award">
-        <div>
-          <h3>日本 Good Design 獎<em>Long Life Design Award · Picardie</em></h3>
-          <p>經典杯型被世界頂尖博物館列入永久典藏：MoMA 紐約・The Met 紐約・V&amp;A Museum 倫敦・Musée des Arts Décoratifs 巴黎</p>
-        </div>
-        <a class="dxcm-btn dxcm-btn-red" href="https://www.duralex.com.tw/" target="_blank" rel="noopener">逛 Duralex 官網 <i>›</i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ 咖啡地圖 ═══ -->
-  <section class="dxcm-block" id="dxcm-map" style="scroll-margin-top:72px">
-    <svg class="dxcm-loop" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true"><path d="M-50 120 C200 20 300 260 520 180 S760 -20 900 140 S700 420 560 330 S300 520 1050 560" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round"/></svg>
-    <div class="dxcm-inner">
-      <div class="dxcm-kicker">COFFEE MAP</div>
-      <h2 class="dxcm-h2">台中草悟系<mark>咖啡地圖</mark></h2>
-      <p class="dxcm-lead">沿著綠園道慢慢散步，<b>10 間</b>咖啡廳都能兌換玻璃杯。<br />每店每日數量有限、發完為止，建議早點出發！</p>
-      <div class="dxcm-mapcard">
-        <div class="dxcm-map">
-          <!-- 只標出合作店家位置（編號＝下方店卡 01～10，依店名 ABC 排序），資料在地圖頁 xmas-cafe-map.html 的 SHOPS -->
-          <!-- 上 CYBERBIZ 後在 iframe 網址加 &page=活動頁網址（需 URL 編碼），地圖卡片的「店家介紹」才能跳回本頁 -->
-          <iframe src="https://abbyupyoung-cloud.github.io/duralex-product-page/xmas-cafe-map.html?v=5" loading="lazy" title="台中草悟系咖啡地圖" allowfullscreen=""></iframe>
-        </div>
-      </div>
-      <div style="text-align:center;margin:-1rem 0 1.8rem">
-        <p style="font-size:.82rem;color:#c9d0f0;margin:0 0 .8rem">點地圖上的編號，查看店家地址、營業時間、店家介紹與導航</p>
-        <a class="dxcm-btn dxcm-btn-red" href="https://www.google.com/maps/dir/台中市西區館前路79號/台中市西區大和路73號/台中市西區模範街46巷6號/台中市西區民生路368巷3號/台中市西區昇平街78號/台中市西區忠明南路325號/台中市西區昇平街20號/台中市西區公益路68號/台中市西區民權路229巷21-3號/台中市西區民權路217巷24號/data=!4m2!4m1!3e2" target="_blank" rel="noopener">🚶 開啟咖啡散步路線</a>
-      </div>
-
-      <div class="dxcm-shops">
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/beangood.jpg" alt="BeanGood Café 冰穀咖啡 Instagram 頭像" loading="lazy" /><b>01</b></div><div class="dxcm-shop-body"><h3>BeanGood Café 冰穀咖啡 <small>草悟店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區模範街46巷6號</span><span>🕘 週二–五 10:30–21:00／週六日 10:00–21:00／週一 10:30–19:00</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-01">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=BeanGood%20Caf%C3%A9%20%E5%86%B0%E7%A9%80%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%A8%A1%E7%AF%84%E8%A1%9746%E5%B7%B76%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/beangood_cafe/" target="_blank" rel="noopener">Instagram</a></div></div></div>
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/bubu.jpg" alt="BUBU ART CAFE 橘子布藝術咖啡 Instagram 頭像" loading="lazy" /><b>02</b></div><div class="dxcm-shop-body"><h3>BUBU ART CAFE 橘子布藝術咖啡 <small>台中審計店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區民生路368巷3號</span><span>🕘 每日 10:30–18:30</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-02">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=BUBU%20ART%20CAFE%20%E6%A9%98%E5%AD%90%E5%B8%83%E8%97%9D%E8%A1%93%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E7%94%9F%E8%B7%AF368%E5%B7%B73%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/bubuartcafe/" target="_blank" rel="noopener">Instagram</a></div></div></div>
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/cafeao.jpg" alt="CAFEAO Instagram 頭像" loading="lazy" /><b>03</b></div><div class="dxcm-shop-body"><h3>CAFEAO <small>台中勤美店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區公益路68號 B2</span><span>🕘 週日–四 11:00–21:30／週五六 11:00–22:00</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-03">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=CAFEAO%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%85%AC%E7%9B%8A%E8%B7%AF68%E8%99%9F%20B2" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/cafeao_tw/" target="_blank" rel="noopener">Instagram</a></div></div></div>
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/cipher.jpg" alt="Coffee Cipher Instagram 頭像" loading="lazy" /><b>04</b></div><div class="dxcm-shop-body"><h3>Coffee Cipher</h3><p class="dxcm-shop-meta"><span>📍 台中市西區昇平街20號</span><span>🕘 10:00–18:00（週三公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-04">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Coffee%20Cipher%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%98%87%E5%B9%B3%E8%A1%9720%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeecipher" target="_blank" rel="noopener">Instagram</a></div></div></div>
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/stopover.jpg" alt="COFFEE STOPOVER Instagram 頭像" loading="lazy" /><b>05</b></div><div class="dxcm-shop-body"><h3>COFFEE STOPOVER</h3><p class="dxcm-shop-meta"><span>📍 台中市西區民權路217巷24號</span><span>🕘 週一–六 11:00–20:00（週日公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-05">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=COFFEE%20STOPOVER%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E6%AC%8A%E8%B7%AF217%E5%B7%B724%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeestopover/" target="_blank" rel="noopener">Instagram</a></div></div></div>
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/frankie.jpg" alt="Frankie Feels Good at Corner Instagram 頭像" loading="lazy" /><b>06</b></div><div class="dxcm-shop-body"><h3>Frankie Feels Good at Corner</h3><p class="dxcm-shop-meta"><span>📍 台中市西區忠明南路325號</span><span>🕘 週二–五 09:00–17:00／週六日 09:30–18:00（週一公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-06">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Frankie%20Feels%20Good%20at%20Corner%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%BF%A0%E6%98%8E%E5%8D%97%E8%B7%AF325%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/frankiefeelsgood_corner/" target="_blank" rel="noopener">Instagram</a></div></div></div>
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/newsstand.jpg" alt="NEWSSTAND Instagram 頭像" loading="lazy" /><b>07</b></div><div class="dxcm-shop-body"><h3>NEWSSTAND</h3><p class="dxcm-shop-meta"><span>📍 台中市西區民權路229巷21-3號</span><span>🕘 每日 11:00–19:00</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-07">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=NEWSSTAND%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E6%AC%8A%E8%B7%AF229%E5%B7%B721-3%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/newsstand_tw/" target="_blank" rel="noopener">Instagram</a></div></div></div>
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/phase.jpg" alt="Phase Coffee Roasters × 碧月 Dessert Instagram 頭像" loading="lazy" /><b>08</b></div><div class="dxcm-shop-body"><h3>Phase Coffee Roasters × 碧月 Dessert <small>勤美術館店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區館前路79號</span><span>🕘 每日 11:00–19:00</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-08">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Phase%20Coffee%20Roasters%20%C3%97%20%E7%A2%A7%E6%9C%88%20Dessert%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E9%A4%A8%E5%89%8D%E8%B7%AF79%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/phase_coffee_roasters" target="_blank" rel="noopener">Instagram</a></div></div></div>
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/roundabout.jpg" alt="Roundabout Cafe 圓環咖啡 Instagram 頭像" loading="lazy" /><b>09</b></div><div class="dxcm-shop-body"><h3>Roundabout Cafe 圓環咖啡 <small>大和店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區大和路73號</span><span>🕘 10:00–18:00（週三公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-09">店家介紹</a><a href="https://maps.app.goo.gl/YnjEFN63b7u9sDtn8" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/roundaboutcoffee/" target="_blank" rel="noopener">Instagram</a></div></div></div>
-        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/wakakusa.jpg" alt="若草甜點店 Instagram 頭像" loading="lazy" /><b>10</b></div><div class="dxcm-shop-body"><h3>若草甜點店</h3><p class="dxcm-shop-meta"><span>📍 台中市西區昇平街78號</span><span>🕘 週四–日 12:30–18:30／週一 13:00–18:30（週二、三公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-10">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%8B%A5%E8%8D%89%E7%94%9C%E9%BB%9E%E5%BA%97%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%98%87%E5%B9%B3%E8%A1%9778%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/wakakusatw" target="_blank" rel="noopener">Instagram</a></div></div></div>
-      </div>
-    </div>
-    <div class="dxcm-marquee" aria-hidden="true">Café Hopping ✦ Joyeux Noël ✦ Café Hopping ✦ Joyeux Noël ✦ Café Hopping ✦ Joyeux Noël ✦ Café Hopping ✦ Joyeux Noël ✦&nbsp;</div>
-  </section>
-
-  <!-- ═══ 咖啡廳介紹（文案為初稿，待各店確認；照片來源：店家提供素材，未提供者暫用 IG 頭像）═══ -->
-  <section class="dxcm-sec" id="dxcm-cafes">
-    <div class="dxcm-inner">
-      <div class="dxcm-kicker">MEET THE CAFÉS</div>
-      <h2 class="dxcm-h2">認識<mark>10 間合作咖啡廳</mark></h2>
-      <p class="dxcm-lead">每一間都有自己的個性與招牌，<br />先認識它們，再決定今天從哪一間出發。</p>
-      <div class="dxcm-cafes">
-        <article class="dxcm-cafe" id="dxcm-cafe-01"><div class="dxcm-cafe-ph is-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/beangood.jpg" alt="BeanGood Café 冰穀咖啡" loading="lazy" /><span class="dxcm-cafe-no">01</span></div><div class="dxcm-cafe-bd"><h3>BeanGood Café 冰穀咖啡<small>草悟店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區模範街46巷6號</p><p class="dxcm-cafe-d">就在模範街巷子裡，離草悟道只有幾步路。多數日子營業到晚上九點，天黑了還能來喝一杯。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=BeanGood%20Caf%C3%A9%20%E5%86%B0%E7%A9%80%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%A8%A1%E7%AF%84%E8%A1%9746%E5%B7%B76%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/beangood_cafe/" target="_blank" rel="noopener">Instagram</a></div></div></article>
-        <article class="dxcm-cafe" id="dxcm-cafe-02"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/bubu.jpg" alt="BUBU ART CAFE 橘子布藝術咖啡 店內一景" loading="lazy" /><span class="dxcm-cafe-no">02</span></div><div class="dxcm-cafe-bd"><h3>BUBU ART CAFE 橘子布藝術咖啡<small>台中審計店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區民生路368巷3號</p><p class="dxcm-cafe-q">讓藝術融入日常，品嚐世界名畫吐司與咖啡的美好</p><p class="dxcm-cafe-d">把世界名畫畫在吐司上，連拿鐵也是一幅作品。在審計新村一帶，來一場可以吃的藝術散步。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=BUBU%20ART%20CAFE%20%E6%A9%98%E5%AD%90%E5%B8%83%E8%97%9D%E8%A1%93%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E7%94%9F%E8%B7%AF368%E5%B7%B73%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/bubuartcafe/" target="_blank" rel="noopener">Instagram</a></div></div></article>
-        <article class="dxcm-cafe" id="dxcm-cafe-03"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/cafeao.jpg" alt="CAFEAO 台中勤美店吧台" loading="lazy" /><span class="dxcm-cafe-no">03</span></div><div class="dxcm-cafe-bd"><h3>CAFEAO<small>台中勤美店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區公益路68號 B2</p><p class="dxcm-cafe-q">以藍天思維為核心，融合藝術、設計、咖啡與生活美學</p><p class="dxcm-cafe-d">在勤美 B2，創意咖啡和餐食都是店裡的招牌。逛街逛累了，就下樓來坐坐吧。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=CAFEAO%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%85%AC%E7%9B%8A%E8%B7%AF68%E8%99%9F%20B2" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/cafeao_tw/" target="_blank" rel="noopener">Instagram</a></div></div></article>
-        <article class="dxcm-cafe" id="dxcm-cafe-04"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/cipher.jpg" alt="Coffee Cipher 店內一景" loading="lazy" /><span class="dxcm-cafe-no">04</span></div><div class="dxcm-cafe-bd"><h3>Coffee Cipher</h3><p class="dxcm-cafe-addr">📍 台中市西區昇平街20號</p><p class="dxcm-cafe-q">隱身於台中昇平街，以風味探索精品咖啡與生活</p><p class="dxcm-cafe-d">木框玻璃窗後的安靜小店，用一杯杯精品咖啡，陪你慢慢探索風味。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Coffee%20Cipher%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%98%87%E5%B9%B3%E8%A1%9720%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeecipher" target="_blank" rel="noopener">Instagram</a></div></div></article>
-        <article class="dxcm-cafe" id="dxcm-cafe-05"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/stopover.jpg" alt="COFFEE STOPOVER 店內一景" loading="lazy" /><span class="dxcm-cafe-no">05</span></div><div class="dxcm-cafe-bd"><h3>COFFEE STOPOVER</h3><p class="dxcm-cafe-addr">📍 台中市西區民權路217巷24號</p><p class="dxcm-cafe-d">自家烘豆的工業風咖啡館，綠意圍繞的門口很好認，二樓還有陽台座位。來了別錯過「分解焦糖瑪奇朵」。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=COFFEE%20STOPOVER%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E6%AC%8A%E8%B7%AF217%E5%B7%B724%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeestopover/" target="_blank" rel="noopener">Instagram</a></div></div></article>
-        <article class="dxcm-cafe" id="dxcm-cafe-06"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/frankie.jpg" alt="Frankie Feels Good at Corner 店內一景" loading="lazy" /><span class="dxcm-cafe-no">06</span></div><div class="dxcm-cafe-bd"><h3>Frankie Feels Good at Corner</h3><p class="dxcm-cafe-addr">📍 台中市西區忠明南路325號</p><p class="dxcm-cafe-q">現烤蒙特婁貝果與特色咖啡，讓日常多一點好心情</p><p class="dxcm-cafe-d">忠明南路轉角的小店，平日早上九點就開門。手沖咖啡配貝果，一早就有好心情。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Frankie%20Feels%20Good%20at%20Corner%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%BF%A0%E6%98%8E%E5%8D%97%E8%B7%AF325%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/frankiefeelsgood_corner/" target="_blank" rel="noopener">Instagram</a></div></div></article>
-        <article class="dxcm-cafe" id="dxcm-cafe-07"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/newsstand.jpg" alt="NEWSSTAND 店內一景" loading="lazy" /><span class="dxcm-cafe-no">07</span></div><div class="dxcm-cafe-bd"><h3>NEWSSTAND</h3><p class="dxcm-cafe-addr">📍 台中市西區民權路229巷21-3號</p><p class="dxcm-cafe-q">以歐洲書報攤為靈感，用咖啡連結街區生活</p><p class="dxcm-cafe-d">以報刊亭為靈感的咖啡館，有木櫃報刊門面、整面黑膠牆和拍貼機，邊翻雜誌邊喝咖啡。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=NEWSSTAND%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E6%AC%8A%E8%B7%AF229%E5%B7%B721-3%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/newsstand_tw/" target="_blank" rel="noopener">Instagram</a></div></div></article>
-        <article class="dxcm-cafe" id="dxcm-cafe-08"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/phase.jpg" alt="Phase Coffee Roasters × 碧月 Dessert 店內一景" loading="lazy" /><span class="dxcm-cafe-no">08</span></div><div class="dxcm-cafe-bd"><h3>Phase Coffee Roasters × 碧月 Dessert<small>勤美術館店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區館前路79號</p><p class="dxcm-cafe-d">就在勤美術館旁，挑高的木質空間灑滿日光。Phase 自家烘焙的精品咖啡，配上碧月 Dessert 的甜點，咖啡控和甜點控都能被滿足。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Phase%20Coffee%20Roasters%20%C3%97%20%E7%A2%A7%E6%9C%88%20Dessert%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E9%A4%A8%E5%89%8D%E8%B7%AF79%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/phase_coffee_roasters" target="_blank" rel="noopener">Instagram</a></div></div></article>
-        <article class="dxcm-cafe" id="dxcm-cafe-09"><div class="dxcm-cafe-ph is-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/roundabout.jpg" alt="Roundabout Cafe 圓環咖啡" loading="lazy" /><span class="dxcm-cafe-no">09</span></div><div class="dxcm-cafe-bd"><h3>Roundabout Cafe 圓環咖啡<small>大和店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區大和路73號</p><p class="dxcm-cafe-d">藏身在大和路上的街坊咖啡館，散步走累了，就進來點一杯咖啡，坐下來歇歇腳。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://maps.app.goo.gl/YnjEFN63b7u9sDtn8" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/roundaboutcoffee/" target="_blank" rel="noopener">Instagram</a></div></div></article>
-        <article class="dxcm-cafe" id="dxcm-cafe-10"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/wakakusa.jpg" alt="若草甜點店 窗邊座位" loading="lazy" /><span class="dxcm-cafe-no">10</span></div><div class="dxcm-cafe-bd"><h3>若草甜點店</h3><p class="dxcm-cafe-addr">📍 台中市西區昇平街78號</p><p class="dxcm-cafe-q">在日光與蛋香裡，慢慢呼吸的一方小天地</p><p class="dxcm-cafe-d">昇平街上的小小甜點店，冬日午後，來一份甜點配一杯熱飲剛剛好。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%8B%A5%E8%8D%89%E7%94%9C%E9%BB%9E%E5%BA%97%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%98%87%E5%B9%B3%E8%A1%9778%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/wakakusatw" target="_blank" rel="noopener">Instagram</a></div></div></article>
-      </div>
-      <div class="dxcm-after"><a class="dxcm-btn dxcm-btn-line" href="#dxcm-map">回到咖啡地圖</a></div>
-    </div>
-  </section>
-
-  <!-- ═══ 贈品杯款 ═══ -->
-  <section class="dxcm-sec" id="dxcm-cups">
-    <div class="dxcm-inner">
-      <div class="dxcm-kicker">THE TUMBLER</div>
-      <h2 class="dxcm-h2">消費滿$200贈送的<br class="dxcm-br-m" /><mark style="white-space:nowrap">Duralex 咖啡玻璃杯</mark></h2>
-      <ul class="dxcm-specs"><li>100% 法國製造</li><li>100% 可回收</li><li>-20°C～200°C</li><li>可微波</li><li>可洗碗機</li></ul>
-      <p class="dxcm-lead" style="margin-top:.9rem !important">共 4 款，隨機贈送</p>
-      <div class="dxcm-cups">
-        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/capriceclearcup" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cups/caprice.jpg" alt="Duralex Caprice 玻璃杯" loading="lazy" /></div><h3>Caprice</h3><div class="dxcm-cup-ml">220ml</div><span class="dxcm-cup-qty">限量 200 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
-        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/gigognecleartumbler-t-2026" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cups/gigogne.jpg" alt="Duralex Gigogne 玻璃杯" loading="lazy" /></div><h3>Gigogne</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 200 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
-        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/provencecleartumbler-21" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cups/provence.jpg" alt="Duralex Provence 玻璃杯 130ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">130ml</div><span class="dxcm-cup-qty">限量 300 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
-        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/provencecleartumbler-21" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cups/provence.jpg" alt="Duralex Provence 玻璃杯 160ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 300 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
-      </div>
-      <p class="dxcm-note">※ 贈品款式／顏色以現場實物為準，無法指定款式。</p>
     </div>
   </section>
 
@@ -608,11 +517,15 @@ html,body{overflow-x:hidden}
       <div class="dxcm-kicker">EVENT 02</div>
       <h2 class="dxcm-h2">帶杯出門，<mark>曬照抽大獎</mark></h2>
       <p class="dxcm-lead">拿到玻璃杯後，帶著它繼續散步、拍下美照，<br />就有機會把咖啡機抱回家！</p>
+      <div class="dxcm-flow">
+        <p class="dxcm-subh">參加方式</p>
       <ol class="dxcm-howto">
         <li><b>1</b>帶著 Duralex 玻璃杯，在合作店家拍下美照</li>
         <li><b>2</b>到官方 IG 指定貼文下方留言曬照</li>
         <li><b>3</b>在同一則留言標註 2 位好友，即完成！</li>
       </ol>
+      </div>
+      <p class="dxcm-subh dxcm-subh-prize">活動獎項</p>
       <div class="dxcm-prizes">
         <div class="dxcm-prize">
           <!-- 線稿：飛利浦 Baristina 義式咖啡機 -->
@@ -631,7 +544,7 @@ html,body{overflow-x:hidden}
             <path d="M78 101 v3" stroke="#ed6d0f" stroke-width="2.4"/>
           </svg>
           <span class="dxcm-prize-tag" style="background:var(--navy)">社群人氣獎 ×1</span>
-          <h3>飛利浦 Baristina<br />一滑極萃義式咖啡機</h3><p>留言照片按愛心數最高者</p>
+          <h3>飛利浦 Baristina<br />一滑極萃義式咖啡機</h3><p>留言照片按愛心數最高者</p><p class="dxcm-prize-v">獎項價值：NT$19,999</p>
         </div>
         <div class="dxcm-prize">
           <!-- 線稿：one-meter 轉轉煮茶機 -->
@@ -650,7 +563,7 @@ html,body{overflow-x:hidden}
             <rect x="70" y="130" width="20" height="6" rx="1.5" stroke="#ed6d0f"/>
           </svg>
           <span class="dxcm-prize-tag" style="background:var(--gray);color:var(--navy)">風格美感獎 ×1</span>
-          <h3>one-meter<br />轉轉煮茶機</h3><p>由品牌評選最具美感的打卡照</p>
+          <h3>one-meter<br />轉轉煮茶機</h3><p>由品牌評選最具美感的打卡照</p><p class="dxcm-prize-v">獎項價值：NT$3,980</p>
         </div>
         <div class="dxcm-prize">
           <!-- 線稿：Fellow 不鏽鋼雙層真空濾杯組 -->
@@ -669,9 +582,10 @@ html,body{overflow-x:hidden}
             <path d="M104 96 q12 0 12 14 q0 12 -12 12" />
           </svg>
           <span class="dxcm-prize-tag" style="background:var(--red)">幸運隨機獎 ×1</span>
-          <h3>Fellow 不鏽鋼<br />雙層真空濾杯組</h3><p>完成留言任務即可參加抽獎</p>
+          <h3>Fellow 不鏽鋼<br />雙層真空濾杯組</h3><p>完成留言任務即可參加抽獎</p><p class="dxcm-prize-v">獎項價值：NT$2,980</p>
         </div>
       </div>
+      <p class="dxcm-prize-note">※ 獎項圖片與規格僅供參考，實際內容、顏色與款式以實物為準。如遇不可抗力之因素或原廠供貨異常，主辦單位保留更換等值獎項及修改、終止活動之權利，相關變更將公告於活動頁面，恕不另行個別通知。</p>
       <ul class="dxcm-tl">
         <li><b>12/14（一）</b><span>活動開跑<br />IG 指定貼文上線</span></li>
         <li><b>1/17（日）23:59</b><span>留言截止<br />人氣獎愛心數以此時為準</span></li>
@@ -721,12 +635,118 @@ html,body{overflow-x:hidden}
     </div>
   </section>
 
+
+  <!-- ═══ 關於 Duralex（一個螢幕內） ═══ -->
+  <section class="dxcm-about" id="dxcm-about">
+    <div class="dxcm-inner">
+      <div class="dxcm-mag">
+        <div class="dxcm-mag-ph">
+          <span class="dxcm-mag-v" aria-hidden="true">MADE IN FRANCE — DEPUIS 1945</span>
+          <figure class="ph1" style="margin:0"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/lifestyle.jpg" alt="朋友圍著餐桌玩牌，桌上擺滿各色 Duralex 玻璃杯" loading="lazy" /></figure>
+          <figure class="ph2" style="margin:0"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/brand/caprice.jpg" alt="Duralex Caprice 玻璃杯盛裝咖啡" loading="lazy" /><figcaption>Caprice, café noir</figcaption></figure>
+        </div>
+        <div class="dxcm-mag-txt">
+          <div class="dxcm-kicker">WHY DURALEX · SINCE 1945</div>
+          <h2 class="dxcm-h2">法國<mark>國民玻璃餐具</mark>品牌</h2>
+          <p class="dxcm-mag-lead">從巴黎小酒館到紐約 MoMA，Duralex 八十年來只專注一件事：讓天天使用的強化玻璃杯，耐用、安全，也好看。</p>
+          <ul class="dxcm-stats">
+            <li><b>1945</b><strong>擋風玻璃級強化工藝</strong><span>以汽車擋風玻璃強化技術打造日常餐具</span></li>
+            <li><b>3.5<sub>×</sub></b><strong>強度是普通玻璃 3.5 倍</strong><span>萬一碎裂也是圓潤鈍角顆粒</span></li>
+            <li><b>100<sub>%</sub></b><strong>堅持法國製造</strong><span>法國中部 La Chapelle-Saint-Mesmin 工廠</span></li>
+            <li><b>0</b><strong>無鉛・無鎘・無雙酚 A</strong><span>無孔隙玻璃，100% 可回收</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="dxcm-mag-award">
+        <div>
+          <h3>日本 Good Design 獎<em>Long Life Design Award · Picardie</em></h3>
+          <p>經典杯型被世界頂尖博物館列入永久典藏：MoMA 紐約・The Met 紐約・V&amp;A Museum 倫敦・Musée des Arts Décoratifs 巴黎</p>
+        </div>
+        <a class="dxcm-btn dxcm-btn-red" href="https://www.duralex.com.tw/" target="_blank" rel="noopener">逛 Duralex 官網 <i>›</i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 咖啡地圖 ═══ -->
+  <section class="dxcm-block" id="dxcm-map" style="scroll-margin-top:72px">
+    <svg class="dxcm-loop" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true"><path d="M-50 120 C200 20 300 260 520 180 S760 -20 900 140 S700 420 560 330 S300 520 1050 560" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round"/></svg>
+    <div class="dxcm-inner">
+      <div class="dxcm-kicker">COFFEE MAP</div>
+      <h2 class="dxcm-h2">台中草悟系<mark>咖啡地圖</mark></h2>
+      <p class="dxcm-lead">沿著綠園道慢慢散步，<b>10 間</b>咖啡廳都能兌換玻璃杯。<br />每店每日數量有限、贈完為止，建議早點出發！</p>
+      <div class="dxcm-mapcard">
+        <div class="dxcm-map">
+          <!-- 只標出合作店家位置（編號＝下方店卡 01～10，依店名 ABC 排序），資料在地圖頁 xmas-cafe-map.html 的 SHOPS -->
+          <!-- 上 CYBERBIZ 後在 iframe 網址加 &page=活動頁網址（需 URL 編碼），地圖卡片的「店家介紹」才能跳回本頁 -->
+          <iframe src="https://abbyupyoung-cloud.github.io/duralex-product-page/xmas-cafe-map.html?v=5" loading="lazy" title="台中草悟系咖啡地圖" allowfullscreen=""></iframe>
+        </div>
+      </div>
+      <div style="text-align:center;margin:-1rem 0 1.8rem">
+        <p style="font-size:.82rem;color:#c9d0f0;margin:0 0 .8rem">點地圖上的編號，查看店家地址、營業時間、店家介紹與導航</p>
+        <a class="dxcm-btn dxcm-btn-red" href="https://www.google.com/maps/dir/台中市西區館前路79號/台中市西區大和路73號/台中市西區模範街46巷6號/台中市西區民生路368巷3號/台中市西區昇平街78號/台中市西區忠明南路325號/台中市西區昇平街20號/台中市西區公益路68號/台中市西區民權路229巷21-3號/台中市西區民權路217巷24號/data=!4m2!4m1!3e2" target="_blank" rel="noopener">🚶 開啟咖啡散步路線</a>
+      </div>
+
+      <div class="dxcm-shops">
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/beangood.jpg" alt="BeanGood Café 冰穀咖啡 Instagram 頭像" loading="lazy" /><b>01</b></div><div class="dxcm-shop-body"><h3>BeanGood Café 冰穀咖啡 <small>草悟店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區模範街46巷6號</span><span>🕘 週二–五 10:30–21:00／週六日 10:00–21:00／週一 10:30–19:00</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-01">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=BeanGood%20Caf%C3%A9%20%E5%86%B0%E7%A9%80%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%A8%A1%E7%AF%84%E8%A1%9746%E5%B7%B76%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/beangood_cafe/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/bubu.jpg" alt="BUBU ART CAFE 橘子布藝術咖啡 Instagram 頭像" loading="lazy" /><b>02</b></div><div class="dxcm-shop-body"><h3>BUBU ART CAFE 橘子布藝術咖啡 <small>台中審計店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區民生路368巷3號</span><span>🕘 每日 10:30–18:30</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-02">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=BUBU%20ART%20CAFE%20%E6%A9%98%E5%AD%90%E5%B8%83%E8%97%9D%E8%A1%93%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E7%94%9F%E8%B7%AF368%E5%B7%B73%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/bubuartcafe/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/cafeao.jpg" alt="CAFEAO Instagram 頭像" loading="lazy" /><b>03</b></div><div class="dxcm-shop-body"><h3>CAFEAO <small>台中勤美店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區公益路68號 B2</span><span>🕘 週日–四 11:00–21:30／週五六 11:00–22:00</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-03">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=CAFEAO%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%85%AC%E7%9B%8A%E8%B7%AF68%E8%99%9F%20B2" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/cafeao_tw/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/cipher.jpg" alt="Coffee Cipher Instagram 頭像" loading="lazy" /><b>04</b></div><div class="dxcm-shop-body"><h3>Coffee Cipher</h3><p class="dxcm-shop-meta"><span>📍 台中市西區昇平街20號</span><span>🕘 10:00–18:00（週三公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-04">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Coffee%20Cipher%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%98%87%E5%B9%B3%E8%A1%9720%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeecipher" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/stopover.jpg" alt="COFFEE STOPOVER Instagram 頭像" loading="lazy" /><b>05</b></div><div class="dxcm-shop-body"><h3>COFFEE STOPOVER</h3><p class="dxcm-shop-meta"><span>📍 台中市西區民權路217巷24號</span><span>🕘 週一–六 11:00–20:00（週日公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-05">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=COFFEE%20STOPOVER%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E6%AC%8A%E8%B7%AF217%E5%B7%B724%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeestopover/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/frankie.jpg" alt="Frankie Feels Good at Corner Instagram 頭像" loading="lazy" /><b>06</b></div><div class="dxcm-shop-body"><h3>Frankie Feels Good at Corner</h3><p class="dxcm-shop-meta"><span>📍 台中市西區忠明南路325號</span><span>🕘 週二–五 09:00–17:00／週六日 09:30–18:00（週一公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-06">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Frankie%20Feels%20Good%20at%20Corner%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%BF%A0%E6%98%8E%E5%8D%97%E8%B7%AF325%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/frankiefeelsgood_corner/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/newsstand.jpg" alt="NEWSSTAND Instagram 頭像" loading="lazy" /><b>07</b></div><div class="dxcm-shop-body"><h3>NEWSSTAND</h3><p class="dxcm-shop-meta"><span>📍 台中市西區民權路229巷21-3號</span><span>🕘 每日 11:00–19:00</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-07">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=NEWSSTAND%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E6%AC%8A%E8%B7%AF229%E5%B7%B721-3%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/newsstand_tw/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/phase.jpg" alt="Phase Coffee Roasters × 碧月 Dessert Instagram 頭像" loading="lazy" /><b>08</b></div><div class="dxcm-shop-body"><h3>Phase Coffee Roasters × 碧月 Dessert <small>勤美術館店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區館前路79號</span><span>🕘 每日 11:00–19:00</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-08">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Phase%20Coffee%20Roasters%20%C3%97%20%E7%A2%A7%E6%9C%88%20Dessert%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E9%A4%A8%E5%89%8D%E8%B7%AF79%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/phase_coffee_roasters" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/roundabout.jpg" alt="Roundabout Cafe 圓環咖啡 Instagram 頭像" loading="lazy" /><b>09</b></div><div class="dxcm-shop-body"><h3>Roundabout Cafe 圓環咖啡 <small>大和店</small></h3><p class="dxcm-shop-meta"><span>📍 台中市西區大和路73號</span><span>🕘 10:00–18:00（週三公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-09">店家介紹</a><a href="https://maps.app.goo.gl/YnjEFN63b7u9sDtn8" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/roundaboutcoffee/" target="_blank" rel="noopener">Instagram</a></div></div></div>
+        <div class="dxcm-shop"><div class="dxcm-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/wakakusa.jpg" alt="若草甜點店 Instagram 頭像" loading="lazy" /><b>10</b></div><div class="dxcm-shop-body"><h3>若草甜點店</h3><p class="dxcm-shop-meta"><span>📍 台中市西區昇平街78號</span><span>🕘 週四–日 12:30–18:30／週一 13:00–18:30（週二、三公休）</span></p><div class="dxcm-shop-links"><a class="is-intro" href="#dxcm-cafe-10">店家介紹</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%8B%A5%E8%8D%89%E7%94%9C%E9%BB%9E%E5%BA%97%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%98%87%E5%B9%B3%E8%A1%9778%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/wakakusatw" target="_blank" rel="noopener">Instagram</a></div></div></div>
+      </div>
+    </div>
+    <div class="dxcm-marquee" aria-hidden="true">Café Hopping ✦ Joyeux Noël ✦ Café Hopping ✦ Joyeux Noël ✦ Café Hopping ✦ Joyeux Noël ✦ Café Hopping ✦ Joyeux Noël ✦&nbsp;</div>
+  </section>
+
+  <!-- ═══ 咖啡廳介紹（文案為初稿，待各店確認；照片來源：店家提供素材，未提供者暫用 IG 頭像）═══ -->
+  <section class="dxcm-sec" id="dxcm-cafes">
+    <div class="dxcm-inner">
+      <div class="dxcm-kicker">MEET THE CAFÉS</div>
+      <h2 class="dxcm-h2">認識<mark>10 間合作咖啡廳</mark></h2>
+      <p class="dxcm-lead">每一間都有自己的個性與招牌，<br />先認識它們，再決定今天從哪一間出發。</p>
+      <div class="dxcm-cafes">
+        <article class="dxcm-cafe" id="dxcm-cafe-01"><div class="dxcm-cafe-ph is-ava"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/ig/beangood.jpg" alt="BeanGood Café 冰穀咖啡" loading="lazy" /><span class="dxcm-cafe-no">01</span></div><div class="dxcm-cafe-bd"><h3>BeanGood Café 冰穀咖啡<small>草悟店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區模範街46巷6號</p><p class="dxcm-cafe-d">就在模範街巷子裡，離草悟道只有幾步路。多數日子營業到晚上九點，天黑了還能來喝一杯。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=BeanGood%20Caf%C3%A9%20%E5%86%B0%E7%A9%80%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%A8%A1%E7%AF%84%E8%A1%9746%E5%B7%B76%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/beangood_cafe/" target="_blank" rel="noopener">Instagram</a></div></div></article>
+        <article class="dxcm-cafe" id="dxcm-cafe-02"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/bubu.jpg" alt="BUBU ART CAFE 橘子布藝術咖啡 店內一景" loading="lazy" /><span class="dxcm-cafe-no">02</span></div><div class="dxcm-cafe-bd"><h3>BUBU ART CAFE 橘子布藝術咖啡<small>台中審計店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區民生路368巷3號</p><p class="dxcm-cafe-q">讓藝術融入日常，品嚐世界名畫吐司與咖啡的美好</p><p class="dxcm-cafe-d">把世界名畫畫在吐司上，連拿鐵也是一幅作品。在審計新村一帶，來一場可以吃的藝術散步。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=BUBU%20ART%20CAFE%20%E6%A9%98%E5%AD%90%E5%B8%83%E8%97%9D%E8%A1%93%E5%92%96%E5%95%A1%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E7%94%9F%E8%B7%AF368%E5%B7%B73%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/bubuartcafe/" target="_blank" rel="noopener">Instagram</a></div></div></article>
+        <article class="dxcm-cafe" id="dxcm-cafe-03"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/cafeao.jpg" alt="CAFEAO 台中勤美店吧台" loading="lazy" /><span class="dxcm-cafe-no">03</span></div><div class="dxcm-cafe-bd"><h3>CAFEAO<small>台中勤美店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區公益路68號 B2</p><p class="dxcm-cafe-q">以藍天思維為核心，融合藝術、設計、咖啡與生活美學</p><p class="dxcm-cafe-d">在勤美 B2，創意咖啡和餐食都是店裡的招牌。逛街逛累了，就下樓來坐坐吧。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=CAFEAO%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%85%AC%E7%9B%8A%E8%B7%AF68%E8%99%9F%20B2" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/cafeao_tw/" target="_blank" rel="noopener">Instagram</a></div></div></article>
+        <article class="dxcm-cafe" id="dxcm-cafe-04"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/cipher.jpg" alt="Coffee Cipher 店內一景" loading="lazy" /><span class="dxcm-cafe-no">04</span></div><div class="dxcm-cafe-bd"><h3>Coffee Cipher</h3><p class="dxcm-cafe-addr">📍 台中市西區昇平街20號</p><p class="dxcm-cafe-q">隱身於台中昇平街，以風味探索精品咖啡與生活</p><p class="dxcm-cafe-d">木框玻璃窗後的安靜小店，用一杯杯精品咖啡，陪你慢慢探索風味。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Coffee%20Cipher%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%98%87%E5%B9%B3%E8%A1%9720%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeecipher" target="_blank" rel="noopener">Instagram</a></div></div></article>
+        <article class="dxcm-cafe" id="dxcm-cafe-05"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/stopover.jpg" alt="COFFEE STOPOVER 店內一景" loading="lazy" /><span class="dxcm-cafe-no">05</span></div><div class="dxcm-cafe-bd"><h3>COFFEE STOPOVER</h3><p class="dxcm-cafe-addr">📍 台中市西區民權路217巷24號</p><p class="dxcm-cafe-d">2015 夏末，COFFEE STOPOVER 啟站，專賣自家烘焙精品咖啡豆。我們致力於精品咖啡的精神，想要傳達的不是昂貴或特定的咖啡，而是謹慎地對待從生豆到一杯咖啡的過程。</p><p class="dxcm-cafe-award">2026 獲選<br />The World's 100 Best Coffee Shops 2026<br />The Asia-Pacific's 100 Best Coffee Shops 2026</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=COFFEE%20STOPOVER%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E6%AC%8A%E8%B7%AF217%E5%B7%B724%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/coffeestopover/" target="_blank" rel="noopener">Instagram</a></div></div></article>
+        <article class="dxcm-cafe" id="dxcm-cafe-06"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/frankie.jpg" alt="Frankie Feels Good at Corner 店內一景" loading="lazy" /><span class="dxcm-cafe-no">06</span></div><div class="dxcm-cafe-bd"><h3>Frankie Feels Good at Corner</h3><p class="dxcm-cafe-addr">📍 台中市西區忠明南路325號</p><p class="dxcm-cafe-q">現烤蒙特婁貝果與特色咖啡，讓日常多一點好心情</p><p class="dxcm-cafe-d">忠明南路轉角的小店，平日早上九點就開門。手沖咖啡配貝果，一早就有好心情。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Frankie%20Feels%20Good%20at%20Corner%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%BF%A0%E6%98%8E%E5%8D%97%E8%B7%AF325%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/frankiefeelsgood_corner/" target="_blank" rel="noopener">Instagram</a></div></div></article>
+        <article class="dxcm-cafe" id="dxcm-cafe-07"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/newsstand.jpg" alt="NEWSSTAND 店內一景" loading="lazy" /><span class="dxcm-cafe-no">07</span></div><div class="dxcm-cafe-bd"><h3>NEWSSTAND</h3><p class="dxcm-cafe-addr">📍 台中市西區民權路229巷21-3號</p><p class="dxcm-cafe-q">以歐洲書報攤為靈感，用咖啡連結街區生活</p><p class="dxcm-cafe-d">以報刊亭為靈感的咖啡館，有木櫃報刊門面、整面黑膠牆和拍貼機，邊翻雜誌邊喝咖啡。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=NEWSSTAND%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%B0%91%E6%AC%8A%E8%B7%AF229%E5%B7%B721-3%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/newsstand_tw/" target="_blank" rel="noopener">Instagram</a></div></div></article>
+        <article class="dxcm-cafe" id="dxcm-cafe-08"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/phase.jpg" alt="Phase Coffee Roasters × 碧月 Dessert 店內一景" loading="lazy" /><span class="dxcm-cafe-no">08</span></div><div class="dxcm-cafe-bd"><h3>Phase Coffee Roasters × 碧月 Dessert<small>勤美術館店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區館前路79號</p><p class="dxcm-cafe-d">就在勤美術館旁，挑高的木質空間灑滿日光。Phase 自家烘焙的精品咖啡，配上碧月 Dessert 的甜點，咖啡控和甜點控都能被滿足。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Phase%20Coffee%20Roasters%20%C3%97%20%E7%A2%A7%E6%9C%88%20Dessert%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E9%A4%A8%E5%89%8D%E8%B7%AF79%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/phase_coffee_roasters" target="_blank" rel="noopener">Instagram</a></div></div></article>
+        <article class="dxcm-cafe" id="dxcm-cafe-09"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/roundabout.jpg" alt="Roundabout Cafe 圓環咖啡 店內長桌" loading="lazy" /><span class="dxcm-cafe-no">09</span></div><div class="dxcm-cafe-bd"><h3>Roundabout Cafe 圓環咖啡<small>大和店</small></h3><p class="dxcm-cafe-addr">📍 台中市西區大和路73號</p><p class="dxcm-cafe-q">以獨特的歐洲小酒館氛圍，建立起「好吃咖啡廳」鮮明形象</p><p class="dxcm-cafe-d">創立於 2013 年，Roundabout 圓環咖啡以獨特的歐洲小酒館氛圍，提供每日現煮的美味餐點和咖啡甜點。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://maps.app.goo.gl/YnjEFN63b7u9sDtn8" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/roundaboutcoffee/" target="_blank" rel="noopener">Instagram</a></div></div></article>
+        <article class="dxcm-cafe" id="dxcm-cafe-10"><div class="dxcm-cafe-ph"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cafes/wakakusa.jpg" alt="若草甜點店 窗邊座位" loading="lazy" /><span class="dxcm-cafe-no">10</span></div><div class="dxcm-cafe-bd"><h3>若草甜點店</h3><p class="dxcm-cafe-addr">📍 台中市西區昇平街78號</p><p class="dxcm-cafe-q">在日光與蛋香裡，慢慢呼吸的一方小天地</p><p class="dxcm-cafe-d">昇平街上的小小甜點店，冬日午後，來一份甜點配一杯熱飲剛剛好。</p><div class="dxcm-shop-links"><a href="#dxcm-map">看地圖</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%8B%A5%E8%8D%89%E7%94%9C%E9%BB%9E%E5%BA%97%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%98%87%E5%B9%B3%E8%A1%9778%E8%99%9F" target="_blank" rel="noopener">導航</a><a href="https://www.instagram.com/wakakusatw" target="_blank" rel="noopener">Instagram</a></div></div></article>
+      </div>
+      <div class="dxcm-after"><a class="dxcm-btn dxcm-btn-line" href="#dxcm-map">回到咖啡地圖</a></div>
+    </div>
+  </section>
+
+  <!-- ═══ 贈品杯款 ═══ -->
+  <section class="dxcm-sec" id="dxcm-cups">
+    <div class="dxcm-inner">
+      <div class="dxcm-kicker">THE TUMBLER</div>
+      <h2 class="dxcm-h2">消費達指定金額贈送的<br class="dxcm-br-m" /><mark style="white-space:nowrap">Duralex 咖啡玻璃杯</mark></h2>
+      <ul class="dxcm-specs"><li>100% 法國製造</li><li>100% 可回收</li><li>-20°C～200°C</li><li>可微波</li><li>可洗碗機</li></ul>
+      <p class="dxcm-lead" style="margin-top:.9rem !important">共 4 款，隨機贈送</p>
+      <div class="dxcm-cups">
+        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/capriceclearcup" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cups/caprice.jpg" alt="Duralex Caprice 玻璃杯" loading="lazy" /></div><h3>Caprice</h3><div class="dxcm-cup-ml">220ml</div><span class="dxcm-cup-qty">限量 200 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
+        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/gigognecleartumbler-t-2026" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cups/gigogne.jpg" alt="Duralex Gigogne 玻璃杯" loading="lazy" /></div><h3>Gigogne</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 200 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
+        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/provencecleartumbler-21" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cups/provence.jpg" alt="Duralex Provence 玻璃杯 130ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">130ml</div><span class="dxcm-cup-qty">限量 300 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
+        <a class="dxcm-cup" href="https://www.duralex.com.tw/products/provencecleartumbler-21" target="_blank" rel="noopener"><div class="dxcm-cup-img"><img src="https://abbyupyoung-cloud.github.io/duralex-product-page/cups/provence.jpg" alt="Duralex Provence 玻璃杯 160ml" loading="lazy" /></div><h3>Provence</h3><div class="dxcm-cup-ml">160ml</div><span class="dxcm-cup-qty">限量 300 只</span><span class="dxcm-cup-go">官網看商品 ›</span></a>
+      </div>
+      <p class="dxcm-note">※ 贈品款式／顏色以現場實物為準，無法指定款式。</p>
+    </div>
+  </section>
+
   <!-- ═══ KOL 探店（12/14 後放影片） ═══ -->
   <section class="dxcm-sec" id="dxcm-kol" style="padding-top:1rem">
     <div class="dxcm-inner">
       <div class="dxcm-kicker">COFFEE WALK</div>
       <h2 class="dxcm-h2">跟著創作者<mark>一起散步</mark></h2>
-      <p class="dxcm-lead">風格創作者實地走訪台中草悟系，帶你逛逛冬日的咖啡巷弄。</p>
+      <p class="dxcm-lead">風格創作者實地走訪台中街區，帶你逛逛冬日的咖啡巷弄。</p>
       <div class="dxcm-kol">
         <div class="dxcm-kol-card"><b>▶</b>創作者 Reels ①<br />12/14 上線</div>
         <div class="dxcm-kol-card"><b>▶</b>創作者 Reels ②<br />12/14 上線</div>
@@ -740,9 +760,9 @@ html,body{overflow-x:hidden}
       <div class="dxcm-kicker">Q &amp; A</div>
       <h2 class="dxcm-h2">常見問題</h2>
       <div class="dxcm-faq" style="margin-top:2rem">
-        <details><summary>外帶也可以兌換嗎？</summary><p>可以！內用或外帶，只要單筆消費滿 200 元都能兌換。詳細規則請洽各店。</p></details>
-        <details><summary>可以在不同店家各換一只嗎？</summary><p>不行喔，活動期間每人（每個 IG 帳號）限兌換一次。</p></details>
-        <details><summary>到店時已經發完了怎麼辦？</summary><p>每間店每日數量有限，當天發完為止，隔天會再補貨；也可以參考地圖，到其他合作店家試試。</p></details>
+        <details><summary>外帶也可以兌換嗎？</summary><p>可以！內用或外帶，只要單筆消費達指定金額都能兌換。詳細規則請洽各店。</p></details>
+        <details><summary>可以在不同店家各換一只嗎？</summary><p>可以喔！每人（每個 IG 帳號）每店限兌換一次，想去不同咖啡廳收集也可以。</p></details>
+        <details><summary>到店時已經發完了怎麼辦？</summary><p>每間店每日數量有限，當天贈完為止，隔天會再補貨；也可以參考地圖，到其他合作店家試試。</p></details>
         <details><summary>可以指定杯款嗎？</summary><p>杯款為隨機贈送，無法指定，以現場實物為準。</p></details>
         <details><summary>杯子可以微波、放洗碗機嗎？</summary><p>可以。Duralex 強化玻璃杯耐溫 -20°C～200°C，可微波、可用洗碗機清洗。</p></details>
         <details><summary>抽獎照片要在哪間店拍？</summary><p>任一間合作咖啡廳都可以，只要照片裡看得到 Duralex 玻璃杯即可。</p></details>
@@ -755,8 +775,8 @@ html,body{overflow-x:hidden}
         <h4>滿額贈玻璃杯</h4>
         <ol>
           <li><b>1.</b>活動期間為 2026 年 12 月 14 日（一）起至 2027 年 1 月 15 日（五）止，實際兌換時間依各合作咖啡廳營業時間為準。</li>
-          <li><b>2.</b>於合作咖啡廳單筆消費滿新台幣 200 元，追蹤 Duralex Taiwan 官方 IG（@duralextaiwan），並將活動貼文分享至個人限時動態且標註該合作咖啡廳，結帳時出示畫面即可兌換 Duralex 玻璃杯乙只。</li>
-          <li><b>3.</b>每人（每個 IG 帳號）活動期間限兌換一次。各合作咖啡廳每日兌換數量有限，當日發完為止；活動贈品總數 1,000 只，送完即止。</li>
+          <li><b>2.</b>於合作咖啡廳單筆消費達指定金額，追蹤 Duralex Taiwan 官方 IG（@duralextaiwan），並將活動貼文分享至個人限時動態且標註該合作咖啡廳，結帳時出示畫面即可兌換 Duralex 玻璃杯乙只。</li>
+          <li><b>3.</b>每人（每個 IG 帳號）每店限兌換一次。各合作咖啡廳每日兌換數量有限，當日贈完為止；活動贈品總數 1,000 只，送完即止。</li>
           <li><b>4.</b>限時動態須公開發布並保留至少 24 小時。合作咖啡廳得確認參加者之追蹤及分享狀態，未符合條件者恕無法兌換。</li>
           <li><b>5.</b>贈品款式、顏色為隨機贈送，以現場實物為準，恕不挑選、更換、折現或轉售。</li>
         </ol>
